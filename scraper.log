@@ -1,0 +1,567 @@
+2026-05-03 13:58:58 [INFO] ============================================================
+2026-05-03 13:58:58 [INFO] TruePeopleSearch Data Extraction Script
+2026-05-03 13:58:58 [INFO] Mode: PHASE 1 (single row testing)
+2026-05-03 13:58:58 [INFO] ============================================================
+2026-05-03 13:58:58 [INFO] [INIT] Setting up VPN connection...
+2026-05-03 13:58:58 [INFO] [VPN] Checking initial connection status...
+2026-05-03 13:58:58 [ERROR] [VPN] ❌ expressvpnctl not found at: C:\Program Files (x86)\ExpressVPN\services\expressvpnctl.exe
+  → Make sure ExpressVPN is installed and the path in config.py is correct.
+2026-05-03 13:58:58 [INFO] [VPN] Not connected. Establishing initial connection...
+2026-05-03 13:58:58 [INFO] [VPN] Connecting to: USA - New York
+2026-05-03 13:58:58 [ERROR] [VPN] ❌ expressvpnctl not found at: C:\Program Files (x86)\ExpressVPN\services\expressvpnctl.exe
+  → Make sure ExpressVPN is installed and the path in config.py is correct.
+2026-05-03 13:58:58 [ERROR] [VPN] ❌ Failed to connect to USA - New York: File not found
+2026-05-03 13:58:58 [WARNING] [INIT] VPN connection failed — continuing without VPN
+2026-05-03 13:58:58 [WARNING] [INIT] You may get blocked. Consider fixing VPN and restarting.
+2026-05-03 13:58:58 [ERROR] [INIT] Input CSV not found: C:\Users\DELL\Desktop\web scraping\input.csv
+2026-05-03 13:58:58 [ERROR]   → Place your CSV file at the path above and retry.
+2026-05-03 14:01:40 [INFO] ============================================================
+2026-05-03 14:01:40 [INFO] TruePeopleSearch Data Extraction Script
+2026-05-03 14:01:40 [INFO] Mode: PHASE 1 (single row testing)
+2026-05-03 14:01:40 [INFO] ============================================================
+2026-05-03 14:01:40 [INFO] [INIT] Setting up VPN connection...
+2026-05-03 14:01:40 [INFO] [VPN] Checking initial connection status...
+2026-05-03 14:01:40 [ERROR] [VPN] ❌ expressvpnctl not found at: C:\Program Files (x86)\ExpressVPN\services\expressvpnctl.exe
+  → Make sure ExpressVPN is installed and the path in config.py is correct.
+2026-05-03 14:01:40 [INFO] [VPN] Not connected. Establishing initial connection...
+2026-05-03 14:01:40 [INFO] [VPN] Connecting to: USA - New York
+2026-05-03 14:01:40 [ERROR] [VPN] ❌ expressvpnctl not found at: C:\Program Files (x86)\ExpressVPN\services\expressvpnctl.exe
+  → Make sure ExpressVPN is installed and the path in config.py is correct.
+2026-05-03 14:01:40 [ERROR] [VPN] ❌ Failed to connect to USA - New York: File not found
+2026-05-03 14:01:40 [WARNING] [INIT] VPN connection failed — continuing without VPN
+2026-05-03 14:01:40 [WARNING] [INIT] You may get blocked. Consider fixing VPN and restarting.
+2026-05-03 14:01:40 [ERROR] [INIT] Input CSV not found: C:\Users\DELL\Desktop\web scraping\input.csv
+2026-05-03 14:01:40 [ERROR]   → Place your CSV file at the path above and retry.
+2026-05-03 14:02:00 [INFO] ============================================================
+2026-05-03 14:02:00 [INFO] TruePeopleSearch Data Extraction Script
+2026-05-03 14:02:00 [INFO] Mode: PHASE 1 (single row testing)
+2026-05-03 14:02:00 [INFO] ============================================================
+2026-05-03 14:02:00 [INFO] [INIT] Setting up VPN connection...
+2026-05-03 14:02:00 [INFO] [VPN] Checking initial connection status...
+2026-05-03 14:02:00 [ERROR] [VPN] ❌ expressvpnctl not found at: C:\Program Files (x86)\ExpressVPN\services\expressvpnctl.exe
+  → Make sure ExpressVPN is installed and the path in config.py is correct.
+2026-05-03 14:02:00 [INFO] [VPN] Not connected. Establishing initial connection...
+2026-05-03 14:02:00 [INFO] [VPN] Connecting to: USA - New York
+2026-05-03 14:02:00 [ERROR] [VPN] ❌ expressvpnctl not found at: C:\Program Files (x86)\ExpressVPN\services\expressvpnctl.exe
+  → Make sure ExpressVPN is installed and the path in config.py is correct.
+2026-05-03 14:02:00 [ERROR] [VPN] ❌ Failed to connect to USA - New York: File not found
+2026-05-03 14:02:00 [WARNING] [INIT] VPN connection failed — continuing without VPN
+2026-05-03 14:02:00 [WARNING] [INIT] You may get blocked. Consider fixing VPN and restarting.
+2026-05-03 14:02:00 [ERROR] [INIT] Input CSV not found: C:\Users\DELL\Desktop\web scraping\input.csv
+2026-05-03 14:02:00 [ERROR]   → Place your CSV file at the path above and retry.
+2026-05-03 14:10:19 [INFO] [INPUT] Loaded 585 rows from input.csv
+2026-05-03 14:10:42 [INFO] ============================================================
+2026-05-03 14:10:42 [INFO] TruePeopleSearch Data Extraction Script
+2026-05-03 14:10:42 [INFO] Mode: PHASE 1 (single row testing)
+2026-05-03 14:10:42 [INFO] ============================================================
+2026-05-03 14:10:42 [INFO] [INIT] Setting up VPN connection...
+2026-05-03 14:10:42 [INFO] [VPN] Checking initial connection status...
+2026-05-03 14:10:43 [INFO] [VPN] Already connected: Connected to USA - Los Angeles - 2
+2026-05-03 14:10:43 [INFO] [INPUT] Loaded 585 rows from C:\Users\DELL\Desktop\web scraping\input.csv
+2026-05-03 14:10:43 [INFO] [INIT] Phase 1 mode: processing first row only
+2026-05-03 14:10:46 [INFO] [INIT] Browser launched with stealth mode
+2026-05-03 14:10:46 [INFO] 
+──────────────────────────────────────────────────
+2026-05-03 14:10:46 [INFO] [ROW 1/1] 2604 Park Street, Commerce, TX
+2026-05-03 14:10:46 [INFO] ──────────────────────────────────────────────────
+2026-05-03 14:10:46 [INFO] [ROW 1] Attempt 1/3
+2026-05-03 14:10:46 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 14:10:51 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 14:10:51 [WARNING] [CAPTCHA] No Turnstile site key found on page — may not be a CAPTCHA page
+2026-05-03 14:10:51 [ERROR] [SEARCH] Could not solve Cloudflare challenge
+2026-05-03 14:10:51 [WARNING] [ROW 1] Attempt 1 failed, retrying...
+2026-05-03 14:10:53 [INFO] [ROW 1] Attempt 2/3
+2026-05-03 14:10:53 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 14:10:57 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 14:10:57 [WARNING] [CAPTCHA] No Turnstile site key found on page — may not be a CAPTCHA page
+2026-05-03 14:10:57 [ERROR] [SEARCH] Could not solve Cloudflare challenge
+2026-05-03 14:10:57 [WARNING] [ROW 1] Attempt 2 failed, retrying...
+2026-05-03 14:10:59 [INFO] [ROW 1] Attempt 3/3
+2026-05-03 14:10:59 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 14:11:02 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 14:11:02 [WARNING] [CAPTCHA] No Turnstile site key found on page — may not be a CAPTCHA page
+2026-05-03 14:11:02 [ERROR] [SEARCH] Could not solve Cloudflare challenge
+2026-05-03 14:11:02 [WARNING] [ROW 1] Attempt 3 failed, retrying...
+2026-05-03 14:11:04 [ERROR] [ROW 1] ❌ FAILED after 3 attempts — skipping
+2026-05-03 14:11:04 [WARNING] [OUTPUT] No successful extractions to save
+2026-05-03 14:11:04 [INFO] 
+============================================================
+2026-05-03 14:11:04 [INFO] SCRAPING COMPLETE
+2026-05-03 14:11:04 [INFO]   Total processed:  1
+2026-05-03 14:11:04 [INFO]   Successful:       0
+2026-05-03 14:11:04 [INFO]   Failed:           1
+2026-05-03 14:11:04 [INFO] ============================================================
+2026-05-03 14:20:53 [INFO] ============================================================
+2026-05-03 14:20:53 [INFO] TruePeopleSearch Data Extraction Script
+2026-05-03 14:20:53 [INFO] Mode: PHASE 1 (single row testing)
+2026-05-03 14:20:53 [INFO] ============================================================
+2026-05-03 14:20:53 [INFO] [INIT] Setting up VPN connection...
+2026-05-03 14:20:53 [INFO] [VPN] Checking initial connection status...
+2026-05-03 14:20:53 [INFO] [VPN] Already connected: Connected to USA - Los Angeles - 2
+2026-05-03 14:20:53 [INFO] [INPUT] Loaded 585 rows from C:\Users\DELL\Desktop\web scraping\input.csv
+2026-05-03 14:20:53 [INFO] [INIT] Phase 1 mode: processing first row only
+2026-05-03 14:21:03 [INFO] [INIT] Browser launched with stealth mode
+2026-05-03 14:21:03 [INFO] 
+──────────────────────────────────────────────────
+2026-05-03 14:21:03 [INFO] [ROW 1/1] 2604 Park Street, Commerce, TX
+2026-05-03 14:21:03 [INFO] ──────────────────────────────────────────────────
+2026-05-03 14:21:03 [INFO] [ROW 1] Attempt 1/3
+2026-05-03 14:21:03 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 14:21:12 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 14:21:12 [INFO] [CAPTCHA] Waiting up to 15s for JS challenge to auto-resolve...
+2026-05-03 14:21:27 [WARNING] [CAPTCHA] Challenge did NOT auto-resolve within 15s
+2026-05-03 14:21:27 [INFO] [CAPTCHA] Trying extended wait with mouse movement...
+2026-05-03 14:21:30 [INFO] [CAPTCHA] Waiting up to 15s for JS challenge to auto-resolve...
+2026-05-03 14:21:47 [WARNING] [CAPTCHA] Challenge did NOT auto-resolve within 15s
+2026-05-03 14:21:47 [INFO] [CAPTCHA] Reloading page for fresh challenge attempt...
+2026-05-03 14:21:52 [INFO] [CAPTCHA] Waiting up to 20s for JS challenge to auto-resolve...
+2026-05-03 14:22:13 [WARNING] [CAPTCHA] Challenge did NOT auto-resolve within 20s
+2026-05-03 14:22:13 [ERROR] [CAPTCHA] ❌ All challenge bypass strategies failed
+2026-05-03 14:22:13 [ERROR] [SEARCH] Could not solve Cloudflare challenge
+2026-05-03 14:22:13 [WARNING] [ROW 1] Attempt 1 failed, retrying...
+2026-05-03 14:22:15 [INFO] [ROW 1] Attempt 2/3
+2026-05-03 14:22:15 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 14:22:21 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 14:22:21 [INFO] [CAPTCHA] Waiting up to 15s for JS challenge to auto-resolve...
+2026-05-03 21:58:12 [INFO] ============================================================
+2026-05-03 21:58:12 [INFO] TruePeopleSearch Data Extraction Script
+2026-05-03 21:58:12 [INFO] Mode: PHASE 1 (single row testing)
+2026-05-03 21:58:12 [INFO] ============================================================
+2026-05-03 21:58:12 [INFO] [INIT] Setting up VPN connection...
+2026-05-03 21:58:12 [INFO] [VPN] Checking initial connection status...
+2026-05-03 21:58:13 [INFO] [VPN] Already connected: unknown location
+2026-05-03 21:58:13 [INFO] [INPUT] Loaded 585 rows from C:\Users\DELL\Desktop\web scraping\input.csv
+2026-05-03 21:58:13 [INFO] [INIT] Phase 1 mode: processing first row only
+2026-05-03 21:58:15 [INFO] [INIT] Browser launched with stealth mode
+2026-05-03 21:58:15 [INFO] 
+──────────────────────────────────────────────────
+2026-05-03 21:58:15 [INFO] [ROW 1/1] 2604 Park Street, Commerce, TX
+2026-05-03 21:58:15 [INFO] ──────────────────────────────────────────────────
+2026-05-03 21:58:15 [INFO] [ROW 1] Attempt 1/3
+2026-05-03 21:58:15 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 21:58:22 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 21:58:22 [INFO] [CAPTCHA] Waiting up to 15s for JS challenge to auto-resolve...
+2026-05-03 21:58:22 [INFO] [CAPTCHA] ✅ Challenge auto-resolved after 0.0s
+2026-05-03 21:58:51 [INFO] ============================================================
+2026-05-03 21:58:51 [INFO] TruePeopleSearch Data Extraction Script
+2026-05-03 21:58:51 [INFO] Mode: PHASE 1 (single row testing)
+2026-05-03 21:58:51 [INFO] ============================================================
+2026-05-03 21:58:51 [INFO] [INIT] Setting up VPN connection...
+2026-05-03 21:58:51 [INFO] [VPN] Checking initial connection status...
+2026-05-03 21:58:51 [INFO] [VPN] Already connected: Connected to USA - Los Angeles - 2
+2026-05-03 21:58:51 [INFO] [INPUT] Loaded 585 rows from C:\Users\DELL\Desktop\web scraping\input.csv
+2026-05-03 21:58:51 [INFO] [INIT] Phase 1 mode: processing first row only
+2026-05-03 21:58:53 [INFO] [INIT] Browser launched with stealth mode
+2026-05-03 21:58:53 [INFO] 
+──────────────────────────────────────────────────
+2026-05-03 21:58:53 [INFO] [ROW 1/1] 2604 Park Street, Commerce, TX
+2026-05-03 21:58:53 [INFO] ──────────────────────────────────────────────────
+2026-05-03 21:58:53 [INFO] [ROW 1] Attempt 1/3
+2026-05-03 21:58:53 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 21:59:14 [ERROR] [SEARCH] Failed to load homepage: Page.goto: net::ERR_NETWORK_CHANGED at https://www.truepeoplesearch.com/
+Call log:
+  - navigating to "https://www.truepeoplesearch.com/", waiting until "domcontentloaded"
+
+2026-05-03 21:59:14 [WARNING] [ROW 1] Attempt 1 failed, retrying...
+2026-05-03 21:59:16 [INFO] [ROW 1] Attempt 2/3
+2026-05-03 21:59:16 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 21:59:33 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 21:59:33 [INFO] [CAPTCHA] Waiting up to 15s for JS challenge to auto-resolve...
+2026-05-03 21:59:33 [INFO] [CAPTCHA] ✅ Challenge auto-resolved after 0.0s
+2026-05-03 21:59:38 [ERROR] [SEARCH] Still on challenge page after solving
+2026-05-03 21:59:38 [WARNING] [ROW 1] Attempt 2 failed, retrying...
+2026-05-03 21:59:40 [INFO] [ROW 1] Attempt 3/3
+2026-05-03 21:59:40 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 21:59:48 [ERROR] [SEARCH] Failed to load homepage: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.truepeoplesearch.com/
+Call log:
+  - navigating to "https://www.truepeoplesearch.com/", waiting until "domcontentloaded"
+
+2026-05-03 21:59:48 [WARNING] [ROW 1] Attempt 3 failed, retrying...
+2026-05-03 21:59:50 [ERROR] [ROW 1] ❌ FAILED after 3 attempts — skipping
+2026-05-03 21:59:50 [WARNING] [OUTPUT] No successful extractions to save
+2026-05-03 21:59:50 [INFO] 
+============================================================
+2026-05-03 21:59:50 [INFO] SCRAPING COMPLETE
+2026-05-03 21:59:50 [INFO]   Total processed:  1
+2026-05-03 21:59:50 [INFO]   Successful:       0
+2026-05-03 21:59:50 [INFO]   Failed:           1
+2026-05-03 21:59:50 [INFO] ============================================================
+2026-05-03 22:00:01 [INFO] ============================================================
+2026-05-03 22:00:01 [INFO] TruePeopleSearch Data Extraction Script
+2026-05-03 22:00:01 [INFO] Mode: PHASE 1 (single row testing)
+2026-05-03 22:00:01 [INFO] ============================================================
+2026-05-03 22:00:01 [INFO] [INIT] Setting up VPN connection...
+2026-05-03 22:00:01 [INFO] [VPN] Checking initial connection status...
+2026-05-03 22:00:01 [INFO] [VPN] Already connected: Connected to USA - Los Angeles - 2
+2026-05-03 22:00:01 [INFO] [INPUT] Loaded 585 rows from C:\Users\DELL\Desktop\web scraping\input.csv
+2026-05-03 22:00:01 [INFO] [INIT] Phase 1 mode: processing first row only
+2026-05-03 22:00:03 [INFO] [INIT] Browser launched with stealth mode
+2026-05-03 22:00:03 [INFO] 
+──────────────────────────────────────────────────
+2026-05-03 22:00:03 [INFO] [ROW 1/1] 2604 Park Street, Commerce, TX
+2026-05-03 22:00:03 [INFO] ──────────────────────────────────────────────────
+2026-05-03 22:00:03 [INFO] [ROW 1] Attempt 1/3
+2026-05-03 22:00:03 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:00:15 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 22:00:15 [INFO] [CAPTCHA] Waiting up to 15s for JS challenge to auto-resolve...
+2026-05-03 22:00:31 [WARNING] [CAPTCHA] Challenge did NOT auto-resolve within 15s
+2026-05-03 22:00:31 [INFO] [CAPTCHA] Trying extended wait with mouse movement...
+2026-05-03 22:00:34 [INFO] [CAPTCHA] Waiting up to 15s for JS challenge to auto-resolve...
+2026-05-03 22:00:50 [WARNING] [CAPTCHA] Challenge did NOT auto-resolve within 15s
+2026-05-03 22:00:50 [INFO] [CAPTCHA] Reloading page for fresh challenge attempt...
+2026-05-03 22:00:55 [INFO] [CAPTCHA] Waiting up to 20s for JS challenge to auto-resolve...
+2026-05-03 22:01:16 [WARNING] [CAPTCHA] Challenge did NOT auto-resolve within 20s
+2026-05-03 22:01:16 [ERROR] [CAPTCHA] ❌ All challenge bypass strategies failed
+2026-05-03 22:01:16 [ERROR] [SEARCH] Could not solve Cloudflare challenge
+2026-05-03 22:01:16 [WARNING] [ROW 1] Attempt 1 failed, retrying...
+2026-05-03 22:01:18 [INFO] [ROW 1] Attempt 2/3
+2026-05-03 22:01:18 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:01:24 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 22:01:24 [INFO] [CAPTCHA] Waiting up to 15s for JS challenge to auto-resolve...
+2026-05-03 22:01:41 [WARNING] [CAPTCHA] Challenge did NOT auto-resolve within 15s
+2026-05-03 22:01:41 [INFO] [CAPTCHA] Trying extended wait with mouse movement...
+2026-05-03 22:01:43 [INFO] [CAPTCHA] Waiting up to 15s for JS challenge to auto-resolve...
+2026-05-03 22:02:00 [WARNING] [CAPTCHA] Challenge did NOT auto-resolve within 15s
+2026-05-03 22:02:00 [INFO] [CAPTCHA] Reloading page for fresh challenge attempt...
+2026-05-03 22:02:05 [INFO] [CAPTCHA] Waiting up to 20s for JS challenge to auto-resolve...
+2026-05-03 22:02:07 [INFO] [CAPTCHA] ✅ Challenge auto-resolved after 2.2s
+2026-05-03 22:02:12 [ERROR] [SEARCH] Still on challenge page after solving
+2026-05-03 22:02:12 [WARNING] [ROW 1] Attempt 2 failed, retrying...
+2026-05-03 22:02:14 [INFO] [ROW 1] Attempt 3/3
+2026-05-03 22:02:14 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:02:20 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 22:02:20 [INFO] [CAPTCHA] Waiting up to 15s for JS challenge to auto-resolve...
+2026-05-03 22:02:37 [WARNING] [CAPTCHA] Challenge did NOT auto-resolve within 15s
+2026-05-03 22:02:37 [INFO] [CAPTCHA] Trying extended wait with mouse movement...
+2026-05-03 22:02:39 [INFO] [CAPTCHA] Waiting up to 15s for JS challenge to auto-resolve...
+2026-05-03 22:02:56 [WARNING] [CAPTCHA] Challenge did NOT auto-resolve within 15s
+2026-05-03 22:02:56 [INFO] [CAPTCHA] Reloading page for fresh challenge attempt...
+2026-05-03 22:03:01 [INFO] [CAPTCHA] Waiting up to 20s for JS challenge to auto-resolve...
+2026-05-03 22:03:22 [WARNING] [CAPTCHA] Challenge did NOT auto-resolve within 20s
+2026-05-03 22:03:22 [ERROR] [CAPTCHA] ❌ All challenge bypass strategies failed
+2026-05-03 22:03:22 [ERROR] [SEARCH] Could not solve Cloudflare challenge
+2026-05-03 22:03:22 [WARNING] [ROW 1] Attempt 3 failed, retrying...
+2026-05-03 22:03:24 [ERROR] [ROW 1] ❌ FAILED after 3 attempts — skipping
+2026-05-03 22:03:25 [WARNING] [OUTPUT] No successful extractions to save
+2026-05-03 22:03:25 [INFO] 
+============================================================
+2026-05-03 22:03:25 [INFO] SCRAPING COMPLETE
+2026-05-03 22:03:25 [INFO]   Total processed:  1
+2026-05-03 22:03:25 [INFO]   Successful:       0
+2026-05-03 22:03:25 [INFO]   Failed:           1
+2026-05-03 22:03:25 [INFO] ============================================================
+2026-05-03 22:14:09 [INFO] ============================================================
+2026-05-03 22:14:09 [INFO] TruePeopleSearch Data Extraction Script
+2026-05-03 22:14:09 [INFO] Mode: PHASE 1 (single row testing)
+2026-05-03 22:14:09 [INFO] ============================================================
+2026-05-03 22:14:09 [INFO] [INIT] Setting up VPN connection...
+2026-05-03 22:14:09 [INFO] [VPN] Checking initial connection status...
+2026-05-03 22:14:10 [INFO] [VPN] Already connected: Connected to USA - Los Angeles - 2
+2026-05-03 22:14:10 [INFO] [INPUT] Loaded 585 rows from C:\Users\DELL\Desktop\web scraping\input.csv
+2026-05-03 22:14:10 [INFO] [INIT] Phase 1 mode: processing first row only
+2026-05-03 22:14:12 [INFO] [INIT] Browser launched with stealth mode
+2026-05-03 22:14:12 [INFO] 
+──────────────────────────────────────────────────
+2026-05-03 22:14:12 [INFO] [ROW 1/1] 2604 Park Street, Commerce, TX
+2026-05-03 22:14:12 [INFO] ──────────────────────────────────────────────────
+2026-05-03 22:14:12 [INFO] [ROW 1] Attempt 1/3
+2026-05-03 22:14:12 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:14:29 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 22:14:29 [INFO] [CAPTCHA] Waiting up to 10s for challenge to resolve...
+2026-05-03 22:14:35 [INFO] [CAPTCHA] ✅ Challenge resolved after 6.3s
+2026-05-03 22:14:40 [ERROR] [SEARCH] Still on challenge page after solving
+2026-05-03 22:14:40 [WARNING] [ROW 1] Challenge failed — rotating VPN for fresh IP...
+2026-05-03 22:14:40 [INFO] [VPN] Disconnecting...
+2026-05-03 22:14:42 [INFO] [VPN] Disconnected successfully
+2026-05-03 22:14:45 [INFO] [VPN] 🔄 Rotating to: USA - New York (index 1)
+2026-05-03 22:14:45 [INFO] [VPN] Connecting to: USA - New York
+2026-05-03 22:15:15 [ERROR] [VPN] Command timed out after 30s: C:\Program Files (x86)\ExpressVPN\services\ExpressVPN.CLI.exe connect USA - New York
+2026-05-03 22:15:15 [ERROR] [VPN] ❌ Failed to connect to USA - New York: Timeout
+2026-05-03 22:15:15 [INFO] [VPN] Fallback: trying USA - Los Angeles
+2026-05-03 22:15:15 [INFO] [VPN] Connecting to: USA - Los Angeles
+2026-05-03 22:15:15 [WARNING] [VPN] Command failed (rc=1): Already connected, please disconnect first
+2026-05-03 22:15:15 [INFO] [VPN] ✅ Connected to USA - Los Angeles
+2026-05-03 22:15:26 [INFO] [ROW 1] Attempt 2/3
+2026-05-03 22:15:26 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:15:37 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 22:15:37 [INFO] [CAPTCHA] Waiting up to 10s for challenge to resolve...
+2026-05-03 22:15:48 [WARNING] [CAPTCHA] Challenge did NOT resolve within 10s
+2026-05-03 22:15:48 [INFO] [CAPTCHA] Attempting to click Turnstile checkbox...
+2026-05-03 22:15:53 [INFO] [CAPTCHA] No Turnstile site key found on page
+2026-05-03 22:15:53 [INFO] [CAPTCHA] Trying page reload with human-like interaction...
+2026-05-03 22:16:00 [INFO] [CAPTCHA] Waiting up to 10s for challenge to resolve...
+2026-05-03 22:16:11 [WARNING] [CAPTCHA] Challenge did NOT resolve within 10s
+2026-05-03 22:16:16 [ERROR] [CAPTCHA] ❌ All challenge bypass strategies failed
+2026-05-03 22:16:16 [ERROR] [CAPTCHA] Consider rotating VPN for a fresh IP address
+2026-05-03 22:16:16 [ERROR] [SEARCH] Could not solve Cloudflare challenge
+2026-05-03 22:16:16 [WARNING] [ROW 1] Challenge failed — rotating VPN for fresh IP...
+2026-05-03 22:16:16 [INFO] [VPN] Disconnecting...
+2026-05-03 22:16:17 [INFO] [VPN] Disconnected successfully
+2026-05-03 22:16:20 [INFO] [VPN] 🔄 Rotating to: USA - Chicago (index 3)
+2026-05-03 22:16:20 [INFO] [VPN] Connecting to: USA - Chicago
+2026-05-03 22:16:50 [ERROR] [VPN] Command timed out after 30s: C:\Program Files (x86)\ExpressVPN\services\ExpressVPN.CLI.exe connect USA - Chicago
+2026-05-03 22:16:50 [ERROR] [VPN] ❌ Failed to connect to USA - Chicago: Timeout
+2026-05-03 22:16:50 [INFO] [VPN] Fallback: trying USA - Dallas
+2026-05-03 22:16:50 [INFO] [VPN] Connecting to: USA - Dallas
+2026-05-03 22:16:50 [WARNING] [VPN] Command failed (rc=1): Already connected, please disconnect first
+2026-05-03 22:16:50 [INFO] [VPN] ✅ Connected to USA - Dallas
+2026-05-03 22:17:01 [INFO] [ROW 1] Attempt 3/3
+2026-05-03 22:17:01 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:17:05 [ERROR] [SEARCH] Failed to load homepage: Page.goto: net::ERR_NETWORK_CHANGED at https://www.truepeoplesearch.com/
+Call log:
+  - navigating to "https://www.truepeoplesearch.com/", waiting until "domcontentloaded"
+
+2026-05-03 22:17:05 [WARNING] [ROW 1] Attempt 3 failed, retrying...
+2026-05-03 22:17:07 [ERROR] [ROW 1] ❌ FAILED after 3 attempts — skipping
+2026-05-03 22:17:07 [WARNING] [OUTPUT] No successful extractions to save
+2026-05-03 22:17:07 [INFO] 
+============================================================
+2026-05-03 22:17:07 [INFO] SCRAPING COMPLETE
+2026-05-03 22:17:07 [INFO]   Total processed:  1
+2026-05-03 22:17:07 [INFO]   Successful:       0
+2026-05-03 22:17:07 [INFO]   Failed:           1
+2026-05-03 22:17:07 [INFO] ============================================================
+2026-05-03 22:17:24 [INFO] ============================================================
+2026-05-03 22:17:24 [INFO] TruePeopleSearch Data Extraction Script
+2026-05-03 22:17:24 [INFO] Mode: PHASE 1 (single row testing)
+2026-05-03 22:17:24 [INFO] ============================================================
+2026-05-03 22:17:24 [INFO] [INIT] Setting up VPN connection...
+2026-05-03 22:17:24 [INFO] [VPN] Checking initial connection status...
+2026-05-03 22:17:25 [INFO] [VPN] Not connected. Establishing initial connection...
+2026-05-03 22:17:25 [INFO] [VPN] Connecting to: USA - New York
+2026-05-03 22:17:25 [WARNING] [VPN] Command failed (rc=1): Already connected, please disconnect first
+2026-05-03 22:17:25 [INFO] [VPN] ✅ Connected to USA - New York
+2026-05-03 22:17:31 [INFO] [INPUT] Loaded 585 rows from C:\Users\DELL\Desktop\web scraping\input.csv
+2026-05-03 22:17:31 [INFO] [INIT] Phase 1 mode: processing first row only
+2026-05-03 22:17:32 [INFO] [INIT] Browser launched with stealth mode
+2026-05-03 22:17:32 [INFO] 
+──────────────────────────────────────────────────
+2026-05-03 22:17:32 [INFO] [ROW 1/1] 2604 Park Street, Commerce, TX
+2026-05-03 22:17:32 [INFO] ──────────────────────────────────────────────────
+2026-05-03 22:17:32 [INFO] [ROW 1] Attempt 1/3
+2026-05-03 22:17:32 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:17:39 [ERROR] [SEARCH] Failed to load homepage: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.truepeoplesearch.com/
+Call log:
+  - navigating to "https://www.truepeoplesearch.com/", waiting until "domcontentloaded"
+
+2026-05-03 22:17:39 [WARNING] [ROW 1] Attempt 1 failed, retrying...
+2026-05-03 22:17:41 [INFO] [ROW 1] Attempt 2/3
+2026-05-03 22:17:41 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:17:41 [ERROR] [SEARCH] Failed to load homepage: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.truepeoplesearch.com/
+Call log:
+  - navigating to "https://www.truepeoplesearch.com/", waiting until "domcontentloaded"
+
+2026-05-03 22:17:41 [WARNING] [ROW 1] Attempt 2 failed, retrying...
+2026-05-03 22:17:43 [INFO] [ROW 1] Attempt 3/3
+2026-05-03 22:17:43 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:17:43 [ERROR] [SEARCH] Failed to load homepage: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.truepeoplesearch.com/
+Call log:
+  - navigating to "https://www.truepeoplesearch.com/", waiting until "domcontentloaded"
+
+2026-05-03 22:17:43 [WARNING] [ROW 1] Attempt 3 failed, retrying...
+2026-05-03 22:17:45 [ERROR] [ROW 1] ❌ FAILED after 3 attempts — skipping
+2026-05-03 22:17:46 [WARNING] [OUTPUT] No successful extractions to save
+2026-05-03 22:17:46 [INFO] 
+============================================================
+2026-05-03 22:17:46 [INFO] SCRAPING COMPLETE
+2026-05-03 22:17:46 [INFO]   Total processed:  1
+2026-05-03 22:17:46 [INFO]   Successful:       0
+2026-05-03 22:17:46 [INFO]   Failed:           1
+2026-05-03 22:17:46 [INFO] ============================================================
+2026-05-03 22:17:50 [INFO] ============================================================
+2026-05-03 22:17:50 [INFO] TruePeopleSearch Data Extraction Script
+2026-05-03 22:17:50 [INFO] Mode: PHASE 1 (single row testing)
+2026-05-03 22:17:50 [INFO] ============================================================
+2026-05-03 22:17:50 [INFO] [INIT] Setting up VPN connection...
+2026-05-03 22:17:50 [INFO] [VPN] Checking initial connection status...
+2026-05-03 22:17:50 [INFO] [VPN] Already connected: unknown location
+2026-05-03 22:17:50 [INFO] [INPUT] Loaded 585 rows from C:\Users\DELL\Desktop\web scraping\input.csv
+2026-05-03 22:17:50 [INFO] [INIT] Phase 1 mode: processing first row only
+2026-05-03 22:17:52 [INFO] [INIT] Browser launched with stealth mode
+2026-05-03 22:17:52 [INFO] 
+──────────────────────────────────────────────────
+2026-05-03 22:17:52 [INFO] [ROW 1/1] 2604 Park Street, Commerce, TX
+2026-05-03 22:17:52 [INFO] ──────────────────────────────────────────────────
+2026-05-03 22:17:52 [INFO] [ROW 1] Attempt 1/3
+2026-05-03 22:17:52 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:18:01 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 22:18:01 [INFO] [CAPTCHA] Waiting up to 10s for challenge to resolve...
+2026-05-03 22:18:11 [WARNING] [CAPTCHA] Challenge did NOT resolve within 10s
+2026-05-03 22:18:11 [INFO] [CAPTCHA] Attempting to click Turnstile checkbox...
+2026-05-03 22:18:16 [INFO] [CAPTCHA] No Turnstile site key found on page
+2026-05-03 22:18:16 [INFO] [CAPTCHA] Trying page reload with human-like interaction...
+2026-05-03 22:18:23 [INFO] [CAPTCHA] Waiting up to 10s for challenge to resolve...
+2026-05-03 22:18:33 [WARNING] [CAPTCHA] Challenge did NOT resolve within 10s
+2026-05-03 22:18:38 [ERROR] [CAPTCHA] ❌ All challenge bypass strategies failed
+2026-05-03 22:18:38 [ERROR] [CAPTCHA] Consider rotating VPN for a fresh IP address
+2026-05-03 22:18:38 [ERROR] [SEARCH] Could not solve Cloudflare challenge
+2026-05-03 22:18:38 [WARNING] [ROW 1] Challenge failed — rotating VPN for fresh IP...
+2026-05-03 22:18:38 [INFO] [VPN] Disconnecting...
+2026-05-03 22:18:39 [INFO] [VPN] Disconnected successfully
+2026-05-03 22:18:42 [INFO] [VPN] 🔄 Rotating to: USA - New York (index 1)
+2026-05-03 22:18:42 [INFO] [VPN] Connecting to: USA - New York
+2026-05-03 22:19:12 [ERROR] [VPN] Command timed out after 30s: C:\Program Files (x86)\ExpressVPN\services\ExpressVPN.CLI.exe connect USA - New York
+2026-05-03 22:19:12 [ERROR] [VPN] ❌ Failed to connect to USA - New York: Timeout
+2026-05-03 22:19:12 [INFO] [VPN] Fallback: trying USA - Los Angeles
+2026-05-03 22:19:12 [INFO] [VPN] Connecting to: USA - Los Angeles
+2026-05-03 22:19:12 [WARNING] [VPN] Command failed (rc=1): Invalid location name or id, please use the "list" command to view the available locations
+2026-05-03 22:19:12 [ERROR] [VPN] ❌ Failed to connect to USA - Los Angeles: Invalid location name or id, please use the "list" command to view the available locations
+2026-05-03 22:19:12 [ERROR] [ROW 1] VPN rotation failed
+2026-05-03 22:19:17 [INFO] [ROW 1] Attempt 2/3
+2026-05-03 22:19:17 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:19:26 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 22:19:26 [INFO] [CAPTCHA] Waiting up to 10s for challenge to resolve...
+2026-05-03 22:19:38 [WARNING] [CAPTCHA] Challenge did NOT resolve within 10s
+2026-05-03 22:19:38 [INFO] [CAPTCHA] Attempting to click Turnstile checkbox...
+2026-05-03 22:19:43 [INFO] [CAPTCHA] No Turnstile site key found on page
+2026-05-03 22:19:43 [INFO] [CAPTCHA] Trying page reload with human-like interaction...
+2026-05-03 22:19:48 [WARNING] [CAPTCHA] Reload attempt failed: Page.reload: net::ERR_ABORTED; maybe frame was detached?
+Call log:
+  - waiting for navigation until "domcontentloaded"
+
+2026-05-03 22:19:48 [ERROR] [CAPTCHA] ❌ All challenge bypass strategies failed
+2026-05-03 22:19:48 [ERROR] [CAPTCHA] Consider rotating VPN for a fresh IP address
+2026-05-03 22:19:48 [ERROR] [SEARCH] Could not solve Cloudflare challenge
+2026-05-03 22:19:48 [WARNING] [ROW 1] Challenge failed — rotating VPN for fresh IP...
+2026-05-03 22:19:48 [INFO] [VPN] Disconnecting...
+2026-05-03 22:19:50 [INFO] [VPN] Disconnected successfully
+2026-05-03 22:19:53 [INFO] [VPN] 🔄 Rotating to: USA - Chicago (index 3)
+2026-05-03 22:19:53 [INFO] [VPN] Connecting to: USA - Chicago
+2026-05-03 22:20:30 [INFO] ============================================================
+2026-05-03 22:20:30 [INFO] TruePeopleSearch Data Extraction Script
+2026-05-03 22:20:30 [INFO] Mode: PHASE 1 (single row testing)
+2026-05-03 22:20:30 [INFO] ============================================================
+2026-05-03 22:20:30 [INFO] [INIT] Setting up VPN connection...
+2026-05-03 22:20:30 [INFO] [VPN] Checking initial connection status...
+2026-05-03 22:20:30 [INFO] [VPN] Already connected: Connected to USA - New York
+2026-05-03 22:20:30 [INFO] [INPUT] Loaded 585 rows from C:\Users\DELL\Desktop\web scraping\input.csv
+2026-05-03 22:20:30 [INFO] [INIT] Phase 1 mode: processing first row only
+2026-05-03 22:20:32 [INFO] [INIT] Browser launched with stealth mode
+2026-05-03 22:20:32 [INFO] 
+──────────────────────────────────────────────────
+2026-05-03 22:20:32 [INFO] [ROW 1/1] 2604 Park Street, Commerce, TX
+2026-05-03 22:20:32 [INFO] ──────────────────────────────────────────────────
+2026-05-03 22:20:32 [INFO] [ROW 1] Attempt 1/3
+2026-05-03 22:20:32 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:20:49 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 22:20:49 [INFO] [CAPTCHA] Waiting up to 10s for challenge to resolve...
+2026-05-03 22:20:59 [WARNING] [CAPTCHA] Challenge did NOT resolve within 10s
+2026-05-03 22:20:59 [INFO] [CAPTCHA] Attempting to click Turnstile checkbox...
+2026-05-03 22:21:04 [INFO] [CAPTCHA] No Turnstile site key found on page
+2026-05-03 22:21:04 [INFO] [CAPTCHA] Trying page reload with human-like interaction...
+2026-05-03 22:21:16 [INFO] [CAPTCHA] Waiting up to 10s for challenge to resolve...
+2026-05-03 22:21:27 [WARNING] [CAPTCHA] Challenge did NOT resolve within 10s
+2026-05-03 22:21:32 [ERROR] [CAPTCHA] ❌ All challenge bypass strategies failed
+2026-05-03 22:21:32 [ERROR] [CAPTCHA] Consider rotating VPN for a fresh IP address
+2026-05-03 22:21:32 [ERROR] [SEARCH] Could not solve Cloudflare challenge
+2026-05-03 22:21:32 [WARNING] [ROW 1] Challenge failed — rotating VPN for fresh IP...
+2026-05-03 22:21:32 [INFO] [VPN] Disconnecting...
+2026-05-03 22:21:33 [INFO] [VPN] Disconnected successfully
+2026-05-03 22:21:36 [INFO] [VPN] 🔄 Rotating to: USA - New York (index 1)
+2026-05-03 22:21:36 [INFO] [VPN] Connecting to: USA - New York
+2026-05-03 22:22:06 [ERROR] [VPN] Command timed out after 30s: C:\Program Files (x86)\ExpressVPN\services\ExpressVPN.CLI.exe connect USA - New York
+2026-05-03 22:22:06 [ERROR] [VPN] ❌ Failed to connect to USA - New York: Timeout
+2026-05-03 22:22:06 [INFO] [VPN] Fallback: trying USA - Los Angeles
+2026-05-03 22:22:06 [INFO] [VPN] Connecting to: USA - Los Angeles
+2026-05-03 22:22:06 [WARNING] [VPN] Command failed (rc=1): Already connected, please disconnect first
+2026-05-03 22:22:06 [INFO] [VPN] ✅ Connected to USA - Los Angeles
+2026-05-03 22:22:17 [INFO] [ROW 1] Attempt 2/3
+2026-05-03 22:22:17 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:22:17 [ERROR] [SEARCH] Failed to load homepage: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.truepeoplesearch.com/
+Call log:
+  - navigating to "https://www.truepeoplesearch.com/", waiting until "domcontentloaded"
+
+2026-05-03 22:22:17 [WARNING] [ROW 1] Attempt 2 failed, retrying...
+2026-05-03 22:22:20 [INFO] [ROW 1] Attempt 3/3
+2026-05-03 22:22:20 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:22:22 [ERROR] [SEARCH] Failed to load homepage: Page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://www.truepeoplesearch.com/
+Call log:
+  - navigating to "https://www.truepeoplesearch.com/", waiting until "domcontentloaded"
+
+2026-05-03 22:22:22 [WARNING] [ROW 1] Attempt 3 failed, retrying...
+2026-05-03 22:22:24 [ERROR] [ROW 1] ❌ FAILED after 3 attempts — skipping
+2026-05-03 22:22:24 [WARNING] [OUTPUT] No successful extractions to save
+2026-05-03 22:22:24 [INFO] 
+============================================================
+2026-05-03 22:22:24 [INFO] SCRAPING COMPLETE
+2026-05-03 22:22:24 [INFO]   Total processed:  1
+2026-05-03 22:22:24 [INFO]   Successful:       0
+2026-05-03 22:22:24 [INFO]   Failed:           1
+2026-05-03 22:22:24 [INFO] ============================================================
+2026-05-03 22:23:16 [INFO] ============================================================
+2026-05-03 22:23:16 [INFO] TruePeopleSearch Data Extraction Script
+2026-05-03 22:23:16 [INFO] Mode: PHASE 1 (single row testing)
+2026-05-03 22:23:16 [INFO] ============================================================
+2026-05-03 22:23:16 [INFO] [INIT] Setting up VPN connection...
+2026-05-03 22:23:16 [INFO] [VPN] Checking initial connection status...
+2026-05-03 22:23:16 [INFO] [VPN] Already connected: Connected to USA - New York
+2026-05-03 22:23:16 [INFO] [INPUT] Loaded 585 rows from C:\Users\DELL\Desktop\web scraping\input.csv
+2026-05-03 22:23:16 [INFO] [INIT] Phase 1 mode: processing first row only
+2026-05-03 22:23:17 [INFO] [INIT] Browser launched with stealth mode
+2026-05-03 22:23:17 [INFO] 
+──────────────────────────────────────────────────
+2026-05-03 22:23:17 [INFO] [ROW 1/1] 2604 Park Street, Commerce, TX
+2026-05-03 22:23:17 [INFO] ──────────────────────────────────────────────────
+2026-05-03 22:23:17 [INFO] [ROW 1] Attempt 1/3
+2026-05-03 22:23:17 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:23:39 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 22:23:39 [INFO] [CAPTCHA] Waiting up to 10s for challenge to resolve...
+2026-05-03 22:23:49 [WARNING] [CAPTCHA] Challenge did NOT resolve within 10s
+2026-05-03 22:23:49 [INFO] [CAPTCHA] Attempting to click Turnstile checkbox...
+2026-05-03 22:23:54 [INFO] [CAPTCHA] No Turnstile site key found on page
+2026-05-03 22:23:54 [INFO] [CAPTCHA] Trying page reload with human-like interaction...
+2026-05-03 22:24:05 [INFO] [CAPTCHA] Waiting up to 10s for challenge to resolve...
+2026-05-03 22:24:05 [INFO] [CAPTCHA] ✅ Challenge resolved after 0.1s
+2026-05-03 22:24:10 [ERROR] [SEARCH] Still on challenge page after solving
+2026-05-03 22:24:10 [WARNING] [ROW 1] Challenge failed — rotating VPN for fresh IP...
+2026-05-03 22:24:10 [INFO] [VPN] Disconnecting...
+2026-05-03 22:24:11 [INFO] [VPN] Disconnected successfully
+2026-05-03 22:24:14 [INFO] [VPN] 🔄 Rotating to: USA - New York (index 1)
+2026-05-03 22:24:14 [INFO] [VPN] Connecting to: USA - New York
+2026-05-03 22:24:44 [ERROR] [VPN] Command timed out after 30s: C:\Program Files (x86)\ExpressVPN\services\ExpressVPN.CLI.exe connect USA - New York
+2026-05-03 22:24:44 [ERROR] [VPN] ❌ Failed to connect to USA - New York: Timeout
+2026-05-03 22:24:44 [INFO] [VPN] Fallback: trying USA - Los Angeles
+2026-05-03 22:24:44 [INFO] [VPN] Connecting to: USA - Los Angeles
+2026-05-03 22:24:45 [WARNING] [VPN] Command failed (rc=1): Already connected, please disconnect first
+2026-05-03 22:24:45 [INFO] [VPN] ✅ Connected to USA - Los Angeles
+2026-05-03 22:24:56 [INFO] [ROW 1] Attempt 2/3
+2026-05-03 22:24:56 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:24:57 [ERROR] [SEARCH] Failed to load homepage: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.truepeoplesearch.com/
+Call log:
+  - navigating to "https://www.truepeoplesearch.com/", waiting until "domcontentloaded"
+
+2026-05-03 22:24:57 [WARNING] [ROW 1] Attempt 2 failed, retrying...
+2026-05-03 22:24:59 [INFO] [ROW 1] Attempt 3/3
+2026-05-03 22:24:59 [INFO] [SEARCH] Looking up: 2604 Park Street, Commerce, TX
+2026-05-03 22:25:12 [INFO] [SEARCH] Cloudflare challenge detected, solving...
+2026-05-03 22:25:12 [INFO] [CAPTCHA] Waiting up to 10s for challenge to resolve...
+2026-05-03 22:25:22 [WARNING] [CAPTCHA] Challenge did NOT resolve within 10s
+2026-05-03 22:25:22 [INFO] [CAPTCHA] Attempting to click Turnstile checkbox...
+2026-05-03 22:25:27 [INFO] [CAPTCHA] No Turnstile site key found on page
+2026-05-03 22:25:27 [INFO] [CAPTCHA] Trying page reload with human-like interaction...
+2026-05-03 22:25:34 [INFO] [CAPTCHA] Waiting up to 10s for challenge to resolve...
+2026-05-03 22:25:44 [WARNING] [CAPTCHA] Challenge did NOT resolve within 10s
+2026-05-03 22:25:49 [ERROR] [CAPTCHA] ❌ All challenge bypass strategies failed
+2026-05-03 22:25:49 [ERROR] [CAPTCHA] Consider rotating VPN for a fresh IP address
+2026-05-03 22:25:49 [ERROR] [SEARCH] Could not solve Cloudflare challenge
+2026-05-03 22:25:49 [WARNING] [ROW 1] Challenge failed — rotating VPN for fresh IP...
+2026-05-03 22:25:49 [INFO] [VPN] Disconnecting...
+2026-05-03 22:25:51 [INFO] [VPN] Disconnected successfully
+2026-05-03 22:25:54 [INFO] [VPN] 🔄 Rotating to: USA - Chicago (index 3)
+2026-05-03 22:25:54 [INFO] [VPN] Connecting to: USA - Chicago
+2026-05-03 22:26:24 [ERROR] [VPN] Command timed out after 30s: C:\Program Files (x86)\ExpressVPN\services\ExpressVPN.CLI.exe connect USA - Chicago
+2026-05-03 22:26:24 [ERROR] [VPN] ❌ Failed to connect to USA - Chicago: Timeout
+2026-05-03 22:26:24 [INFO] [VPN] Fallback: trying USA - Dallas
+2026-05-03 22:26:24 [INFO] [VPN] Connecting to: USA - Dallas
+2026-05-03 22:26:54 [ERROR] [VPN] Command timed out after 30s: C:\Program Files (x86)\ExpressVPN\services\ExpressVPN.CLI.exe connect USA - Dallas
+2026-05-03 22:26:54 [ERROR] [VPN] ❌ Failed to connect to USA - Dallas: Timeout
+2026-05-03 22:26:54 [ERROR] [ROW 1] VPN rotation failed
+2026-05-03 22:26:59 [ERROR] [ROW 1] ❌ FAILED after 3 attempts — skipping
+2026-05-03 22:26:59 [WARNING] [OUTPUT] No successful extractions to save
+2026-05-03 22:26:59 [INFO] 
+============================================================
+2026-05-03 22:26:59 [INFO] SCRAPING COMPLETE
+2026-05-03 22:26:59 [INFO]   Total processed:  1
+2026-05-03 22:26:59 [INFO]   Successful:       0
+2026-05-03 22:26:59 [INFO]   Failed:           1
+2026-05-03 22:26:59 [INFO] ============================================================
