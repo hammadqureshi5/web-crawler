@@ -5,28 +5,43 @@
 TruePeopleSearch Address-Based Data Extraction Script
 Phase 1: Processes only the first CSV row for testing.
 Set PHASE_1_TESTING = False in config.py for full batch mode.
+
+MODIFICATIONS:
+- Uses personal Chrome profile (Default = Work) with extensions
+- CAPTCHA solver disabled — relies on browser extension + manual solve
+- IP rotation (VPN) temporarily disabled
 """
 
 import asyncio
 import csv
 import logging
 import random
+import subprocess
 import sys
 import time
 
 from playwright.async_api import async_playwright
-from playwright_stealth import Stealth
 
 from config import (
     PHASE_1_TESTING, TARGET_URL, INPUT_CSV, OUTPUT_CSV, LOG_FILE,
-    HEADLESS, USER_AGENT, VIEWPORT, PAGE_LOAD_TIMEOUT, ELEMENT_TIMEOUT,
-    REQUEST_DELAY_MIN, REQUEST_DELAY_MAX, MAX_RETRIES, TURNSTILE_SITE_KEY,
+    USER_AGENT, VIEWPORT, PAGE_LOAD_TIMEOUT, ELEMENT_TIMEOUT,
+    REQUEST_DELAY_MIN, REQUEST_DELAY_MAX, MAX_RETRIES,
 )
-from captcha_solver import handle_cloudflare_challenge
-from vpn_manager import initial_connect, rotate_vpn
-from data_extractor import extract_profile_data, save_results
+# CAPTCHA solver import REMOVED — using browser extension instead
+# from captcha_solver import handle_cloudflare_challenge
+# VPN manager import REMOVED — IP rotation temporarily disabled
+# from vpn_manager import initial_connect, rotate_vpn
+from data_extractor import extract_profile_data, save_results, display_record
 
 # ── Logging Setup ───────────────────────────────────────────
+# Fix for Windows console encoding
+if sys.stdout.encoding.lower() != 'utf-8':
+    try:
+        import codecs
+        sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+    except:
+        pass
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
@@ -38,19 +53,148 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# ── Chrome Profile Configuration ────────────────────────────
+CHROME_EXE = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+CHROME_USER_DATA_DIR = r"C:\Users\DELL\AppData\Local\Google\Chrome\User Data"
+CHROME_PROFILE_DIR = "Profile 11"  # Your "Work" profile
+CDP_PORT = 9222  # Port for Chrome DevTools Protocol
+
+
+def kill_existing_chrome():
+    """
+    Kill all running Chrome processes so we can launch a fresh instance
+    with --remote-debugging-port (Chrome ignores the flag if an existing
+    instance already owns the user-data-dir).
+    """
+    logger.info("[CHROME] Closing any existing Chrome processes...")
+    try:
+        subprocess.run(
+            ["taskkill", "/F", "/IM", "chrome.exe"],
+            capture_output=True, text=True, timeout=10,
+        )
+    except Exception as e:
+        logger.debug(f"[CHROME] taskkill note: {e}")
+
+    # Wait until all chrome.exe processes are truly gone (file locks released)
+    for _ in range(10):
+        result = subprocess.run(
+            ["tasklist", "/FI", "IMAGENAME eq chrome.exe"],
+            capture_output=True, text=True, timeout=5,
+        )
+        if "chrome.exe" not in result.stdout.lower():
+            break
+        time.sleep(1)
+    else:
+        logger.warning("[CHROME] Some Chrome processes may still be running")
+
+    time.sleep(3)  # Extra wait for file lock release
+    logger.info("[CHROME] Existing Chrome processes terminated")
+
+
+def wait_for_cdp_ready(port: int, timeout: int = 15) -> bool:
+    """
+    Poll http://127.0.0.1:{port}/json/version until Chrome's CDP is ready.
+    """
+    import urllib.request
+    import urllib.error
+
+    url = f"http://127.0.0.1:{port}/json/version"
+    start = time.time()
+    while time.time() - start < timeout:
+        try:
+            urllib.request.urlopen(url, timeout=2)
+            return True
+        except (urllib.error.URLError, OSError):
+            time.sleep(1)
+    return False
+
+
+def launch_chrome_with_profile():
+    """
+    Launch Chrome with the personal profile and remote debugging enabled.
+    This preserves all extensions, cookies, and saved sessions.
+    """
+    # MUST kill existing Chrome first — otherwise the new process just
+    # signals the running one and exits, so debugging port never opens.
+    kill_existing_chrome()
+
+    logger.info(f"[CHROME] Launching Chrome with profile: {CHROME_PROFILE_DIR}")
+    logger.info(f"[CHROME] User data dir: {CHROME_USER_DATA_DIR}")
+
+    chrome_args_list = [
+        f'--remote-debugging-port={CDP_PORT}',
+        f'--user-data-dir={CHROME_USER_DATA_DIR}',
+        f'--profile-directory={CHROME_PROFILE_DIR}',
+        '--no-first-run',
+        '--no-default-browser-check',
+        '--start-maximized'
+    ]
+    # Join with commas and wrap each in quotes for PowerShell array
+    chrome_args_string = ", ".join([f"'{a}'" for a in chrome_args_list])
+
+    ps_cmd = (
+        f'Start-Process -FilePath "{CHROME_EXE}"'
+        f' -ArgumentList {chrome_args_string}'
+    )
+    logger.info(f"[CHROME] PS Command: {ps_cmd}")
+    logger.info(f"[CHROME] Launching via PowerShell...")
+
+    subprocess.run(
+        ["powershell", "-Command", ps_cmd],
+        capture_output=True, text=True, timeout=10,
+    )
+    logger.info("[CHROME] Chrome launch command sent, waiting for CDP ready...")
+
+    # Wait until the debugging port is actually accepting connections
+    if wait_for_cdp_ready(CDP_PORT, timeout=20):
+        logger.info(f"[CHROME] CDP port {CDP_PORT} is ready")
+    else:
+        logger.error(f"[CHROME] CDP port {CDP_PORT} not responding after 20s")
+        raise RuntimeError("Chrome debugging port never became available. Is Chrome installed correctly?")
+
 
 def read_input_csv(path: str) -> list[dict]:
-    """Read addresses from the input CSV file."""
+    """Read addresses from the input CSV file using raw reader for robustness."""
     rows = []
     with open(path, "r", encoding="utf-8-sig") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            # Handle typo in Excel: 'Property Addres' vs 'Property Address'
-            address = (row.get("Property Address") or row.get("Property Addres", "")).strip()
+        reader = csv.reader(f)
+        header = next(reader, None)
+        if not header:
+            return []
+            
+        logger.info(f"[INPUT] CSV Header: {header}")
+        
+        # Find column indices
+        name_idx = 0  # Default to first column
+        addr_idx = 1  # Default to second
+        city_idx = 2
+        state_idx = 3
+        
+        for i, col in enumerate(header):
+            col_l = col.lower()
+            if "addres" in col_l:
+                if addr_idx == 1: addr_idx = i
+            elif "city" in col_l:
+                city_idx = i
+            elif "state" in col_l:
+                state_idx = i
+        
+        logger.info(f"[INPUT] Column map: Name={name_idx}, Addr={addr_idx}, City={city_idx}, State={state_idx}")
+
+        for line in reader:
+            if not line: continue
+            
+            # Ensure line has enough columns
+            target_name = line[name_idx].strip() if len(line) > name_idx else ""
+            address = line[addr_idx].strip() if len(line) > addr_idx else ""
+            city = line[city_idx].strip() if len(line) > city_idx else ""
+            state = line[state_idx].strip() if len(line) > state_idx else ""
+
             rows.append({
+                "Target Name": target_name,
                 "Property Address": address,
-                "Property City": row.get("Property city", "").strip(),
-                "Property State": row.get("property state", "").strip(),
+                "Property City": city,
+                "Property State": state,
             })
     logger.info(f"[INPUT] Loaded {len(rows)} rows from {path}")
     return rows
@@ -93,12 +237,49 @@ async def is_blocked(page) -> bool:
         return False
 
 
-async def search_property(page, address: str, city: str, state: str) -> dict | None:
+async def wait_for_manual_captcha_solve(page, timeout_seconds: int = 300) -> bool:
+    """
+    Wait for the CAPTCHA to be solved — either by the browser extension
+    or manually by the user. Polls every 3 seconds.
+
+    Args:
+        page: Playwright page object
+        timeout_seconds: Max seconds to wait (default: 5 minutes)
+
+    Returns:
+        True if challenge was resolved, False if timed out
+    """
+    logger.info("=" * 50)
+    logger.info("[CAPTCHA] CAPTCHA/Challenge detected!")
+    logger.info("[CAPTCHA] Waiting for your extension or manual solve...")
+    logger.info(f"[CAPTCHA] Timeout: {timeout_seconds}s - solve it in the browser window")
+    logger.info("=" * 50)
+
+    start = time.time()
+    check_interval = 3  # Check every 3 seconds
+
+    while time.time() - start < timeout_seconds:
+        try:
+            if not await is_cloudflare_challenge(page):
+                elapsed = time.time() - start
+                logger.info(f"[CAPTCHA] Challenge resolved after {elapsed:.1f}s")
+                return True
+        except Exception as e:
+            logger.debug(f"[CAPTCHA] Check error (normal during navigation): {e}")
+
+        await asyncio.sleep(check_interval)
+
+    logger.error(f"[CAPTCHA] ❌ Timed out after {timeout_seconds}s — challenge not solved")
+    return False
+
+
+async def search_property(page, target_name: str, address: str, city: str, state: str) -> dict | None:
     """
     Core scraping logic: navigate, fill form, submit, extract data.
 
     Args:
         page: Playwright page object
+        target_name: The name of the person we are looking for
         address: Street address (e.g., "123 Main St")
         city: City name (e.g., "New York")
         state: State abbreviation (e.g., "NY")
@@ -107,7 +288,7 @@ async def search_property(page, address: str, city: str, state: str) -> dict | N
         Extracted data dict, or None on failure.
     """
     city_state = f"{city}, {state}"
-    logger.info(f"[SEARCH] Looking up: {address}, {city_state}")
+    logger.info(f"[SEARCH] Looking up: {target_name} at {address}, {city_state}")
 
     # Step 1: Navigate to the homepage
     try:
@@ -119,13 +300,13 @@ async def search_property(page, address: str, city: str, state: str) -> dict | N
         logger.error(f"[SEARCH] Failed to load homepage: {e}")
         return None
 
-    # Step 2: Handle Cloudflare challenge if present
+    # Step 2: Handle Cloudflare challenge — wait for extension/manual solve
     if await is_cloudflare_challenge(page):
-        logger.info("[SEARCH] Cloudflare challenge detected, solving...")
-        solved = await handle_cloudflare_challenge(page, TARGET_URL, TURNSTILE_SITE_KEY)
+        logger.info("[SEARCH] Cloudflare challenge detected, waiting for solve...")
+        solved = await wait_for_manual_captcha_solve(page)
         if not solved:
-            logger.error("[SEARCH] Could not solve Cloudflare challenge")
-            return "CHALLENGE_FAILED"  # Signal to rotate VPN
+            logger.error("[SEARCH] Could not solve Cloudflare challenge (timed out)")
+            return "CHALLENGE_FAILED"
         # Wait for the page to reload after challenge
         await page.wait_for_timeout(5000)
         # Check if we're still on the challenge page
@@ -136,7 +317,7 @@ async def search_property(page, address: str, city: str, state: str) -> dict | N
     # Step 3: Check for blocks
     if await is_blocked(page):
         logger.warning("[SEARCH] Page is blocked (403/Forbidden)")
-        return None  # Caller will trigger VPN rotation
+        return None
 
     # Step 4: Click the Address search tab
     try:
@@ -204,8 +385,8 @@ async def search_property(page, address: str, city: str, state: str) -> dict | N
 
     # Step 8: Check for post-search Cloudflare or blocks
     if await is_cloudflare_challenge(page):
-        logger.info("[SEARCH] Post-search Cloudflare challenge")
-        solved = await handle_cloudflare_challenge(page, page.url, TURNSTILE_SITE_KEY)
+        logger.info("[SEARCH] Post-search Cloudflare challenge — waiting for solve...")
+        solved = await wait_for_manual_captcha_solve(page)
         if not solved:
             return None
         await page.wait_for_timeout(5000)
@@ -214,23 +395,97 @@ async def search_property(page, address: str, city: str, state: str) -> dict | N
         logger.warning("[SEARCH] Blocked after search submission")
         return None
 
-    # Step 9: Look for result links and click the first one
+    # Step 9: Look for result links and click the best matching name
     try:
-        result_link = page.locator(
-            'a[href*="/find/address/"], '
-            'a[href*="/results?"], '
-            '.result-item a, '
-            '.card a[href*="truepeoplesearch"], '
-            'a.link-to-details'
-        ).first
+        import difflib
+        
+        # Wait for either result cards or detail page
+        try:
+            await page.wait_for_selector('.card, .person-detail, .result-item', timeout=10000)
+        except Exception:
+            logger.warning("[SEARCH] No clear result cards found, proceeding anyway.")
 
-        if await result_link.is_visible(timeout=ELEMENT_TIMEOUT):
-            await result_link.click()
-            logger.info("[SEARCH] Clicked first result link")
-            await page.wait_for_load_state("domcontentloaded", timeout=PAGE_LOAD_TIMEOUT)
-            await page.wait_for_timeout(2000)
+        # Check if we went straight to a detail page
+        if await page.locator('.person-detail, h1:has-text("Current Address")').count() > 0:
+            logger.info("[SEARCH] Redirected directly to details page")
+            # Proceed to extract
         else:
-            logger.info("[SEARCH] No result links found, trying extraction on current page")
+            # We are on a results list page.
+            # Find all result cards/links
+            result_cards = page.locator('.card, .result-item, div[class*="row mb-3"]')
+            count = await result_cards.count()
+            
+            if count == 0:
+                # Fallback to the old simple selector if no cards are found
+                result_link = page.locator(
+                    'a[href*="/find/address/"], '
+                    'a[href*="/results?"], '
+                    'a.link-to-details'
+                ).first
+
+                if await result_link.is_visible(timeout=ELEMENT_TIMEOUT):
+                    await result_link.click()
+                    await page.wait_for_load_state("domcontentloaded", timeout=PAGE_LOAD_TIMEOUT)
+                    await page.wait_for_timeout(2000)
+                    logger.info("[SEARCH] Clicked first result link (fallback)")
+            else:
+                best_score = -1
+                best_link = None
+                best_name = ""
+                
+                # Iterate through cards and find the best match
+                for i in range(count):
+                    card = result_cards.nth(i)
+                    # Name is usually in an h4, a, or div with class h4
+                    name_locator = card.locator('.h4, h4, .title, [class*="name"]')
+                    if await name_locator.count() > 0:
+                        card_name = await name_locator.first.inner_text()
+                    else:
+                        card_name = await card.inner_text() # fallback, might be messy
+                    
+                    card_name = card_name.replace('\n', ' ').strip()
+                    
+                    # Compute similarity score
+                    # Basic approach: sequence matcher
+                    score = difflib.SequenceMatcher(None, target_name.lower(), card_name.lower()).ratio()
+                    
+                    # Alternatively, check if target name parts are in card name
+                    target_parts = target_name.lower().split()
+                    parts_found = sum(1 for part in target_parts if part in card_name.lower())
+                    part_score = parts_found / max(1, len(target_parts))
+                    
+                    # Combine scores
+                    final_score = score * 0.5 + part_score * 0.5
+                    
+                    if final_score > best_score:
+                        best_score = final_score
+                        
+                        # Find the link within this card
+                        link = card.locator('a.btn, a[href*="/find/person/"]').first
+                        if not await link.is_visible():
+                            link = card.locator('a').first
+                            
+                        best_link = link
+                        best_name = card_name
+
+                logger.info(f"[SEARCH] Best match: '{best_name}' with score {best_score:.2f} (Target: '{target_name}')")
+                
+                if best_link and await best_link.is_visible():
+                    await best_link.click()
+                    await page.wait_for_load_state("domcontentloaded", timeout=PAGE_LOAD_TIMEOUT)
+                    await page.wait_for_timeout(2000)
+                    logger.info(f"[SEARCH] Clicked best matching link for '{best_name}'")
+                else:
+                    logger.warning("[SEARCH] Found best match but could not find a clickable link. Trying alternate.")
+                    # Try clicking anywhere in the card
+                    try:
+                        await result_cards.nth(0).click()
+                        await page.wait_for_load_state("domcontentloaded", timeout=PAGE_LOAD_TIMEOUT)
+                        await page.wait_for_timeout(2000)
+                    except:
+                        logger.warning("[SEARCH] Could not click card, trying first link found.")
+                        await page.locator('a[href*="/find/person/"]').first.click()
+                        await page.wait_for_load_state("domcontentloaded", timeout=PAGE_LOAD_TIMEOUT)
     except Exception:
         logger.info("[SEARCH] No clickable results, extracting from current page")
 
@@ -244,14 +499,16 @@ async def main():
     logger.info("=" * 60)
     logger.info("TruePeopleSearch Data Extraction Script")
     logger.info(f"Mode: {'PHASE 1 (single row testing)' if PHASE_1_TESTING else 'FULL BATCH'}")
+    logger.info("CAPTCHA: Extension/Manual solve (automated solver DISABLED)")
+    logger.info("VPN/IP Rotation: DISABLED (temporarily)")
     logger.info("=" * 60)
 
-    # ── Step 1: VPN Setup ────────────────────────────────
-    logger.info("[INIT] Setting up VPN connection...")
-    vpn_ok = initial_connect()
-    if not vpn_ok:
-        logger.warning("[INIT] VPN connection failed — continuing without VPN")
-        logger.warning("[INIT] You may get blocked. Consider fixing VPN and restarting.")
+    # ── Step 1: VPN Setup — DISABLED ─────────────────────
+    # logger.info("[INIT] Setting up VPN connection...")
+    # vpn_ok = initial_connect()
+    # if not vpn_ok:
+    #     logger.warning("[INIT] VPN connection failed — continuing without VPN")
+    logger.info("[INIT] VPN/IP rotation is DISABLED — using current IP")
 
     # ── Step 2: Read Input CSV ───────────────────────────
     try:
@@ -273,95 +530,110 @@ async def main():
         rows = rows[:1]
         logger.info("[INIT] Phase 1 mode: processing first row only")
 
-    # ── Step 3: Launch Browser ───────────────────────────
+    # ── Step 3: Launch Chrome with Personal Profile ──────
+    launch_chrome_with_profile()
     results = []
     failed = []
 
-    async with async_playwright() as pw:
-        browser = await pw.chromium.launch(
-            headless=HEADLESS,
-            args=[
-                "--disable-blink-features=AutomationControlled",
-                "--no-sandbox",
-                "--disable-dev-shm-usage",
-                "--disable-web-security",
-                "--disable-features=IsolateOrigins,site-per-process",
-                "--window-size=1366,768",
-            ],
-        )
-        stealth = Stealth()
-        context = await browser.new_context(
-            user_agent=USER_AGENT,
-            viewport=VIEWPORT,
-            locale="en-US",
-            timezone_id="America/New_York",
-        )
-        page = await context.new_page()
-        await stealth.apply_stealth_async(page)
+    try:
+        async with async_playwright() as pw:
+            # Connect to the running Chrome instance via CDP
+            logger.info(f"[INIT] Connecting to Chrome via CDP on port {CDP_PORT}...")
+            browser = await pw.chromium.connect_over_cdp(f"http://127.0.0.1:{CDP_PORT}")
 
-        logger.info("[INIT] Browser launched with stealth mode")
+            # Get the default context (which has our profile + extensions)
+            contexts = browser.contexts
+            if contexts:
+                context = contexts[0]
+                logger.info(f"[INIT] Connected to existing browser context ({len(context.pages)} open tabs)")
+            else:
+                context = await browser.new_context()
+                logger.info("[INIT] Created new browser context")
 
-        # ── Step 4: Process Each Row ─────────────────────
-        for idx, row in enumerate(rows, 1):
-            address = row["Property Address"]
-            city = row["Property City"]
-            state = row["Property State"]
+            # Always open a new tab to ensure a clean state
+            page = await context.new_page()
+            logger.info("[INIT] Opened new tab for scraping")
+            
+            # Close any blank/data tabs if possible to keep it clean
+            for p in context.pages:
+                if p != page and (p.url == "about:blank" or p.url.startswith("data:")):
+                    try:
+                        await p.close()
+                    except:
+                        pass
 
-            logger.info(f"\n{'─' * 50}")
-            logger.info(f"[ROW {idx}/{len(rows)}] {address}, {city}, {state}")
-            logger.info(f"{'─' * 50}")
+            logger.info("[INIT] Browser ready with personal profile + extensions")
 
-            success = False
-            for attempt in range(1, MAX_RETRIES + 1):
-                logger.info(f"[ROW {idx}] Attempt {attempt}/{MAX_RETRIES}")
+            # ── Step 4: Process Each Row ─────────────────────
+            for idx, row in enumerate(rows, 1):
+                target_name = row["Target Name"]
+                address = row["Property Address"]
+                city = row["Property City"]
+                state = row["Property State"]
 
-                data = await search_property(page, address, city, state)
+                logger.info(f"\n{'─' * 50}")
+                logger.info(f"[ROW {idx}/{len(rows)}] {target_name} | {address}, {city}, {state}")
+                logger.info(f"{'─' * 50}")
 
-                if data == "CHALLENGE_FAILED":
-                    # Cloudflare challenge could not be solved — rotate VPN
-                    logger.warning(f"[ROW {idx}] Challenge failed — rotating VPN for fresh IP...")
-                    vpn_rotated = rotate_vpn()
-                    if not vpn_rotated:
-                        logger.error(f"[ROW {idx}] VPN rotation failed")
-                    await context.clear_cookies()
-                    await page.wait_for_timeout(5000)
+                success = False
+                for attempt in range(1, MAX_RETRIES + 1):
+                    logger.info(f"[ROW {idx}] Attempt {attempt}/{MAX_RETRIES}")
 
-                elif data and isinstance(data, dict):
-                    # Merge input fields with extracted data
-                    data["Property Address"] = address
-                    data["Property City"] = city
-                    data["Property State"] = state
-                    # Property Zip is not in input CSV
-                    data.setdefault("Property Zip", "")
-                    results.append(data)
-                    logger.info(f"[ROW {idx}] ✅ SUCCESS — {data.get('Agent Name', 'N/A')}")
-                    success = True
-                    break
+                    data = await search_property(page, target_name, address, city, state)
 
-                elif await is_blocked(page):
-                    logger.warning(f"[ROW {idx}] Blocked — rotating VPN...")
-                    vpn_rotated = rotate_vpn()
-                    if not vpn_rotated:
-                        logger.error(f"[ROW {idx}] VPN rotation failed")
-                    # Clear cookies and retry with fresh session
-                    await context.clear_cookies()
-                    await page.wait_for_timeout(3000)
+                    if data == "CHALLENGE_FAILED":
+                        # Challenge could not be solved — VPN rotation DISABLED
+                        logger.warning(f"[ROW {idx}] Challenge failed — VPN rotation is DISABLED")
+                        logger.warning(f"[ROW {idx}] Please solve the CAPTCHA manually or restart")
+                        await page.wait_for_timeout(5000)
 
-                else:
-                    logger.warning(f"[ROW {idx}] Attempt {attempt} failed, retrying...")
-                    await page.wait_for_timeout(2000)
+                    elif data and isinstance(data, dict):
+                        # Merge input fields with extracted data
+                        data["Property Address"] = address
+                        data["Property City"] = city
+                        data["Property State"] = state
+                        # Property Zip is not in input CSV
+                        data.setdefault("Property Zip", "")
+                        
+                        # Display results to user
+                        display_record(data)
+                        
+                        results.append(data)
+                        logger.info(f"[ROW {idx}] SUCCESS - {data.get('Agent Name', 'N/A')}")
+                        success = True
+                        break
 
-            if not success:
-                logger.error(f"[ROW {idx}] ❌ FAILED after {MAX_RETRIES} attempts — skipping")
-                failed.append(row)
+                    elif await is_blocked(page):
+                        # Blocked — VPN rotation DISABLED
+                        logger.warning(f"[ROW {idx}] Blocked — VPN rotation is DISABLED")
+                        logger.warning(f"[ROW {idx}] Waiting 30s before retry...")
+                        await page.wait_for_timeout(30000)
 
-            # Random delay between rows (skip after last row)
-            if idx < len(rows):
-                delay = random.uniform(REQUEST_DELAY_MIN, REQUEST_DELAY_MAX)
-                logger.info(f"[DELAY] Waiting {delay:.1f}s before next search...")
-                await page.wait_for_timeout(int(delay * 1000))
+                    else:
+                        logger.warning(f"[ROW {idx}] Attempt {attempt} failed, retrying...")
+                        await page.wait_for_timeout(2000)
 
-        await browser.close()
+                if not success:
+                    logger.error(f"[ROW {idx}] ❌ FAILED after {MAX_RETRIES} attempts — skipping")
+                    failed.append(row)
+
+                # Random delay between rows (skip after last row)
+                if idx < len(rows):
+                    delay = random.uniform(REQUEST_DELAY_MIN, REQUEST_DELAY_MAX)
+                    logger.info(f"[DELAY] Waiting {delay:.1f}s before next search...")
+                    await page.wait_for_timeout(int(delay * 1000))
+
+            # Do NOT close the browser — it's the user's personal Chrome
+            logger.info("[CLEANUP] Disconnecting from Chrome (browser stays open)")
+            # browser.close() - REMOVED to keep browser open
+
+    except Exception as e:
+        logger.error(f"[ERROR] Fatal error: {e}")
+        logger.error("[ERROR] Make sure Chrome is not already running, or close all Chrome windows first")
+        raise
+    finally:
+        # Don't kill Chrome — user may want to keep it open
+        pass
 
     # ── Step 5: Save Results ─────────────────────────────
     if results:

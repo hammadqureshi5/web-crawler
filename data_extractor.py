@@ -114,22 +114,35 @@ async def extract_from_html(page) -> dict | None:
             "Emails": "", "Agent Address": "",
         }
         # Name
-        try:
-            name_el = page.locator('h1').first
-            if await name_el.is_visible(timeout=3000):
-                result["Agent Name"] = (await name_el.text_content()).strip()
-        except Exception:
-            pass
+        name_selectors = [
+            'h1', 
+            '.oh-h1', 
+            '.person-name', 
+            'div.h2',
+            'span.h1',
+            '.record-name'
+        ]
+        for sel in name_selectors:
+            try:
+                el = page.locator(sel).first
+                if await el.is_visible(timeout=1000):
+                    result["Agent Name"] = (await el.text_content()).strip()
+                    break
+            except:
+                continue
 
         # Phones
         try:
             phone_links = page.locator('a[href^="tel:"]')
             phones = []
-            for i in range(min(await phone_links.count(), 10)):
+            count = await phone_links.count()
+            for i in range(min(count, 15)):
                 t = (await phone_links.nth(i).text_content()).strip()
                 if t:
                     phones.append(t)
-            result["Phone Numbers"] = " | ".join(phones)
+            # Remove duplicates while preserving order
+            seen = set()
+            result["Phone Numbers"] = " | ".join([x for x in phones if not (x in seen or seen.add(x))])
         except Exception:
             pass
 
@@ -137,17 +150,50 @@ async def extract_from_html(page) -> dict | None:
         try:
             email_links = page.locator('a[href^="mailto:"]')
             emails = []
-            for i in range(min(await email_links.count(), 10)):
+            count = await email_links.count()
+            for i in range(min(count, 15)):
                 t = (await email_links.nth(i).text_content()).strip()
                 if t and "@" in t:
                     emails.append(t)
-            result["Emails"] = " | ".join(emails)
+            # Remove duplicates while preserving order
+            seen = set()
+            result["Emails"] = " | ".join([x for x in emails if not (x in seen or seen.add(x))])
+        except Exception:
+            pass
+
+        # Mailing Address (Fallback from HTML)
+        try:
+            # Look for address in common containers
+            addr_selectors = [
+                '.oh-address',
+                'div:has-text("Current Address") + div',
+                '.address-container',
+                'a[href*="/find/address/"]'
+            ]
+            for sel in addr_selectors:
+                el = page.locator(sel).first
+                if await el.is_visible(timeout=1000):
+                    addr_text = (await el.text_content()).strip()
+                    if addr_text and len(addr_text) > 5:
+                        result["Agent Address"] = addr_text.replace('\n', ' ').strip()
+                        # Simple parsing for Mailing Address fields if empty
+                        if not result["Mailing Address"]:
+                            parts = [p.strip() for p in addr_text.split(',')]
+                            if len(parts) >= 3:
+                                result["Mailing Address"] = parts[0]
+                                result["Mailing City"] = parts[1]
+                                # State and Zip are usually in the last part "TX 75428"
+                                last_part = parts[-1].split()
+                                if len(last_part) >= 2:
+                                    result["Mailing State"] = last_part[0]
+                                    result["Mailing Zip"] = last_part[1]
+                        break
         except Exception:
             pass
 
         has_data = any(v for v in result.values() if v)
         if has_data:
-            logger.info(f"[EXTRACT] HTML extraction: {result['Agent Name']}")
+            logger.info(f"[EXTRACT] HTML extraction success for: {result['Agent Name']}")
             return result
         return None
     except Exception as e:
@@ -164,6 +210,27 @@ async def extract_profile_data(page) -> dict | None:
     return data
 
 
+def display_record(data: dict):
+    """Print a formatted summary of the extracted data to the log."""
+    logger.info("\n" + "═" * 50)
+    logger.info(" MATCH FOUND")
+    logger.info("═" * 50)
+    logger.info(f" NAME:    {data.get('Agent Name', 'N/A')}")
+    logger.info(f" PHONE:   {data.get('Phone Numbers', 'N/A')}")
+    logger.info(f" EMAIL:   {data.get('Emails', 'N/A')}")
+    logger.info(f" ZIP:     {data.get('Mailing Zip', 'N/A')}")
+    
+    # Mail Address
+    addr = data.get("Mailing Address", "")
+    city = data.get("Mailing City", "")
+    state = data.get("Mailing State", "")
+    zip_code = data.get("Mailing Zip", "")
+    full_addr = f"{addr}, {city}, {state} {zip_code}".strip(", ")
+    logger.info(f" ADDRESS: {full_addr or 'N/A'}")
+    
+    logger.info("═" * 50 + "\n")
+
+
 def save_results(results: list[dict], output_path: str = None):
     """Save results to CSV. Creates file with headers or appends."""
     if not output_path:
@@ -174,9 +241,30 @@ def save_results(results: list[dict], output_path: str = None):
         "Phone Numbers", "Emails", "Agent Name", "Agent Address",
     ]
     file_exists = os.path.exists(output_path)
-    with open(output_path, "a", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
-        if not file_exists:
-            writer.writeheader()
-        writer.writerows(results)
-    logger.info(f"[OUTPUT] Saved {len(results)} record(s) to {output_path}")
+    
+    try:
+        with open(output_path, "a", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+            if not file_exists:
+                writer.writeheader()
+            writer.writerows(results)
+        logger.info(f"[OUTPUT] Saved {len(results)} record(s) to {output_path}")
+    except PermissionError:
+        logger.error(f"\n{'!' * 60}")
+        logger.error(f"[ERROR] COULD NOT SAVE TO {output_path}")
+        logger.error("The file is currently OPEN in another program (Excel, etc.)")
+        logger.error("Please CLOSE the file and run the script again to save these results.")
+        logger.error(f"{'!' * 60}\n")
+        
+        # Fallback: Save to a timestamped file so data isn't lost
+        import datetime
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        fallback_path = output_path.replace(".csv", f"_{timestamp}.csv")
+        try:
+            with open(fallback_path, "w", newline="", encoding="utf-8") as f:
+                writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+                writer.writeheader()
+                writer.writerows(results)
+            logger.info(f"[OUTPUT] Backup saved to: {fallback_path}")
+        except Exception as e:
+            logger.error(f"[ERROR] Fallback save failed: {e}")
