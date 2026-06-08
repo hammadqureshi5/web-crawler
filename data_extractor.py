@@ -19,6 +19,28 @@ OUTPUT_FIELDNAMES = [
 ]
 
 
+def load_completed_rows(output_path: str = None) -> set[int]:
+    """Return the set of 'Input Row #' values already present in the output CSV.
+
+    Used to resume a run without re-scraping rows that were saved previously.
+    Returns an empty set if the file is missing, empty, or unreadable."""
+    if not output_path:
+        output_path = OUTPUT_CSV
+    completed: set[int] = set()
+    if not os.path.exists(output_path) or os.path.getsize(output_path) == 0:
+        return completed
+    try:
+        with open(output_path, "r", newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for record in reader:
+                raw = (record.get("Input Row #") or "").strip()
+                if raw.isdigit():
+                    completed.add(int(raw))
+    except Exception as e:
+        logger.warning(f"[RESUME] Could not read existing results ({e}); starting fresh")
+    return completed
+
+
 async def extract_from_json_ld(page) -> dict | None:
     """Extract person data from JSON-LD structured data on a profile page."""
     try:

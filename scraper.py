@@ -15,6 +15,7 @@ MODIFICATIONS:
 import asyncio
 import csv
 import logging
+import os
 import random
 import subprocess
 import sys
@@ -29,7 +30,10 @@ from config import (
 )
 # VPN rotation disabled — imports kept for reference but not used
 # from vpn_manager import initial_connect, rotate_vpn
-from data_extractor import extract_profile_data, save_results, save_single_result, display_record
+from data_extractor import (
+    extract_profile_data, save_results, save_single_result,
+    display_record, load_completed_rows,
+)
 
 # ── Logging Setup ───────────────────────────────────────────
 # Fix for Windows console encoding
@@ -274,6 +278,31 @@ async def wait_for_manual_captcha_solve(page, timeout_seconds: int = CAPTCHA_SOL
     return False
 
 
+# Selector that indicates the address search form has loaded and is usable.
+FORM_READY_SELECTOR = (
+    '#StreetAddress, input[name="StreetAddress"], '
+    '#searchAddress-tab, input[placeholder*="Address" i]'
+)
+# Selector that indicates a results list or a profile detail page has loaded.
+RESULTS_READY_SELECTOR = '.card, .person-detail, .result-item'
+# Selector that indicates a profile detail page (the page we extract from) loaded.
+DETAIL_READY_SELECTOR = 'h1, .person-detail, script[type="application/ld+json"]'
+
+
+async def wait_for_any(page, selector: str, timeout: int = ELEMENT_TIMEOUT) -> bool:
+    """Wait until any element matching the (comma-separated) CSS selector becomes
+    visible. Returns True if found, False on timeout — never raises.
+
+    This replaces blind `wait_for_timeout` sleeps: we proceed the instant the page
+    is actually ready instead of always waiting a fixed number of seconds, while
+    still capping the wait so a missing element can't hang the run."""
+    try:
+        await page.wait_for_selector(selector, timeout=timeout, state="visible")
+        return True
+    except Exception:
+        return False
+
+
 async def search_property(page, target_name: str, address: str, city: str, state: str) -> dict | None:
     """
     Core scraping logic: navigate, fill form, submit, extract data.
@@ -295,8 +324,10 @@ async def search_property(page, target_name: str, address: str, city: str, state
     try:
         await page.goto(TARGET_URL, wait_until="domcontentloaded",
                         timeout=PAGE_LOAD_TIMEOUT)
-        # Give page more time to settle (Cloudflare JS needs time)
-        await page.wait_for_timeout(8000)
+        # Proceed as soon as the search form appears rather than always sleeping.
+        # On a Cloudflare challenge the form won't show — that's handled in Step 2.
+        if not await wait_for_any(page, FORM_READY_SELECTOR, timeout=10000):
+            logger.debug("[SEARCH] Search form not visible yet (possible challenge page)")
     except Exception as e:
         logger.error(f"[SEARCH] Failed to load homepage: {e}")
         return None
@@ -308,9 +339,10 @@ async def search_property(page, target_name: str, address: str, city: str, state
         if not solved:
             logger.error("[SEARCH] Could not solve Cloudflare challenge (timed out)")
             return "CHALLENGE_FAILED"
-        # Wait for the page to reload after challenge (15s as requested)
-        logger.info("[SEARCH] Waiting 15s for page to settle after CAPTCHA solve...")
-        await page.wait_for_timeout(15000)
+        # Wait for the real page (search form) to load after the challenge clears,
+        # up to 15s — returns early the moment the form appears.
+        logger.info("[SEARCH] Waiting for page to settle after CAPTCHA solve...")
+        await wait_for_any(page, FORM_READY_SELECTOR, timeout=15000)
         # Check if we're still on the challenge page
         if await is_cloudflare_challenge(page):
             logger.error("[SEARCH] Still on challenge page after solving")
@@ -332,7 +364,8 @@ async def search_property(page, target_name: str, address: str, city: str, state
             'li:has-text("Address") a'
         ).first
         await address_tab.click(timeout=ELEMENT_TIMEOUT)
-        await page.wait_for_timeout(1000)
+        # Wait for the street field to become visible instead of a fixed 1s sleep.
+        await wait_for_any(page, '#StreetAddress, input[name="StreetAddress"]', timeout=ELEMENT_TIMEOUT)
         logger.info("[SEARCH] Clicked Address tab")
     except Exception as e:
         logger.warning(f"[SEARCH] Could not click address tab (may already be active): {e}")
@@ -381,7 +414,8 @@ async def search_property(page, target_name: str, address: str, city: str, state
     # Step 7: Wait for results page
     try:
         await page.wait_for_load_state("domcontentloaded", timeout=PAGE_LOAD_TIMEOUT)
-        await page.wait_for_timeout(3000)
+        # Wait for results/detail content to appear rather than a blind 3s sleep.
+        await wait_for_any(page, RESULTS_READY_SELECTOR, timeout=ELEMENT_TIMEOUT)
     except Exception as e:
         logger.warning(f"[SEARCH] Timeout waiting for results: {e}")
 
@@ -391,7 +425,7 @@ async def search_property(page, target_name: str, address: str, city: str, state
         solved = await wait_for_manual_captcha_solve(page)
         if not solved:
             return None
-        await page.wait_for_timeout(5000)
+        await wait_for_any(page, RESULTS_READY_SELECTOR, timeout=10000)
 
     if await is_blocked(page):
         logger.warning("[SEARCH] Blocked after search submission")
@@ -428,7 +462,7 @@ async def search_property(page, target_name: str, address: str, city: str, state
                 if await result_link.is_visible(timeout=ELEMENT_TIMEOUT):
                     await result_link.click()
                     await page.wait_for_load_state("domcontentloaded", timeout=PAGE_LOAD_TIMEOUT)
-                    await page.wait_for_timeout(2000)
+                    await wait_for_any(page, DETAIL_READY_SELECTOR, timeout=ELEMENT_TIMEOUT)
                     logger.info("[SEARCH] Clicked first result link (fallback)")
             else:
                 best_score = -1
@@ -475,7 +509,7 @@ async def search_property(page, target_name: str, address: str, city: str, state
                 if best_link and await best_link.is_visible():
                     await best_link.click()
                     await page.wait_for_load_state("domcontentloaded", timeout=PAGE_LOAD_TIMEOUT)
-                    await page.wait_for_timeout(2000)
+                    await wait_for_any(page, DETAIL_READY_SELECTOR, timeout=ELEMENT_TIMEOUT)
                     logger.info(f"[SEARCH] Clicked best matching link for '{best_name}'")
                 else:
                     logger.warning("[SEARCH] Found best match but could not find a clickable link. Trying alternate.")
@@ -483,7 +517,7 @@ async def search_property(page, target_name: str, address: str, city: str, state
                     try:
                         await result_cards.nth(0).click()
                         await page.wait_for_load_state("domcontentloaded", timeout=PAGE_LOAD_TIMEOUT)
-                        await page.wait_for_timeout(2000)
+                        await wait_for_any(page, DETAIL_READY_SELECTOR, timeout=ELEMENT_TIMEOUT)
                     except:
                         logger.warning("[SEARCH] Could not click card, trying first link found.")
                         await page.locator('a[href*="/find/person/"]').first.click()
@@ -545,6 +579,24 @@ async def main():
     except ValueError:
         logger.warning("[INIT] Invalid numeric input. Defaulting to ALL rows.")
     print("=" * 50 + "\n")
+
+    # ── Step 3b: Skip rows already saved in results.csv (resume) ──
+    completed = load_completed_rows(OUTPUT_CSV)
+    if completed:
+        already = [r for r in rows if r["Input Row #"] in completed]
+        if already:
+            answer = input(
+                f"Found {len(already)} of these rows already in {os.path.basename(OUTPUT_CSV)}. "
+                "Skip them and resume? [Y/n]: "
+            ).strip().lower()
+            if answer in ("", "y", "yes"):
+                rows = [r for r in rows if r["Input Row #"] not in completed]
+                logger.info(f"[RESUME] Skipping {len(already)} already-scraped row(s); {len(rows)} remaining")
+                if not rows:
+                    logger.info("[RESUME] Nothing left to process — all selected rows are already done.")
+                    return
+            else:
+                logger.info("[RESUME] Re-scraping all selected rows (duplicates may be appended)")
 
     # ── Step 4: Launch Chrome with Personal Profile ──────
     launch_chrome_with_profile()
