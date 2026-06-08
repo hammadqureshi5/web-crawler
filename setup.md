@@ -4,7 +4,7 @@
 
 - **Python 3.11+** installed and on PATH
 - **Google Chrome** with the **NopeCHA** extension installed in the profile used for scraping (handles CAPTCHAs)
-- **ExpressVPN** desktop app (v12.69+) — optional, IP rotation is currently disabled
+- *(Optional)* A **US residential proxy** with IP-whitelist auth, if you need IP rotation — set `PROXY_SERVER` in `config.py`
 
 ---
 
@@ -40,15 +40,18 @@ Replace the sample `input.csv` with your real data. Required columns:
 | Property city    | New York      |
 | property state   | NY            |
 
-### 5. Verify ExpressVPN CLI
+### 5. (Optional) Configure a proxy for IP rotation
 
-Make sure ExpressVPN is running, then test:
+If your own IP gets blocked/rate-limited, sign up with a US residential proxy
+provider, whitelist your current public IP in their dashboard (so no
+username/password is needed), and set the endpoint in `config.py`:
 
-```powershell
-& "C:\Program Files (x86)\ExpressVPN\expressvpn-ui\ExpressVPN.exe" status
+```python
+PROXY_SERVER = "us.gate.iproyal.com:12321"   # empty "" = no proxy
 ```
 
-If the path is different, update `EXPRESSVPN_CLI_PATH` in `config.py`.
+On startup the scraper logs the outbound IP so you can confirm the proxy is
+in effect. Leave `PROXY_SERVER = ""` to run on your direct connection.
 
 ### 6. Run Phase 1 Test
 
@@ -101,8 +104,8 @@ Logs are saved to `scraper.log`.
 
 | Problem                  | Solution                                          |
 |--------------------------|---------------------------------------------------|
-| 403 Forbidden            | Script auto-rotates VPN. Check ExpressVPN is running. |
+| 403 Forbidden            | Your IP may be rate-limited. Set `PROXY_SERVER` in config.py to rotate IPs. |
 | CAPTCHA not solving      | Make sure NopeCHA is enabled in the Chrome profile, or solve it manually in the browser window. |
 | Empty results            | Site may have changed selectors. Check logs.       |
-| VPN command not found    | Update `EXPRESSVPN_CLI_PATH` in config.py.         |
+| Proxy not taking effect  | Check the `[IP]` line in the logs; whitelist your IP in the provider dashboard. |
 | Browser detected as bot  | Try setting `HEADLESS = False` in config.py.       |

@@ -2,14 +2,11 @@
 # scraper.py — Main Orchestrator
 # ============================================================
 """
-TruePeopleSearch Address-Based Data Extraction Script
-Phase 1: Processes only the first CSV row for testing.
-Set PHASE_1_TESTING = False in config.py for full batch mode.
+TruePeopleSearch Address-Based Data Extraction Script.
 
-MODIFICATIONS:
-- Uses personal Chrome profile (Default = Work) with extensions
-- CAPTCHA solver disabled — relies on browser extension + manual solve
-- IP rotation (VPN) temporarily disabled
+- Uses your personal Chrome profile (with extensions) via the remote debugging port.
+- CAPTCHAs are handled by the NopeCHA extension or solved manually in the browser.
+- Optional IP rotation through a proxy — set PROXY_SERVER in config.py.
 """
 
 import asyncio
@@ -29,8 +26,6 @@ from config import (
     REQUEST_DELAY_MIN, REQUEST_DELAY_MAX, MAX_RETRIES, CAPTCHA_SOLVE_TIMEOUT,
     PROXY_SERVER, PROXY_BYPASS,
 )
-# VPN rotation disabled — imports kept for reference but not used
-# from vpn_manager import initial_connect, rotate_vpn
 from data_extractor import (
     extract_profile_data, save_results, save_single_result,
     display_record, load_completed_rows,
@@ -575,13 +570,11 @@ async def search_property(page, target_name: str, address: str, city: str, state
 
 async def main():
     """Main entry point — orchestrates the full scraping pipeline."""
-    # ── Step 1: VPN Setup (DISABLED) ────────────────────
-    logger.info("[INIT] VPN/IP rotation is DISABLED — running with current IP")
-    # vpn_ok = initial_connect(max_retries=3, wait_after_connect=10)
-    # if not vpn_ok:
-    #     logger.warning("[INIT] VPN initial connection failed — will try rotation during loop")
-    # else:
-    #     logger.info("[INIT] VPN is ACTIVE and connected")
+    # ── Step 1: Report IP-rotation mode ─────────────────
+    if PROXY_SERVER:
+        logger.info(f"[INIT] IP rotation via proxy: {PROXY_SERVER}")
+    else:
+        logger.info("[INIT] No proxy configured — running on your direct IP")
 
     # ── Step 2: Read Input CSV ───────────────────────────
     try:
@@ -697,9 +690,8 @@ async def main():
                     data = await search_property(page, target_name, address, city, state)
 
                     if data == "CHALLENGE_FAILED":
-                        # Challenge could not be solved — VPN rotation disabled
-                        logger.warning(f"[ROW {idx}] Challenge failed — VPN rotation disabled, retrying...")
-                        # rotate_vpn(max_retries=5, wait_after_connect=15)
+                        # Challenge could not be solved — back off and retry.
+                        logger.warning(f"[ROW {idx}] Challenge failed, retrying after backoff...")
                         await page.wait_for_timeout(10000)
 
                     elif data and isinstance(data, dict):
@@ -723,9 +715,9 @@ async def main():
                         break
 
                     elif await is_blocked(page):
-                        # Blocked — VPN rotation disabled
-                        logger.warning(f"[ROW {idx}] Blocked (403) — VPN rotation disabled, retrying...")
-                        # rotate_vpn(max_retries=5, wait_after_connect=15)
+                        # Blocked (403). If you keep hitting this, set PROXY_SERVER
+                        # in config.py to rotate your IP.
+                        logger.warning(f"[ROW {idx}] Blocked (403), retrying after backoff...")
                         logger.info(f"[ROW {idx}] Waiting 10s before retry...")
                         await page.wait_for_timeout(10000)
 
