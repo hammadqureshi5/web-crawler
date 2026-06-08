@@ -4,13 +4,24 @@
 
 import os
 
+# Load variables from a local .env file if python-dotenv is installed.
+# Falls back silently to real environment variables if it isn't.
+try:
+    from dotenv import load_dotenv
+    load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
+except ImportError:
+    pass
+
 # ── Phase Control ───────────────────────────────────────────
 # Set to True to process ONLY the first row of the CSV (for testing)
 # Set to False to process ALL rows
 PHASE_1_TESTING = True
 
 # ── CapSolver Configuration ─────────────────────────────────
-CAPSOLVER_API_KEY = "CAP-61E6852CA02826C377A82A2DEE2BC7870F928C27EF67AD9D4B906B607F83175A"
+# Read from environment so the secret is never committed to git.
+# Set it in a local .env file (see .env.example) or your shell:
+#   PowerShell:  $env:CAPSOLVER_API_KEY = "CAP-..."
+CAPSOLVER_API_KEY = os.environ.get("CAPSOLVER_API_KEY", "")
 
 # Turnstile site key (auto-detected at runtime; fallback hardcoded here)
 TURNSTILE_SITE_KEY = None  # Will be auto-detected from the page

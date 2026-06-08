@@ -10,6 +10,14 @@ from config import OUTPUT_CSV
 
 logger = logging.getLogger(__name__)
 
+# Canonical output column order — shared by all CSV writers.
+OUTPUT_FIELDNAMES = [
+    "Input Row #",
+    "Property Address", "Property City", "Property State", "Property Zip",
+    "Mailing Address", "Mailing City", "Mailing State", "Mailing Zip",
+    "Phone Numbers", "Emails", "Agent Name", "Agent Address",
+]
+
 
 async def extract_from_json_ld(page) -> dict | None:
     """Extract person data from JSON-LD structured data on a profile page."""
@@ -231,15 +239,42 @@ def display_record(data: dict):
     logger.info("═" * 50 + "\n")
 
 
+def save_single_result(data: dict, output_path: str = None):
+    """Append a single result row to CSV immediately after extraction.
+    Creates the file with headers if it doesn't exist yet."""
+    if not output_path:
+        output_path = OUTPUT_CSV
+    fieldnames = OUTPUT_FIELDNAMES
+    file_exists = os.path.exists(output_path) and os.path.getsize(output_path) > 0
+
+    try:
+        with open(output_path, "a", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+            if not file_exists:
+                writer.writeheader()
+            writer.writerow(data)
+        logger.info(f"[OUTPUT] Saved row {data.get('Input Row #', '?')} to {output_path}")
+    except PermissionError:
+        logger.error(f"[ERROR] COULD NOT SAVE TO {output_path} — file is open in another program")
+        import datetime
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        fallback_path = output_path.replace(".csv", f"_{timestamp}.csv")
+        try:
+            with open(fallback_path, "a", newline="", encoding="utf-8") as f:
+                writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+                if not os.path.exists(fallback_path) or os.path.getsize(fallback_path) == 0:
+                    writer.writeheader()
+                writer.writerow(data)
+            logger.info(f"[OUTPUT] Backup saved to: {fallback_path}")
+        except Exception as e:
+            logger.error(f"[ERROR] Fallback save failed: {e}")
+
+
 def save_results(results: list[dict], output_path: str = None):
     """Save results to CSV. Creates file with headers or appends."""
     if not output_path:
         output_path = OUTPUT_CSV
-    fieldnames = [
-        "Property Address", "Property City", "Property State", "Property Zip",
-        "Mailing Address", "Mailing City", "Mailing State", "Mailing Zip",
-        "Phone Numbers", "Emails", "Agent Name", "Agent Address",
-    ]
+    fieldnames = OUTPUT_FIELDNAMES
     file_exists = os.path.exists(output_path)
     
     try:
