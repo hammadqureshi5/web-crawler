@@ -27,6 +27,7 @@ from config import (
     PHASE_1_TESTING, TARGET_URL, INPUT_CSV, OUTPUT_CSV, LOG_FILE,
     USER_AGENT, VIEWPORT, PAGE_LOAD_TIMEOUT, ELEMENT_TIMEOUT,
     REQUEST_DELAY_MIN, REQUEST_DELAY_MAX, MAX_RETRIES, CAPTCHA_SOLVE_TIMEOUT,
+    PROXY_SERVER, PROXY_BYPASS,
 )
 # VPN rotation disabled — imports kept for reference but not used
 # from vpn_manager import initial_connect, rotate_vpn
@@ -111,6 +112,20 @@ def wait_for_cdp_ready(port: int, timeout: int = 15) -> bool:
     return False
 
 
+async def log_public_ip(page) -> str | None:
+    """Fetch and log the current outbound public IP. Used at startup to confirm
+    whether the proxy (if configured) is actually taking effect. Non-fatal."""
+    try:
+        resp = await page.request.get("https://api.ipify.org?format=json", timeout=10000)
+        ip = (await resp.json()).get("ip")
+        tag = f"via proxy {PROXY_SERVER}" if PROXY_SERVER else "direct connection"
+        logger.info(f"[IP] Outbound IP: {ip} ({tag})")
+        return ip
+    except Exception as e:
+        logger.warning(f"[IP] Could not determine outbound IP: {e}")
+        return None
+
+
 def launch_chrome_with_profile():
     """
     Launch Chrome with the personal profile and remote debugging enabled.
@@ -131,6 +146,17 @@ def launch_chrome_with_profile():
         '--no-default-browser-check',
         '--start-maximized'
     ]
+
+    # Route through a proxy if configured. Chrome's --proxy-server takes only
+    # host:port (no inline credentials) — use the provider's IP-whitelist auth.
+    if PROXY_SERVER:
+        chrome_args_list.append(f'--proxy-server={PROXY_SERVER}')
+        if PROXY_BYPASS:
+            chrome_args_list.append(f'--proxy-bypass-list={PROXY_BYPASS}')
+        logger.info(f"[CHROME] Using proxy: {PROXY_SERVER}")
+    else:
+        logger.info("[CHROME] No proxy configured — using your direct connection")
+
     # Join with commas and wrap each in quotes for PowerShell array
     chrome_args_string = ", ".join([f"'{a}'" for a in chrome_args_list])
 
@@ -648,6 +674,9 @@ async def main():
                         pass
 
             logger.info("[INIT] Browser ready with personal profile + extensions")
+
+            # Confirm the outbound IP (so you can verify the proxy is in effect).
+            await log_public_ip(page)
 
             # ── Step 5: Process Each Row ─────────────────────
             for idx, row in enumerate(rows, 1):

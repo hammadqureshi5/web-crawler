@@ -14,7 +14,29 @@ PHASE_1_TESTING = True
 # personal Chrome profile) or manually in the browser window. No external
 # CAPTCHA-solving API is used.
 
+# ── Proxy Configuration ─────────────────────────────────────
+# Route Chrome through a (US residential) proxy so the target site sees a
+# rotating / different IP instead of your own. Leave PROXY_SERVER empty ("")
+# to run directly on your current connection (no proxy).
+#
+# Format:  "host:port"  or  "http://host:port"  or  "socks5://host:port"
+# Examples:
+#   "gate.smartproxy.com:7000"          (rotating endpoint — new IP per request)
+#   "us.gate.iproyal.com:12321"         (US sticky/rotating endpoint)
+#
+# AUTH: Chrome's --proxy-server does NOT accept inline user:pass credentials.
+#   → Use your provider's "IP whitelist" / "allowed IPs" auth: add your current
+#     public IP in the provider dashboard, then no username/password is needed.
+#   → If your provider only supports user:pass auth, tell the maintainer — that
+#     path needs launch_persistent_context (a larger change), not --proxy-server.
+PROXY_SERVER = ""  # e.g. "us.gate.iproyal.com:12321"  (empty = no proxy)
+
+# Optional: hosts that should bypass the proxy (comma-separated, Chrome syntax).
+PROXY_BYPASS = "localhost,127.0.0.1"
+
 # ── ExpressVPN Configuration ────────────────────────────────
+# NOTE: VPN rotation is currently disabled in scraper.py. Prefer PROXY_SERVER
+# above for IP rotation. These settings are kept for the optional VPN path.
 EXPRESSVPN_CLI_PATH = r"C:\Program Files (x86)\ExpressVPN\services\ExpressVPN.CLI.exe"
 
 # US server locations to rotate through (round-robin)
