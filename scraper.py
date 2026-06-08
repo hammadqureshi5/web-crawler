@@ -25,13 +25,11 @@ from playwright.async_api import async_playwright
 from config import (
     PHASE_1_TESTING, TARGET_URL, INPUT_CSV, OUTPUT_CSV, LOG_FILE,
     USER_AGENT, VIEWPORT, PAGE_LOAD_TIMEOUT, ELEMENT_TIMEOUT,
-    REQUEST_DELAY_MIN, REQUEST_DELAY_MAX, MAX_RETRIES,
+    REQUEST_DELAY_MIN, REQUEST_DELAY_MAX, MAX_RETRIES, CAPTCHA_SOLVE_TIMEOUT,
 )
-# CAPTCHA solver import REMOVED — using browser extension instead
-# from captcha_solver import handle_cloudflare_challenge
-# VPN manager import REMOVED — IP rotation temporarily disabled
+# VPN rotation disabled — imports kept for reference but not used
 # from vpn_manager import initial_connect, rotate_vpn
-from data_extractor import extract_profile_data, save_results, display_record
+from data_extractor import extract_profile_data, save_results, save_single_result, display_record
 
 # ── Logging Setup ───────────────────────────────────────────
 # Fix for Windows console encoding
@@ -154,7 +152,9 @@ def launch_chrome_with_profile():
 
 
 def read_input_csv(path: str) -> list[dict]:
-    """Read addresses from the input CSV file using raw reader for robustness."""
+    """Read addresses from the input CSV file using raw reader for robustness.
+    Each row dict includes 'Input Row #' — the 1-based row number from the CSV
+    (excluding the header), so it matches the line the user sees in Excel/Sheets."""
     rows = []
     with open(path, "r", encoding="utf-8-sig") as f:
         reader = csv.reader(f)
@@ -181,7 +181,7 @@ def read_input_csv(path: str) -> list[dict]:
         
         logger.info(f"[INPUT] Column map: Name={name_idx}, Addr={addr_idx}, City={city_idx}, State={state_idx}")
 
-        for line in reader:
+        for row_num, line in enumerate(reader, start=2):  # start=2 because row 1 is header
             if not line: continue
             
             # Ensure line has enough columns
@@ -191,6 +191,7 @@ def read_input_csv(path: str) -> list[dict]:
             state = line[state_idx].strip() if len(line) > state_idx else ""
 
             rows.append({
+                "Input Row #": row_num,
                 "Target Name": target_name,
                 "Property Address": address,
                 "Property City": city,
@@ -237,10 +238,10 @@ async def is_blocked(page) -> bool:
         return False
 
 
-async def wait_for_manual_captcha_solve(page, timeout_seconds: int = 300) -> bool:
+async def wait_for_manual_captcha_solve(page, timeout_seconds: int = CAPTCHA_SOLVE_TIMEOUT) -> bool:
     """
-    Wait for the CAPTCHA to be solved — either by the browser extension
-    or manually by the user. Polls every 3 seconds.
+    Wait for the CAPTCHA to be solved — either by the NopeCHA browser
+    extension or manually by the user. Polls every 3 seconds.
 
     Args:
         page: Playwright page object
@@ -307,8 +308,9 @@ async def search_property(page, target_name: str, address: str, city: str, state
         if not solved:
             logger.error("[SEARCH] Could not solve Cloudflare challenge (timed out)")
             return "CHALLENGE_FAILED"
-        # Wait for the page to reload after challenge
-        await page.wait_for_timeout(5000)
+        # Wait for the page to reload after challenge (15s as requested)
+        logger.info("[SEARCH] Waiting 15s for page to settle after CAPTCHA solve...")
+        await page.wait_for_timeout(15000)
         # Check if we're still on the challenge page
         if await is_cloudflare_challenge(page):
             logger.error("[SEARCH] Still on challenge page after solving")
@@ -496,19 +498,13 @@ async def search_property(page, target_name: str, address: str, city: str, state
 
 async def main():
     """Main entry point — orchestrates the full scraping pipeline."""
-    logger.info("=" * 60)
-    logger.info("TruePeopleSearch Data Extraction Script")
-    logger.info(f"Mode: {'PHASE 1 (single row testing)' if PHASE_1_TESTING else 'FULL BATCH'}")
-    logger.info("CAPTCHA: Extension/Manual solve (automated solver DISABLED)")
-    logger.info("VPN/IP Rotation: DISABLED (temporarily)")
-    logger.info("=" * 60)
-
-    # ── Step 1: VPN Setup — DISABLED ─────────────────────
-    # logger.info("[INIT] Setting up VPN connection...")
-    # vpn_ok = initial_connect()
+    # ── Step 1: VPN Setup (DISABLED) ────────────────────
+    logger.info("[INIT] VPN/IP rotation is DISABLED — running with current IP")
+    # vpn_ok = initial_connect(max_retries=3, wait_after_connect=10)
     # if not vpn_ok:
-    #     logger.warning("[INIT] VPN connection failed — continuing without VPN")
-    logger.info("[INIT] VPN/IP rotation is DISABLED — using current IP")
+    #     logger.warning("[INIT] VPN initial connection failed — will try rotation during loop")
+    # else:
+    #     logger.info("[INIT] VPN is ACTIVE and connected")
 
     # ── Step 2: Read Input CSV ───────────────────────────
     try:
@@ -525,12 +521,32 @@ async def main():
         logger.error("[INIT] No rows found in CSV file")
         return
 
-    # Phase 1: only first row
-    if PHASE_1_TESTING:
-        rows = rows[:1]
-        logger.info("[INIT] Phase 1 mode: processing first row only")
+    # ── Step 3: Select Row Range ─────────────────────────
+    print("\n" + "=" * 50)
+    print(f" CSV LOADED: {len(rows)} total records")
+    print("=" * 50)
+    
+    try:
+        start_input = input(f"Enter START row number (1-{len(rows)}, default 1): ").strip()
+        start_idx = int(start_input) if start_input else 1
+        
+        end_input = input(f"Enter END row number ({start_idx}-{len(rows)}, default {len(rows)}): ").strip()
+        end_idx = int(end_input) if end_input else len(rows)
+        
+        # Slice the rows (subtract 1 for 0-based indexing)
+        rows_to_process = rows[max(0, start_idx-1) : end_idx]
+        
+        if not rows_to_process:
+            logger.error(f"[INIT] Invalid range: {start_idx} to {end_idx}. Exiting.")
+            return
+            
+        logger.info(f"[INIT] Selected range: Rows {start_idx} to {end_idx} (Total: {len(rows_to_process)})")
+        rows = rows_to_process
+    except ValueError:
+        logger.warning("[INIT] Invalid numeric input. Defaulting to ALL rows.")
+    print("=" * 50 + "\n")
 
-    # ── Step 3: Launch Chrome with Personal Profile ──────
+    # ── Step 4: Launch Chrome with Personal Profile ──────
     launch_chrome_with_profile()
     results = []
     failed = []
@@ -564,15 +580,16 @@ async def main():
 
             logger.info("[INIT] Browser ready with personal profile + extensions")
 
-            # ── Step 4: Process Each Row ─────────────────────
+            # ── Step 5: Process Each Row ─────────────────────
             for idx, row in enumerate(rows, 1):
+                csv_row_num = row["Input Row #"]
                 target_name = row["Target Name"]
                 address = row["Property Address"]
                 city = row["Property City"]
                 state = row["Property State"]
 
                 logger.info(f"\n{'─' * 50}")
-                logger.info(f"[ROW {idx}/{len(rows)}] {target_name} | {address}, {city}, {state}")
+                logger.info(f"[ROW {idx}/{len(rows)}] (Input CSV Row #{csv_row_num}) {target_name} | {address}, {city}, {state}")
                 logger.info(f"{'─' * 50}")
 
                 success = False
@@ -582,13 +599,14 @@ async def main():
                     data = await search_property(page, target_name, address, city, state)
 
                     if data == "CHALLENGE_FAILED":
-                        # Challenge could not be solved — VPN rotation DISABLED
-                        logger.warning(f"[ROW {idx}] Challenge failed — VPN rotation is DISABLED")
-                        logger.warning(f"[ROW {idx}] Please solve the CAPTCHA manually or restart")
-                        await page.wait_for_timeout(5000)
+                        # Challenge could not be solved — VPN rotation disabled
+                        logger.warning(f"[ROW {idx}] Challenge failed — VPN rotation disabled, retrying...")
+                        # rotate_vpn(max_retries=5, wait_after_connect=15)
+                        await page.wait_for_timeout(10000)
 
                     elif data and isinstance(data, dict):
                         # Merge input fields with extracted data
+                        data["Input Row #"] = csv_row_num
                         data["Property Address"] = address
                         data["Property City"] = city
                         data["Property State"] = state
@@ -598,16 +616,20 @@ async def main():
                         # Display results to user
                         display_record(data)
                         
+                        # Save this result to CSV IMMEDIATELY
+                        save_single_result(data, OUTPUT_CSV)
+                        
                         results.append(data)
                         logger.info(f"[ROW {idx}] SUCCESS - {data.get('Agent Name', 'N/A')}")
                         success = True
                         break
 
                     elif await is_blocked(page):
-                        # Blocked — VPN rotation DISABLED
-                        logger.warning(f"[ROW {idx}] Blocked — VPN rotation is DISABLED")
-                        logger.warning(f"[ROW {idx}] Waiting 30s before retry...")
-                        await page.wait_for_timeout(30000)
+                        # Blocked — VPN rotation disabled
+                        logger.warning(f"[ROW {idx}] Blocked (403) — VPN rotation disabled, retrying...")
+                        # rotate_vpn(max_retries=5, wait_after_connect=15)
+                        logger.info(f"[ROW {idx}] Waiting 10s before retry...")
+                        await page.wait_for_timeout(10000)
 
                     else:
                         logger.warning(f"[ROW {idx}] Attempt {attempt} failed, retrying...")
@@ -635,11 +657,11 @@ async def main():
         # Don't kill Chrome — user may want to keep it open
         pass
 
-    # ── Step 5: Save Results ─────────────────────────────
-    if results:
-        save_results(results, OUTPUT_CSV)
+    # ── Step 6: Final Summary (results already saved incrementally) ──
+    if not results:
+        logger.warning("[OUTPUT] No successful extractions were saved")
     else:
-        logger.warning("[OUTPUT] No successful extractions to save")
+        logger.info(f"[OUTPUT] All {len(results)} result(s) were saved incrementally to {OUTPUT_CSV}")
 
     # ── Summary ──────────────────────────────────────────
     logger.info("\n" + "=" * 60)

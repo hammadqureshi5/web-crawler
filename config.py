@@ -4,27 +4,15 @@
 
 import os
 
-# Load variables from a local .env file if python-dotenv is installed.
-# Falls back silently to real environment variables if it isn't.
-try:
-    from dotenv import load_dotenv
-    load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
-except ImportError:
-    pass
-
 # ── Phase Control ───────────────────────────────────────────
 # Set to True to process ONLY the first row of the CSV (for testing)
 # Set to False to process ALL rows
 PHASE_1_TESTING = True
 
-# ── CapSolver Configuration ─────────────────────────────────
-# Read from environment so the secret is never committed to git.
-# Set it in a local .env file (see .env.example) or your shell:
-#   PowerShell:  $env:CAPSOLVER_API_KEY = "CAP-..."
-CAPSOLVER_API_KEY = os.environ.get("CAPSOLVER_API_KEY", "")
-
-# Turnstile site key (auto-detected at runtime; fallback hardcoded here)
-TURNSTILE_SITE_KEY = None  # Will be auto-detected from the page
+# ── CAPTCHA Handling ────────────────────────────────────────
+# CAPTCHAs are solved by the NopeCHA Chrome extension (loaded via the
+# personal Chrome profile) or manually in the browser window. No external
+# CAPTCHA-solving API is used.
 
 # ── ExpressVPN Configuration ────────────────────────────────
 EXPRESSVPN_CLI_PATH = r"C:\Program Files (x86)\ExpressVPN\services\ExpressVPN.CLI.exe"
@@ -56,7 +44,7 @@ REQUEST_DELAY_MAX = 7       # Maximum seconds between searches
 PAGE_LOAD_TIMEOUT = 30000   # Milliseconds for page loads
 ELEMENT_TIMEOUT = 15000     # Milliseconds for element waits
 MAX_RETRIES = 3             # Max retries per address before skipping
-CAPTCHA_SOLVE_TIMEOUT = 120 # Seconds to wait for CAPTCHA solve
+CAPTCHA_SOLVE_TIMEOUT = 300 # Seconds to wait for the extension/manual CAPTCHA solve
 VPN_CONNECT_WAIT = 6        # Seconds to wait after VPN connect
 VPN_DISCONNECT_WAIT = 3     # Seconds to wait after VPN disconnect
 
