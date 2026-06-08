@@ -41,7 +41,7 @@ if sys.stdout.encoding.lower() != 'utf-8':
     try:
         import codecs
         sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
-    except:
+    except Exception:
         pass
 
 logging.basicConfig(
@@ -155,8 +155,34 @@ def launch_chrome_with_profile():
         raise RuntimeError("Chrome debugging port never became available. Is Chrome installed correctly?")
 
 
+def _find_column(header: list[str], must_contain: str, prefer: str = None,
+                 avoid: str = None, default: int = None) -> int | None:
+    """Return the index of the best-matching header column.
+
+    Matches columns whose (lowercased) name contains `must_contain`. When several
+    match, a column also containing `prefer` wins (e.g. prefer 'property' over
+    'mailing'); columns containing `avoid` are only used as a last resort. Falls
+    back to `default` if nothing matches.
+
+    Positional parsing is used (not csv.DictReader) because the real input file
+    has blank, duplicated headers — the target-name column has an empty header —
+    which DictReader would silently merge and drop."""
+    candidates = [i for i, c in enumerate(header) if must_contain in c.lower()]
+    if avoid:
+        # Avoided columns are removed entirely; if that empties the pool, the
+        # caller's default wins (e.g. 'Agent Name' is never used as Target Name).
+        candidates = [i for i in candidates if avoid not in header[i].lower()]
+    if not candidates:
+        return default
+    if prefer:
+        preferred = [i for i in candidates if prefer in header[i].lower()]
+        if preferred:
+            return preferred[0]
+    return candidates[0]
+
+
 def read_input_csv(path: str) -> list[dict]:
-    """Read addresses from the input CSV file using raw reader for robustness.
+    """Read addresses from the input CSV file using a positional reader for robustness.
     Each row dict includes 'Input Row #' — the 1-based row number from the CSV
     (excluding the header), so it matches the line the user sees in Excel/Sheets."""
     rows = []
@@ -165,41 +191,32 @@ def read_input_csv(path: str) -> list[dict]:
         header = next(reader, None)
         if not header:
             return []
-            
+
         logger.info(f"[INPUT] CSV Header: {header}")
-        
-        # Find column indices
-        name_idx = 0  # Default to first column
-        addr_idx = 1  # Default to second
-        city_idx = 2
-        state_idx = 3
-        
-        for i, col in enumerate(header):
-            col_l = col.lower()
-            if "addres" in col_l:
-                if addr_idx == 1: addr_idx = i
-            elif "city" in col_l:
-                city_idx = i
-            elif "state" in col_l:
-                state_idx = i
-        
+
+        # Resolve column indices, preferring the PROPERTY columns over MAILING,
+        # and a name column that isn't the scraped "Agent Name". Defaults assume
+        # the legacy layout: [name, address, city, state, ...].
+        name_idx = _find_column(header, "name", avoid="agent", default=0)
+        addr_idx = _find_column(header, "addres", prefer="property", default=1)
+        city_idx = _find_column(header, "city", prefer="property", default=2)
+        state_idx = _find_column(header, "state", prefer="property", default=3)
+
         logger.info(f"[INPUT] Column map: Name={name_idx}, Addr={addr_idx}, City={city_idx}, State={state_idx}")
 
+        def cell(line, idx):
+            return line[idx].strip() if idx is not None and len(line) > idx else ""
+
         for row_num, line in enumerate(reader, start=2):  # start=2 because row 1 is header
-            if not line: continue
-            
-            # Ensure line has enough columns
-            target_name = line[name_idx].strip() if len(line) > name_idx else ""
-            address = line[addr_idx].strip() if len(line) > addr_idx else ""
-            city = line[city_idx].strip() if len(line) > city_idx else ""
-            state = line[state_idx].strip() if len(line) > state_idx else ""
+            if not line or not any(c.strip() for c in line):
+                continue
 
             rows.append({
                 "Input Row #": row_num,
-                "Target Name": target_name,
-                "Property Address": address,
-                "Property City": city,
-                "Property State": state,
+                "Target Name": cell(line, name_idx),
+                "Property Address": cell(line, addr_idx),
+                "Property City": cell(line, city_idx),
+                "Property State": cell(line, state_idx),
             })
     logger.info(f"[INPUT] Loaded {len(rows)} rows from {path}")
     return rows
@@ -518,7 +535,7 @@ async def search_property(page, target_name: str, address: str, city: str, state
                         await result_cards.nth(0).click()
                         await page.wait_for_load_state("domcontentloaded", timeout=PAGE_LOAD_TIMEOUT)
                         await wait_for_any(page, DETAIL_READY_SELECTOR, timeout=ELEMENT_TIMEOUT)
-                    except:
+                    except Exception:
                         logger.warning("[SEARCH] Could not click card, trying first link found.")
                         await page.locator('a[href*="/find/person/"]').first.click()
                         await page.wait_for_load_state("domcontentloaded", timeout=PAGE_LOAD_TIMEOUT)
@@ -627,7 +644,7 @@ async def main():
                 if p != page and (p.url == "about:blank" or p.url.startswith("data:")):
                     try:
                         await p.close()
-                    except:
+                    except Exception:
                         pass
 
             logger.info("[INIT] Browser ready with personal profile + extensions")

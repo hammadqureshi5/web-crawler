@@ -158,7 +158,7 @@ async def extract_from_html(page) -> dict | None:
                 if await el.is_visible(timeout=1000):
                     result["Agent Name"] = (await el.text_content()).strip()
                     break
-            except:
+            except Exception:
                 continue
 
         # Phones
