@@ -1,0 +1,189 @@
+# ============================================================
+# config.py — Centralized configuration (Settings dataclass)
+# ============================================================
+"""All tunables live on a single ``Settings`` dataclass so the same values can
+come from built-in defaults, environment variables, or CLI flags — in that
+order of increasing precedence (CLI wins).
+
+This replaces the old module-level constants. ``DEFAULTS`` is exposed as a
+stable baseline for tests and for callers that want the unmodified values.
+
+Environment variables use the ``WEB_CRAWLER_`` prefix, e.g.
+``WEB_CRAWLER_PROXY_SERVER=us.gate.iproyal.com:12321``.
+"""
+
+import os
+from dataclasses import dataclass, field, fields, replace
+from typing import Optional
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# Project root is the directory that contains the package.
+PROJECT_DIR = os.path.dirname(BASE_DIR)
+
+# ── Target Website ──────────────────────────────────────────
+TARGET_URL = "https://www.truepeoplesearch.com/"
+
+USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/125.0.0.0 Safari/537.36"
+)
+
+
+def _default_input() -> str:
+    return os.path.join(PROJECT_DIR, "input.csv")
+
+
+def _default_output() -> str:
+    return os.path.join(PROJECT_DIR, "results.csv")
+
+
+def _default_log() -> str:
+    return os.path.join(PROJECT_DIR, "scraper.log")
+
+
+def _default_baseline() -> str:
+    return os.path.join(PROJECT_DIR, ".vpn_baseline")
+
+
+@dataclass
+class Settings:
+    """Every tunable for a scraping run. Build one with :func:`load_settings`."""
+
+    # ── File paths ──────────────────────────────────────────
+    input_csv: str = field(default_factory=_default_input)
+    output_csv: str = field(default_factory=_default_output)
+    log_file: str = field(default_factory=_default_log)
+    vpn_baseline_file: str = field(default_factory=_default_baseline)
+
+    # ── Chrome / CDP ────────────────────────────────────────
+    # chrome_path / user_data_dir default to None → auto-detect in chrome.py.
+    chrome_path: Optional[str] = None
+    user_data_dir: Optional[str] = None
+    profile_dir: str = "Profile 11"
+    cdp_port: int = 9222
+
+    # ── Proxy ───────────────────────────────────────────────
+    # host:port only — Chrome's --proxy-server does not accept inline creds.
+    proxy_server: str = ""
+    proxy_bypass: str = "localhost,127.0.0.1"
+
+    # ── Result matching ─────────────────────────────────────
+    min_match_score: float = 0.5
+
+    # ── Timing & retries (ms unless noted) ──────────────────
+    request_delay_min: float = 3.0      # seconds between searches
+    request_delay_max: float = 7.0      # seconds between searches
+    page_load_timeout: int = 30000      # ms
+    element_timeout: int = 15000        # ms
+    max_retries: int = 3
+    captcha_solve_timeout: int = 300    # seconds
+
+    # ── Browser ─────────────────────────────────────────────
+    headless: bool = False              # keep False — manual CAPTCHA needs a window
+    viewport_width: int = 1366
+    viewport_height: int = 768
+
+    # ── Row range & resume ──────────────────────────────────
+    start_row: Optional[int] = None
+    end_row: Optional[int] = None
+    resume: bool = True                 # auto-resume is the default
+    retry_failed: bool = False
+
+    # ── VPN gate ────────────────────────────────────────────
+    require_vpn: bool = False
+    skip_vpn_check: bool = False
+
+    @property
+    def viewport(self) -> dict:
+        return {"width": self.viewport_width, "height": self.viewport_height}
+
+
+# Stable baseline for tests / callers that want untouched defaults.
+DEFAULTS = Settings()
+
+
+# Maps Settings field -> (env var name, converter). Only fields that make sense
+# to override via the environment are listed.
+_ENV_MAP = {
+    "input_csv": ("WEB_CRAWLER_INPUT_CSV", str),
+    "output_csv": ("WEB_CRAWLER_OUTPUT_CSV", str),
+    "log_file": ("WEB_CRAWLER_LOG_FILE", str),
+    "vpn_baseline_file": ("WEB_CRAWLER_VPN_BASELINE", str),
+    "chrome_path": ("WEB_CRAWLER_CHROME_PATH", str),
+    "user_data_dir": ("WEB_CRAWLER_USER_DATA_DIR", str),
+    "profile_dir": ("WEB_CRAWLER_PROFILE", str),
+    "cdp_port": ("WEB_CRAWLER_CDP_PORT", int),
+    "proxy_server": ("WEB_CRAWLER_PROXY_SERVER", str),
+    "proxy_bypass": ("WEB_CRAWLER_PROXY_BYPASS", str),
+    "min_match_score": ("WEB_CRAWLER_MIN_MATCH_SCORE", float),
+    "max_retries": ("WEB_CRAWLER_MAX_RETRIES", int),
+    "captcha_solve_timeout": ("WEB_CRAWLER_CAPTCHA_TIMEOUT", int),
+}
+
+# Maps Settings field -> argparse attribute name (when they differ / to be
+# explicit about which CLI flags feed which setting).
+_CLI_MAP = {
+    "input_csv": "input",
+    "output_csv": "output",
+    "chrome_path": "chrome_path",
+    "user_data_dir": "user_data_dir",
+    "profile_dir": "profile",
+    "cdp_port": "cdp_port",
+    "proxy_server": "proxy",
+    "start_row": "start",
+    "end_row": "end",
+    "retry_failed": "retry_failed",
+    "require_vpn": "require_vpn",
+    "skip_vpn_check": "skip_vpn_check",
+}
+
+_FIELD_NAMES = {f.name for f in fields(Settings)}
+
+
+def _apply_env(settings: Settings) -> Settings:
+    """Return a copy of *settings* with any present env vars applied."""
+    updates = {}
+    for attr, (env_name, conv) in _ENV_MAP.items():
+        raw = os.environ.get(env_name)
+        if raw is None or raw == "":
+            continue
+        try:
+            updates[attr] = conv(raw)
+        except (ValueError, TypeError):
+            # Ignore malformed env values rather than crash the run.
+            pass
+    return replace(settings, **updates) if updates else settings
+
+
+def load_settings(args=None) -> Settings:
+    """Build a :class:`Settings` from defaults → environment → CLI args.
+
+    *args* is the ``argparse.Namespace`` from :func:`web_crawler.cli.parse_args`
+    (or any object/dict with the same attribute names); pass ``None`` for the
+    pure defaults+env result. CLI values that are ``None`` are treated as
+    "not provided" and do not override.
+    """
+    settings = _apply_env(Settings())
+
+    if args is None:
+        return settings
+
+    get = (args.get if isinstance(args, dict) else lambda k, d=None: getattr(args, k, d))
+
+    updates = {}
+    for attr, cli_name in _CLI_MAP.items():
+        val = get(cli_name, None)
+        if val is not None:
+            updates[attr] = val
+
+    # resume is a tri-state from two mutually-exclusive flags.
+    no_resume = get("no_resume", False)
+    resume_flag = get("resume", False)
+    if no_resume:
+        updates["resume"] = False
+    elif resume_flag:
+        updates["resume"] = True
+    # else: keep the default (True)
+
+    return replace(settings, **updates) if updates else settings

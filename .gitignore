@@ -14,6 +14,11 @@ scraper.log
 scraper_*.log
 results.csv
 results_*.csv
+results.xlsx
+results_*.xlsx
+
+# VPN baseline (your real IP — do not commit)
+.vpn_baseline
 
 # Browser profile data
 .sixth/

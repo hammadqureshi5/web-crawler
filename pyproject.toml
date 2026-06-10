@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "web-crawler"
+version = "1.0.0"
+description = "Playwright-based TruePeopleSearch address-to-contact scraper"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "playwright==1.49.1",
+    "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
+
+[project.scripts]
+tps-scraper = "web_crawler.cli:main"
+
+[tool.setuptools]
+packages = ["web_crawler"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
