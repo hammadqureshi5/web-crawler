@@ -11,8 +11,11 @@ import logging
 logger = logging.getLogger(__name__)
 
 # Canonical output column order — shared by all CSV/xlsx writers.
+# "Target Name" is the name requested in the input CSV; "Agent Name" is the
+# name actually found on the matched profile — keeping both side by side lets
+# you verify each location resolved to the right person.
 OUTPUT_FIELDNAMES = [
-    "Input Row #",
+    "Input Row #", "Target Name",
     "Property Address", "Property City", "Property State", "Property Zip",
     "Mailing Address", "Mailing City", "Mailing State", "Mailing Zip",
     "Phone Numbers", "Emails", "Agent Name", "Agent Address",
@@ -69,6 +72,7 @@ def make_status_record(row: dict, status: str) -> dict:
     these to results.csv gives resume a complete picture of what was attempted."""
     return {
         "Input Row #": row.get("Input Row #", ""),
+        "Target Name": row.get("Target Name", ""),
         "Property Address": row.get("Property Address", ""),
         "Property City": row.get("Property City", ""),
         "Property State": row.get("Property State", ""),

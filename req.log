@@ -1,6 +1,3 @@
-0. make proper repo structure and arrange code according to it
-1. output must be in xlsx
-2. it should auto resume if it was stopped in between
-3. prompt apper to user to turn on VPN, and check vpn connectivity
-4. add tests for all the functions
-5. I need to send it to client, and it must run on other PC, proper cli args must be there
+0.i have made this project for someone who does not have coding background 
+1.suggest me how to deliver this to the client who is not from coding background 
+

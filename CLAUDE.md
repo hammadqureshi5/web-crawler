@@ -39,12 +39,15 @@ install) or the `tps-scraper` entry point (after `pip install .`).
 - `extractor.py` — profile-page parsing (JSON-LD first, HTML fallback).
 - `records.py` — `OUTPUT_FIELDNAMES` (canonical output column order), `STATUS_*`, `make_status_record`, `display_record`, and the pure `score_name_match`.
 - `storage.py` — input CSV reading, results CSV read/write (resume), and `export_xlsx`.
+- `gui.py` — optional Tkinter front-end (`tps-scraper-gui` entry point) that collects the input file, row range, proxy, and profile, persists them to `.gui_prefs.json`, and runs the exact `cli._run` pipeline on a worker thread; the CLI stays the source of truth.
 
 Tests live in `tests/` (pytest + pytest-asyncio); `tests/conftest.py` has a `FakePage` for the async page helpers. A standalone Chrome diagnostic is `tools/test_chrome_diag.py` (not a pytest).
 
 ### Chrome via CDP, not Playwright's bundled browser
 
-The defining design decision: the scraper does **not** use Playwright's own Chromium. Instead it kills all running `chrome.exe` processes, relaunches the user's personal Chrome (profile name from `Settings.profile_dir`, default "Profile 11"; paths auto-detected in `chrome.py`) with `--remote-debugging-port=9222`, and connects via `connect_over_cdp`. This preserves the profile's cookies and the **NopeCHA extension**, which is how CAPTCHAs get solved — there is no CAPTCHA-solving API. The kill step is mandatory: Chrome ignores the debugging-port flag if another instance already owns the user-data-dir. The browser is intentionally never closed at the end of a run.
+The defining design decision: the scraper does **not** use Playwright's own Chromium. Instead it relaunches a real Chrome with `--remote-debugging-port=9222` and connects via `connect_over_cdp`, preserving the profile's cookies and the **NopeCHA extension**, which is how CAPTCHAs get solved — there is no CAPTCHA-solving API. The browser is intentionally never closed at the end of a run.
+
+**Dedicated profile + scoped kill.** `Settings.user_data_dir` defaults to a project-local `.chrome-profile/` dir (config.py `_default_user_data_dir`), *not* the user's everyday `Chrome\User Data`. On launch we must close any Chrome already holding that user-data dir's lock (Chrome ignores the debugging-port flag otherwise), but `kill_project_chrome(user_data_dir)` scopes the kill to **only** the processes whose command line uses that dir — the user's other Chrome windows stay open. The matching is done by the pure, unit-tested `_pids_using_user_data_dir(processes, user_data_dir)` over a CIM process list (`_chrome_processes`). A brand-new `.chrome-profile/` is created on first run, with a one-time-setup warning to install NopeCHA + log in (the profile is empty otherwise). Override `--user-data-dir` (or `WEB_CRAWLER_USER_DATA_DIR`) to share your real profile instead. `default_user_data_dir()` still resolves the everyday `Chrome\User Data` path and is used as a fallback.
 
 ### VPN gate (baseline-IP method)
 

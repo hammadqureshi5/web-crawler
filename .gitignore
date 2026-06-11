@@ -9,6 +9,11 @@ __pycache__/
 .venv/
 venv/
 
+# Build / test artifacts (regenerated)
+build/
+dist/
+.pytest_cache/
+
 # Scraper outputs (contain PII — do not commit)
 scraper.log
 scraper_*.log
@@ -20,12 +25,17 @@ results_*.xlsx
 # VPN baseline (your real IP — do not commit)
 .vpn_baseline
 
-# Browser profile data
-.sixth/
-vpn/
+# GUI remembered preferences (may contain proxy)
+.gui_prefs.json
+
+# Dedicated Chrome profile for the scraper (extensions, cookies, cache)
+.chrome-profile/
 
 # OS / editor
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
+
+# Office lock / temp files
+~$*

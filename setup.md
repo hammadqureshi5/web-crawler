@@ -91,14 +91,20 @@ defaults → environment → CLI.
 
 ## Output
 
-`results.csv` (crash-safe, written per row) and `results.xlsx` (formatted export).
-Columns:
+`results.csv` (crash-safe, written per row) and `results.xlsx` (formatted export
+— styled, auto-filtered table with colour-coded `Status` plus a `Summary` sheet
+of per-status counts). One row per input location. Columns:
 
 ```
-Input Row #, Property Address, Property City, Property State, Property Zip,
+Input Row #, Target Name, Property Address, Property City, Property State, Property Zip,
 Mailing Address, Mailing City, Mailing State, Mailing Zip,
 Phone Numbers, Emails, Agent Name, Agent Address, Match Score, Status
 ```
+
+`Target Name` is the name from your input CSV; `Agent Name` is who was actually
+found on the matched profile — compare them (with `Match Score`/`Status`) to
+confirm each location resolved to the right person. `Status` is one of
+`SUCCESS`, `LOW_CONFIDENCE`, `NOT_FOUND`, `FAILED`.
 
 Logs go to `scraper.log`.
 
@@ -116,3 +122,12 @@ Logs go to `scraper.log`.
 | VPN check fails | Re-record the baseline with `--set-baseline` (VPN off), or use `--skip-vpn-check`. |
 | Can't write results | Close `results.csv`/`results.xlsx` in Excel; a timestamped copy is written as fallback. |
 | Resume appends duplicates | You have an old-format `results.csv` (no `Input Row #`) — archive it. |
+
+
+## ip check
+
+Methods to Find Your Public Network 
+IPMethod 1: Using Command PromptOpen CMD: Press Windows Key + R, type cmd, and press Enter.
+Run Curl: Type curl ifconfig.me or curl icanhazip.com and hit Enter.
+View Result: The single line of numbers that appears is your public network IP.Method 
+2: Using an Online Browser SearchOpen any web browser (like Chrome or Edge).Type "What is my IP" directly into the search bar.The search engine will display your public network IP address at the top of the results page.

@@ -13,6 +13,7 @@ to it. The kill step is mandatory — Chrome ignores the debugging-port flag if
 another instance already owns the user-data-dir.
 """
 
+import json
 import logging
 import os
 import shutil
@@ -97,33 +98,95 @@ def default_user_data_dir() -> str:
     return os.path.join(local, "Google", "Chrome", "User Data") if local else ""
 
 
-def kill_existing_chrome():
-    """Kill all running Chrome processes so we can launch a fresh instance with
-    --remote-debugging-port (Chrome ignores the flag if an existing instance
-    already owns the user-data-dir)."""
-    logger.info("[CHROME] Closing any existing Chrome processes...")
-    try:
-        subprocess.run(
-            ["taskkill", "/F", "/IM", "chrome.exe"],
-            capture_output=True, text=True, timeout=10,
-        )
-    except Exception as e:
-        logger.debug(f"[CHROME] taskkill note: {e}")
+def _pids_using_user_data_dir(processes, user_data_dir):
+    """Pure: from a list of ``{"ProcessId", "CommandLine"}`` dicts, return the
+    PIDs of the chrome.exe processes whose command line uses *user_data_dir*.
 
-    # Wait until all chrome.exe processes are truly gone (file locks released).
-    for _ in range(10):
+    This is how we scope the kill to ONLY the project's own Chrome — your
+    everyday Chrome (a different user-data dir) is matched out and left running.
+    Matching is path-normalized and case-insensitive (Windows paths)."""
+    needle = os.path.normpath(user_data_dir).lower()
+    pids = []
+    for proc in processes:
+        cmd = (proc.get("CommandLine") or "").lower().replace("/", "\\")
+        if needle and needle in cmd:
+            pid = proc.get("ProcessId")
+            if pid is not None:
+                pids.append(int(pid))
+    return pids
+
+
+def _chrome_processes():
+    """Query running chrome.exe processes with their command lines (Windows,
+    via CIM). Returns a list of ``{"ProcessId", "CommandLine"}`` dicts; empty
+    on any failure (so callers degrade gracefully)."""
+    ps_cmd = (
+        "Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | "
+        "Select-Object ProcessId,CommandLine | ConvertTo-Json -Compress"
+    )
+    try:
         result = subprocess.run(
-            ["tasklist", "/FI", "IMAGENAME eq chrome.exe"],
-            capture_output=True, text=True, timeout=5,
+            ["powershell", "-NoProfile", "-Command", ps_cmd],
+            capture_output=True, text=True, timeout=15,
         )
-        if "chrome.exe" not in result.stdout.lower():
+    except Exception as e:  # pragma: no cover - subprocess/platform issues
+        logger.debug(f"[CHROME] process query failed: {e}")
+        return []
+    raw = (result.stdout or "").strip()
+    if not raw:
+        return []
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        return []
+    if isinstance(data, dict):  # ConvertTo-Json emits a bare object for one item
+        return [data]
+    return data if isinstance(data, list) else []
+
+
+def kill_project_chrome(user_data_dir):
+    """Kill ONLY the Chrome processes that use *user_data_dir* (the project's
+    dedicated profile), so a relaunch can bind the debugging port without
+    disturbing the user's everyday Chrome windows.
+
+    Chrome ignores --remote-debugging-port if an instance already owns the
+    user-data dir, so the matching instance must be closed first — but nothing
+    else needs to be."""
+    pids = _pids_using_user_data_dir(_chrome_processes(), user_data_dir)
+    if not pids:
+        logger.info(
+            "[CHROME] No project Chrome running — your other Chrome windows are left untouched"
+        )
+        return
+
+    logger.info(f"[CHROME] Closing {len(pids)} project Chrome process(es) only: {pids}")
+    for pid in pids:
+        try:
+            subprocess.run(
+                ["taskkill", "/F", "/T", "/PID", str(pid)],
+                capture_output=True, text=True, timeout=10,
+            )
+        except Exception as e:
+            logger.debug(f"[CHROME] taskkill PID {pid} note: {e}")
+
+    # Wait until our instance is truly gone (file locks released).
+    for _ in range(10):
+        if not _pids_using_user_data_dir(_chrome_processes(), user_data_dir):
             break
         time.sleep(1)
     else:
-        logger.warning("[CHROME] Some Chrome processes may still be running")
+        logger.warning("[CHROME] A project Chrome process may still be running")
 
-    time.sleep(3)  # Extra wait for file lock release
-    logger.info("[CHROME] Existing Chrome processes terminated")
+    time.sleep(2)  # Extra wait for file lock release
+    logger.info("[CHROME] Project Chrome processes terminated")
+
+
+# Backwards-compatible alias for the dedicated-profile kill.
+def kill_existing_chrome(user_data_dir=None):
+    """Deprecated name kept for callers. Scopes to *user_data_dir* when given,
+    otherwise the default project profile."""
+    from web_crawler.config import DEFAULTS
+    kill_project_chrome(user_data_dir or DEFAULTS.user_data_dir)
 
 
 def wait_for_cdp_ready(port: int, timeout: int = 15) -> bool:
@@ -156,9 +219,21 @@ def launch_chrome_with_profile(settings):
             "Could not determine the Chrome user-data dir. Pass --user-data-dir."
         )
 
-    # MUST kill existing Chrome first — otherwise the new process just signals
-    # the running one and exits, so the debugging port never opens.
-    kill_existing_chrome()
+    # A brand-new dedicated profile has no extensions/logins yet — tell the user
+    # to do the one-time setup so CAPTCHAs solve automatically afterwards.
+    profile_path = os.path.join(user_data_dir, settings.profile_dir)
+    if not os.path.isdir(profile_path):
+        os.makedirs(user_data_dir, exist_ok=True)
+        logger.warning(
+            "[CHROME] First run with a fresh dedicated profile at %s. In the "
+            "Chrome window that opens, install the NopeCHA extension and log into "
+            "the site once — future runs reuse this profile.", user_data_dir,
+        )
+
+    # MUST close any Chrome already using THIS profile first — otherwise the new
+    # process just signals the running one and exits, so the debugging port never
+    # opens. Scoped to our user-data dir, so other Chrome windows stay open.
+    kill_project_chrome(user_data_dir)
 
     logger.info(f"[CHROME] Launching Chrome with profile: {settings.profile_dir}")
     logger.info(f"[CHROME] User data dir: {user_data_dir}")
@@ -170,6 +245,13 @@ def launch_chrome_with_profile(settings):
         '--no-first-run',
         '--no-default-browser-check',
         '--start-maximized',
+        # Keep the page's JS (Cloudflare challenge + NopeCHA solver) running at
+        # full speed even when the Chrome window is occluded/behind another
+        # window — e.g. the Tkinter GUI. Without these, background-tab timer
+        # throttling stalls the solver and the CAPTCHA reloads ("reappears").
+        '--disable-background-timer-throttling',
+        '--disable-backgrounding-occluded-windows',
+        '--disable-renderer-backgrounding',
     ]
 
     # Route through a proxy if configured. Chrome's --proxy-server takes only

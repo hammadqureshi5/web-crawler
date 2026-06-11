@@ -1,6 +1,5 @@
 """Tests for input CSV reading, resume loading, and results CSV writing."""
 
-import builtins
 import csv
 
 import pytest
@@ -107,20 +106,48 @@ def test_save_single_result_roundtrip(tmp_path):
     assert p.read_text(encoding="utf-8").count("Input Row #") == 1
 
 
+def test_save_single_result_upsert_replaces_placeholder(tmp_path):
+    """A FAILED placeholder is overwritten when the same row later succeeds —
+    one row per Input Row #, real data winning over the placeholder."""
+    p = tmp_path / "results.csv"
+    save_single_result({"Input Row #": 4, "Status": STATUS_FAILED}, str(p))
+    save_single_result({"Input Row #": 4, "Agent Name": "John Adams",
+                        "Status": STATUS_SUCCESS}, str(p))
+    with open(p, newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    assert [r["Input Row #"] for r in rows] == ["4"]  # not duplicated
+    assert rows[0]["Status"] == STATUS_SUCCESS
+    assert rows[0]["Agent Name"] == "John Adams"
+
+
+def test_save_single_result_upsert_keeps_real_over_later_placeholder(tmp_path):
+    """A later FAILED placeholder must NOT clobber an existing real result."""
+    p = tmp_path / "results.csv"
+    save_single_result({"Input Row #": 7, "Agent Name": "Jane", "Status": STATUS_SUCCESS}, str(p))
+    save_single_result({"Input Row #": 7, "Status": STATUS_FAILED}, str(p))
+    with open(p, newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    assert [r["Input Row #"] for r in rows] == ["7"]
+    assert rows[0]["Status"] == STATUS_SUCCESS
+    assert rows[0]["Agent Name"] == "Jane"
+
+
 def test_save_single_result_permission_error_falls_back(tmp_path, monkeypatch):
     target = tmp_path / "results.csv"
-    real_open = builtins.open
+    # Seed a valid file so the upsert path reads, then fails on the atomic
+    # replace (the realistic Excel-lock failure mode).
+    save_single_result({"Input Row #": 1, "Agent Name": "seed",
+                        "Status": STATUS_SUCCESS}, str(target))
+
     calls = {"n": 0}
 
-    def fake_open(file, mode="r", *a, **k):
-        # First write attempt (to the real target) raises; fallback succeeds.
-        if str(file) == str(target) and "a" in mode:
-            calls["n"] += 1
-            raise PermissionError("locked in Excel")
-        return real_open(file, mode, *a, **k)
+    def fake_replace(src, dst):
+        calls["n"] += 1
+        raise PermissionError("locked in Excel")
 
-    monkeypatch.setattr(builtins, "open", fake_open)
-    save_single_result({"Input Row #": 1, "Agent Name": "X"}, str(target))
+    monkeypatch.setattr(storage.os, "replace", fake_replace)
+    save_single_result({"Input Row #": 2, "Agent Name": "X",
+                        "Status": STATUS_SUCCESS}, str(target))
     assert calls["n"] == 1
     # A timestamped fallback file was created instead.
     fallbacks = list(tmp_path.glob("results_*.csv"))

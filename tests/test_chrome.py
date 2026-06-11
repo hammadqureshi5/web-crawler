@@ -5,7 +5,11 @@ import os
 import pytest
 
 from web_crawler import chrome
-from web_crawler.chrome import default_user_data_dir, find_chrome_executable
+from web_crawler.chrome import (
+    _pids_using_user_data_dir,
+    default_user_data_dir,
+    find_chrome_executable,
+)
 
 
 def test_explicit_path_used_when_exists(tmp_path):
@@ -53,3 +57,35 @@ def test_default_user_data_dir(monkeypatch):
     monkeypatch.setenv("LOCALAPPDATA", r"C:\Users\Someone\AppData\Local")
     expected = os.path.join(r"C:\Users\Someone\AppData\Local", "Google", "Chrome", "User Data")
     assert default_user_data_dir() == expected
+
+
+# ── scoped kill: only the project profile's PIDs are matched ───────────────
+
+_PROJECT_DIR = r"C:\proj\.chrome-profile"
+_REAL_DIR = r"C:\Users\Someone\AppData\Local\Google\Chrome\User Data"
+
+
+def test_pids_match_only_project_profile():
+    procs = [
+        {"ProcessId": 100, "CommandLine": f'chrome.exe --user-data-dir={_PROJECT_DIR} --profile-directory="Profile 11"'},
+        {"ProcessId": 101, "CommandLine": f'chrome.exe --type=renderer --user-data-dir={_PROJECT_DIR}'},
+        {"ProcessId": 200, "CommandLine": f'chrome.exe --user-data-dir={_REAL_DIR}'},   # everyday Chrome
+        {"ProcessId": 300, "CommandLine": "chrome.exe"},                                 # everyday Chrome, no flag
+    ]
+    pids = _pids_using_user_data_dir(procs, _PROJECT_DIR)
+    assert pids == [100, 101]
+
+
+def test_pids_match_is_case_insensitive():
+    procs = [{"ProcessId": 7, "CommandLine": f"chrome.exe --user-data-dir={_PROJECT_DIR.upper()}"}]
+    assert _pids_using_user_data_dir(procs, _PROJECT_DIR) == [7]
+
+
+def test_pids_empty_when_none_match():
+    procs = [{"ProcessId": 200, "CommandLine": f"chrome.exe --user-data-dir={_REAL_DIR}"}]
+    assert _pids_using_user_data_dir(procs, _PROJECT_DIR) == []
+
+
+def test_pids_tolerate_missing_commandline():
+    procs = [{"ProcessId": 1, "CommandLine": None}, {"ProcessId": 2}]
+    assert _pids_using_user_data_dir(procs, _PROJECT_DIR) == []

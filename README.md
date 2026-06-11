@@ -60,7 +60,14 @@ input row number so it lines up with what you see in Excel.
 - **`results.csv`** — written one row at a time, immediately, so a crash or stop
   never loses completed work. This is the source of truth and what resume reads.
 - **`results.xlsx`** — a formatted copy generated at the end of each run (and via
-  `--export-xlsx`).
+  `--export-xlsx`): a styled, auto-filtered **Results** table with a frozen header,
+  wrapped phone/email lists and colour-coded `Status`, plus a **Summary** sheet of
+  per-status counts.
+
+Each input location produces exactly one row. Alongside the scraped `Agent Name`,
+the output records the `Target Name` you searched for plus a `Match Score` and
+`Status` (`SUCCESS`, `LOW_CONFIDENCE`, `NOT_FOUND`, `FAILED`), so you can confirm
+each address resolved to the right person.
 
 Both contain personal data and are git-ignored. If `results.csv` is open in Excel
 when the scraper tries to write, it falls back to a timestamped copy.

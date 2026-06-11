@@ -20,7 +20,8 @@ import urllib.request
 # Allow running directly from the repo without installing the package.
 sys.path.insert(0, __file__.rsplit("tools", 1)[0])
 
-from web_crawler.chrome import default_user_data_dir, find_chrome_executable  # noqa: E402
+from web_crawler.chrome import find_chrome_executable, kill_project_chrome  # noqa: E402
+from web_crawler.config import DEFAULTS  # noqa: E402
 
 
 def main():
@@ -32,14 +33,15 @@ def main():
     args = ap.parse_args()
 
     chrome_exe = find_chrome_executable(args.chrome_path)
-    user_data = args.user_data_dir or default_user_data_dir()
+    user_data = args.user_data_dir or DEFAULTS.user_data_dir
     print(f"Chrome:       {chrome_exe}")
     print(f"User data:    {user_data}")
     print(f"Profile:      {args.profile}")
     print(f"CDP port:     {args.cdp_port}")
 
-    subprocess.run(["taskkill", "/F", "/IM", "chrome.exe"], capture_output=True)
-    time.sleep(4)
+    # Scoped: only closes Chrome using this profile, not your other windows.
+    kill_project_chrome(user_data)
+    time.sleep(2)
 
     print("=== Launching Chrome ===")
     p = subprocess.Popen([

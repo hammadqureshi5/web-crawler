@@ -22,6 +22,9 @@ dev = [
 [project.scripts]
 tps-scraper = "web_crawler.cli:main"
 
+[project.gui-scripts]
+tps-scraper-gui = "web_crawler.gui:main"
+
 [tool.setuptools]
 packages = ["web_crawler"]
 

@@ -46,6 +46,17 @@ def _default_baseline() -> str:
     return os.path.join(PROJECT_DIR, ".vpn_baseline")
 
 
+def _default_user_data_dir() -> str:
+    """A dedicated, project-local Chrome user-data dir.
+
+    Using our own dir (instead of the user's everyday ``Chrome\\User Data``)
+    is what lets the scraper kill ONLY its own Chrome on relaunch — your normal
+    Chrome windows are never touched. The profile is created on first run; you
+    install the NopeCHA extension and log into the site in it once.
+    """
+    return os.path.join(PROJECT_DIR, ".chrome-profile")
+
+
 @dataclass
 class Settings:
     """Every tunable for a scraping run. Build one with :func:`load_settings`."""
@@ -57,9 +68,12 @@ class Settings:
     vpn_baseline_file: str = field(default_factory=_default_baseline)
 
     # ── Chrome / CDP ────────────────────────────────────────
-    # chrome_path / user_data_dir default to None → auto-detect in chrome.py.
+    # chrome_path defaults to None → auto-detect in chrome.py. user_data_dir
+    # defaults to a dedicated project-local profile so the scraper only kills
+    # its own Chrome (never your everyday windows); override to share your real
+    # profile if you prefer.
     chrome_path: Optional[str] = None
-    user_data_dir: Optional[str] = None
+    user_data_dir: str = field(default_factory=_default_user_data_dir)
     profile_dir: str = "Profile 11"
     cdp_port: int = 9222
 

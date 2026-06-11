@@ -17,6 +17,7 @@ import logging
 import os
 import random
 import sys
+import threading
 
 from playwright.async_api import async_playwright
 
@@ -28,10 +29,41 @@ from web_crawler.records import (
     display_record, make_status_record,
 )
 from web_crawler.storage import (
-    export_xlsx, load_completed_rows, read_input_csv, save_single_result,
+    dedupe_results_file, export_xlsx, load_completed_rows, read_input_csv,
+    save_single_result,
 )
 
 logger = logging.getLogger(__name__)
+
+
+class RunControl:
+    """Cooperative pause/stop signal for a run, driven from another thread
+    (e.g. the GUI). The run loop checks it between rows, so pausing or stopping
+    takes effect after the current address finishes — progress is already saved
+    per row, so this is always a clean boundary."""
+
+    def __init__(self):
+        self._paused = threading.Event()   # set => paused
+        self._stopped = threading.Event()  # set => stop after current row
+
+    def pause(self):
+        self._paused.set()
+
+    def resume(self):
+        self._paused.clear()
+
+    def stop(self):
+        self._stopped.set()
+        self._paused.clear()  # un-block a paused loop so it can see the stop
+
+    @property
+    def stopped(self) -> bool:
+        return self._stopped.is_set()
+
+    async def wait_while_paused(self):
+        """Block (without busy-spinning the CPU) while paused, unless stopped."""
+        while self._paused.is_set() and not self._stopped.is_set():
+            await asyncio.sleep(0.2)
 
 
 def _setup_logging(log_file: str):
@@ -130,8 +162,11 @@ def _select_rows(rows, settings):
     return selected
 
 
-async def _run(settings):
-    """Async core: launch Chrome, connect over CDP, process rows."""
+async def _run(settings, control=None):
+    """Async core: launch Chrome, connect over CDP, process rows.
+
+    *control* is an optional :class:`RunControl` used by the GUI to pause/stop
+    between rows; the CLI passes None and runs straight through."""
     try:
         rows = read_input_csv(settings.input_csv)
     except FileNotFoundError:
@@ -178,7 +213,16 @@ async def _run(settings):
 
         await log_public_ip(page, settings.proxy_server)
 
+        stopped_early = False
         for idx, row in enumerate(rows, 1):
+            # Honor GUI pause/stop at the (crash-safe) row boundary.
+            if control is not None:
+                await control.wait_while_paused()
+                if control.stopped:
+                    logger.info(f"[STOP] Stopped by user after {idx - 1} row(s) — progress saved.")
+                    stopped_early = True
+                    break
+
             csv_row_num = row["Input Row #"]
             target_name = row["Target Name"]
             address = row["Property Address"]
@@ -206,6 +250,7 @@ async def _run(settings):
                         break
                     elif data and isinstance(data, dict):
                         data["Input Row #"] = csv_row_num
+                        data["Target Name"] = target_name
                         data["Property Address"] = address
                         data["Property City"] = city
                         data["Property State"] = state
@@ -225,9 +270,18 @@ async def _run(settings):
                         await asyncio.sleep(2)
             except Exception as e:
                 logger.error(f"[ROW {idx}] Unexpected error: {e}")
+                # If the user pressed Stop (which closes Chrome), exit cleanly.
+                if control is not None and control.stopped:
+                    stopped_early = True
+                    break
                 if page.is_closed():
                     logger.warning(f"[ROW {idx}] Tab was closed — opening a fresh one")
-                    page = await context.new_page()
+                    try:
+                        page = await context.new_page()
+                    except Exception:
+                        logger.warning(f"[ROW {idx}] Browser is gone — ending run.")
+                        stopped_early = True
+                        break
 
             if no_results:
                 not_found.append(row)
@@ -249,9 +303,10 @@ async def _run(settings):
     _export(settings)
 
     low_confidence = [r for r in results if r.get("Status") == STATUS_LOW_CONFIDENCE]
+    processed = len(results) + len(failed) + len(not_found)
     logger.info("\n" + "=" * 60)
-    logger.info("SCRAPING COMPLETE")
-    logger.info(f"  Total processed:  {len(rows)}")
+    logger.info("SCRAPING STOPPED EARLY" if stopped_early else "SCRAPING COMPLETE")
+    logger.info(f"  Total processed:  {processed} of {len(rows)} selected")
     logger.info(f"  Successful:       {len(results)}")
     if low_confidence:
         logger.info(f"    (low confidence: {len(low_confidence)} — check 'Status' column)")
@@ -264,7 +319,15 @@ async def _run(settings):
 
 
 def _export(settings):
-    """Export results.xlsx next to results.csv, reporting a locked file cleanly."""
+    """Export results.xlsx next to results.csv, reporting a locked file cleanly.
+    Dedupes the CSV first so the workbook has one row per input location."""
+    try:
+        dedupe_results_file(settings.output_csv)
+    except PermissionError:
+        logger.warning("[OUTPUT] Could not dedupe results.csv (locked) — exporting as-is.")
+    except Exception as e:
+        logger.warning(f"[OUTPUT] Dedupe skipped: {e}")
+
     xlsx_path = settings.output_csv.replace(".csv", ".xlsx")
     try:
         export_xlsx(settings.output_csv, xlsx_path)
