@@ -11,6 +11,7 @@ requires-python = ">=3.10"
 dependencies = [
     "playwright==1.49.1",
     "openpyxl>=3.1",
+    "requests>=2.31",
 ]
 
 [project.optional-dependencies]
@@ -21,9 +22,6 @@ dev = [
 
 [project.scripts]
 tps-scraper = "web_crawler.cli:main"
-
-[project.gui-scripts]
-tps-scraper-gui = "web_crawler.gui:main"
 
 [tool.setuptools]
 packages = ["web_crawler"]

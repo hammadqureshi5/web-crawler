@@ -9,7 +9,9 @@ This replaces the old module-level constants. ``DEFAULTS`` is exposed as a
 stable baseline for tests and for callers that want the unmodified values.
 
 Environment variables use the ``WEB_CRAWLER_`` prefix, e.g.
-``WEB_CRAWLER_PROXY_SERVER=us.gate.iproyal.com:12321``.
+``WEB_CRAWLER_PROXY_SERVER=p.webshare.io:80`` (Webshare's rotating endpoint),
+with ``WEB_CRAWLER_PROXY_USERNAME`` / ``WEB_CRAWLER_PROXY_PASSWORD`` for
+credentialed (country-filtered) proxies.
 """
 
 import os
@@ -77,10 +79,16 @@ class Settings:
     profile_dir: str = "Profile 11"
     cdp_port: int = 9222
 
-    # ── Proxy ───────────────────────────────────────────────
-    # host:port only — Chrome's --proxy-server does not accept inline creds.
+    # ── Proxy (Webshare rotating endpoint → automatic IP rotation) ──
+    # proxy_server is host:port (e.g. "p.webshare.io:9999"): the rotating
+    # endpoint that hands out a fresh exit IP per connection. It is what Chrome's
+    # --proxy-server uses and cannot carry inline creds, so authorise by IP in
+    # the Webshare dashboard. proxy_username/password are optional and used only
+    # by the Python requests path (proxy.ProxyManager) for the IP check.
     proxy_server: str = ""
     proxy_bypass: str = "localhost,127.0.0.1"
+    proxy_username: str = ""
+    proxy_password: str = ""
 
     # ── Result matching ─────────────────────────────────────
     min_match_score: float = 0.5
@@ -130,6 +138,8 @@ _ENV_MAP = {
     "cdp_port": ("WEB_CRAWLER_CDP_PORT", int),
     "proxy_server": ("WEB_CRAWLER_PROXY_SERVER", str),
     "proxy_bypass": ("WEB_CRAWLER_PROXY_BYPASS", str),
+    "proxy_username": ("WEB_CRAWLER_PROXY_USERNAME", str),
+    "proxy_password": ("WEB_CRAWLER_PROXY_PASSWORD", str),
     "min_match_score": ("WEB_CRAWLER_MIN_MATCH_SCORE", float),
     "max_retries": ("WEB_CRAWLER_MAX_RETRIES", int),
     "captcha_solve_timeout": ("WEB_CRAWLER_CAPTCHA_TIMEOUT", int),
@@ -145,6 +155,8 @@ _CLI_MAP = {
     "profile_dir": "profile",
     "cdp_port": "cdp_port",
     "proxy_server": "proxy",
+    "proxy_username": "proxy_user",
+    "proxy_password": "proxy_pass",
     "start_row": "start",
     "end_row": "end",
     "retry_failed": "retry_failed",

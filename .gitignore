@@ -25,9 +25,6 @@ results_*.xlsx
 # VPN baseline (your real IP — do not commit)
 .vpn_baseline
 
-# GUI remembered preferences (may contain proxy)
-.gui_prefs.json
-
 # Dedicated Chrome profile for the scraper (extensions, cookies, cache)
 .chrome-profile/
 

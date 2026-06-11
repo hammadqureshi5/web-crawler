@@ -1,4 +1,4 @@
-,Property Addres,Property city,property state,Property Zip,Mailing Addres,Mailing city,Mailing state,Mailing Zip,Phone Numbers,Emails,Agent Name,Agent Address
+,Property Addres,Property city,property state,Property Zip,Mailing Addres,Mailing city,Mailing state,Mailing Zip,Phone Numbers,Emails,Agent Name,Agent Address,
 Adams John Miller,2612 Taylor Street,Commerce,TX,75428-3818,2612 Taylor St,Commerce,Tx,75428,"(903) 886-6607 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -8,7 +8,7 @@ Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported March 2016
 (972) 886-6607
-Landline",jadams@icqmail.com,,
+Landline",jadams@icqmail.com,,,
 Adams Betty Lou,2628 Sterling Hart Drive,Commerce,TX,75428-3922,2628 Sterling Hart Dr,Commerce,Tx,75428,"(903) 886-3416 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -18,7 +18,7 @@ Landline
 Grande Communications Networks Inc - TX
 First reported July 2020
 (903) 364-2060
-Landline",,,
+Landline",,,,
 Adams John Miller,2612 Taylor Street,Commerce,TX,75428-3818,2612 Taylor St,Commerce,Tx,75428,"(903) 886-6607 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -28,7 +28,7 @@ Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported March 2016
 (972) 886-6607
-Landline",jadams@icqmail.com,,
+Landline",jadams@icqmail.com,,,
 Adams Rebecca Lou,2916 Washington Street,Commerce,TX,75428-3846,2916 Washington St,Commerce,Tx,75428,"(903) 617-4026 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -38,18 +38,18 @@ Wireless
 New Cingular Wireless PCS LLC - IL
 First reported October 2010
 (903) 780-5169
-Wireless",,,
+Wireless",,,,
 Aikin A M Iii,1628 Drake Drive,Commerce,TX,75428-3707,1628 Drake Dr,Commerce,Tx,75428,"(903) 886-3339 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported September 1993","aaikiniii@netscape.net
-",,
+",,,
 Aikin Christopher M,1314 Edna Street,Commerce,TX,75428-3854,1314 Edna St,Commerce,Tx,75428,"(951) 243-0839 (Primary Phone)
 Landline
 Frontier California Inc
 First reported January 2015","retssgt@live.com
-",,
-Aikin Michael O,1312 Edna Street,Commerce,TX,75428-3854,1312 Edna St,Commerce,Tx,75428,,,,
+",,,
+Aikin Michael O,1312 Edna Street,Commerce,TX,75428-3854,1312 Edna St,Commerce,Tx,75428,,,,,
 Al-Hayek Mohammad S,109 Briarwood Street,Commerce,TX,75428-3819,PO Box 327,Commerce,Tx,75429,"(903) 413-9101 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -61,13 +61,13 @@ First reported August 2010
 (903) 765-2169
 Landline","alhayek@email.com
 alhayek@anameplates.com
-sharonalhayek1@gmail.com",,
-Alas Juan L F,603 2nd Street,Commerce,TX,75428-2337,277 Hackberry Dr,Greenville,Tx,75402,,,,
+sharonalhayek1@gmail.com",,,
+Alas Juan L F,603 2nd Street,Commerce,TX,75428-2337,277 Hackberry Dr,Greenville,Tx,75402,,,,,
 Allen Leslie-Ruby,1116 Blackburn Street,Commerce,TX,75428-2786,535 Buckingham Rd Apt 3401,Richardson,Tx,75081,"for Leslie-ruby Allen in Commerce, TX
 (903) 886-7094 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported July 2011",,,
+First reported July 2011",,,,
 Allen Meagan,2904 Meadowview Road,Commerce,TX,75428-3732,2904 Meadowview Rd,Commerce,Tx,75428,"(903) 456-7509 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -82,7 +82,7 @@ zaire@earthlink.net
 zaire134@blackplanet.com
 zaire134@hotmail.com
 zaire134@aol.com
-zaire134@earthlink.net",,
+zaire134@earthlink.net",,,
 Almanza Martin,3049 Monroe Street,Commerce,TX,75428-3716,3049 Monroe St,Commerce,Tx,75428,"(903) 513-2243 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -91,12 +91,12 @@ First reported December 2011
 Wireless
 T-Mobile USA Inc
 First reported August 2010
-(903) 456-8490",,,
-Alrimawi Zafer W,1410 Tanglewood Drive,Commerce,TX,75428-3800,8205 Navigation Dr,Rowlett,Tx,75088,,,,
+(903) 456-8490",,,,
+Alrimawi Zafer W,1410 Tanglewood Drive,Commerce,TX,75428-3800,8205 Navigation Dr,Rowlett,Tx,75088,,,,,
 Anderson Essence,2707 Bois D Arc Street,Commerce,TX,75428-3701,18081 Midway Rd Apt 1021,Dallas,Tx,75287,"(510) 436-4544 (Primary Phone)
 Landline
 Pacific Bell Telephone Company
-First reported April 2020",,,
+First reported April 2020",,,,
 Anderson Michael H,2902 Tanglewood Drive,Commerce,TX,75428-3814,2902 Tanglewood Dr,Commerce,Tx,75428,"(903) 886-6797 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -107,7 +107,7 @@ United Telephone Company of Texas Inc dba CenturyLink
 First reported November 1998
 (903) 886-2496
 Landline","cadeanderson@worldnet.att.net
-",,
+",,,
 Angel Laurence A,3003 Tanglewood Drive,Commerce,TX,75428-3815,3003 Tanglewood Dr,Commerce,Tx,75428,"(903) 886-2937 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -118,7 +118,7 @@ Nevada Bell Telephone Company
 First reported June 2004
 (775) 356-1016
 Landline
-Nevada Bell Telephone Company",,,
+Nevada Bell Telephone Company",,,,
 Angel Timothy S,2611 Park Street,Commerce,TX,75428-3805,2611 Park St,Commerce,Tx,75428,"(678) 993-6650 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -136,13 +136,13 @@ Landline
 Bellsouth Telecommunications Inc dba South Central Bell Telephone
 First reported November 2021","dangel5759@gmail.com
 tim.angel@earthlink.net
-timothyangel@aol.com",,
+timothyangel@aol.com",,,
 Antonescu Maria M E,1516 Deer Trail,Commerce,TX,75428-3866,PO Box 372,Commerce,Tx,75429,"(440) 979-9204 (Primary Phone)
 Landline
 Ameritech Ohio
-First reported November 2012",,,
-Arias Maria Del Carmen Grijalv,407 N Neal Street,Commerce,TX,75428-2325,407 N Neal St,Commerce,Tx,75428,,,,
-Armstrong Jerald,509 Oak Street,Commerce,TX,75428-2331,509 Oak St,Commerce,Tx,75428,,,,
+First reported November 2012",,,,
+Arias Maria Del Carmen Grijalv,407 N Neal Street,Commerce,TX,75428-2325,407 N Neal St,Commerce,Tx,75428,,,,,
+Armstrong Jerald,509 Oak Street,Commerce,TX,75428-2331,509 Oak St,Commerce,Tx,75428,,,,,
 Arnold Steven Louis,404 3rd Street,Commerce,TX,75428-2346,404 3rd St,Commerce,Tx,75428,"(903) 886-7655 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -158,7 +158,7 @@ First reported March 2017","slarnold@comcast.net
 steven.arnold@go.com
 slarnold@tx.freei.net
 steven.arnold@earthlink.net
-sarnold@ascendantsolutions.com",,
+sarnold@ascendantsolutions.com",,,
 Arnold Steven Louis,406 3rd Street,Commerce,TX,75428-2346,404 3rd St,Commerce,Tx,75428,"(903) 886-7655 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -174,14 +174,14 @@ First reported March 2017","slarnold@comcast.net
 steven.arnold@go.com
 slarnold@tx.freei.net
 steven.arnold@earthlink.net
-sarnold@ascendantsolutions.com",,
-Asian Farhad,1213 Mosley Street,Commerce,TX,75428-4710,109 Oak Ln,Commerce,Tx,75428,,,,
-Aslan Bill,611 Smith Street,Commerce,TX,75428-2341,109 Oak Ln,Commerce,Tx,75428,,,,
-Aslan Bill,611 Oak Street,Commerce,TX,75428-2333,109 Oak Ln,Commerce,Tx,75428,,,,
-Aslan Bill,604 Pine Street,Commerce,TX,75428-2242,109 Oak Ln,Commerce,Tx,75428,,,,
-Aslan Farhad,2603 Park Street,Commerce,TX,75428-3805,109 Oak Ln,Commerce,Tx,75428,,,,
-Aslan Farhad B,605 4th Street,Commerce,TX,75428-2315,109 Oak Ln,Commerce,Tx,75428,,,,
-Bagwell Gairy Andreese,2700 Bois D Arc Street,Commerce,TX,75428-3702,2700 Bois D Arc St,Commerce,Tx,75428,,,,
+sarnold@ascendantsolutions.com",,,
+Asian Farhad,1213 Mosley Street,Commerce,TX,75428-4710,109 Oak Ln,Commerce,Tx,75428,,,,,
+Aslan Bill,611 Smith Street,Commerce,TX,75428-2341,109 Oak Ln,Commerce,Tx,75428,,,,,
+Aslan Bill,611 Oak Street,Commerce,TX,75428-2333,109 Oak Ln,Commerce,Tx,75428,,,,,
+Aslan Bill,604 Pine Street,Commerce,TX,75428-2242,109 Oak Ln,Commerce,Tx,75428,,,,,
+Aslan Farhad,2603 Park Street,Commerce,TX,75428-3805,109 Oak Ln,Commerce,Tx,75428,,,,,
+Aslan Farhad B,605 4th Street,Commerce,TX,75428-2315,109 Oak Ln,Commerce,Tx,75428,,,,,
+Bagwell Gairy Andreese,2700 Bois D Arc Street,Commerce,TX,75428-3702,2700 Bois D Arc St,Commerce,Tx,75428,,,,,
 Bailey Lynda,1310 Tanglewood Drive,Commerce,TX,75428-3836,1310 Tanglewood Dr,Commerce,Tx,75428,"(903) 367-7770 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -191,8 +191,8 @@ Landline
 Southwestern Bell Telephone Company
 First reported July 1996
 (903) 583-5167
-Landline",,,
-Baires Mancia Luis Alexis,Booker Street,Commerce,TX,75428,116 Buffington St,Commerce,Tx,75428,,,,
+Landline",,,,
+Baires Mancia Luis Alexis,Booker Street,Commerce,TX,75428,116 Buffington St,Commerce,Tx,75428,,,,,
 Ballard Chad,1307 Tiffany Lane,Commerce,TX,75428-3851,1307 Tiffany Ln,Commerce,Tx,75428,"(903) 335-0474 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -202,7 +202,7 @@ Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported August 2010
 (803) 532-2505
-Landline",,,
+Landline",,,,
 Ballard Chad,1307 Sterling Hart Drive,Commerce,TX,75428,1307 Tiffany Ln,Commerce,Tx,75428,"(903) 335-0474 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -212,7 +212,7 @@ Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported August 2010
 (803) 532-2505
-Landline",,,
+Landline",,,,
 Barton Brittney Ann,610 N Neal Street,Commerce,TX,75428-2330,610 N Neal St,Commerce,Tx,75428,"(903) 335-8558 (Primary Phone)
 Landline
 Cebridge Telecom TX LP - TX
@@ -223,11 +223,11 @@ MetroPCS Inc
 First reported September 2012
 (903) 456-3907
 Wireless
-New Cingular Wireless PCS LLC - IL",scorpion2angel@yahoo.com,,
+New Cingular Wireless PCS LLC - IL",scorpion2angel@yahoo.com,,,
 Bates Rachel Ashley,2616 Sterling Hart Drive,Commerce,TX,75428-3922,2616 Sterling Hart Dr,Commerce,Tx,75428,"(903) 217-2730 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
-First reported August 2010",,,
+First reported August 2010",,,,
 Baumgartner Treesa L,404 State Highway 24,Commerce,TX,75428-5808,402 State Highway 24,Commerce,Tx,75428,"(903) 886-7008 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -238,8 +238,8 @@ Southwestern Bell Telephone Company
 First reported July 1996
 (903) 886-3606
 Landline
-United Telephone Company of Texas",,,
-Beadles Ryan,2837 McCarley Drive,Commerce,TX,75428-3829,2837 McCarley Dr,Commerce,Tx,75428,,,,
+United Telephone Company of Texas",,,,
+Beadles Ryan,2837 McCarley Drive,Commerce,TX,75428-3829,2837 McCarley Dr,Commerce,Tx,75428,,,,,
 Bearden Bobby,1312 Tiffany Lane,Commerce,TX,75428-3852,1312 Tiffany Ln,Commerce,Tx,75428,"(903) 456-2708 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -252,7 +252,7 @@ First reported August 2010
 beardenb@embarqmail.com
 bbearden@webwide.net
 bearden@argontech.net
-bbearden@msn.com",,
+bbearden@msn.com",,,
 Beare Jerry W Sr,1620 Drake Drive,Commerce,TX,75428-3707,1620 Drake Dr,Commerce,Tx,75428,"(903) 886-4605 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -267,7 +267,7 @@ New Cingular Wireless PCS LLC - IL","jingumol@gmail.com
 jerry.beare@aol.com
 jwbearesr@outlook.com
 jerrybeare@comcast.net
-beare@tx.rr.com",,
+beare@tx.rr.com",,,
 Bedgood,2817 McCarley Drive,Commerce,TX,75428-3829,2817 McCarley Dr,Commerce,Tx,75428,"(903) 886-6180 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -277,7 +277,7 @@ Wireless
 Cellco Partnership dba Verizon Wireless - FL
 First reported June 2009
 (352) 771-8406
-Landline",,,
+Landline",,,,
 Belcher Penny A,2812 McCarley Drive,Commerce,TX,75428-3830,2812 McCarley Dr,Commerce,Tx,75428,"(903) 366-9065 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -286,7 +286,7 @@ First reported January 2017
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported August 2010
-(903) 366-8070",,,
+(903) 366-8070",,,,
 Bell Charlotte P,1119 Charlies Drive,Commerce,TX,75428-4435,5020 Atterbury Pl,The Colony,Tx,75056,"(972) 625-3013 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -298,7 +298,7 @@ First reported November 2016
 (214) 469-1553
 Landline","foxiecharlotte@sbcglobal.net
 bfoxiebrown@blackplanet.com
-foxiebrown@aol.com",,
+foxiebrown@aol.com",,,
 Bell Christopher R,3043 Monroe Street,Commerce,TX,75428-3716,3043 Monroe St,Commerce,Tx,75428,"(972) 625-3013 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -308,9 +308,9 @@ Wireless
 Sprint Spectrum LP
 First reported November 2016
 (214) 469-1553
-Landline",,,
-Belle Lillie,Meadows Street,Commerce,TX,75428,,,,,,,,
-Benavides Alessandra A,501 Rosemound Street,Commerce,TX,75428-4703,501 Rosemound St,Commerce,Tx,75428,,,,
+Landline",,,,
+Belle Lillie,Meadows Street,Commerce,TX,75428,,,,,,,,,
+Benavides Alessandra A,501 Rosemound Street,Commerce,TX,75428-4703,501 Rosemound St,Commerce,Tx,75428,,,,,
 Bhasin Ravi,1615 Culver Street,Commerce,TX,75428-3422,1311 Madeline St,Commerce,Tx,75428,"(903) 886-3613 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -337,7 +337,7 @@ Southwestern Bell Telephone Company
 First reported March 2003
 (903) 366-9313
 Wireless","rvbhasin@hotmail.com
-",,
+",,,
 Bhasin Ravi,1617 Culver Street,Commerce,TX,75428-3422,1311 Madeline St,Commerce,Tx,75428,"(903) 886-3613 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -364,7 +364,7 @@ Southwestern Bell Telephone Company
 First reported March 2003
 (903) 366-9313
 Wireless","rvbhasin@hotmail.com
-",,
+",,,
 Bhasin Ravi,1311 Madeline Street,Commerce,TX,75428-3750,1311 Madeline St,Commerce,Tx,75428,"""(903) 886-3613 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -391,7 +391,7 @@ Southwestern Bell Telephone Company
 First reported March 2003
 (903) 366-9313
 Wireless""","rvbhasin@hotmail.com
-",,
+",,,
 Bhasin Ravi,3013 Monroe Street,Commerce,TX,75428-3716,1311 Madeline St,Commerce,Tx,75428,"""(903) 886-3613 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -418,7 +418,7 @@ Southwestern Bell Telephone Company
 First reported March 2003
 (903) 366-9313
 Wireless""","rvbhasin@hotmail.com
-",,
+",,,
 Bhasin Ravi,3017 Monroe Street,Commerce,TX,75428-3716,1311 Madeline St,Commerce,Tx,75428,"""(903) 886-3613 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -445,7 +445,7 @@ Southwestern Bell Telephone Company
 First reported March 2003
 (903) 366-9313
 Wireless""","rvbhasin@hotmail.com
-",,
+",,,
 Bhasin Ravi,3021 Monroe Street,Commerce,TX,75428-3716,1311 Madeline St,Commerce,Tx,75428,"""(903) 886-3613 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -472,7 +472,7 @@ Southwestern Bell Telephone Company
 First reported March 2003
 (903) 366-9313
 Wireless""","rvbhasin@hotmail.com
-",,
+",,,
 Bhasin Ravi,3025 Monroe Street,Commerce,TX,75428-3716,1311 Madeline St,Commerce,Tx,75428,"""(903) 886-3613 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -499,7 +499,7 @@ Southwestern Bell Telephone Company
 First reported March 2003
 (903) 366-9313
 Wireless""","rvbhasin@hotmail.com
-",,
+",,,
 Blasingame Debbie Sue,511 Harrison Street,Commerce,TX,75428-2321,511 Harrison St,Commerce,Tx,75428,"(903) 886-1941 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -520,7 +520,7 @@ First reported November 1997
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported November 1997","dsblasingame@yahoo.com
-clear@mwt.net",,
+clear@mwt.net",,,
 Bledsoe Nancy J,1315 Cowan Drive,Commerce,TX,75428-3821,1315 Cowan Dr,Commerce,Tx,75428,"(903) 886-2945 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -531,7 +531,7 @@ Southwestern Bell Telephone Company
 First reported August 2010
 (281) 455-4601
 Wireless
-New Cingular Wireless PCS LLC - IL",,,
+New Cingular Wireless PCS LLC - IL",,,,
 Boles Brian,607 Pine Street,Commerce,TX,75428-2241,10657 County Road 2316,Terrell,Tx,75160,"(214) 908-1934 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -557,7 +557,7 @@ Landline
 Southwestern Bell Telephone Company
 First reported March 2016
 (903) 476-0973","suzanneboles@sbcglobal.net
-",,
+",,,
 Boles Brian,902 N Neal Street,Commerce,TX,75428-2234,10657 County Road 2316,Terrell,Tx,75160,"(214) 908-1934 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -583,7 +583,7 @@ Landline
 Southwestern Bell Telephone Company
 First reported March 2016
 (903) 476-0973","suzanneboles@sbcglobal.net
-",,
+",,,
 Boles Brian,903 N Neal Street,Commerce,TX,75428-2233,10657 County Road 2316,Terrell,Tx,75160,"(214) 908-1934 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -609,9 +609,9 @@ Landline
 Southwestern Bell Telephone Company
 First reported March 2016
 (903) 476-0973","suzanneboles@sbcglobal.net
-",,
-Boles Britnee K,1318 Tiffany Lane,Commerce,TX,75428-3852,1318 Tiffany Ln,Commerce,Tx,75428,,,,
-Bone Letitia J,1307 Tanglewood Drive,Commerce,TX,75428-3835,1307 Tanglewood Dr,Commerce,Tx,75428,,,,
+",,,
+Boles Britnee K,1318 Tiffany Lane,Commerce,TX,75428-3852,1318 Tiffany Ln,Commerce,Tx,75428,,,,,
+Bone Letitia J,1307 Tanglewood Drive,Commerce,TX,75428-3835,1307 Tanglewood Dr,Commerce,Tx,75428,,,,,
 Bosen Blayne T &amp; Ashley M,3041 Monroe Street,Commerce,TX,75428-3716,3041 Monroe St,Commerce,Tx,75428,"(214) 541-2633 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -629,7 +629,7 @@ Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported October 2021","b.bosen72@gmail.com
 bob6387@gmail.com
-b.bsoen72@gmail.com",,
+b.bsoen72@gmail.com",,,
 Bowden Adam,2824 McCarley Drive,Commerce,TX,75428-3830,2824 McCarley Dr,Commerce,Tx,75428,"(903) 866-0499 (Primary Phone)
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
@@ -638,7 +638,7 @@ First reported August 2010
 Landline
 Qwest Corporation
 First reported October 2019","adambowden@hotmail.com
-",,
+",,,
 Brewer Elizabeth,136 Royal Lane,Commerce,TX,75428-3834,136 Royal Ln,Commerce,Tx,75428,"(903) 886-0181 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -647,7 +647,7 @@ First reported February 2013
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported August 2010","lloydbrewer@gmail.com
-",,
+",,,
 Brewer Taylor,501 Park Street,Commerce,TX,75428-2117,3209 Ridgedale Dr,Garland,Tx,75041,"(469) 951-5693 (Primary Phone)
 Wireless
 T-Mobile USA Inc
@@ -678,7 +678,7 @@ Time Warner Cable Information Services (Texas) LP dba Time Warner Cable - TX
 First reported April 2017
 (972) 264-5992
 ","taylor2315@hotmail.com
-",,
+",,,
 Bridges Lamar W,1701 Drake Drive,Commerce,TX,75428-3708,1701 Drake Dr,Commerce,Tx,75428,"(903) 886-4703 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -694,7 +694,7 @@ First reported April 2021","lamarbridges@gmail.com
 lbridges@geocities.com
 lamar.bridges@yahoo.com
 lbridgesn6@geocities.com
-lbridgesyb1@geocities.com",,
+lbridgesyb1@geocities.com",,,
 Britt Timothy L,120 Royal Lane,Commerce,TX,75428-3834,120 Royal Ln,Commerce,Tx,75428,"(903) 517-1192 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -710,8 +710,8 @@ First reported April 2001
 (903) 737-0551
 Landline
 Southwestern Bell Telephone Company
-First reported February 2004",,,
-Brookshire Grocery Co,1601 Culver Street,Commerce,TX,75428-3422,PO Box 1411,Tyler,Tx,75710,,,,
+First reported February 2004",,,,
+Brookshire Grocery Co,1601 Culver Street,Commerce,TX,75428-3422,PO Box 1411,Tyler,Tx,75710,,,,,
 Brown Alicia J,2908 Washington Street,Commerce,TX,75428-3846,2908 Washington St,Commerce,Tx,75428,"(903) 455-3450 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -732,7 +732,7 @@ First reported December 2004
 Landline
 Ameritech Illinois
 First reported October 2000","treesplinter@gmail.com
-treesplinters@gmail.com",,
+treesplinters@gmail.com",,,
 Brown Barbara A,411 Bishop Street,Commerce,TX,75428-2301,411 Bishop St,Commerce,Tx,75428,"(972) 517-5783 (Primary Phone)
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
@@ -753,7 +753,7 @@ First reported June 2017
 Landline
 Time Warner Cable Information Services (Texas) LP dba Time Warner Cable - TX
 First reported December 2009","barbarabrown86@yahoo.com
-hugh.brown14@verizon.net",,
+hugh.brown14@verizon.net",,,
 Brown Estella A,1117 Charlies Drive,Commerce,TX,75428-4435,1117 Charlies Dr,Commerce,Tx,75428,"(903) 265-5808 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -780,7 +780,7 @@ Sprint Spectrum LP
 First reported March 2012
 (903) 246-5642
 Wireless","kmrivera55@yahoo.com
-estellabrown@yahoo.com",,
+estellabrown@yahoo.com",,,
 Brown Linda,1006 Jernigan Street,Commerce,TX,75428-2228,1006 Jernigan St,Commerce,Tx,75428,"(903) 217-5912 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -807,7 +807,7 @@ United Telephone Company of Texas Inc dba CenturyLink
 First reported December 2011
 (903) 395-4903","realcowgal2@yahoo.com
 lindaincommerce@webtv.net
-jameenicolebrown@yahoo.com",,
+jameenicolebrown@yahoo.com",,,
 Brown Theda D,301 King Lane,Commerce,TX,75428-3710,6804 Bear Ln,Greenville,Tx,75402,"(214) 886-3617 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -815,7 +815,7 @@ First reported August 2010
 (903) 886-3617
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported June 2001",,,
+First reported June 2001",,,,
 Bush James Louis,1317 Madeline Street,Commerce,TX,75428-3750,1317 Madeline St,Commerce,Tx,75428,"(903) 423-2383 (Primary Phone)
 Wireless
 T-Mobile USA Inc
@@ -840,7 +840,7 @@ cxjimbush88@msn.com
 bush209@msn.com
 jimbush@aol.com
 jimbush@comcast.net
-jimbush@msn.com",,
+jimbush@msn.com",,,
 Buster Danny,2624 Sterling Hart Drive,Commerce,TX,75428-3922,2624 Sterling Hart Dr,Commerce,Tx,75428,"(903) 886-3363 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -866,7 +866,7 @@ dbuster@netscape.net
 vcbustert@swbell.net
 bcbbuster@swbell.net
 cbuster@swbell.net
-danny.buster@gmail.com",,
+danny.buster@gmail.com",,,
 Butler Debra J,2826 Birchwood Lane,Commerce,TX,75428-3801,2826 Birchwood Ln,Commerce,Tx,75428,"(214) 843-3407 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -888,7 +888,7 @@ Wireless
 New Cingular Wireless PCS LLC - IL
 First reported February 2022","djbphaseii214@yahoo.com
 debbutler03@yahoo.com
-beermommadeb@hotmail.com",,
+beermommadeb@hotmail.com",,,
 Cain-McCarty Dorothy J,Meadows Street,Commerce,TX,75428,PO Box 891,Palmer,Tx,75152,"(214) 893-8212 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -909,9 +909,9 @@ First reported February 2004
 Wireless
 T-Mobile USA Inc","forevrbratt@aol.com
 dorothy.mccarty@comcast.net
-dj.cainmccarty@prurealty.com",,
-Calabrese Paul,706 Jernigan Street,Commerce,TX,75428-2224,707 N Alamo Rd,Rockwall,Tx,75087,,,,
-Campbell Maria G,1007 Bishop Street,Commerce,TX,75428-2207,1007 Bishop St,Commerce,Tx,75428,,,,
+dj.cainmccarty@prurealty.com",,,
+Calabrese Paul,706 Jernigan Street,Commerce,TX,75428-2224,707 N Alamo Rd,Rockwall,Tx,75087,,,,,
+Campbell Maria G,1007 Bishop Street,Commerce,TX,75428-2207,1007 Bishop St,Commerce,Tx,75428,,,,,
 Camposeco Jesus Junior,4th Street,Commerce,TX,75428,6922 Clear Springs Cir,Garland,Tx,75044,"(214) 208-9635 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -932,7 +932,7 @@ First reported July 2013
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported March 2007","ebcamposeco@worldnet.att.net
-jcamposeco@comcast.net",,
+jcamposeco@comcast.net",,,
 Camposeco Jesus Junior,Harrison Street,Commerce,TX,75428,6922 Clear Springs Cir,Garland,Tx,75044,"(214) 208-9635 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -953,7 +953,7 @@ First reported July 2013
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported March 2007","""ebcamposeco@worldnet.att.net
-jcamposeco@comcast.net""",,
+jcamposeco@comcast.net""",,,
 Carlos Maria G,113 Royal Lane,Commerce,TX,75428-3833,113 Royal Ln,Commerce,Tx,75428,"(469) 219-9639 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -977,7 +977,7 @@ First reported April 2021","gaby2718@yahoo.com
 mamizac@hotmail.com
 gaby2718@hotmail.com
 gaby@myway.com
-gaby2718@aol.com",,
+gaby2718@aol.com",,,
 Carpenter Shannon,2702 Tanglewood Drive,Commerce,TX,75428-3810,2702 Tanglewood Dr,Commerce,Tx,75428,"(517) 915-6897 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - MI
@@ -990,8 +990,8 @@ First reported May 2020
 Wireless
 Cellco Partnership dba Verizon Wireless - MI
 First reported October 2021","shannonc7527@gmail.com
-rachet21@sbcglobal.net",,
-Castaneda Emily G,1314 Tanglewood Drive,Commerce,TX,75428-3836,1440 Johns Ave,Lancaster,Tx,75134,,,,
+rachet21@sbcglobal.net",,,
+Castaneda Emily G,1314 Tanglewood Drive,Commerce,TX,75428-3836,1440 Johns Ave,Lancaster,Tx,75134,,,,,
 Cerda Jose A,613 Park Street,Commerce,TX,75428-2119,1623 S Fm 1138,Royse City,Tx,75189,"(972) 843-9904 (Primary Phone)
 Landline
 Peerless Network of Texas LLC - TX
@@ -1017,7 +1017,7 @@ Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported November 1992
 (214) 941-1314","cerdags@gmail.com
-bakertaylr@yahoo.com",,
+bakertaylr@yahoo.com",,,
 Cerda Jose Jesus,1015 Wolfe City Drive,Commerce,TX,75428-2179,1623 S Fm 1138,Royse City,Tx,75189,"(972) 843-9904 (Primary Phone)
 Landline
 Peerless Network of Texas LLC - TX
@@ -1043,7 +1043,7 @@ Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported November 1992
 (214) 941-1314","cerdags@gmail.com
-bakertaylr@yahoo.com",,
+bakertaylr@yahoo.com",,,
 Chambers Shawna M,1407 Tanglewood Drive,Commerce,TX,75428-3859,1407 Tanglewood Dr,Commerce,Tx,75428,"(214) 949-0165 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -1072,13 +1072,13 @@ First reported March 2016
 txgrl1502@gmail.com
 shawna.marie@sbcglobal.net
 shawnamarie@sbcglobal.net
-turbotxgrl@yahoo.com",,
-Chaney Boys,101 King Lane,Commerce,TX,75428-3710,1601 Live Oak St,Commerce,Tx,75428,,,,
-Chaney Boys,2602 Taylor Street,Commerce,TX,75428-3818,1601 Live Oak St,Commerce,Tx,75428,,,,
-Chaney Boys,2622 Washington Street,Commerce,TX,75428-3840,1601 Live Oak St,Commerce,Tx,75428,,,,
-Chaney Boys,2801 McCarley Drive,Commerce,TX,75428-3829,1601 Live Oak St,Commerce,Tx,75428,,,,
-Chaney Boys,2800 McCarley Drive,Commerce,TX,75428-3830,1601 Live Oak St,Commerce,Tx,75428,,,,
-Chaney Boys Partnership,2813 McCarley Drive,Commerce,TX,75428-3829,1601 Live Oak St,Commerce,Tx,75428,,,,
+turbotxgrl@yahoo.com",,,
+Chaney Boys,101 King Lane,Commerce,TX,75428-3710,1601 Live Oak St,Commerce,Tx,75428,,,,,
+Chaney Boys,2602 Taylor Street,Commerce,TX,75428-3818,1601 Live Oak St,Commerce,Tx,75428,,,,,
+Chaney Boys,2622 Washington Street,Commerce,TX,75428-3840,1601 Live Oak St,Commerce,Tx,75428,,,,,
+Chaney Boys,2801 McCarley Drive,Commerce,TX,75428-3829,1601 Live Oak St,Commerce,Tx,75428,,,,,
+Chaney Boys,2800 McCarley Drive,Commerce,TX,75428-3830,1601 Live Oak St,Commerce,Tx,75428,,,,,
+Chaney Boys Partnership,2813 McCarley Drive,Commerce,TX,75428-3829,1601 Live Oak St,Commerce,Tx,75428,,,,,
 Chastain Larry,2605 Washington Street,Commerce,TX,75428-3839,2605 Washington St,Commerce,Tx,75428,"(214) 335-9109 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -1099,7 +1099,7 @@ First reported December 2008
 Wireless
 New Cingular Wireless PCS LLC - IL
 First reported April 2021","larrychastain51@gmail.com
-ckimlarry@aol.com",,
+ckimlarry@aol.com",,,
 Chavarria Pedro M,2710 Monroe Street,Commerce,TX,75428-3721,2710 Monroe St,Commerce,Tx,75428,"(979) 204-5247 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -1119,7 +1119,7 @@ First reported August 2023
 (213) 304-0311
 Wireless
 New Cingular Wireless PCS LLC
-First reported January 2013",,,
+First reported January 2013",,,,
 Chennault Jimmy C,1310 Edna Street,Commerce,TX,75428-3854,1310 Edna St,Commerce,Tx,75428,"(903) 886-4304 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1140,9 +1140,9 @@ First reported March 2020
 Landline
 Grande Communications Networks Inc - TX
 First reported June 2010","carrie.chennault@att.net
-chennaul@tenet.edu",,
-Chhiang Jeudi,2618 Washington Street,Commerce,TX,75428-3840,2618 Washington St,Commerce,Tx,75428,,,,
-Clark Nathan H,1315 Tiffany Lane,Commerce,TX,75428-3851,1315 Tiffany Ln,Commerce,Tx,75428,,,,
+chennaul@tenet.edu",,,
+Chhiang Jeudi,2618 Washington Street,Commerce,TX,75428-3840,2618 Washington St,Commerce,Tx,75428,,,,,
+Clark Nathan H,1315 Tiffany Lane,Commerce,TX,75428-3851,1315 Tiffany Ln,Commerce,Tx,75428,,,,,
 Clay Raymond E,2616 Washington Street,Commerce,TX,75428-3840,2616 Washington St,Commerce,Tx,75428,"(214) 660-6497 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -1162,13 +1162,13 @@ First reported April 2021
 (903) 886-6347
 Landline","cuxx88@gmail.com
 rayclay187@yahoo.com
-rclay65@yahoo.com",,
-Clayton Debbie A,2909 Washington Street,Commerce,TX,75428-3845,2909 Washington St,Commerce,Tx,75428,,,,
+rclay65@yahoo.com",,,
+Clayton Debbie A,2909 Washington Street,Commerce,TX,75428-3845,2909 Washington St,Commerce,Tx,75428,,,,,
 Clayton Eric Ii,107 Champion Lane,Commerce,TX,75428,2310 Eugene St,Dallas,Tx,75215,"(214) 421-2486 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
 First reported August 2010","cdrcly@aol.com
-eclaytpon@erols.com",,
+eclaytpon@erols.com",,,
 Clevenger Martha Louise,112 Briarwood Street,Commerce,TX,75428-3820,112 Briarwood St,Commerce,Tx,75428,"(903) 886-2756 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1186,13 +1186,13 @@ Wireless
 Cellco Partnership dba Verizon Wireless - TX
 First reported September 1992","mommaclev@hotmail.com
 martha_clevenger@tamu.commerce.edu
-martha_clevenger@tamu-commerce.edu",,
-Commerce Economic Dev Corp,Rosemound Street,Commerce,TX,75428,1119 Alamo St,Commerce,Tx,75428,,,,
-Commerce Economic Dev Corp,Cr-4513,Commerce,TX,75428,1119 Alamo St,Commerce,Tx,75428,,,,
-Commerce Housing Authority,1007 M L King Drive A,Commerce,TX,75428,426 Tarter Est,Commerce,Tx,75428,,,,
-Commerce ISD,Sycamore Street,Commerce,TX,75428,3315 Washington St,Commerce,Tx,75428,,,,
-Commerce ISD,414 N Neal Street,Commerce,TX,75428-2326,3315 Washington St,Commerce,Tx,75428,,,,
-Commerce ISD,Washington Street,Commerce,TX,75428,3315 Washington St,Commerce,Tx,75428,,,,
+martha_clevenger@tamu-commerce.edu",,,
+Commerce Economic Dev Corp,Rosemound Street,Commerce,TX,75428,1119 Alamo St,Commerce,Tx,75428,,,,,
+Commerce Economic Dev Corp,Cr-4513,Commerce,TX,75428,1119 Alamo St,Commerce,Tx,75428,,,,,
+Commerce Housing Authority,1007 M L King Drive A,Commerce,TX,75428,426 Tarter Est,Commerce,Tx,75428,,,,,
+Commerce ISD,Sycamore Street,Commerce,TX,75428,3315 Washington St,Commerce,Tx,75428,,,,,
+Commerce ISD,414 N Neal Street,Commerce,TX,75428-2326,3315 Washington St,Commerce,Tx,75428,,,,,
+Commerce ISD,Washington Street,Commerce,TX,75428,3315 Washington St,Commerce,Tx,75428,,,,,
 Conboy Roger H,1301 Madeline Street,Commerce,TX,75428-3750,1301 Madeline St,Commerce,Tx,75428,"(972) 489-1972 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -1211,7 +1211,7 @@ Cellco Partnership dba Verizon Wireless - TX
 First reported September 2021
 (903) 246-3435
 Landline
-Time Warner Cable Information Services (Texas) LP dba Time W",,,
+Time Warner Cable Information Services (Texas) LP dba Time W",,,,
 Conner Kurtis B,1308 Tiffany Lane,Commerce,TX,75428-3852,1308 Tiffany Ln,Commerce,Tx,75428,"(503) 547-4934 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -1225,7 +1225,7 @@ Landline
 Time Warner Cable Information Services (Texas) LP dba Time Warner Cable - TX
 First reported January 2017","kconner87@gmail.com
 kurtisconner@hotmail.com
-krtscon87@yahoo.com",,
+krtscon87@yahoo.com",,,
 Cook Katheryn Virginia,406 N Neal Street,Commerce,TX,75428-2326,403 Lily B,Commerce,Tx,75428,"(325) 436-9616 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -1233,7 +1233,7 @@ First reported February 2013
 (903) 886-6717
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported August 2010",,,
+First reported August 2010",,,,
 Cooper James N,2829 McCarley Drive,Commerce,TX,75428-3829,2829 McCarley Dr,Commerce,Tx,75428,"(903) 886-0640 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1254,10 +1254,10 @@ First reported July 2018
 Landline
 Grande Communications Networks Inc - TX
 First reported July 2002","gskinner@transport.com
-",,
-Copeland Rachel N,2703 Charity Road,Commerce,TX,75428-3934,3111 Poplar St,Greenville,Tx,75402,,,,
-Cosic Fatmir,406 State Highway 24,Commerce,TX,75428-5808,1810 University Dr,Richardson,Tx,75081,,,,
-Cow Hill Rental Properties Corp,1411 Cowan Drive,Commerce,TX,75428-3823,1703 Campbell St,Commerce,Tx,75428,,,,
+",,,
+Copeland Rachel N,2703 Charity Road,Commerce,TX,75428-3934,3111 Poplar St,Greenville,Tx,75402,,,,,
+Cosic Fatmir,406 State Highway 24,Commerce,TX,75428-5808,1810 University Dr,Richardson,Tx,75081,,,,,
+Cow Hill Rental Properties Corp,1411 Cowan Drive,Commerce,TX,75428-3823,1703 Campbell St,Commerce,Tx,75428,,,,,
 Cox Jane D,2711 Bois D Arc Street,Commerce,TX,75428-3701,2711 Bois D Arc St,Commerce,Tx,75428,"(903) 886-6725 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1266,7 +1266,7 @@ First reported August 2010
 Wireless
 New Cingular Wireless PCS LLC - IL
 First reported July 2017","jcox@koyote.com
-",,
+",,,
 Crites Gina D,2809 Windy Drive,Commerce,TX,75428-3849,2809 Windy Dr,Commerce,Tx,75428,"(903) 243-6098 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -1287,7 +1287,7 @@ First reported April 2021
 Landline
 Southwestern Bell Telephone Company
 First reported September 2005","ginadhenry@yahoo.com
-gina@gaswork.com",,
+gina@gaswork.com",,,
 Crosby Barbara,400 N Neal Street,Commerce,TX,75428-2326,400 N Neal St,Commerce,Tx,75428,"(214) 661-0989 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -1314,7 +1314,7 @@ Cellco Partnership dba Verizon Wireless - TX
 First reported October 2019
 (903) 886-4473","barbarapannell820@gmail.com
 barbarapannell@yahoo.com
-lckool-11@hotmail.com",,
+lckool-11@hotmail.com",,,
 Cross Phillip,2819 Birchwood Lane,Commerce,TX,75428-3862,2819 Birchwood Ln,Commerce,Tx,75428,"(903) 246-5165 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -1334,7 +1334,7 @@ First reported February 2012
 (903) 886-2330
 Landline
 United Telephone Company of Texas Inc dba CenturyLink","stacia_phil@yahoo.com
-nlcross@webtv.net",,
+nlcross@webtv.net",,,
 Cross Stacia,2802 Tanglewood Drive,Commerce,TX,75428-3812,2819 Birchwood Ln,Commerce,Tx,75428,"""(903) 246-5165 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -1354,7 +1354,7 @@ First reported February 2012
 (903) 886-2330
 Landline
 United Telephone Company of Texas Inc dba CenturyLink""","""stacia_phil@yahoo.com
-nlcross@webtv.net""",,
+nlcross@webtv.net""",,,
 Crow Susie P,Oak Street,Commerce,TX,75428,605 4th St,Commerce,Tx,75428,"(972) 886-4622 (Primary Phone)
 Landline
 Grande Communications Networks Inc - TX
@@ -1374,7 +1374,7 @@ First reported March 2016
 (903) 886-4824
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported March 2016",,,
+First reported March 2016",,,,
 Cunningham Stephen Wiley,2615 Taylor Street,Commerce,TX,75428-3817,2615 Taylor St,Commerce,Tx,75428,"(903) 217-2448 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -1395,7 +1395,7 @@ First reported February 2004
 Landline
 Southwestern Bell Telephone Company
 First reported March 2004","stephencunningham@abmauri.us
-",,
+",,,
 Currin Jan,603 4th Street,Commerce,TX,75428-2315,506 2nd St,Commerce,Tx,75428,"(903) 366-9546 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -1416,7 +1416,7 @@ First reported April 2021
 Landline
 Grande Communications Networks Inc - TX
 First reported August 2007","jan_currin@yahoo.com
-",,
+",,,
 Daub David R,100 Briarwood Street,Commerce,TX,75428-3820,100 Briarwood St,Commerce,Tx,75428,"(903) 246-3111 (Primary Phone)
 Landline
 Time Warner Cable Information Services (Texas) LP dba Time Warner Cable - TX
@@ -1445,8 +1445,8 @@ First reported March 2007
 daviddaub@yahoo.com
 daviddaub@msn.com
 dr2d2@mediaone.net
-dddaubw58@netzero.net",,
-Davis Bonnie Kay,1221 Mosley Street,Commerce,TX,75428-4710,1221 Mosley St,Commerce,Tx,75428,,,,
+dddaubw58@netzero.net",,,
+Davis Bonnie Kay,1221 Mosley Street,Commerce,TX,75428-4710,1221 Mosley St,Commerce,Tx,75428,,,,,
 Davis Daniel J,1313 Edna Street,Commerce,TX,75428-3853,1313 Edna St,Commerce,Tx,75428,"(307) 358-5725 (Primary Phone)
 Landline
 Qwest Corporation
@@ -1456,12 +1456,12 @@ Landline
 Time Warner Cable Information Services (Texas) LP dba Time Warner Cable - TX
 First reported September 2016","rdavis@netcommander.com
 rdavis@lawbls.com
-davis82176@yahoo.com",,
-Davis Karen P,2601 Park Street,Commerce,TX,75428-3805,2601 Park St,Commerce,Tx,75428,,,,
+davis82176@yahoo.com",,,
+Davis Karen P,2601 Park Street,Commerce,TX,75428-3805,2601 Park St,Commerce,Tx,75428,,,,,
 Davis Nathaniel L Jr,Harrison Street,Commerce,TX,75428,102 Shoreside Trl,Waxahachie,Tx,75165,"(817) 739-3885 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported December 2018",,,
+First reported December 2018",,,,
 Davis Victoria Lynn,2808 Tanglewood Drive,Commerce,TX,75428-3812,2808 Tanglewood Dr,Commerce,Tx,75428,"(903) 269-6618 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -1484,10 +1484,10 @@ Time Warner Cable Information Services (Texas) LP dba Time Warner Cable - TX","r
 angelkitty273@aol.com
 contrabassrulz@hotmail.com
 angelkitty273@netscape.com
-contrabassrulz@address.com",,
-Dean Sharon &amp; Annette McGlover &amp; Mark Mines,401 Sycamore Street,Commerce,TX,75428-2770,PO Box 56541,Los Angeles,Ca,90056,,,,
-Deleon Perez Juana Celestina,Short Ross Street,Commerce,TX,75428,5607 County Road 923,Nevada,Tx,75173,,,,
-Dennis Helen L,2911 Washington Street,Commerce,TX,75428-3845,2911 Washington St,Commerce,Tx,75428,,,,
+contrabassrulz@address.com",,,
+Dean Sharon &amp; Annette McGlover &amp; Mark Mines,401 Sycamore Street,Commerce,TX,75428-2770,PO Box 56541,Los Angeles,Ca,90056,,,,,
+Deleon Perez Juana Celestina,Short Ross Street,Commerce,TX,75428,5607 County Road 923,Nevada,Tx,75173,,,,,
+Dennis Helen L,2911 Washington Street,Commerce,TX,75428-3845,2911 Washington St,Commerce,Tx,75428,,,,,
 Denshire Conrad,1306 Madeline Street,Commerce,TX,75428-3751,1306 Madeline St,Commerce,Tx,75428,"(775) 750-7506 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - NV
@@ -1507,7 +1507,7 @@ First reported August 2010
 (702) 423-2682
 Wireless
 Cellco Partnership dba Verizon","denshirect@aim.com
-",,
+",,,
 Denton Cathy,1701 Culver Street,Commerce,TX,75428-3408,407 Private Road 5975,Yantis,Tx,75497,"(903) 524-4119 (Primary Phone)
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
@@ -1524,7 +1524,7 @@ First reported December 2013
 Landline
 Onvoy LLC - TX
 First reported March 2016","ddenton7@yahoo.com
-",,
+",,,
 Dickinson Jared,124 Royal Lane,Commerce,TX,75428-3834,124 Royal Ln,Commerce,Tx,75428,"(202) 213-2870 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - DC
@@ -1532,7 +1532,7 @@ First reported September 2013
 (601) 849-6894
 Landline
 Bellsouth Telecommunications Inc dba South Central Bell Telephone
-First reported November 2010",,,
+First reported November 2010",,,,
 Diep Ngoc-T,2912 Monroe Street,Commerce,TX,75428-3715,2912 Monroe St,Commerce,Tx,75428,"(903) 886-8100 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1555,7 +1555,7 @@ Ameritech Illinois","chuanti2003@mail.com
 chuanti2003@yahoo.com
 chuanti@yahoo.com
 chuanti2005@yahoo.com
-chuanti@mail.com",,
+chuanti@mail.com",,,
 Dobbins Frederick,2824 Windy Drive,Commerce,TX,75428-3850,1420 Dimmit Dr,Carrollton,Tx,75010,"(682) 554-8994 (Primary Phone)
 Wireless
 T-Mobile USA Inc
@@ -1581,7 +1581,7 @@ Landline
 Southwestern Bell Telephone Company
 First reported March 2016
 (817) 332-6218","c.suefarar@gmail.com
-fdobbins@hotmail.com",,
+fdobbins@hotmail.com",,,
 Dobbs Ricky F,2805 Rix Street,Commerce,TX,75428-3720,2805 Rix St,Commerce,Tx,75428,"(903) 886-8795 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1601,8 +1601,8 @@ Landline
 Windstream Missouri Inc
 First reported March 2016","rdobbs@localnet.com
 mimidobbs@yahoo.com
-bonniecarlin@worldnet.att.net",,
-Domel Bradley,2807 Bois D Arc Street,Commerce,TX,75428-3703,2807 Bois D Arc St,Commerce,Tx,75428,,,,
+bonniecarlin@worldnet.att.net",,,
+Domel Bradley,2807 Bois D Arc Street,Commerce,TX,75428-3703,2807 Bois D Arc St,Commerce,Tx,75428,,,,,
 Doughty Ben,2800 Bois D Arc Street,Commerce,TX,75428-3704,2800 Bois D Arc St,Commerce,Tx,75428,"(903) 886-6328 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1628,7 +1628,7 @@ bendoughty@pacbell.net
 ben_doughty@tamu-commerce.edu
 ben_doughty@yahoo.com
 nancy.doughty@comcast.net
-nancy.doughty@sbcglobal.net",,
+nancy.doughty@sbcglobal.net",,,
 Downing Ira Scott,2833 McCarley Drive,Commerce,TX,75428-3829,2833 McCarley Dr,Commerce,Tx,75428,"(903) 886-8002 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1642,7 +1642,7 @@ Landline
 YMax Communications Corporation - TX
 First reported August 2002","scottdowning9@gmail.com
 denny.downing@yahoo.com
-scott_downing@tamu-",,
+scott_downing@tamu-",,,
 Dowsley Brian,3015 Tanglewood Drive,Commerce,TX,75428-3815,3015 Tanglewood Dr,Commerce,Tx,75428,"(903) 886-2528 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1666,7 +1666,7 @@ First reported March 2016","bdowsley@charter.net
 bdowsley@pacbell.net
 bdowsley@worldnet.att.net
 bdowsley@yahoo.com
-ddowsley@aol.com",,
+ddowsley@aol.com",,,
 Dowsley Brian,Sterling Hart Drive,Commerce,TX,75428,3015 Tanglewood Dr,Commerce,Tx,75428,"(903) 886-2528 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1690,7 +1690,7 @@ First reported March 2016","bdowsley@charter.net
 bdowsley@pacbell.net
 bdowsley@worldnet.att.net
 bdowsley@yahoo.com
-ddowsley@aol.com",,
+ddowsley@aol.com",,,
 Draughn Robert,102 Gateridge Drive,Commerce,TX,75428-3803,2210 Charity Rd,Commerce,Tx,75428,"(903) 456-2219 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -1716,7 +1716,7 @@ r.draughn@countryhomeestates.org
 rdraughn@netzero.net
 rdraughn@bellsouth.net
 rdraughn@excite.com
-robertdraughn@netzero.net",,
+robertdraughn@netzero.net",,,
 Drewry Wanda,607 Park Street,Commerce,TX,75428-2119,5172 Private Road 4734,Commerce,Tx,75428,"(903) 886-3666 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1728,8 +1728,8 @@ First reported January 2019
 (903) 461-4349
 Landline
 Southwestern Bell Telephone Company
-First reported March 2016",,,
-Dt3,2603 Taylor Street,Commerce,TX,75428-3817,2649 Lovers Ln,Dallas,Tx,75225,,,,
+First reported March 2016",,,,
+Dt3,2603 Taylor Street,Commerce,TX,75428-3817,2649 Lovers Ln,Dallas,Tx,75225,,,,,
 Duffey Arabella &amp; Margie R Bar,M L King Drive,Commerce,TX,75428,1217 Regal Dr,Garland,Tx,75040,"(214) 575-9836 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -1737,7 +1737,7 @@ First reported November 1992
 (972) 231-2914
 Landline
 Southwestern Bell Telephone Company
-First reported November 1992",,,
+First reported November 1992",,,,
 Duvall Billie,914 Jernigan Street,Commerce,TX,75428-2226,914 Jernigan St,Commerce,Tx,75428,"(903) 413-1311 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -1758,7 +1758,7 @@ First reported March 1997
 Landline
 Grande Communications Networks In","aduvall@ipa.net
 aduvallev31@aol.com
-p2aduvall@charter.net",,
+p2aduvall@charter.net",,,
 Elliott Paula Jo,1625 Drake Drive,Commerce,TX,75428-3728,1625 Drake Dr,Commerce,Tx,75428,"(903) 886-2439 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1768,7 +1768,7 @@ Landline
 Qwest Corporation
 First reported April 2021","pe2747@gmail.com
 cpe@koyote.com
-paula.elliott@cox.net",,
+paula.elliott@cox.net",,,
 Ellis Roger,2632 Washington Street,Commerce,TX,75428-3840,2632 Washington St,Commerce,Tx,75428,"(903) 818-0598 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -1792,7 +1792,7 @@ First reported March 2016","morganellis2012@yahoo.com
 arellis_13@yahoo.com
 andrea.ellis@centurytel.net
 rellis@texoma.net
-rellis@reliamail.net",,
+rellis@reliamail.net",,,
 Ellis Scott,601 Park Street,Commerce,TX,75428-2119,601 Park St,Commerce,Tx,75428,"(603) 325-0088 (Primary Phone)
 Wireless
 Bell Atlantic NYNEX Mobile
@@ -1821,7 +1821,7 @@ First reported March 2016
 wammy03057@gmail.com
 wammy03057@aol.com
 wammy03057@comcast.net
-wammy@pulse.net",,
+wammy@pulse.net",,,
 Ennis James,603 Bishop Street,Commerce,TX,75428-2305,301 Bill Bradford Apt 3,Sulphur Springs,Tx,75482,"(903) 886-7988 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1842,7 +1842,7 @@ First reported April 2009
 Wireless
 Sprint Spectrum LP
 First reported June 2011","james.ennis@hotmail.com
-",,
+",,,
 Essix Winfred,2800 Washington Street,Commerce,TX,75428-3844,2800 Washington St,Commerce,Tx,75428,"(903) 886-2015 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1871,7 +1871,7 @@ First reported August 2010
 Landline
 United Telephone Company of Texas Inc dba CenturyLink","wessix@aol.com
 wessix@hotmail.com
-winfredessix2@yahoo.com",,
+winfredessix2@yahoo.com",,,
 Estes Thelma &amp; Hillard E,1107 Blackburn Street,Commerce,TX,75428-2787,10819 Meadow Walk Ln,Houston,Tx,77067,"(281) 874-0451 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -1893,7 +1893,7 @@ Landline
 Southwestern Bell Telephone Company
 First reported September 2020","auntteetee60@yahoo.com
 kptestes5166@yahoo.com
-testes51@yahoo.com",,
+testes51@yahoo.com",,,
 Evans Roger Wynn,2704 Bois D Arc Street,Commerce,TX,75428-3702,2704 Bois D Arc St,Commerce,Tx,75428,"(815) 878-2113 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -1913,7 +1913,7 @@ First reported June 2001
 (615) 872-2116
 Landline
 Bellsouth Telecommunications ","lavans@theramp.net
-",,
+",,,
 Ezzell David,156 Royal Lane,Commerce,TX,75428-3834,516 Las Lomas Dr,Rockwall,Tx,75032,"(972) 961-0260 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -1940,7 +1940,7 @@ AT&T Corporation
 First reported January 2019
 (972) 722-1575","dlaquey@yahoo.com
 dlaquey1@yahoo.com
-laquey.diana@aol.com",,
+laquey.diana@aol.com",,,
 Farquhar Olin D,2612 Sterling Hart Drive,Commerce,TX,75428-3922,2612 Sterling Hart Dr,Commerce,Tx,75428,"(903) 886-8938 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -1963,7 +1963,7 @@ New Cingular Wireless PCS LLC - I","dalefarquhar@yahoo.com
 damon.farquhar@hotmail.com
 dalefarquhar@comcast.net
 dale.farquhar@yahoo.com
-emmelou@aol.com",,
+emmelou@aol.com",,,
 Fernandez-Babineaux Maria C,2609 Washington Street,Commerce,TX,75428-3839,3103 Lakeside Dr,Rockwall,Tx,75087,"(903) 274-5540 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -1984,7 +1984,7 @@ First reported August 2004
 Wireless
 Cellco Partnership dba Verizon Wireless - LA
 First reported May 2002","mfernan9@tulane.edu
-mfernan9@yahoo.com",,
+mfernan9@yahoo.com",,,
 Fields Barbara N,501 Bishop Street,Commerce,TX,75428-2303,501 Bishop St,Commerce,Tx,75428,"(903) 886-7560 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -2004,8 +2004,8 @@ First reported August 2010
 (903) 886-2629
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported August 2016",,,
-Fivecoat Ollie Mae,704 N Neal Street,Commerce,TX,75428-2230,511 Sioux Ln,Broken Bow,NE,68822,,,,
+First reported August 2016",,,,
+Fivecoat Ollie Mae,704 N Neal Street,Commerce,TX,75428-2230,511 Sioux Ln,Broken Bow,NE,68822,,,,,
 Flores Jose S,503 Pine Street,Commerce,TX,75428-2239,1100 S Nursery Rd,Irving,Tx,75060,"(972) 505-8057 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -2030,7 +2030,7 @@ First reported March 2005
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported December 2011
-(972) 785-0852",,,
+(972) 785-0852",,,,
 Ford Robert M,1000 N Neal Street,Commerce,TX,75428-2236,1002 N Neal St,Commerce,Tx,75428,"(972) 576-2291 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -2055,12 +2055,12 @@ First reported November 2014
 VOIP
 AT&T Corporation
 First reported April 2020
-(972) 617-4879",,,
-Foust Evelyn D,113 Briarwood Street,Commerce,TX,75428-3819,113 Briarwood St,Commerce,Tx,75428,,,,
+(972) 617-4879",,,,
+Foust Evelyn D,113 Briarwood Street,Commerce,TX,75428-3819,113 Briarwood St,Commerce,Tx,75428,,,,,
 Fox Anna,2819 Laurel Lane,Commerce,TX,75428-3804,PO Box 250,Campbell,Tx,75422,"(903) 886-2643 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported August 2010",,,
+First reported August 2010",,,,
 Fulkerson Kathy,140 Royal Lane,Commerce,TX,75428-3834,140 Royal Ln,Commerce,Tx,75428,"(903) 335-0133 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -2084,7 +2084,7 @@ First reported July 2004","ocean35_2000@yahoo.com
 wulfman@suddenlink.net
 elephant@koyote.com
 happywulf.mw@gmail.com
-kgskaggs@suddenlink.net",,
+kgskaggs@suddenlink.net",,,
 Fulkerson Valerie Sue,2610 Park Street,Commerce,TX,75428-3806,2610 Park St,Commerce,Tx,75428,"(806) 674-4965 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -2113,7 +2113,7 @@ First reported April 2021
 nvporterw21@concentric.net
 k7vporter@concentric.net
 uqvporter47@concentric.net
-vporters7@concentric.net",,
+vporters7@concentric.net",,,
 Fullwood Harry Lee,2705 Bois D Arc Street,Commerce,TX,75428-3701,2705 Bois D Arc St,Commerce,Tx,75428,"(972) 743-7702 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -2127,7 +2127,7 @@ Wireless
 Cellco Partnership dba Verizon Wireless - MT
 First reported May 2017","vfcarol@gmail.com
 hfullwood@gmail.com
-harryfullwood@veloemail.com",,
+harryfullwood@veloemail.com",,,
 Funk Brian,709 Bishop Street,Commerce,TX,75428-2201,3858 County Road 2216,Caddo Mills,Tx,75135,"(214) 395-3046 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -2147,7 +2147,7 @@ First reported May 1999
 (817) 266-1557
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported June 2023",,,
+First reported June 2023",,,,
 Gaffney Roy,2617 Taylor Street,Commerce,TX,75428-3817,2617 Taylor St,Commerce,Tx,75428,"(903) 367-7636 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -2169,7 +2169,7 @@ Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported July 200","gaff4life@hotmail.com
 gaffney@fl.freei.net
-roy.gaffney@navy.mil",,
+roy.gaffney@navy.mil",,,
 Galyean Bradly,148 Royal Lane,Commerce,TX,75428-3834,514 Egret Ln,Greenville,Tx,75402,"(903) 268-9617 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -2182,8 +2182,8 @@ First reported March 2017
 Landline
 Southwestern Bell Telephone Company
 First reported February 200","galyean@geusnet.com
-",,
-Gamez Amada R,104 Royal Lane,Commerce,TX,75428-3834,104 Royal Ln,Commerce,Tx,75428,,,,
+",,,
+Gamez Amada R,104 Royal Lane,Commerce,TX,75428-3834,104 Royal Ln,Commerce,Tx,75428,,,,,
 Garrett Betty,Craddock Street,Commerce,TX,75428,528 Camber St,Fort Worth,Tx,76131,"(214) 518-1641 (Primary Phone)
 Wireless
 T-Mobile USA Inc
@@ -2207,7 +2207,7 @@ First reported December 2017","dmoney1901@gmail.com
 msjag12@hotmail.com
 dmoney1901@yahoo.com
 elizabethbrant@hotmail.com
-ebrant@erols.com",,
+ebrant@erols.com",,,
 Garza Jesus J,803 N Neal Street,Commerce,TX,75428-2231,1908 Church St,Commerce,Tx,75428,"(972) 241-8361 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -2215,7 +2215,7 @@ First reported February 2004
 (903) 886-3310
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported November 2007",,,
+First reported November 2007",,,,
 Garza Jose E,117 Royal Lane,Commerce,TX,75428-3833,117 Royal Ln,Commerce,Tx,75428,"(214) 682-1042 (Primary Phone)
 Wireless
 T-Mobile USA Inc
@@ -2229,7 +2229,7 @@ Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported June 20","garza155@hotmail.com
 pepitogarza@yahoo.com
-jose.garza@rochester.rr.com",,
+jose.garza@rochester.rr.com",,,
 Giddens Rex M,2722 McCarley Drive,Commerce,TX,75428-3828,2722 McCarley Dr,Commerce,Tx,75428,"(903) 408-7374 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -2250,7 +2250,7 @@ First reported July 1993
 Wireless
 New Cingular Wireless PCS LLC - IL
 First reported March 2021","rgiddens@tamuc.edu
-",,
+",,,
 Gilmore Kelli D,2620 Sterling Hart Drive,Commerce,TX,75428-3922,2620 Sterling Hart Dr,Commerce,Tx,75428,"(254) 947-1479 (Primary Phone)
 Landline
 Central Telephone Company of Texas dba CenturyLink
@@ -2264,7 +2264,7 @@ Landline
 Central Telephone Company of Texas dba CenturyLink
 First reported May 2014","kelli.gilmore@killeenisd.org
 anne.gilmore26@icloud.com
-kelli.gilmore@gateway.net",,
+kelli.gilmore@gateway.net",,,
 Glass Garrett M,2601 Taylor Street,Commerce,TX,75428-3817,901 Davis St N,Sulphur Springs,Tx,75482,"(903) 821-5298 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -2284,61 +2284,61 @@ First reported February 2022","glass.g.60@gmail.com
 garrettglass@mail.com
 garrett.glass@yahoo.com
 grit_tx@yahoo.com
-renero86@gmail.com",,
+renero86@gmail.com",,,
 Gms,2906 Monroe Street,Commerce,TX,75428-3715,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,Arthur Court,Commerce,TX,75428,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3018 Charlinda Street,Commerce,TX,75428-3955,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3022 Charlinda Street,Commerce,TX,75428-3955,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3026 Charlinda Street,Commerce,TX,75428-3955,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3030 Charlinda Street,Commerce,TX,75428-3955,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3034 Charlinda Street,Commerce,TX,75428-3955,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3038 Charlinda Street,Commerce,TX,75428-3955,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3042 Charlinda Street,Commerce,TX,75428-3955,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3046 Charlinda Street,Commerce,TX,75428-3955,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3015 Charlinda Street,Commerce,TX,75428-3956,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3019 Charlinda Street,Commerce,TX,75428-3956,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,2023 Charlinda,Commerce,TX,75428,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,2027 Charlinda,Commerce,TX,75428,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3031 Charlinda Street,Commerce,TX,75428-3956,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3035 Charlinda Street,Commerce,TX,75428-3956,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3039 Charlinda Street,Commerce,TX,75428-3956,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gms,3043 Charlinda Street,Commerce,TX,75428-3956,PO Box 883,Commerce,Tx,75429,,,"Alison White Haynes
 ","3910 E. Del Mar Blvd., Ste. 107, Laredo, TX, 78045, USA
-"
+",
 Gonzalez Armando R,900 N Neal Street,Commerce,TX,75428-2234,3126 Sanders Dr,Garland,Tx,75042,"(972) 922-8272 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -2357,12 +2357,12 @@ Southwestern Bell Telephone Company - TX
 First reported August 2010
 (972) 905-5981
 Landline
-Time Warner Cable Information Services (Texas) LP dba Time Warner Cable - TX",,,
+Time Warner Cable Information Services (Texas) LP dba Time Warner Cable - TX",,,,
 Gonzalez Eliud,1711 Culver Street,Commerce,TX,75428-3408,1711 Culver St,Commerce,Tx,75428,"(903) 227-3202 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
 First reported October 2015","eliudgonzalez11@gmail.com
-",,
+",,,
 Goodall Carol A,815 Bishop Street,Commerce,TX,75428-2203,PO Box 3024,Commerce,Tx,75429,"(903) 513-3636 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -2400,7 +2400,7 @@ cgoodall7@msn.com
 cgoodall1@yahoo.com
 cgoodall2@yahoo.com
 cgoodall@att.net
-cgoodall7@bellatlantic.ne",,
+cgoodall7@bellatlantic.ne",,,
 Gorden Donald R Jr,1406 Tanglewood Drive,Commerce,TX,75428-3800,1406 Tanglewood Dr,Commerce,Tx,75428,"(903) 366-1648 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -2422,7 +2422,7 @@ Landline
 Valor Telecommunications of Texas LP - OK dba Windstream Communications Southwest
 First reported October 2011","gorden@pacbell.net
 dgorden1@pacbell.net
-donald.gorden@hotmail.com",,
+donald.gorden@hotmail.com",,,
 Gotcher Cheryl Lane,1206 Craddock Street,Commerce,TX,75428-4103,1506 Culver St,Commerce,Tx,75428,"(903) 886-4714 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -2448,7 +2448,7 @@ Wireless
 Sprint Spectrum LP
 First reported April 2021
 (972) 886-4714","baby-lane@live.com
-cheryl@gotcher.com",,
+cheryl@gotcher.com",,,
 Gotcher Cheryl Lane,Meadows Street,Commerce,TX,75428,1506 Culver St,Commerce,Tx,75428,"(903) 886-4714 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -2474,7 +2474,7 @@ Wireless
 Sprint Spectrum LP
 First reported April 2021
 (972) 886-4714","baby-lane@live.com
-cheryl@gotcher.com",,
+cheryl@gotcher.com",,,
 Granados Victor,1705 Drake Drive,Commerce,TX,75428-3708,PO Box 534,Wilmer,Tx,75172,"(214) 951-6125 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -2494,7 +2494,7 @@ First reported September 2012
 (214) 900-6798
 Wireless
 MetroPCS Inc","granadosvictor74@yahoo.com
-",,
+",,,
 Green Jimitri,2809 Bois D Arc Street,Commerce,TX,75428-3703,2809 Bois D Arc St,Commerce,Tx,75428,"(318) 518-5005 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - GA
@@ -2515,7 +2515,7 @@ First reported April 2021
 Landline
 Bellsouth Telecommunications Inc dba South Central Bell Telephone
 First reported November 2022","gjimitri@yahoo.com
-jimitrigreen@yahoo.com",,
+jimitrigreen@yahoo.com",,,
 Green Joe,1220 Mosley Street,Commerce,TX,75428-4709,PO Box 1062,Commerce,Tx,75429,"(903) 886-2470 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -2531,8 +2531,8 @@ First reported February 2017
 (903) 886-2105
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported January 1998",,,
-Guinessey Nell Miller,1619 Drake Drive,Commerce,TX,75428-3728,1619 Drake Dr,Commerce,Tx,75428,,,,
+First reported January 1998",,,,
+Guinessey Nell Miller,1619 Drake Drive,Commerce,TX,75428-3728,1619 Drake Dr,Commerce,Tx,75428,,,,,
 Guzman Gerardo,117 Norris Street,Commerce,TX,75428-2773,1710 Red Hawk Rd,Lewisville,Tx,75056,"(972) 939-1507 (Primary Phone)
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
@@ -2540,7 +2540,7 @@ First reported June 2014
 (972) 939-0000
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
-First reported October 2008",,,
+First reported October 2008",,,,
 Hagston Daniel Wayne,1302 Champion Lane,Commerce,TX,75428-2713,1610 Park St,Commerce,Tx,75428,"(903) 951-7019 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -2562,7 +2562,7 @@ Wireless
 MetroPCS Inc
 First reported August 2020","hagstondaniel@gmail.com
 daniel.hagston@gmail.com
-idnchagstonr6@hotmail.com",,
+idnchagstonr6@hotmail.com",,,
 Hale David,2706 Tanglewood Drive,Commerce,TX,75428-3810,2706 Tanglewood Dr,Commerce,Tx,75428,"(903) 886-7723 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -2581,8 +2581,8 @@ New Cingular Wireless PCS LLC - IL
 First reported July 2018
 (972) 886-6631
 Landline
-Grande Communications Networks Inc - TX",,,
-Hale Edward E Ii,2709 Bois D Arc Street,Commerce,TX,75428-3701,2709 Bois D Arc St,Commerce,Tx,75428,,,,
+Grande Communications Networks Inc - TX",,,,
+Hale Edward E Ii,2709 Bois D Arc Street,Commerce,TX,75428-3701,2709 Bois D Arc St,Commerce,Tx,75428,,,,,
 Hale Loween M,908 Jernigan Street,Commerce,TX,75428-2226,908 Jernigan St,Commerce,Tx,75428,"(972) 278-0278 (Primary Phone)
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
@@ -2602,7 +2602,7 @@ First reported February 2005
 (972) 563-6300
 Landline","blueeyes0091@yahoo.com
 blueeyes@adelphia.net
-blueeyes0091@adelphia.net",,
+blueeyes0091@adelphia.net",,,
 Hall Elmer,1001 Jernigan Street,Commerce,TX,75428-2227,1001 Jernigan St,Commerce,Tx,75428,"(903) 366-2013 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -2622,8 +2622,8 @@ First reported October 2006
 (903) 746-3715
 Wireless
 New Cingular Wireless PCS LLC -","kathyahall@yahoo.com
-kathyhalla1124@gmail.com",,
-Halstead Briana D,1702 Meadowview Road,Commerce,TX,75428-3713,1702 Meadowview Rd,Commerce,Tx,75428,,,,
+kathyhalla1124@gmail.com",,,
+Halstead Briana D,1702 Meadowview Road,Commerce,TX,75428-3713,1702 Meadowview Rd,Commerce,Tx,75428,,,,,
 Hammonds Joyce,100 Royal Lane,Commerce,TX,75428-3834,100 Royal Ln,Commerce,Tx,75428,"(214) 542-2416 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -2642,16 +2642,16 @@ Southwestern Bell Telephone Company
 First reported September 2015
 (903) 461-2052
 Landline","joycegunn@yahoo.com
-tj.hammonds@yahoo.com",,
+tj.hammonds@yahoo.com",,,
 Hamrick Joseph L Jr,1300 Madeline Street,Commerce,TX,75428-3751,1300 Madeline St,Commerce,Tx,75428,"(903) 343-1069 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
 First reported August 2010","stranglehold3@gmail.com
-",,
+",,,
 Hanak M J,2822 Laurel Lane,Commerce,TX,75428-3804,2822 Laurel Ln,Commerce,Tx,75428,"(903) 886-6427 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported February 2004",,,
+First reported February 2004",,,,
 Harper Jonathan,1508 Deer Trail,Commerce,TX,75428-3866,1508 Deer Trl,Commerce,Tx,75428,"(936) 650-3306 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -2667,7 +2667,7 @@ First reported May 2018","lsdloveselmo@hotmail.com
 jonharper55@yahoo.com
 jonharper@yahoo.com
 jonharper83@hotmail.com
-sjonharperh20@hotmail.co",,
+sjonharperh20@hotmail.co",,,
 Harper Linda Kay,1703 Meadowview Road,Commerce,TX,75428-3712,1703 Meadowview Rd,Commerce,Tx,75428,"(903) 886-3998 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -2692,7 +2692,7 @@ liveharddieyoung45@hotmail.com
 lkharper@cs.com
 lkharper6@cs.com
 lkharper6@hotmail.com
-lkharper@yahoo.com",,
+lkharper@yahoo.com",,,
 Hartley Joe E,423 M L King Drive,Commerce,TX,75428-2744,4320 53rd St SE,Auburn,Wa,98092,"(253) 833-8712 (Primary Phone)
 Landline
 Qwest Corporation
@@ -2714,7 +2714,7 @@ Wireless
 Sprint Spectrum LP
 First reported April 2021","mah1209@gmail.commah1209@gmail.com
 jbhartley7580@comcast.net
-8hart@netscape.com",,
+8hart@netscape.com",,,
 Harwell Sherri,1317 Edna Street,Commerce,TX,75428-3853,1317 Edna St,Commerce,Tx,75428,"(972) 825-2498 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -2730,8 +2730,8 @@ First reported June 2012
 (512) 567-6131
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
-First reported August 2010",jbhartley7580@comcast.net,,
-Hatcher W H,Mosley Street,Commerce,TX,75428,,,,,,8hart@netscape.com,,
+First reported August 2010",jbhartley7580@comcast.net,,,
+Hatcher W H,Mosley Street,Commerce,TX,75428,,,,,,8hart@netscape.com,,,
 Hawkins Steve D,3011 Washington Street,Commerce,TX,75428-3847,3011 Washington St,Commerce,Tx,75428,"(903) 366-6078 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -2760,7 +2760,7 @@ First reported April 2021
 Landline
 Grande Communications Networks Inc","steven.hawkins69@yahoo.com
 shell@goinghot.com
-adweir47@gmail.com",,
+adweir47@gmail.com",,,
 Haws Keith,316 Park Street,Commerce,TX,75428-2114,316 Park St,Commerce,Tx,75428,"(214) 505-1632 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -2781,7 +2781,7 @@ First reported June 2000
 Wireless
 New Cingular Wireless PCS LLC - IL
 First reported October 2021","keith-haws@prodigy.net
-khaws@twcny.rr.com",,
+khaws@twcny.rr.com",,,
 Hayek Mario J,1310 Madeline Street,Commerce,TX,75428-3752,5080 Brooklet Blvd,Royse City,Tx,75189,"(662) 202-2471 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - GA
@@ -2801,7 +2801,7 @@ First reported November 2018
 (979) 732-1464
 Landline
 Southwestern Bell Telephone Company
-First reported November 2018",,,
+First reported November 2018",,,,
 Hayes Penney,2715 Marshall Street,Commerce,TX,75428-3825,2715 Marshall St,Commerce,Tx,75428,"(714) 779-7926 (Primary Phone)
 Landline
 Pacific Bell Telephone Company
@@ -2819,7 +2819,7 @@ penneyh@outlook.com
 jim@hayes.org
 penneyhayes@yahoo.com
 penneyhayes@peoplepc.com
-penney@hayesfam.org",,
+penney@hayesfam.org",,,
 Hearn David Brent,2613 Taylor Street,Commerce,TX,75428-3817,2613 Taylor St,Commerce,Tx,75428,"(903) 246-1271 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -2836,7 +2836,7 @@ First reported October 2010
 Wireless
 New Cingular Wireless PCS LLC - IL
 First reported August 2023","mydougie2@hotmail.com
-",,
+",,,
 Heath John L,1403 Tanglewood Drive,Commerce,TX,75428-3859,1403 Tanglewood Dr,Commerce,Tx,75428,"(903) 886-2300 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -2858,7 +2858,7 @@ Landline
 Ameritech Ohio
 First reported May 19","johnheath@optonline.net
 computerforjesus@aol.com
-johnh6@charter.net",,
+johnh6@charter.net",,,
 Heath Mamie Lynn,2805 Meadowview Road,Commerce,TX,75428-3741,2805 Meadowview Rd,Commerce,Tx,75428,"(512) 373-0216 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -2890,7 +2890,7 @@ mamiehurtado@gmail.com
 mhurtado@altavista.com
 mamie.hurtado@aol.com
 mamie.hurtado@yahoo.com
-ma",,
+ma",,,
 Heatherly Mary Lou,1700 Drake Drive,Commerce,TX,75428-3709,1700 Drake Dr,Commerce,Tx,75428,"(903) 886-8381 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -2910,7 +2910,7 @@ First reported March 2016
 (903) 886-7070
 Landline
 United Telephone Company of Texas","mheatherly@hotmail.com
-mheatherly@sbcglobal.net",,
+mheatherly@sbcglobal.net",,,
 Helmreich Grayson S,1615 Drake Drive,Commerce,TX,75428-3728,1615 Drake Dr,Commerce,Tx,75428,"(972) 713-7947 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -2924,7 +2924,7 @@ Wireless
 Cellco Partnership dba Verizon Wireless - TX
 First reported September 2017
 (715) 536-2210
-Landline",,,
+Landline",,,,
 Henderson Glenda Dean,1310 Tiffany Lane,Commerce,TX,75428-3852,1310 Tiffany Ln,Commerce,Tx,75428,"(903) 886-7065 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -2937,7 +2937,7 @@ First reported August 2007
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported March 2016","glenda_henderson@koyote.com
-glendah1373@chartermi.net",,
+glendah1373@chartermi.net",,,
 Henry Ericka L,1111 Charlies Drive,Commerce,TX,75428-4435,1615 Bois D Arc St Unit 2101,Commerce,Tx,75428,"(214) 460-7391 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -2950,7 +2950,7 @@ First reported November 2010
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported December 2009","ericka.h1973@gmail.com
-ericka.henry@sbcglobal.net",,
+ericka.henry@sbcglobal.net",,,
 Hernandez Ed,1106 Blackburn Street,Commerce,TX,75428-2786,3056 Blueberry Hill Rd,Greenville,Tx,75401,"(818) 421-6835 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - CA
@@ -2968,7 +2968,7 @@ Landline
 Time Warner Cable Information Services (California) LLC dba Time Warner Cable - CA
 First reported May 2014
 (818) 780-9074","tonytimido1@yahoo.com
-",,
+",,,
 Hernandez Ed,1104 Blackburn Street,Commerce,TX,75428-2786,3056 Blueberry Hill Rd,Greenville,Tx,75401,"(818) 421-6835 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - CA
@@ -2986,12 +2986,12 @@ Landline
 Time Warner Cable Information Services (California) LLC dba Time Warner Cable - CA
 First reported May 2014
 (818) 780-9074","tonytimido1@yahoo.com
-",,
+",,,
 Hernandez Omar,101 Royal Lane,Commerce,TX,75428-3833,101 Royal Ln,Commerce,Tx,75428,"(214) 425-3645 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
 First reported July 2021","omar_chivas93@yahoo.com
-",,
+",,,
 Herrera Sarah Kaye,2900 Meadowview Road,Commerce,TX,75428-3732,2900 Meadowview Rd,Commerce,Tx,75428,"(214) 229-1683 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -2999,7 +2999,7 @@ First reported June 2017
 (940) 292-3098
 Landline
 Onvoy LLC - TX
-First reported August 2010",,,
+First reported August 2010",,,,
 Heslop Gordon B,1314 Madeline Street,Commerce,TX,75428-3752,1314 Madeline St,Commerce,Tx,75428,"(318) 332-2607 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - GA
@@ -3025,7 +3025,7 @@ Bellsouth Telecommunications Inc dba South Central Bell Telephone
 First reported June 2017
 (903) 886-5259","brianakathryn679@gmail.com
 heslopgordon@yahoo.com
-ginger.butterfield@charter.net",,
+ginger.butterfield@charter.net",,,
 Hill Brian W,2813 Windy Drive,Commerce,TX,75428-3849,1235 County Road 2110 W,Clarksville,Tx,75426,"(903) 886-2635 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -3051,7 +3051,7 @@ Wireless
 T-Mobile USA Inc
 First reported April 2021
 (281) 457-3938","mfd204@yahoo.com
-bnhill1994@gmail.com",,
+bnhill1994@gmail.com",,,
 Hines Marvin Jr,Mosley Street,Commerce,TX,75428,814 Black Walnut Trl,Cedar Hill,Tx,75104,"(214) 372-4506 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -3063,7 +3063,7 @@ First reported August 1997
 (214) 352-5700
 Landline
 Southwestern Bell Telephone Company
-First reported March 2016",,,
+First reported March 2016",,,,
 Hix Judy Kay,2807 Tanglewood Drive,Commerce,TX,75428-3811,2807 Tanglewood Dr,Commerce,Tx,75428,"(903) 217-9332 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -3083,7 +3083,7 @@ First reported April 2021
 Landline
 Qwest Corporation
 First reported November 2001","jhixrn@gmail.com
-jhix@myenet.com",,
+jhix@myenet.com",,,
 Holliman Donald T Jr,105 Royal Lane,Commerce,TX,75428-3833,105 Royal Ln,Commerce,Tx,75428,"(903) 366-9698 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -3103,7 +3103,7 @@ First reported February 2000
 (972) 886-2770
 Landline
 Grande Communications Networks Inc - TX","dholliman1@tx.rr.com
-",,
+",,,
 Holloway Vicki K,2825 McCarley Drive,Commerce,TX,75428-3829,2825 McCarley Dr,Commerce,Tx,75428,"(979) 777-4119 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -3135,7 +3135,7 @@ holloway@ketr.org
 vicki@kamu.tamu.edu
 vicki621@gmail.com
 vicki_holloway@tamu-commerce.edu
-vicki_garces@satx.rr.com",,
+vicki_garces@satx.rr.com",,,
 Hopkins William Homer,1305 Madeline Street,Commerce,TX,75428-3750,1305 Madeline St,Commerce,Tx,75428,"(903) 461-5751 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -3155,8 +3155,8 @@ First reported May 2007
 (903) 297-0385
 Landline
 Southwestern Bell Telephone Company","willhopkins2003@yahoo.com
-blackshewolf30@peoplepc.com",,
-Horris Koven,1118 Blackburn Street,Commerce,TX,75428-2786,PO Box 305,Commerce,Tx,75429,,,,
+blackshewolf30@peoplepc.com",,,
+Horris Koven,1118 Blackburn Street,Commerce,TX,75428-2786,PO Box 305,Commerce,Tx,75429,,,,,
 Howard Bonny Sr,1316 Edna Street,Commerce,TX,75428-3854,PO Box 3132,Commerce,Tx,75429,"(214) 783-5260 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -3182,7 +3182,7 @@ bonny.howard@msn.com
 bonnyhoward@yahoo.com
 bonnyhoward@charter.net
 bonitahoward@att.net
-bonnyhoward@ymail.com",,
+bonnyhoward@ymail.com",,,
 Howell Kenneth,2710 Tanglewood Drive,Commerce,TX,75428-3810,4578 Fm 2736,Campbell,Tx,75422,"(903) 408-7546 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -3198,7 +3198,7 @@ First reported August 2010
 (903) 455-4732
 Landline
 Southwestern Bell Telephone Company
-First reported March 1991",howellhomeframing@hotmail.com,,
+First reported March 1991",howellhomeframing@hotmail.com,,,
 Hudson Brandon,2705 Marshall Street,Commerce,TX,75428-3825,2705 Marshall St,Commerce,Tx,75428,"(626) 375-1213 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC
@@ -3221,7 +3221,7 @@ Sprint Spectrum LP","b.don.poof@gmail.com
 brandon.hudson@adelphia.net
 brandon.hudson87@ameritrade.com
 brandon_j_hudson@yahoo.com
-brandon.hudson@roadrunner.com",,
+brandon.hudson@roadrunner.com",,,
 Hudson Ronald A,507 Harrison Street,Commerce,TX,75428-2321,6336 Lake Bluff Dr,Dallas,Tx,75249,"(214) 777-3508 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -3247,7 +3247,7 @@ Landline
 Grande Communications Networks Inc - TX
 First reported December 2009
 (214) 252-4865","bria_hudson@yahoo.com
-",,
+",,,
 Huffines Leticia G,2611 Taylor Street,Commerce,TX,75428-3817,2611 Taylor St,Commerce,Tx,75428,"(903) 352-6215 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -3272,7 +3272,7 @@ leticiahuffines@yahoo.com
 urbandistroyer@prodigy.net
 lhuffines@bellsouth.net
 leticiacowgirl@yahoo.com
-kenesh2@yahoo.com",,
+kenesh2@yahoo.com",,,
 Hughes William Craig,101 Gateridge Drive,Commerce,TX,75428-3802,101 Gateridge Dr,Commerce,Tx,75428,"(469) 865-9592 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -3293,7 +3293,7 @@ First reported March 2016
 Wireless
 New Cingular Wireless PCS LLC - IL
 First reported April 2021","w_craig_hughes@yahoo.com
-wlangmade@yahoo.com",,
+wlangmade@yahoo.com",,,
 Hulsey Gregory Allen,2711 Marshall Street,Commerce,TX,75428-3825,2011 Creekview Dr,Commerce,Tx,75428,"(903) 456-0337 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -3313,8 +3313,8 @@ First reported August 1997
 (903) 886-7101
 Landline
 United Telephone Company of Texas Inc dba CenturyLink","hulsey@hulseytherapy.com
-hulsey@koyote.com",,
-Hulsey Tyler,3008 Washington Street,Commerce,TX,75428-3848,3008 Washington St,Commerce,Tx,75428,,,,
+hulsey@koyote.com",,,
+Hulsey Tyler,3008 Washington Street,Commerce,TX,75428-3848,3008 Washington St,Commerce,Tx,75428,,,,,
 Humphreys John H,2801 Rix Street,Commerce,TX,75428-3720,2801 Rix St,Commerce,Tx,75428,"(903) 886-7713 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -3323,7 +3323,7 @@ First reported August 2010
 Landline
 Bandwidth.com CLEC LLC - NM
 First reported February 2004","john.humphreys@enmu.edu
-john_humphreys@tamu-commerce.edu",,
+john_humphreys@tamu-commerce.edu",,,
 Hunter Anthony W,2836 Bois D Arc Street,Commerce,TX,75428-3704,2836 Bois D Arc St,Commerce,Tx,75428,"(903) 886-4639 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -3345,7 +3345,7 @@ Wireless
 T-Mobile USA Inc
 First reported March 2016","alicia.steinhoff@gmail.com
 ahunter@lycosmail.co
-ahunter@lycosmail.com",,
+ahunter@lycosmail.com",,,
 Hyland Angela D,2808 Bois D Arc Street,Commerce,TX,75428-3704,2808 Bois D Arc St,Commerce,Tx,75428,"(214) 316-6812 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -3371,7 +3371,7 @@ ahyland@flash.net
 ahyland@swbell.net
 ahyland@ameritrade.com
 ahyland@bright.net
-ahyland@satx.rr.com",,
+ahyland@satx.rr.com",,,
 Inks Adam,2809 McCarley Drive,Commerce,TX,75428-3829,2809 McCarley Dr,Commerce,Tx,75428,"(214) 232-9187 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -3400,7 +3400,7 @@ First reported June 2018
 Wireless
 New Cingular Wireless PCS LLC - GA","adam.inks918@gmail.com
 karniv04@gmail.com
-adam_inks@verizon.net",,
+adam_inks@verizon.net",,,
 Isaacs Evelyn Joyce,121 Briarwood Street,Commerce,TX,75428-3819,121 Briarwood St,Commerce,Tx,75428,"(903) 886-8712 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -3421,9 +3421,9 @@ First reported May 2017
 Landline
 YMax Communications Corporation - TX
 First reported July 1993","jeisaacs@koyote.com
-",,
-Ivory Ernestine,Mosley Street,Commerce,TX,75428,3961 NE 19th Ave,Ptland Or,Or,97212,,,,
-Jaleel Mohamed,119 Norris Street,Commerce,TX,75428-2773,919 Beau Dr,Coppell,Tx,75019,,,,
+",,,
+Ivory Ernestine,Mosley Street,Commerce,TX,75428,3961 NE 19th Ave,Ptland Or,Or,97212,,,,,
+Jaleel Mohamed,119 Norris Street,Commerce,TX,75428-2773,919 Beau Dr,Coppell,Tx,75019,,,,,
 Jang Wen-Long,2903 Meadowview Road,Commerce,TX,75428-3733,2903 Meadowview Rd,Commerce,Tx,75428,"(903) 366-1699 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -3444,7 +3444,7 @@ First reported June 2013
 Wireless
 Sprint Spectrum LP
 First reported June 2024","jangjang75428@mchsi.com
-benjang@aol.com",,
+benjang@aol.com",,,
 Jang Wen-Long,2714 Bois D Arc Street,Commerce,TX,75428-3702,2903 Meadowview Rd,Commerce,Tx,75428,"(903) 366-1699 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -3465,7 +3465,7 @@ First reported June 2013
 Wireless
 Sprint Spectrum LP
 First reported June 2024","jangjang75428@mchsi.com
-benjang@aol.com",,
+benjang@aol.com",,,
 Jauch Adam Lynn,1303 Madeline Street,Commerce,TX,75428-3750,1303 Madeline St,Commerce,Tx,75428,"(254) 485-3080 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -3487,8 +3487,8 @@ Wireless
 New Cingular Wireless PCS LLC - IL
 First reported June 2010","diamondelectric393@gmail.com
 ajauch@yahoo.com
-x6ajauch@yahoo.com",,
-Jm Constructions Proprietorship &amp; Casa Del Rio Construction,Deer Trail,Commerce,TX,75428,3150 Centennial Dr,Garland,Tx,75042,,,,
+x6ajauch@yahoo.com",,,
+Jm Constructions Proprietorship &amp; Casa Del Rio Construction,Deer Trail,Commerce,TX,75428,3150 Centennial Dr,Garland,Tx,75042,,,,,
 Johnson Dale M,1006 Bishop Street,Commerce,TX,75428-2208,8998 Us Highway 17 S,Zolfo Springs,Fl,33890,"(863) 990-2178 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -3527,7 +3527,7 @@ sadams4330@attb1.com
 sadams4330@attbi.com
 sadams4330@iwon.com
 dalejohnson@netscape.net
-rafikio@bellsouth.net",,
+rafikio@bellsouth.net",,,
 Johnson Norma Ruth,2823 Birchwood Lane,Commerce,TX,75428-3862,2823 Birchwood Ln,Commerce,Tx,75428,"(903) 886-7333 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -3536,7 +3536,7 @@ First reported August 2010
 Landline
 Grande Communications Networks Inc - TX
 First reported December 2002","normaruth35@gmail.com
-",,
+",,,
 Johnson Ronald F,2816 McCarley Drive,Commerce,TX,75428-3830,2816 McCarley Dr,Commerce,Tx,75428,"(903) 886-3578 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -3554,8 +3554,8 @@ Wireless
 New Cingular Wireless PCS LLC - IL
 First reported December 2020","ashleyjmuller@yahoo.com
 gerriej@hotmail.com
-gjohnson568@yahoo.com",,
-Jones Haletha,2602 Park Street,Commerce,TX,75428-3806,2602 Park St,Commerce,Tx,75428,,,,
+gjohnson568@yahoo.com",,,
+Jones Haletha,2602 Park Street,Commerce,TX,75428-3806,2602 Park St,Commerce,Tx,75428,,,,,
 Jones Olen Gene,2609 Taylor Street,Commerce,TX,75428-3817,2609 Taylor St,Commerce,Tx,75428,"(903) 468-7032 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -3572,10 +3572,10 @@ First reported June 2000
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported March 2016","deannajones1945@yahoo.com
-",,
-Juarez Timoteo,1704 Kings Lane,Commerce,TX,75428-3768,932 Collin Cir,Princeton,Tx,75407,,,,
-Kamineni Raga S,2604 Taylor Street,Commerce,TX,75428-3818,7312 Joshua Tree Trl,McKinney,Tx,75070,,,,
-Kamy,1206 Kennie Drive,Commerce,TX,75428-2727,PO Box 50593,Denton,Tx,76206,,,,
+",,,
+Juarez Timoteo,1704 Kings Lane,Commerce,TX,75428-3768,932 Collin Cir,Princeton,Tx,75407,,,,,
+Kamineni Raga S,2604 Taylor Street,Commerce,TX,75428-3818,7312 Joshua Tree Trl,McKinney,Tx,75070,,,,,
+Kamy,1206 Kennie Drive,Commerce,TX,75428-2727,PO Box 50593,Denton,Tx,76206,,,,,
 Kardos Tierra Dominique,1307 Cowan Drive,Commerce,TX,75428-3821,1307 Cowan Dr,Commerce,Tx,75428,"(209) 244-8539 (Primary Phone)
 Wireless
 T-Mobile USA Inc
@@ -3599,7 +3599,7 @@ First reported April 2021","tswanigan7@gmail.com
 tierra9106@hotmail.com
 tswanigan@bigfoot.com
 ts23_23@yahoo.com
-otswanigan@bigfoot.com",,
+otswanigan@bigfoot.com",,,
 Keels Patricia Gail,501 1st Street,Commerce,TX,75428-2307,501 1st St,Commerce,Tx,75428,"(903) 246-5193 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -3620,7 +3620,7 @@ First reported February 2004
 Wireless
 Sprint Spectrum LP","pgkeels@gmail.com
 timoteo_roberto@comcast.net
-patriciakeels@pacbell.net",,
+patriciakeels@pacbell.net",,,
 Kervin John R,108 Briarwood Street,Commerce,TX,75428-3820,PO Box 1126,Commerce,Tx,75429,"(903) 456-5463 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -3644,7 +3644,7 @@ First reported April 2021","kervinjohn3@gmail.com
 mf1@tivejo.com
 jkervin@frontiernet.net
 kervinjohn3@gmai.com
-irjkervin72@hotmail.com",,
+irjkervin72@hotmail.com",,,
 Kinder Christopher,2607 Taylor Street,Commerce,TX,75428-3817,2607 Taylor St,Commerce,Tx,75428,"(508) 857-5840 (Primary Phone)
 VOIP
 Comcast IP Phone LLC
@@ -3660,8 +3660,8 @@ First reported June 2017","chryssybaby@gmail.com
 chris_dogg896@yahoo.com
 chrisdogg@bellsouth.net
 chris_dogg@yahoo.com
-chryssy.baby@gmail.com",,
-King &amp; Drake,2708 Bryan Street,Commerce,TX,75428-3727,PO Box 1171,Commerce,Tx,75429,,,,
+chryssy.baby@gmail.com",,,
+King &amp; Drake,2708 Bryan Street,Commerce,TX,75428-3727,PO Box 1171,Commerce,Tx,75429,,,,,
 King Dick J,2713 Rix Street,Commerce,TX,75428-3718,2713 Rix St,Commerce,Tx,75428,"(903) 886-3734 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -3679,8 +3679,8 @@ Landline
 Verizon Virginia Inc
 First reported December 2020
 (903) 744-2511","dickie.king@aol.com
-",,
-King Isaac,201 M L King Drive,Commerce,TX,75428-2754,201 M L King Dr,Commerce,Tx,75428,,,,
+",,,
+King Isaac,201 M L King Drive,Commerce,TX,75428-2754,201 M L King Dr,Commerce,Tx,75428,,,,,
 King Janice Azalee,1807 Culver Street,Commerce,TX,75428-3409,PO Box 1171,Commerce,Tx,75429,"(903) 886-6146 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -3701,7 +3701,7 @@ First reported March 2016
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported March 2016","rhondasutton@nc.rr.com
-",,
+",,,
 King Janice Azalee,2703 Rix Street,Commerce,TX,75428-3718,PO Box 1171,Commerce,Tx,75429,"(903) 886-6146 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -3722,7 +3722,7 @@ First reported March 2016
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported March 2016","rhondasutton@nc.rr.com
-",,
+",,,
 King Janice Azalee,1707 Culver Street,Commerce,TX,75428-3408,PO Box 1171,Commerce,Tx,75429,"(903) 886-6146 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -3743,11 +3743,11 @@ First reported March 2016
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported March 2016","rhondasutton@nc.rr.com
-",,
-King Jess R,100 King Plaza,Commerce,TX,75428-3723,PO Box 1171,Commerce,Tx,75429,,,,
-King Jess R,1901 Culver Street,Commerce,TX,75428-3464,PO Box 1171,Commerce,Tx,75429,,,,
-King Jess R,201 King Plaza A,Commerce,TX,75428-3729,PO Box 1171,Commerce,Tx,75429,,,,
-King Jess R,Tx-178-Spur,Commerce,TX,75428,PO Box 1171,Commerce,Tx,75429,,,,
+",,,
+King Jess R,100 King Plaza,Commerce,TX,75428-3723,PO Box 1171,Commerce,Tx,75429,,,,,
+King Jess R,1901 Culver Street,Commerce,TX,75428-3464,PO Box 1171,Commerce,Tx,75429,,,,,
+King Jess R,201 King Plaza A,Commerce,TX,75428-3729,PO Box 1171,Commerce,Tx,75429,,,,,
+King Jess R,Tx-178-Spur,Commerce,TX,75428,PO Box 1171,Commerce,Tx,75429,,,,,
 King Mike Ray,2705 Rix Street,Commerce,TX,75428-3718,PO Box 1171,Commerce,Tx,75429,"(903) 886-7489 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -3775,9 +3775,9 @@ rosemaryl@reeceandnichols.com
 gmkingl48@koyote.com
 mmkingn46@koyote.com
 mmkingv72@koyote.com
-bighotmomma1@aol.com",,
-Kirby Keshai M,2718 McCarley Drive,Commerce,TX,75428-3828,2718 McCarley Dr,Commerce,Tx,75428,,,,
-Kissling Courtney,1311 Tiffany Lane,Commerce,TX,75428-3851,1311 Tiffany Ln,Commerce,Tx,75428,,,,
+bighotmomma1@aol.com",,,
+Kirby Keshai M,2718 McCarley Drive,Commerce,TX,75428-3828,2718 McCarley Dr,Commerce,Tx,75428,,,,,
+Kissling Courtney,1311 Tiffany Lane,Commerce,TX,75428-3851,1311 Tiffany Ln,Commerce,Tx,75428,,,,,
 Kissling Tyce Glenn,2616 Park Street,Commerce,TX,75428-3806,2616 Park St,Commerce,Tx,75428,"(903) 227-5356 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -3798,7 +3798,7 @@ First reported November 2023
 Wireless
 New Cingular Wireless PCS LLC - IL
 First reported April 2023","tadkissling@cableone.net
-",,
+",,,
 Knutson William Louis,2828 Windy Drive,Commerce,TX,75428-3850,1505 Deer Trl,Commerce,Tx,75428,"(903) 886-7924 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -3819,7 +3819,7 @@ First reported March 2023
 Wireless
 New Cingular Wireless PCS LLC - IL","wlknutson@gmail.com
 william.knutson@worldnet.att.net
-william.knutson@yahoo.com",,
+william.knutson@yahoo.com",,,
 Konas Gary L &amp; Sarah,308 Gateridge Drive,Commerce,TX,75428-3857,308 Gateridge Dr,Commerce,Tx,75428,"(817) 696-5352 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -3848,7 +3848,7 @@ First reported June 2007
 donald.griffin3rd@gmail.com
 sarah.griffin1963@gmail.com
 sgriffin5044@aol.com
-dsgriffin5044y53@aol.com",,
+dsgriffin5044y53@aol.com",,,
 Kumar Ashok,1309 Edna Street,Commerce,TX,75428-3853,612 Shade Tree Way,Princeton,Tx,75407,"(903) 422-2599 (Primary Phone)
 Wireless
 T-Mobile USA Inc
@@ -3868,7 +3868,7 @@ First reported March 2024
 (903) 422-2998
 Wireless
 T-Mobile USA Inc
-First reported October 2019",,,
+First reported October 2019",,,,
 Lamb Sharice Y,1113 Charlies Drive,Commerce,TX,75428-4435,5237 Overlook Ln,Douglasville,Ga,30135,"(470) 457-9719 (Primary Phone)
 Wireless
 Powertel Atlanta Licenses Inc
@@ -3894,7 +3894,7 @@ sharicechasi@yahoo.com
 shariceh@aol.com
 fvsu04@yahoo.com
 sharicehenry@gmail.com
-dmartin@cartefinancement.co",,
+dmartin@cartefinancement.co",,,
 Lambert James M,168 Royal Lane,Commerce,TX,75428-3834,168 Royal Ln,Commerce,Tx,75428,"(903) 413-0044 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -3915,7 +3915,7 @@ First reported November 2013
 Landline
 Southwestern Bell Telephone Company
 First reported March 2016","cqug4r@hotmail.com
-",,
+",,,
 Lampe Susan,1519 Deer Trail,Commerce,TX,75428-3865,1519 Deer Trl,Commerce,Tx,75428,"(903) 886-6850 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -3928,7 +3928,7 @@ First reported July 2020
 Landline
 Grande Communications Networks Inc - TX
 First reported August 2009","bnl_01@hotmail.com
-",,
+",,,
 Landrith Steven J,1004 Jernigan Street,Commerce,TX,75428-2228,5815 County Road 4502,Wolfe City,Tx,75496,"(903) 413-7932 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -3957,7 +3957,7 @@ First reported January 2020
 slandrith@vsswireless.net
 slandrith@aol.com
 stevelandrith@yahoo.com
-astafate@hotmail.com",,
+astafate@hotmail.com",,,
 Langley Torie Renea,132 Royal Lane,Commerce,TX,75428-3834,132 Royal Ln,Commerce,Tx,75428,"(214) 587-2144 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -3984,7 +3984,7 @@ Grande Communications Networks Inc - TX
 First reported April 2021
 (903) 886-1975","toriel972@aol.com
 torielangley@gmail.com
-torie.langley@charter.net",,
+torie.langley@charter.net",,,
 Law Robert,3004 Tanglewood Drive,Commerce,TX,75428-3816,14000 Noel Rd Apt 1012,Dallas,Tx,75240,"(903) 496-9011 (Primary Phone)
 Landline
 Peerless Network of Texas LLC - TX
@@ -3996,7 +3996,7 @@ First reported July 2018
 (281) 399-2961
 Landline
 Southwestern Bell Telephone Company
-First reported March 1991",,,
+First reported March 1991",,,,
 Lawless Joyce B,607 Smith Street,Commerce,TX,75428-2341,607 Smith St,Commerce,Tx,75428,"(903) 886-3023 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4010,7 +4010,7 @@ Landline
 Grande Communications Networks Inc - TX
 First reported March 2017","joycelawless@yahoo.com
 jjlawless@embarqmail.com
-jlawless@charter.net",,
+jlawless@charter.net",,,
 Lawless Joyce B,609 Oak Street,Commerce,TX,75428-2333,607 Smith St,Commerce,Tx,75428,"(903) 886-3023 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4024,11 +4024,11 @@ Landline
 Grande Communications Networks Inc - TX
 First reported March 2017","joycelawless@yahoo.com
 jjlawless@embarqmail.com
-jlawless@charter.net",,
+jlawless@charter.net",,,
 Le Line L,1403 Cowan Drive,Commerce,TX,75428-3823,1605 Live Oak St,Commerce,Tx,75428,"(301) 768-1600 (Primary Phone)
 Wireless
 Omnipoint Communications Cap Operations LLC
-First reported August 2010",,,
+First reported August 2010",,,,
 Leary Patricia S,3045 Monroe Street,Commerce,TX,75428-3716,3045 Monroe St,Commerce,Tx,75428,"(903) 408-0815 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4041,7 +4041,7 @@ First reported August 2010
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported January 2023","pfrisse@yahoo.com
-",,
+",,,
 Lee Richard W,2811 Washington Street,Commerce,TX,75428-3843,2811 Washington St,Commerce,Tx,75428,"(903) 456-2161 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4050,11 +4050,11 @@ First reported March 2020
 Wireless
 New Cingular Wireless PCS LLC - IL
 First reported October 2020
-(903) 886-6327",,,
+(903) 886-6327",,,,
 Leon De Mondoza Rosa Maria,606 Plum Street,Commerce,TX,75428-2252,1716 Park St,Commerce,Tx,75428,"(903) 246-6277 (Primary Phone)
 Wireless
 MetroPCS Inc
-First reported August 2010",,,
+First reported August 2010",,,,
 Lewis Brian K,2824 Laurel Lane,Commerce,TX,75428-3804,2824 Laurel Ln,Commerce,Tx,75428,"(972) 270-7972 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -4065,7 +4065,7 @@ Southwestern Bell Telephone Company
 First reported April 2001
 (972) 270-0000
 Landline
-Southwestern Bell Telephone Company",,,
+Southwestern Bell Telephone Company",,,,
 Lewis David H,Harrison Street,Commerce,TX,75428,16142 State Highway 11 W,Cumby,Tx,75433,"for David Lewis in Commerce, TX
 (903) 886-3883 (Primary Phone)
 Landline
@@ -4078,7 +4078,7 @@ First reported June 2022
 (903) 886-8839
 Landline","kimberlysmonday@hotmail.com
 cdjlewis@gmail.com
-davidlewis@davelewis.net",,
+davidlewis@davelewis.net",,,
 Lewis David H,Pine Street,Commerce,TX,75428,16142 State Highway 11 W,Cumby,Tx,75433,"for David Lewis in Commerce, TX
 (903) 886-3883 (Primary Phone)
 Landline
@@ -4091,7 +4091,7 @@ First reported June 2022
 (903) 886-8839
 Landline","kimberlysmonday@hotmail.com
 cdjlewis@gmail.com
-davidlewis@davelewis.net",,
+davidlewis@davelewis.net",,,
 Lewis David H,806 Pine Street,Commerce,TX,75428-2246,16142 State Highway 11 W,Cumby,Tx,75433,"for David Lewis in Commerce, TX
 (903) 886-3883 (Primary Phone)
 Landline
@@ -4104,7 +4104,7 @@ First reported June 2022
 (903) 886-8839
 Landline","kimberlysmonday@hotmail.com
 cdjlewis@gmail.com
-davidlewis@davelewis.net",,
+davidlewis@davelewis.net",,,
 Lewis David J,Pine Street,Commerce,TX,75428,PO Box 1331,Commerce,Tx,75429,"for David Lewis in Commerce, TX
 (903) 886-3883 (Primary Phone)
 Landline
@@ -4115,7 +4115,7 @@ Landline
 Grande Communications Networks Inc - TX
 First reported June 2022
 (903) 886-8839
-Landline",,,
+Landline",,,,
 Lisenbee Howdy W,2820 McCarley Drive,Commerce,TX,75428-3830,2820 McCarley Dr,Commerce,Tx,75428,"(325) 692-2660 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -4123,7 +4123,7 @@ First reported August 2010
 (915) 823-2471
 Landline
 First reported March 2017
-(915) 823-3208",,,
+(915) 823-3208",,,,
 Lowke Stuart,2704 Monroe Street,Commerce,TX,75428-3721,1166 Shady Oak Cir,Argyle,Tx,76226,"(940) 390-8836 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4134,7 +4134,7 @@ CenturyTel of Lake Dallas Inc dba CenturyLink
 First reported August 2006
 (940) 241-1204
 Landline","slowke@ameritech.net
-",,
+",,,
 Lowke Stuart,2706 Monroe Street,Commerce,TX,75428-3721,1166 Shady Oak Cir,Argyle,Tx,76226,"(940) 390-8836 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4145,8 +4145,8 @@ CenturyTel of Lake Dallas Inc dba CenturyLink
 First reported August 2006
 (940) 241-1204
 Landline","slowke@ameritech.net
-",,
-Loya Rafael,701 Pine Street,Commerce,TX,75428-2243,2802 Madison Dr,Melissa,Tx,75454,,,,
+",,,
+Loya Rafael,701 Pine Street,Commerce,TX,75428-2243,2802 Madison Dr,Melissa,Tx,75454,,,,,
 Lucas Logan C,2600 Park Street,Commerce,TX,75428-3806,2600 Park St,Commerce,Tx,75428,"(903) 513-8487 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -4155,7 +4155,7 @@ First reported June 2016
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
 First reported July 2020
-(903) 568-4805",,,
+(903) 568-4805",,,,
 Luckey Leonard R,419 M L King Drive,Commerce,TX,75428-2744,PO Box 577,Commerce,Tx,75429,"(903) 650-5770 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -4165,12 +4165,12 @@ Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported January 2020
 (972) 366-3065
-Landline",,,
+Landline",,,,
 Lundsford Jeremy C,3002 Abernathy Street,Commerce,TX,75428-3918,3002 Abernathy St,Commerce,Tx,75428,"(903) 246-1244 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
 First reported August 2010","diamonddj50@gmail.com
-",,
+",,,
 Lupex Vance Earl,1005 Bishop Street,Commerce,TX,75428-2207,1005 Bishop St,Commerce,Tx,75428,"(682) 558-0499 (Primary Phone)
 Wireless
 T-Mobile USA Inc
@@ -4180,14 +4180,14 @@ Wireless
 T-Mobile USA Inc
 First reported June 2011
 (817) 847-5496","mathis020@gmail.com
-",,
+",,,
 Lytle Christopher J,1612 Drake Drive,Commerce,TX,75428-3707,1612 Drake Dr,Commerce,Tx,75428,"
 Phone Numbers
 for Christopher Lytle in Commerce, TX
 (903) 217-4021 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
-First reported April 2014",,,
+First reported April 2014",,,,
 Ma Sethea,2905 Meadowview Road,Commerce,TX,75428-3733,2905 Meadowview Rd,Commerce,Tx,75428,"(936) 615-4691 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4197,7 +4197,7 @@ Wireless
 New Cingular Wireless PCS LLC - IL
 First reported December 2010
 (903) 886-1011
-Landline",,,
+Landline",,,,
 Mabry Bobby,1212 Kennie Drive,Commerce,TX,75428-2727,1220 Kennie Dr,Commerce,Tx,75428,"(903) 886-3903 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4210,7 +4210,7 @@ First reported March 2020
 Landline
 Grande Communications Networks Inc - TX
 First reported March 2017","bmabry@verizon.net
-",,
+",,,
 Mabry Bobby,1216 Kennie Drive,Commerce,TX,75428-2727,1220 Kennie Dr,Commerce,Tx,75428,"(903) 886-3903 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4223,7 +4223,7 @@ First reported March 2020
 Landline
 Grande Communications Networks Inc - TX
 First reported March 2017","bmabry@verizon.net
-",,
+",,,
 Mabry Bobby G,1220 Kennie Drive,Commerce,TX,75428-2727,1220 Kennie Dr,Commerce,Tx,75428,"(903) 886-3903 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4236,11 +4236,11 @@ First reported March 2020
 Landline
 Grande Communications Networks Inc - TX
 First reported March 2017","bmabry@verizon.net
-",,
+",,,
 Machen Teresa G,106 Gateridge Drive,Commerce,TX,75428-3803,106 Gateridge Dr,Commerce,Tx,75428,"(903) 461-2599 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
-First reported March 2014",,,
+First reported March 2014",,,,
 Madden Donald J Jr,2719 Rix Street,Commerce,TX,75428-3718,2719 Rix St,Commerce,Tx,75428,"(903) 456-8237 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4252,7 +4252,7 @@ First reported August 2010
 (903) 886-2246
 Landline
 United Telephone Company of Texas Inc dba CenturyL","baileyjodi0@gmail.com
-",,
+",,,
 Malloy Mark,Bishop Street,Commerce,TX,75428,2515 Taylor St,Commerce,Tx,75428,"(903) 366-2604 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -4262,12 +4262,12 @@ Landline
 Pacific Bell Telephone Company
 First reported August 2010
 (714) 846-4009
-Landline",,,
-Maloy Water Company,3055 Charlinda Street,Commerce,TX,75428-3956,PO Box 394,Commerce,Tx,75429,,,,
+Landline",,,,
+Maloy Water Company,3055 Charlinda Street,Commerce,TX,75428-3956,PO Box 394,Commerce,Tx,75429,,,,,
 Marcos Yvonne,2701 Charity Road,Commerce,TX,75428-3934,2701 Charity Rd,Commerce,Tx,75428,"(903) 609-9977 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported May 2021",,,
+First reported May 2021",,,,
 Maria Kurt D,2904 Monroe Street,Commerce,TX,75428-3715,2904 Monroe St,Commerce,Tx,75428,"for Kurt Maria in Commerce, TX
 (214) 417-5443 (Primary Phone)
 Wireless
@@ -4283,7 +4283,7 @@ T-Mobile USA Inc
 First reported December 2022
 (469) 304-0222
 Landline
-",,,
+",,,,
 Marsh Samuel David Iii,2816 Washington Street,Commerce,TX,75428-3844,2816 Washingtonn St,Commerce,Tx,75428,"(903) 413-8122 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4292,7 +4292,7 @@ First reported June 2018
 Wireless
 T-Mobile USA Inc
 First reported August 2010
-(903) 886-3301",,,
+(903) 886-3301",,,,
 Martin Lynda A,2820 Windy Drive,Commerce,TX,75428-3850,2820 Windy Dr,Commerce,Tx,75428,"(940) 612-2379 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -4303,7 +4303,7 @@ Onvoy LLC - TX
 First reported August 2009
 (903) 455-3068
 Landline
-Southwestern Bell Telephone Company",,,
+Southwestern Bell Telephone Company",,,,
 Mashburn Donnie Jr,605 Oak Street,Commerce,TX,75428-2333,300 W Jefferson St,Wylie,Tx,75098,"(469) 534-4986 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4314,7 +4314,7 @@ New Cingular Wireless PCS LLC - IL
 First reported August 2010
 (972) 974-6950
 Wireless
-",,,
+",,,,
 Massey Jacqueline D,3005 Washington Street,Commerce,TX,75428-3847,3005 Washington St,Commerce,Tx,75428,"(903) 886-3729 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4326,11 +4326,11 @@ First reported March 2016
 (972) 886-3729
 Landline
 Grande Communications Networks Inc - TX","jacquemassey51@gmail.com
-",,
+",,,
 Massey Vincent,1204 Mosley Street,Commerce,TX,75428-4709,1204 Mosley St,Commerce,Tx,75428,"(903) 886-2293 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported January 2009",,,
+First reported January 2009",,,,
 Masten William G,2829 Windy Drive,Commerce,TX,75428-3849,2829 Windy Dr,Commerce,Tx,75428,"(903) 886-6028 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4341,13 +4341,13 @@ Cellco Partnership dba Verizon Wireless - NC
 First reported April 2021
 (972) 886-6057
 Landline
-Grande Communications Networks Inc - TX",,,
-Masterson Raymond T,405 3rd Street,Commerce,TX,75428-2345,405 3rd St,Commerce,Tx,75428,,,,
-Mata Juan,4990 Cr-4513,Commerce,TX,75428,310 County Road 4816,Wolfe City,Tx,75496,,,,
+Grande Communications Networks Inc - TX",,,,
+Masterson Raymond T,405 3rd Street,Commerce,TX,75428-2345,405 3rd St,Commerce,Tx,75428,,,,,
+Mata Juan,4990 Cr-4513,Commerce,TX,75428,310 County Road 4816,Wolfe City,Tx,75496,,,,,
 Mayrell Joseph M,1402 Tanglewood Drive,Commerce,TX,75428-3800,1402 Tanglewood Dr,Commerce,Tx,75428,"(903) 456-3834 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported August 2010",,,
+First reported August 2010",,,,
 McCollum Danny,2705 Washington Street,Commerce,TX,75428-3841,2705 Washingtonn St,Commerce,Tx,75428,"(903) 994-2317 (Primary Phone)
 Landline
 Cumby Telephone Cooperative Inc
@@ -4361,7 +4361,7 @@ Landline","vsgt91@yahoo.com
 vsgt@msn.com
 vsgt1@yahoo.com
 vsgt@aol.com
-vsgt91@hotmail.com",,
+vsgt91@hotmail.com",,,
 McCracken Joe,400 State Highway 24,Commerce,TX,75428-5808,1205 Northwood Ct,Commerce,Tx,75428,"(417) 622-1734 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -4370,18 +4370,18 @@ First reported March 2025
 Wireless
 Sprint Spectrum LP
 First reported August 2010
-(903) 886-2900",,,
-McCraw Richard A,2808 Windy Drive,Commerce,TX,75428-3850,2808 Windy Dr,Commerce,Tx,75428,,,,
+(903) 886-2900",,,,
+McCraw Richard A,2808 Windy Drive,Commerce,TX,75428-3850,2808 Windy Dr,Commerce,Tx,75428,,,,,
 McDaniel Marc W,2700 Monroe Street,Commerce,TX,75428-3721,PO Box 207,Commerce,Tx,75429,"(903) 456-3767 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported May 2012",,,
-McDonald Anthony T,Oak Street,Commerce,TX,75428,1492 Fm-275 S,Cumby,Tx,75433,,,,
-McDonald Anthony T,500 2nd Street,Commerce,TX,75428-2336,1492 Fm-275 S,Cumby,Tx,75433,,,,
+First reported May 2012",,,,
+McDonald Anthony T,Oak Street,Commerce,TX,75428,1492 Fm-275 S,Cumby,Tx,75433,,,,,
+McDonald Anthony T,500 2nd Street,Commerce,TX,75428-2336,1492 Fm-275 S,Cumby,Tx,75433,,,,,
 McDowell-Miller Cynthia J,602 Plum Street,Commerce,TX,75428-2252,602 Plum St,Commerce,Tx,75428,"(903) 886-7358 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported August 2010",,,
+First reported August 2010",,,,
 McFarland Carolyn Ann,2811 Bois D Arc Street,Commerce,TX,75428-3703,2811 Bois D Arc St,Commerce,Tx,75428,"(903) 408-7240 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -4390,7 +4390,7 @@ First reported October 2019
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported August 2010
-(972) 886-6182",,,
+(972) 886-6182",,,,
 McKee Jeffrey,1102 Norris Street,Commerce,TX,75428-4711,1728 Westridge Dr,Plano,Tx,75075,"(469) 682-0253 (Primary Phone)
 Wireless
 T-Mobile USA Inc
@@ -4399,17 +4399,17 @@ First reported August 2010
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported December 2013
-(808) 395-2652",,,
+(808) 395-2652",,,,
 McKee Seth,2907 Tanglewood Drive,Commerce,TX,75428-3813,2907 Tanglewood Dr,Commerce,Tx,75428,"(903) 587-2373 (Primary Phone)
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported July 2013","smckee@angelfire.com
 seth38044@yahoo.com
-j33mckee@earthlink.net",,
+j33mckee@earthlink.net",,,
 McSheffery John E Ii,1309 Tiffany Lane,Commerce,TX,75428-3851,1309 Tiffany Ln,Commerce,Tx,75428,"(903) 243-2251 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported July 2011",,,
+First reported July 2011",,,,
 Metcalf Jacob W,2703 Marshall Street,Commerce,TX,75428-3825,1898 County Road 4306,Greenville,Tx,75401,"(903) 408-9959 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -4419,7 +4419,7 @@ Landline
 Southwestern Bell Telephone Company
 First reported August 2010
 (903) 453-7260
-Wireless",,,
+Wireless",,,,
 Miller Charlotte,418 State Highway 224,Commerce,TX,75428,PO Box 1240,Commerce,Tx,75429,"(903) 461-8986 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4430,7 +4430,7 @@ United Telephone Company of Texas Inc dba CenturyLink
 First reported August 2010
 (903) 359-6395","char4809@hotmail.com
 char4809@msn.com
-char4809@yahoo.com",,
+char4809@yahoo.com",,,
 Miller Larry D Ii,2617 Tanglewood Drive,Commerce,TX,75428-3837,2617 Tanglewood Dr,Commerce,Tx,75428,"(817) 996-5623 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4440,11 +4440,11 @@ Landline
 Charter Fiberlink-Tennessee LLC - TN
 First reported March 2017
 (423) 228-4525
-Landline",,,
+Landline",,,,
 Mills Anne Elizabeth,2808 McCarley Drive,Commerce,TX,75428-3830,2808 McCarley Dr,Commerce,Tx,75428,"(903) 886-6792 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported August 2010",,,
+First reported August 2010",,,,
 Mills Richard E,2812 Bois D Arc Street,Commerce,TX,75428-3704,2812 Bois D Arc St,Commerce,Tx,75428,"(214) 622-7283 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -4453,7 +4453,7 @@ First reported December 2019
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported August 2010
-(214) 771-1705",,,
+(214) 771-1705",,,,
 Mojica Jesus,607 Harrington Street,Commerce,TX,75428,613 Harrison St,Commerce,Tx,75428,"(903) 886-4332 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4463,7 +4463,7 @@ Wireless
 New Cingular Wireless PCS LLC - IL
 First reported February 2015
 (903) 886-2970","jesus_mojica88@hotmail.com
-",,
+",,,
 Mojica Jesus,611 Harrison Street,Commerce,TX,75428-2323,613 Harrison St,Commerce,Tx,75428,"(903) 886-4332 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4473,7 +4473,7 @@ Wireless
 New Cingular Wireless PCS LLC - IL
 First reported February 2015
 (903) 886-2970","jesus_mojica88@hotmail.com
-",,
+",,,
 Mojica Jesus,613 Harrison Street,Commerce,TX,75428-2323,613 Harrison St,Commerce,Tx,75428,"(903) 886-4332 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4483,17 +4483,17 @@ Wireless
 New Cingular Wireless PCS LLC - IL
 First reported February 2015
 (903) 886-2970","jesus_mojica88@hotmail.com
-",,
+",,,
 Monday Bobby R,805 Pine Street,Commerce,TX,75428-2245,805 Pine St,Commerce,Tx,75428,"(903) 886-2741 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported August 2010","bobbymonday@hotmail.com
-",,
+",,,
 Monday Bobby R,807 Pine Street,Commerce,TX,75428-2245,805 Pine St,Commerce,Tx,75428,"(903) 886-2741 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported August 2010","bobbymonday@hotmail.com
-",,
+",,,
 Montgomery Kent Alan,164 Royal Lane,Commerce,TX,75428-3834,164 Royal Ln,Commerce,Tx,75428,"(903) 274-5331 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4504,11 +4504,11 @@ United Telephone Company of Texas Inc dba CenturyLink
 First reported December 2004
 (706) 379-6613
 Landline
-Windstream Standard Inc",,,
+Windstream Standard Inc",,,,
 Moreland Tiffany Leann,State Highway 11,Commerce,TX,75428-2167,360 Tee Taw Cir,Sherman,Tx,75092,"(903) 818-9768 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported August 2010",,,
+First reported August 2010",,,,
 Morris Anthony,408 State Highway 24,Commerce,TX,75428-5808,303 Glenn Ave,Rockwall,Tx,75087,"(469) 363-8886 (Primary Phone)
 Wireless
 T-Mobile USA Inc
@@ -4521,7 +4521,7 @@ First reported January 2013
 Landline
 Bellsouth Telecommunications Inc dba South Central Bell Telephone
 First reported August 2010","anthonymorris@mediaone.net
-",,
+",,,
 Motes Donald L,302 Park Street,Commerce,TX,75428-2114,302 Park St,Commerce,Tx,75428,"(903) 408-9990 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -4532,7 +4532,7 @@ United Telephone Company of Texas Inc dba CenturyLink
 First reported August 2010
 (903) 729-5424
 Landline
-United Telephone Company of Texas Inc dba CenturyLink",,,
+United Telephone Company of Texas Inc dba CenturyLink",,,,
 Moyer Ralph,1315 Madeline Street,Commerce,TX,75428-3750,1315 Madeline St,Commerce,Tx,75428,"(903) 886-4195 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4543,11 +4543,11 @@ Southwestern Bell Telephone Company
 First reported July 1994
 (903) 729-5327
 Landline
-United Telephone Company of Texas Inc dba CenturyLin",,,
+United Telephone Company of Texas Inc dba CenturyLin",,,,
 Mularchek Donna Mae,2808 Meadowview Road,Commerce,TX,75428-3740,PO Box 719,Commerce,Tx,75429,"(903) 886-4300 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported August 2010",,,
+First reported August 2010",,,,
 Mullen Gary,1527 Deer Trail,Commerce,TX,75428-3865,1101 Bois D Arc St,Commerce,Tx,75428,"(512) 282-8518 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -4556,7 +4556,7 @@ First reported August 2010
 Landline
 First reported March 2017
 (512) 762-9152
-Wireless",,,
+Wireless",,,,
 Murray Berta,607 Bishop Street,Commerce,TX,75428-2305,2750 Perin Pl,Mobile,Al,36693,"(251) 648-5310 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -4566,7 +4566,7 @@ Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported February 2004
 (251) 661-8312
-Landline",,,
+Landline",,,,
 Murray Joyce Booth,1206 Booker Street,Commerce,TX,75428-4100,6902 S Hall St,Houston,Tx,77028,"(713) 851-8491 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4576,7 +4576,7 @@ Landline
 Southwestern Bell Telephone Company
 First reported August 2010
 (713) 631-5926","joyce.murray@earthlink.net
-",,
+",,,
 Nava Melida,108 Royal Lane,Commerce,TX,75428-3834,18333 Roehampton Dr Apt 1411,Dallas,Tx,75252,"(469) 525-1217 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -4587,11 +4587,11 @@ Southwestern Bell Telephone Company
 First reported March 2005
 (972) 552-1140
 Landline","mnava6@hotmail.com
-",,
+",,,
 Neal Charles A,Meadows Street,Commerce,TX,75428,907 Enlow Cir,Commerce,Tx,75428,"(903) 886-7271 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported August 2010",,,
+First reported August 2010",,,,
 Neal Davida,Blackburn Street,Commerce,TX,75428,1205 Booker St,Commerce,Tx,75428,"for Davida Neal in Commerce, TX
 (903) 886-0388 (Primary Phone)
 Landline
@@ -4617,7 +4617,7 @@ foxydneal@yahoo.com
 davidaneal@libidus-pill.com
 mignonneal@email.com
 foxydneal@excite.com
-",,
+",,,
 Neal Gary L,2605 Taylor Street,Commerce,TX,75428-3817,2605 Taylor St,Commerce,Tx,75428,"(903) 886-8090 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4628,7 +4628,7 @@ New Cingular Wireless PCS LLC - IL
 First reported March 2022
 (903) 693-3039
 Landline
-Southwestern Bell Telephone Company",,,
+Southwestern Bell Telephone Company",,,,
 Neal Kenneth,1205 Booker Street,Commerce,TX,75428-4101,1205 Booker St,Commerce,Tx,75428,"(972) 345-7819 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4639,12 +4639,12 @@ T-Mobile USA Inc
 First reported April 2021
 (972) 345-5781
 Wireless
-New Cingular Wireless PCS LLC - IL",,,
+New Cingular Wireless PCS LLC - IL",,,,
 Neal Levester,109 M L King Drive,Commerce,TX,75428-2758,109 M L King Dr,Commerce,Tx,75428,"(903) 886-3412 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported July 2011","nlevester@gmail.com
-",,
+",,,
 Neel Larissa A,2630 Washington Street,Commerce,TX,75428-3840,2630 Washington St,Commerce,Tx,75428,"(903) 366-1184 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -4654,7 +4654,7 @@ Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported August 2010
 (903) 982-5298
-Landline",,,
+Landline",,,,
 Nekuyi Farzad,2713 Marshall Street,Commerce,TX,75428-3825,PO Box 725,Commerce,Tx,75429,"(903) 513-2029 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -4666,7 +4666,7 @@ First reported February 1999
 (903) 886-3276
 Landline
 United Telephone Company of Texas Inc dba Cen","fnekuyi@yahoo.com
-",,
+",,,
 Nelson Jerald,1107 Charlies Drive,Commerce,TX,75428-4435,1107 Charlies Dr,Commerce,Tx,75428,"(903) 366-3235 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -4675,11 +4675,11 @@ First reported April 2013
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported August 2010
-(903) 793-8703",,,
+(903) 793-8703",,,,
 Nelson Lena Faye Reed,112 M L King Drive,Commerce,TX,75428-2759,1107 Charlies Dr,Commerce,Tx,75428,"(903) 366-3249 (Primary Phone)
 Wireless
 Sprint Spectrum LP
-First reported August 2022",,,
+First reported August 2022",,,,
 Nelson Robert Nicholas,2803 Bois D Arc Street,Commerce,TX,75428-3703,2803 Bois D Arc St,Commerce,Tx,75428,"(817) 915-1730 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -4690,7 +4690,7 @@ Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported February 2004
 (817) 656-8032","oldsadbob@yahoo.com
 oldsadbob@aol.com
-oldsadbob@cs.com",,
+oldsadbob@cs.com",,,
 Nelson Tammie,2706 Rix Street,Commerce,TX,75428-3719,2706 Rix St,Commerce,Tx,75428,"(903) 217-6557 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4703,16 +4703,16 @@ First reported May 2008
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported May 2008","tammie_nelson60@yahoo.com
-",,
+",,,
 Newbold Brady H,2610 Taylor Street,Commerce,TX,75428-3818,2610 Taylor St,Commerce,Tx,75428,"(903) 413-3205 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported December 20",,,
+First reported December 20",,,,
 Newcomb Bob,1313 Tiffany Lane,Commerce,TX,75428-3851,1313 Tiffany Ln,Commerce,Tx,75428,"(806) 274-4997 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
 First reported June 2013","bnewcomb1943@yahoo.com
-",,
+",,,
 Nippani Srinivas,1319 Madeline Street,Commerce,TX,75428-3750,1319 Madeline St,Commerce,Tx,75428,"(903) 886-4571 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4724,8 +4724,8 @@ First reported June 2001
 (314) 941-3942
 Wireless
 Cellco Partnership dba Verizon Wireless - MO","snippani@aol.com
-",,
-Norris P A,M L King Drive,Commerce,TX,75428,,,,,,,,
+",,,
+Norris P A,M L King Drive,Commerce,TX,75428,,,,,,,,,
 Olsen Jeffrey D,112 Royal Lane,Commerce,TX,75428-3834,803 Amherst Dr,Rockwall,Tx,75087,"for Jeff Olsen in Commerce, TX
 (916) 747-1275 (Primary Phone)
 Wireless
@@ -4739,8 +4739,8 @@ First reported August 2010
 Landline
 Consolidated Communications of Vermont Company LL","jeffmdolsen@gmail.com
 derout@ukr.net
-fedarek@ukr.net",,
-Ortega Layla &amp; Milley,913 Jernigan Street,Commerce,TX,75428-2225,1424 Tremont St,Greenville,Tx,75401,,,,
+fedarek@ukr.net",,,
+Ortega Layla &amp; Milley,913 Jernigan Street,Commerce,TX,75428-2225,1424 Tremont St,Greenville,Tx,75401,,,,,
 Osborn Margaret Dillingham,Harrison Street,Commerce,TX,75428,21819 Rotherham Dr,Spring,Tx,77388,"(832) 444-0741 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4749,7 +4749,7 @@ First reported April 2013
 Landline
 Central Telephone Company of Texas dba CenturyLink
 First reported August 2010
-(281) 441-7123",,,
+(281) 441-7123",,,,
 Padilla Rebecca Starr,2702 Bois D Arc Street,Commerce,TX,75428-3702,2702 Bois D Arc St,Commerce,Tx,75428,"(903) 366-6067 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -4759,15 +4759,15 @@ Wireless
 Sprint Spectrum LP
 First reported April 2017
 (903) 366-9121
-Wireless",,,
+Wireless",,,,
 Page Kevin G,2610 Washington Street,Commerce,TX,75428-3840,2610 Washington St,Commerce,Tx,75428,"(870) 882-1083 (Primary Phone)
 Wireless
 Sprint Spectrum LP
-First reported February 2014",,,
+First reported February 2014",,,,
 Paleta Christian,1229 Kennie Drive,Commerce,TX,75428-2726,23 Beverly Rd,Huntington Station,Ny,11746,"(323) 541-4214 (Primary Phone)
 Landline
 Onvoy LLC - CA
-First reported August 2010",,,
+First reported August 2010",,,,
 Paniagua Caitlin,2612 Tanglewood Drive,Commerce,TX,75428-3838,2612 Tanglewood Dr,Commerce,Tx,75428,"(817) 889-4916 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4777,11 +4777,11 @@ Landline
 Southwestern Bell Telephone Company
 First reported September 2022
 (210) 647-4396
-Landline",,,
-Pannell Bobby J,N Neal Street,Commerce,TX,75428,400 N Neal St,Commerce,Tx,75428,,,,
-Pannell Harold W,Meadows Street,Commerce,TX,75428,PO Box 305,Commerce,Tx,75429,,,,
-Pannell Madell,202 M L King Drive,Commerce,TX,75428-2743,PO Box 305,Commerce,Tx,75429,,,,
-Pannell Madell,1112 Blackburn Street,Commerce,TX,75428-2786,PO Box 305,Commerce,Tx,75429,,,,
+Landline",,,,
+Pannell Bobby J,N Neal Street,Commerce,TX,75428,400 N Neal St,Commerce,Tx,75428,,,,,
+Pannell Harold W,Meadows Street,Commerce,TX,75428,PO Box 305,Commerce,Tx,75429,,,,,
+Pannell Madell,202 M L King Drive,Commerce,TX,75428-2743,PO Box 305,Commerce,Tx,75429,,,,,
+Pannell Madell,1112 Blackburn Street,Commerce,TX,75428-2786,PO Box 305,Commerce,Tx,75429,,,,,
 Pannell Opal,1107 Blackburn Street,Commerce,TX,75428-2787,1107 Blackburn St,Commerce,Tx,75428,"(903) 886-6724 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4792,7 +4792,7 @@ United Telephone Company of Texas Inc dba CenturyLink
 First reported June 2001
 (903) 886-2312
 Landline
-United Telephone Company of Texas Inc dba CenturyLi",,,
+United Telephone Company of Texas Inc dba CenturyLi",,,,
 Pannell Perry C,507 Oak Street,Commerce,TX,75428-2331,507 Oak St,Commerce,Tx,75428,"(903) 246-5474 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -4803,7 +4803,7 @@ Time Warner Cable Information Services (Texas) LP dba Time Warner Cable - TX
 First reported June 2017
 (903) 886-2094
 Landline
-United Telephone Company of Texas Inc dba CenturyL",,,
+United Telephone Company of Texas Inc dba CenturyL",,,,
 Pannell Verter Lee,604 Short Ross Street,Commerce,TX,75428-4705,150 Maple St Apt 1003,Commerce,Tx,75428,"for Verta Pannell in Commerce, TX
 (903) 886-8642 (Primary Phone)
 Landline
@@ -4813,7 +4813,7 @@ First reported August 2010
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported March 2016
-(972) 886-8642",,,
+(972) 886-8642",,,,
 Paris Corey,704 Jernigan Street,Commerce,TX,75428-2224,103 Russell Dr,Lewisville,Tx,75077,"(972) 317-6217 (Primary Phone)
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
@@ -4824,7 +4824,7 @@ Valor Telecommunications of Texas LP - TX #1 dba Windstream Communications South
 First reported August 2010
 (214) 906-8480
 Wireless
-New Cingular Wireless PCS LLC - IL",,,
+New Cingular Wireless PCS LLC - IL",,,,
 Paris Cory,Bishop Street,Commerce,TX,75428,103 Russell Dr,Lewisville,Tx,75077,"(972) 317-6217 (Primary Phone)
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
@@ -4835,7 +4835,7 @@ Valor Telecommunications of Texas LP - TX #1 dba Windstream Communications South
 First reported August 2010
 (214) 906-8480
 Wireless
-New Cingular Wireless PCS LLC - IL",,,
+New Cingular Wireless PCS LLC - IL",,,,
 Paris Cory,Harrington Street,Commerce,TX,75428,103 Russell Dr,Lewisville,Tx,75077,"(972) 317-6217 (Primary Phone)
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
@@ -4846,28 +4846,28 @@ Valor Telecommunications of Texas LP - TX #1 dba Windstream Communications South
 First reported August 2010
 (214) 906-8480
 Wireless
-New Cingular Wireless PCS LLC - IL",,,
+New Cingular Wireless PCS LLC - IL",,,,
 Patras Nick,2712 Rix Street,Commerce,TX,75428-3719,PO Box 1316,Commerce,Tx,75429,"for Nick Patras in Commerce, TX
 (512) 426-0243 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported November 2014",,,
+First reported November 2014",,,,
 Patrick Angela Denise,607 4th Street,Commerce,TX,75428-2315,607 4th St,Commerce,Tx,75428,"(903) 886-4622 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported August 2010","angeladpatrick@yahoo.com
-",,
-Patrick Susie M,Oak Street,Commerce,TX,75428,883 Ardis St,Sulphur Springs,Tx,75482,,,,
-Patrick Susie M,N Neal Street,Commerce,TX,75428,883 Ardis St,Sulphur Springs,Tx,75482,,,,
-Patterson Anna,Mosley Street,Commerce,TX,75428,,,,,,,,
+",,,
+Patrick Susie M,Oak Street,Commerce,TX,75428,883 Ardis St,Sulphur Springs,Tx,75482,,,,,
+Patrick Susie M,N Neal Street,Commerce,TX,75428,883 Ardis St,Sulphur Springs,Tx,75482,,,,,
+Patterson Anna,Mosley Street,Commerce,TX,75428,,,,,,,,,
 Patterson Billie L,1308 Madeline Street,Commerce,TX,75428-3751,1308 Madeline St,Commerce,Tx,75428,"(903) 886-6344 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported August 2010",,,
+First reported August 2010",,,,
 Pearson Dustin L,2902 Monroe Street,Commerce,TX,75428-3715,2902 Monroe St,Commerce,Tx,75428,"(903) 461-9294 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported October 2011",,,
+First reported October 2011",,,,
 Peek James H,2730 McCarley Drive,Commerce,TX,75428-3828,PO Box 541,Commerce,Tx,75429,"(903) 886-7282 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4879,7 +4879,7 @@ First reported June 2012
 (903) 886-7472
 Landline","jpeek@koyote.com
 jpeek@cs.com
-cxjpeek74@koyote.com",,
+cxjpeek74@koyote.com",,,
 Peek Janet Claire,113 Gateridge Drive,Commerce,TX,75428-3802,113 Gateridge Dr,Commerce,Tx,75428,"(903) 886-6263 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4887,7 +4887,7 @@ First reported August 2010
 (903) 886-4579
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First repo",,,
+First repo",,,,
 Pemberton William,2812 Washington Street,Commerce,TX,75428-3844,2812 Washington St,Commerce,Tx,75428,"(903) 886-3239 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4900,8 +4900,8 @@ First reported August 2010
 ctxtiger59@argontech.net
 ctxtiger59@verizon.net
 ctxtiger59@yahoo.com
-wpemberton@peoplepc.com",,
-Pentecostal Ch In Jesus Name,1229 Booker Street,Commerce,TX,75428-4101,1229 Booker St,Commerce,Tx,75428,,,,
+wpemberton@peoplepc.com",,,
+Pentecostal Ch In Jesus Name,1229 Booker Street,Commerce,TX,75428-4101,1229 Booker St,Commerce,Tx,75428,,,,,
 Peterson Michael B,1306 Cowan Drive,Commerce,TX,75428-3822,1306 Cowan Dr,Commerce,Tx,75428,"(903) 736-1637 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -4915,11 +4915,11 @@ Landline","petersonm1950@hotmail.com
 petersonm1950@cox-internet.com
 petersonm1950@usa.net
 avmp@juno.com
-petersonm@hotmail.com",,
+petersonm@hotmail.com",,,
 Petty Ollie B,611 Park Street,Commerce,TX,75428-2119,790 Castleglen Dr Apt D,Garland,Tx,75043,"(903) 886-3329 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported August 2010",,,
+First reported August 2010",,,,
 Petty Russell A,104 Briarwood Street,Commerce,TX,75428-3820,104 Briarwood St,Commerce,Tx,75428,"(903) 456-9575 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -4929,13 +4929,13 @@ Wireless
 New Cingular Wireless PCS LLC - IL
 First reported August 2010
 (903) 886-7953","russpetty007@yahoo.com
-",,
-Phillips Annie,Short Ross Street,Commerce,TX,75428,,,,,,,,
+",,,
+Phillips Annie,Short Ross Street,Commerce,TX,75428,,,,,,,,,
 Phillips Tyler D,2708 Monroe Street,Commerce,TX,75428-3721,2708 Monroe St,Commerce,Tx,75428,"for Tyler Phillips in Commerce, TX
 (972) 971-2303 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported October 2014",,,
+First reported October 2014",,,,
 Pickard Miranda,116 Briarwood Street,Commerce,TX,75428-3820,3235 Buttonbush Dr,Royse City,Tx,75189,"(949) 212-6737 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC
@@ -4948,11 +4948,11 @@ First reported August 2010
 miranda.pickard@adelphia.net
 mirandapickard@yahoo.com
 kichung2010@hotmail.com
-miranda.pickard@roadrunner.com",,
+miranda.pickard@roadrunner.com",,,
 Pierce Annette,1000 Jernigan Street,Commerce,TX,75428-2228,1000 Jernigan St,Commerce,Tx,75428,"(903) 886-6522 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported December 2019",,,
+First reported December 2019",,,,
 Pierce Emogene,2706 Bois D Arc Street,Commerce,TX,75428-3702,2706 Bois D Arc St,Commerce,Tx,75428,"(903) 886-1556 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4961,10 +4961,10 @@ First reported August 2010
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported November 1996
-(832) 623-2369",,,
-Porter Judy,2607 Park Street,Commerce,TX,75428-3805,2607 Park St,Commerce,Tx,75428,,,,
-Powell Brodie L,2718 Monroe Street,Commerce,TX,75428-3721,4976 County Road 4514,Commerce,Tx,75428,,,,
-Powell Roy M,2825 Windy Drive,Commerce,TX,75428-3849,2825 Windy Dr,Commerce,Tx,75428,,,,
+(832) 623-2369",,,,
+Porter Judy,2607 Park Street,Commerce,TX,75428-3805,2607 Park St,Commerce,Tx,75428,,,,,
+Powell Brodie L,2718 Monroe Street,Commerce,TX,75428-3721,4976 County Road 4514,Commerce,Tx,75428,,,,,
+Powell Roy M,2825 Windy Drive,Commerce,TX,75428-3849,2825 Windy Dr,Commerce,Tx,75428,,,,,
 Powers William M,1303 Cowan Drive,Commerce,TX,75428-3821,215 N King St Apt 2303,Honolulu,Hi,96817,"(940) 867-8616 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -4974,7 +4974,7 @@ Landline
 Southwestern Bell Telephone Company
 First reported November 2012
 (903) 886-1280
-Landline",,,
+Landline",,,,
 Preas Gregory L,116 Royal Lane,Commerce,TX,75428-3834,116 Royal Ln,Commerce,Tx,75428,"(903) 886-4355 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -4984,11 +4984,11 @@ Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported May 1993
 (903) 886-0000
-Landline",,,
+Landline",,,,
 Pressley,2911 Tanglewood Drive,Commerce,TX,75428-3813,2911 Tanglewood Dr,Commerce,Tx,75428,"(903) 886-2068 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported August 2010",,,
+First reported August 2010",,,,
 Preston Eric Eugene,2734 McCarley Drive,Commerce,TX,75428-3828,2734 McCarley Dr,Commerce,Tx,75428,"for Eric Preston in Commerce, TX
 (903) 886-2067 (Primary Phone)
 Landline
@@ -5000,12 +5000,12 @@ Southwestern Bell Telephone Company
 First reported November 2024
 (972) 886-2067
 Landline","homerunk30@aol.com
-",,
+",,,
 Pruitt Amy,3002 Tanglewood Drive,Commerce,TX,75428-3816,69 County Road 4136,Cooper,Tx,75432,"for Amy Pruitt in Dallas, TX
 (214) 212-3136 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported December 2011",,,
+First reported December 2011",,,,
 Purdy Arlan,2823 Laurel Lane,Commerce,TX,75428-3804,2823 Laurel Ln,Commerce,Tx,75428,"(903) 886-6120 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -5014,23 +5014,23 @@ First reported August 2010
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported February 1993
-(972) 886-6120",,,
-Rahman Amir,1201 Kennie Drive,Commerce,TX,75428-2726,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,1225 Kennie Drive,Commerce,TX,75428-2726,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,314 Park Street,Commerce,TX,75428-2114,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,1000 Bishop Street,Commerce,TX,75428-2208,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,403 Park Street,Commerce,TX,75428-2115,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,1002 Jernigan Street,Commerce,TX,75428-2228,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,916 Jernigan Street,Commerce,TX,75428-2226,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,910 Jernigan Street,Commerce,TX,75428-2226,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,501 4th Street,Commerce,TX,75428-2313,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,1006 N Neal Street,Commerce,TX,75428-2236,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,1004 N Neal Street,Commerce,TX,75428-2236,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,600 Pine Street,Commerce,TX,75428-2242,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,602 Pine Street,Commerce,TX,75428-2242,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,607 Oak Street,Commerce,TX,75428-2333,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,403 N Neal Street,Commerce,TX,75428-2325,819 Fuller St,Sulphur Springs,Tx,75482,,,,
-Rahman Amir,2605 Park Street,Commerce,TX,75428-3805,819 Fuller St,Sulphur Springs,Tx,75482,,,,
+(972) 886-6120",,,,
+Rahman Amir,1201 Kennie Drive,Commerce,TX,75428-2726,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,1225 Kennie Drive,Commerce,TX,75428-2726,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,314 Park Street,Commerce,TX,75428-2114,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,1000 Bishop Street,Commerce,TX,75428-2208,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,403 Park Street,Commerce,TX,75428-2115,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,1002 Jernigan Street,Commerce,TX,75428-2228,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,916 Jernigan Street,Commerce,TX,75428-2226,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,910 Jernigan Street,Commerce,TX,75428-2226,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,501 4th Street,Commerce,TX,75428-2313,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,1006 N Neal Street,Commerce,TX,75428-2236,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,1004 N Neal Street,Commerce,TX,75428-2236,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,600 Pine Street,Commerce,TX,75428-2242,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,602 Pine Street,Commerce,TX,75428-2242,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,607 Oak Street,Commerce,TX,75428-2333,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,403 N Neal Street,Commerce,TX,75428-2325,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
+Rahman Amir,2605 Park Street,Commerce,TX,75428-3805,819 Fuller St,Sulphur Springs,Tx,75482,,,,,
 Rainbolt Don,2714 Monroe Street,Commerce,TX,75428-3721,2714 Monroe St,Commerce,Tx,75428,"for Don Rainbolt in Commerce, TX
 (903) 886-6041 (Primary Phone)
 Landline
@@ -5041,7 +5041,7 @@ Landline
 Grande Communications Networks Inc - TX
 First reported March 2017
 (903) 456-1410
-Wireless",,,
+Wireless",,,,
 Rainey Gene Louis,920 Bishop Street,Commerce,TX,75428-2206,920 Bishop St,Commerce,Tx,75428,"(903) 886-2716 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -5053,21 +5053,21 @@ First reported March 2017
 (903) 886-6339
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported October 1999",,,
+First reported October 1999",,,,
 Ramirez Brandon,703 Jernigan Street,Commerce,TX,75428-2223,4032 County Road 4510,Commerce,Tx,75428,"(972) 886-8517 (Primary Phone)
 Landline
 YMax Communications Corporation - TX
 First reported August 2016","ramirez2015@yahoo.com
-",,
+",,,
 Ramirez Brandon,701 Jernigan Street,Commerce,TX,75428-2223,4032 County Road 4510,Commerce,Tx,75428,"(972) 886-8517 (Primary Phone)
 Landline
 YMax Communications Corporation - TX
 First reported August 2016","ramirez2015@yahoo.com
-",,
+",,,
 Ramirez Javier,1306 Tanglewood Drive,Commerce,TX,75428-3836,1306 Tanglewood Dr,Commerce,Tx,75428,"(903) 630-2413 (Primary Phone)
 Landline
 Cebridge Telecom TX LP - TX
-First reported February 2022",,,
+First reported February 2022",,,,
 Ramirez Julian Espinal,173 Blackburn Street,Commerce,TX,75428-2701,1101 Cole St,McKinney,Tx,75069,"(214) 299-3100 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -5078,15 +5078,15 @@ Southwestern Bell Telephone Company
 First reported August 2010
 (214) 881-3845
 Wireless
-MetroPCS Inc",,,
+MetroPCS Inc",,,,
 Ramirez Rian Auriel,1311 Cowan Drive,Commerce,TX,75428-3821,1311 Cowan Dr,Commerce,Tx,75428,"(903) 440-2793 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
-First reported July 2012",,,
+First reported July 2012",,,,
 Ramsey Kristina Renae,2803 Tanglewood Drive,Commerce,TX,75428-3811,2803 Tanglewood Dr,Commerce,Tx,75428,"(903) 449-6897 (Primary Phone)
 Wireless
 Sprint Spectrum LP
-First reported October 2010",,,
+First reported October 2010",,,,
 Rasberry James,3029 Monroe Street,Commerce,TX,75428-3716,3029 Monroe St,Commerce,Tx,75428,"for James Rasberry in Commerce, TX
 (205) 261-8126 (Primary Phone)
 Wireless
@@ -5112,9 +5112,9 @@ Landline
 Ameritech Michigan
 First reported ","ngjrasberry@yahoo.com
 rasberry.james@yahoo.com
-evjrasberry59@yahoo.com",,
-Raynes Lester F &amp; George D Jr,3rd Street,Commerce,TX,75428,807 Barnes St,McKinney,Tx,75069,,,,
-Reed Author,Blackburn Street,Commerce,TX,75428,,,,,,,,
+evjrasberry59@yahoo.com",,,
+Raynes Lester F &amp; George D Jr,3rd Street,Commerce,TX,75428,807 Barnes St,McKinney,Tx,75069,,,,,
+Reed Author,Blackburn Street,Commerce,TX,75428,,,,,,,,,
 Reed Billy Wayne,1105 Charlies Drive,Commerce,TX,75428-4435,1105 Charlies Dr,Commerce,Tx,75428,"(903) 246-6153 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -5124,8 +5124,8 @@ Wireless
 Sprint Spectrum LP
 First reported August 2010
 (903) 886-6421","brendareed1025@hotmail.com
-",,
-Reed John D,Meadows Street,Commerce,TX,75428,,,,,,,,
+",,,
+Reed John D,Meadows Street,Commerce,TX,75428,,,,,,,,,
 Reese Cindy &amp; Stephen,3007 Tanglewood Drive,Commerce,TX,75428-3815,3007 Tanglewood Dr,Commerce,Tx,75428,"(903) 272-7392 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -5134,7 +5134,7 @@ First reported January 2017
 Wireless
 Sprint Spectrum LP
 First reported December 2019
-(903) 784-2780",,,
+(903) 784-2780",,,,
 Reeves Susan,1318 Edna Street,Commerce,TX,75428-3854,1318 Edna St,Commerce,Tx,75428,"(903) 886-6385 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -5143,7 +5143,7 @@ First reported August 2010
 Landline
 Grande Communications Networks Inc - TX
 First reported March 2010
-(903) 729-5770",,,
+(903) 729-5770",,,,
 Remington Frederic Marlin,1309 Madeline Street,Commerce,TX,75428-3750,1309 Madeline St,Commerce,Tx,75428,"(951) 833-4058 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - CA
@@ -5152,7 +5152,7 @@ First reported May 2017
 Landline
 Pacific Bell Telephone Company
 First reported August 2010
-(909) 734-4694",,,
+(909) 734-4694",,,,
 Reyes Maria I,505 Oak Street,Commerce,TX,75428-2331,603 S Creek Dr,Royse City,Tx,75189,"(909) 723-6662 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -5161,7 +5161,7 @@ First reported August 2010
 Landline
 Charter Fiberlink TX-CCO LLC - TX
 First reported June 2016
-(714) 547-8351",,,
+(714) 547-8351",,,,
 Reynolds Orvis Wain,M L King Drive,Commerce,TX,75428,1411 Locust St,Commerce,Tx,,"(214) 576-8405 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -5173,7 +5173,7 @@ First reported August 2010
 (214) 565-0641
 Landline
 Southwestern Bell Telephone Company","orvisreynolds62@gmail.com
-",,
+",,,
 Reynolds Orvis Wain,M L King Drive,Commerce,TX,75428,1411 Locust St,Commerce,Tx,75428,"(214) 576-8405 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -5185,8 +5185,8 @@ First reported August 2010
 (214) 565-0641
 Landline
 Southwestern Bell Telephone Company","orvisreynolds62@gmail.com
-",,
-Reynolds Randy Juan,507 Bishop Street,Commerce,TX,75428-2303,4046 County Road 4512,Commerce,Tx,75428,,,,
+",,,
+Reynolds Randy Juan,507 Bishop Street,Commerce,TX,75428-2303,4046 County Road 4512,Commerce,Tx,75428,,,,,
 Rhodes Lauren A,1316 Madeline Street,Commerce,TX,75428-3752,1316 Madeline St,Commerce,Tx,75428,"(903) 517-4125 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -5198,7 +5198,7 @@ First reported September 2021
 (903) 517-4955
 Wireless
 Sprint Spectrum LP
-First reported August 2010",,,
+First reported August 2010",,,,
 Rice Micahel D,1200 Kennie Drive,Commerce,TX,75428-2727,319 Coyote Creek Dr,Lavon,Tx,75166,"(469) 233-2685 (Primary Phone)
 Wireless
 T-Mobile USA Inc
@@ -5209,7 +5209,7 @@ Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported May 2012
 (214) 732-4973
 Wireless
-Sprint Spectrum LP",,,
+Sprint Spectrum LP",,,,
 Rickman Richard L Jr,Washington Street,Commerce,TX,75428,2119 Wolf Run,Gainesville,Tx,76240,"(512) 395-5051 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5219,11 +5219,11 @@ Landline
 CenturyTel of San Marcos Inc dba CenturyLink
 First reported June 2001
 (915) 597-1527
-Landline",,,
+Landline",,,,
 Rivera Vicenta Gomez,2609 Park Street,Commerce,TX,75428-3805,2609 Park St,Commerce,Tx,75428,"(903) 246-3375 (Primary Phone)
 Landline
 Time Warner Cable Information Services (Texas) LP dba Time Warner Cable - TX
-First reported April 2017",,,
+First reported April 2017",,,,
 Roberts Angela Quinn,1705 Meadowview Road,Commerce,TX,75428-3712,1705 Meadowview Rd,Commerce,Tx,75428,"(903) 886-2142 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -5232,8 +5232,8 @@ First reported August 2010
 Landline
 Verizon Virginia Inc
 First reported February 2004
-(713) 961-5058",,,
-Robertson Joyce,2821 McCarley Drive,Commerce,TX,75428-3829,2821 McCarley Dr,Commerce,Tx,75428,,,,
+(713) 961-5058",,,,
+Robertson Joyce,2821 McCarley Drive,Commerce,TX,75428-3829,2821 McCarley Dr,Commerce,Tx,75428,,,,,
 Robinson Joe B,1311 Tanglewood Drive,Commerce,TX,75428-3835,1311 Tanglewood Dr,Commerce,Tx,75428,"(903) 886-8735 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -5242,7 +5242,7 @@ First reported August 2010
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
 First reported April 2021
-(508) 250-1159",,,
+(508) 250-1159",,,,
 Robinson Julia M,2810 Tanglewood Drive,Commerce,TX,75428-3812,2810 Tanglewood Dr,Commerce,Tx,75428,"(903) 366-6846 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -5251,7 +5251,7 @@ First reported February 2021
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported August 2010
-(903) 366-2893",,,
+(903) 366-2893",,,,
 Robnett Charles Scott,144 Royal Lane,Commerce,TX,75428-3834,144 Royal Ln,Commerce,Tx,75428,"for Charles Robnett in Commerce, TX
 (903) 886-6621 (Primary Phone)
 Landline
@@ -5262,7 +5262,7 @@ Wireless
 Cellco Partnership dba Verizon Wireless - TX
 First reported March 2024
 (903) 886-7345
-Landline",,,
+Landline",,,,
 Rogers Tracy D,2616 Tanglewood Drive,Commerce,TX,75428-3838,2616 Tanglewood Dr,Commerce,Tx,75428,"(903) 975-2287 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -5272,9 +5272,9 @@ Wireless
 Cellco Partnership dba Verizon Wireless - VT
 First reported August 2010
 (903) 365-3003
-Landline",,,
-Rosemound Cemetery Assoc,620 Rosemound Street,Commerce,TX,75428,PO Box 408,Commerce,Tx,75429,,,,
-Rosemound Cemetery Assoc,Sycamore Street,Commerce,TX,75428,PO Box 408,Commerce,Tx,75429,,,,
+Landline",,,,
+Rosemound Cemetery Assoc,620 Rosemound Street,Commerce,TX,75428,PO Box 408,Commerce,Tx,75429,,,,,
+Rosemound Cemetery Assoc,Sycamore Street,Commerce,TX,75428,PO Box 408,Commerce,Tx,75429,,,,,
 Ross Henry H,605 Bishop Street,Commerce,TX,75428-2305,605 Bishop St,Commerce,Tx,75428,"(903) 408-9674 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -5284,7 +5284,7 @@ Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported August 2010
 (903) 886-6043
-Landline",,,
+Landline",,,,
 Ross John E,400 Rosemound Street,Commerce,TX,75428-4701,400 Rosemound St,Commerce,Tx,75428,"(903) 886-0787 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -5294,8 +5294,8 @@ Wireless
 Sprint Spectrum LP
 First reported September 2012
 (903) 356-4732
-Landline",,,
-Ross Stephanie,315 Park Street,Commerce,TX,75428-2113,7312 Marlborough Dr W,Fort Worth,Tx,76134,,,,
+Landline",,,,
+Ross Stephanie,315 Park Street,Commerce,TX,75428-2113,7312 Marlborough Dr W,Fort Worth,Tx,76134,,,,,
 Rubio Otilia P,608 N Neal Street,Commerce,TX,75428-2330,608 N Neal St,Commerce,Tx,75428,"for Otilia Rubio in Commerce, TX
 (903) 886-7525 (Primary Phone)
 Landline
@@ -5305,13 +5305,13 @@ First reported August 2010
 Landline
 Southwestern Bell Telephone Company
 First reported April 2001
-(903) 746-1648",,,
+(903) 746-1648",,,,
 Rudoff Robin,2621 Washington Street,Commerce,TX,75428-3839,2621 Washington St,Commerce,Tx,75428,"for Robin Rudoff in Commerce, TX
 (903) 886-2039 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported August 2010",,,
-Ruiz Rene Moheno,114 Norris Street,Commerce,TX,75428-2774,2501 Garden Dr,Greenville,Tx,75402,,,,
+First reported August 2010",,,,
+Ruiz Rene Moheno,114 Norris Street,Commerce,TX,75428-2774,2501 Garden Dr,Greenville,Tx,75402,,,,,
 Ryer Michael,1704 Drake Drive,Commerce,TX,75428-3709,1704 Drake Dr,Commerce,Tx,75428,"(903) 461-9444 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5323,11 +5323,11 @@ First reported May 2011
 (903) 874-6860
 Landline
 Southwestern Bell Telephone Company
-First reported August 2010",,,
+First reported August 2010",,,,
 Salas Martha,2708 Rix Street,Commerce,TX,75428-3719,2708 Rix St,Commerce,Tx,75428,"(903) 243-3729 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported August 2010",,,
+First reported August 2010",,,,
 Sampson Ira,1112 Blackburn Street,Commerce,TX,75428-2786,1118 Lakewood Dr,Wylie,Tx,75098,"for Ira Sampson in Commerce, TX
 (903) 886-7094 (Primary Phone)
 Landline
@@ -5339,11 +5339,11 @@ Southwestern Bell Telephone Company
 First reported March 2012
 (972) 639-1339
 Wireless
-MetroPCS Inc",,,
+MetroPCS Inc",,,,
 Savage Colby,1109 Charlies Drive,Commerce,TX,75428-4435,1109 Charlies Dr,Commerce,Tx,75428,"(214) 573-3200 (Primary Phone)
 Wireless
 MetroPCS Inc
-First reported October 2010",,,
+First reported October 2010",,,,
 Savage Veddar L,600 N Neal Street,Commerce,TX,75428-2330,10018 Fairway Vista Dr,Rowlett,Tx,75089,"(214) 708-8248 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5352,7 +5352,7 @@ First reported July 2014
 Landline
 Southwestern Bell Telephone Company
 First reported February 2013
-(214) 772-2291",,,
+(214) 772-2291",,,,
 Scaff Steven,3001 Washington Street,Commerce,TX,75428-3847,3001 Washington St,Commerce,Tx,75428,"for Steven Scaff in Commerce, TX
 (903) 395-0422 (Primary Phone)
 Landline
@@ -5364,7 +5364,7 @@ Sprint Spectrum LP
 First reported October 2012
 (281) 804-9865
 Wireless
-Sprint Spectrum LP",,,
+Sprint Spectrum LP",,,,
 Schaeffer Jeremy,2617 Washington Street,Commerce,TX,75428-3839,2617 Washington St,Commerce,Tx,75428,"(608) 359-4180 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -5373,12 +5373,12 @@ First reported August 2017
 Landline
 Ameritech Wisconsin
 First reported August 2010
-(608) 359-6012",,,
+(608) 359-6012",,,,
 Scott Harold,M L King Drive,Commerce,TX,75428,546 Head St,San Francisco,Ca,94132,"(415) 584-2462 (Primary Phone)
 Landline
 Pacific Bell Telephone Company
-First reported August 2010",,,
-Scroggins Cloyd Dale,2626 Washington Street,Commerce,TX,75428-3840,4007 Fm 118,Greenville,Tx,75401,,,,
+First reported August 2010",,,,
+Scroggins Cloyd Dale,2626 Washington Street,Commerce,TX,75428-3840,4007 Fm 118,Greenville,Tx,75401,,,,,
 Shamburger Joanna Sands,2906 Tanglewood Drive,Commerce,TX,75428-3814,2906 Tanglewood Dr,Commerce,Tx,75428,"(903) 456-3983 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5387,7 +5387,7 @@ First reported August 2010
 Landline
 Southwestern Bell Telephone Company
 First reported August 2021
-(903) 886-6760",,,
+(903) 886-6760",,,,
 Shaw Amanda D,706 N Neal Street,Commerce,TX,75428-2230,706 N Neal St,Commerce,Tx,75428,"(903) 886-8212 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -5399,19 +5399,19 @@ First reported December 2013
 (903) 886-0960
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported March 2016",,,
+First reported March 2016",,,,
 Shuler Frederick W,1616 Drake Drive,Commerce,TX,75428-3707,1616 Drake Dr,Commerce,Tx,75428,"(214) 384-2200 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported January 2023",,,
+First reported January 2023",,,,
 Sims Stephanie B,101 Briarwood Street,Commerce,TX,75428-3819,3320 S Fm 548,Royse City,Tx,75189,"(817) 734-9749 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported August 2010",,,
+First reported August 2010",,,,
 Singleton Misty,600 Plum Street,Commerce,TX,75428-2252,600 Plum St,Commerce,Tx,75428,"(903) 441-3568 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
-First reported October 2019",,,
+First reported October 2019",,,,
 Slough Stephanie A,2904 Washington Street,Commerce,TX,75428-3846,2904 Washington St,Commerce,Tx,75428,"(903) 217-6406 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5420,11 +5420,11 @@ First reported March 2014
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported August 2010
-(903) 274-9748",,,
-Smith Eddie,2900 Monroe Street,Commerce,TX,75428-3715,2900 Monroe St,Commerce,Tx,75428,,,,
-Smith Fannie,Norris Street,Commerce,TX,75428,,,,,,,,
-Smith Homer C,1411 Tanglewood Drive,Commerce,TX,75428-3859,7902 Traders Cir,Greenville,Tx,75402,,,,
-Smith J D,Mosley Street,Commerce,TX,75428,,,,,,,,
+(903) 274-9748",,,,
+Smith Eddie,2900 Monroe Street,Commerce,TX,75428-3715,2900 Monroe St,Commerce,Tx,75428,,,,,
+Smith Fannie,Norris Street,Commerce,TX,75428,,,,,,,,,
+Smith Homer C,1411 Tanglewood Drive,Commerce,TX,75428-3859,7902 Traders Cir,Greenville,Tx,75402,,,,,
+Smith J D,Mosley Street,Commerce,TX,75428,,,,,,,,,
 Smith Mary,2702 Rix Street,Commerce,TX,75428-3719,2702 Rix St,Commerce,Tx,75428,"(903) 408-7242 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -5454,9 +5454,9 @@ Wireless","asialightfoot17@gmail.com
 marysmithadm@gmail.com
 msmith2210@gmail.com
 msmith2210@bellsouth.net
-dmsmith2210t48@bellsouth.net",,
-Sosebee Samuel,1306 Tiffany Lane,Commerce,TX,75428-3852,1306 Tiffany Ln,Commerce,Tx,75428,,,,
-Sovolle Henryette,Mosley Street,Commerce,TX,75428,,,,,,,,
+dmsmith2210t48@bellsouth.net",,,
+Sosebee Samuel,1306 Tiffany Lane,Commerce,TX,75428-3852,1306 Tiffany Ln,Commerce,Tx,75428,,,,,
+Sovolle Henryette,Mosley Street,Commerce,TX,75428,,,,,,,,,
 Spencer James E,Deer Trail,Commerce,TX,75428,335 Oak Ln,Commerce,Tx,75428,"(903) 274-7386 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5476,7 +5476,7 @@ First reported October 2017
 (903) 246-3066
 Landline
 Time Warner Cable Information Services (Texas) LP dba Time Warner Cable - TX
-First reported July 2007",,,
+First reported July 2007",,,,
 Spurlock Benjamin,915 Bishop Street,Commerce,TX,75428-2205,915 Bishop St,Commerce,Tx,75428,"(903) 366-3772 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -5508,7 +5508,7 @@ cowboyfan9032004@yahoo.com
 benjaminspurlock@alltel.com
 benjaminspurlock@yahoo.com
 countryboy9032004@yahoo.com
-",,
+",,,
 Spurlock Clyde M,906 N Neal Street,Commerce,TX,75428-2234,10801 Belmont Pl,Greenville,Tx,75402,"(903) 456-5178 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5528,12 +5528,12 @@ First reported August 2010
 (903) 454-7299
 Landline
 Southwestern Bell Telephone Company
-First reported August 2010",,,
+First reported August 2010",,,,
 Stachowiak Anna Jean,2809 Meadowview Road,Commerce,TX,75428-3741,2809 Meadowview Rd,Commerce,Tx,75428,"(903) 886-2227 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported August 2010","astachowiak@netscape.net
-",,
+",,,
 Stahl Jim,2617 Park Street,Commerce,TX,75428-3805,2617 Park St,Commerce,Tx,75428,"(903) 886-6370 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -5553,7 +5553,7 @@ First reported August 1993
 (214) 886-6370
 Wireless
 New Cingular Wireless PCS LLC - IL","annastahl@att.net
-",,
+",,,
 Stanhouse Kendall Wayne,2606 Taylor Street,Commerce,TX,75428-3818,2606 Taylor St,Commerce,Tx,75428,"(479) 986-0668 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -5563,7 +5563,7 @@ Wireless
 Cellco Partnership dba Verizon Wireless - AR
 First reported April 2020","kendallstanhouse@gmail.com
 kendall73ltd@yahoo.com
-kitty_cannibal@yahoo.com",,
+kitty_cannibal@yahoo.com",,,
 Stark Michael Joseph,2804 McCarley Drive,Commerce,TX,75428-3830,2804 McCarley Dr,Commerce,Tx,75428,"(330) 335-5140 (Primary Phone)
 Landline
 Frontier North Inc - OH
@@ -5585,7 +5585,7 @@ Landline
 Time Warner Cable Information Services (Wisconsin) LLC - WI
 First reported March 2010","mstark77@gmail.com
 mestark3@msn.com
-michaels4734@aol.com",,
+michaels4734@aol.com",,,
 Starks Daniel Scott,2613 Washington Street,Commerce,TX,75428-3839,2613 Washington St,Commerce,Tx,75428,"(903) 450-7809 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -5605,8 +5605,8 @@ First reported December 2013
 (903) 456-1641
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported December 2020",,,
-Stephens Brandon,802 N Neal Street,Commerce,TX,75428-2232,802 N Neal St,Commerce,Tx,75428,,,,
+First reported December 2020",,,,
+Stephens Brandon,802 N Neal Street,Commerce,TX,75428-2232,802 N Neal St,Commerce,Tx,75428,,,,,
 Stephens Deborah E,2706 Charity Road,Commerce,TX,75428-3933,2706 Charity Rd,Commerce,Tx,75428,"(469) 360-4286 (Primary Phone)
 Wireless
 T-Mobile USA Inc
@@ -5630,9 +5630,9 @@ First reported February 2004","hippyc40@gmail.com
 deborahs4861@yahoo.com
 dstephens@petrachem.com
 stephl_11@hotmail.com
-dfp_elp_2@adelphia.com",,
-Stewart Elizabeth A,306 Park Street,Commerce,TX,75428-2114,306 Park St,Commerce,Tx,75428,,,,
-Stiggers Francis Douglas &amp; Arv,114 Craddock Street,Commerce,TX,75428-2709,1205 Kennie Dr,Commerce,Tx,75428,,,,
+dfp_elp_2@adelphia.com",,,
+Stewart Elizabeth A,306 Park Street,Commerce,TX,75428-2114,306 Park St,Commerce,Tx,75428,,,,,
+Stiggers Francis Douglas &amp; Arv,114 Craddock Street,Commerce,TX,75428-2709,1205 Kennie Dr,Commerce,Tx,75428,,,,,
 Stout Lance,2903 Tanglewood Drive,Commerce,TX,75428-3813,2903 Tanglewood Dr,Commerce,Tx,75428,"(903) 517-5265 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -5649,7 +5649,7 @@ First reported September 2016
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported January 2006","stoutnbout@hotmail.com
-",,
+",,,
 Struch Jerry L,117 Briarwood Street,Commerce,TX,75428-3819,117 Briarwood St,Commerce,Tx,75428,"(903) 366-2611 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -5671,7 +5671,7 @@ Wireless","cjsturch@gmail.com
 jsturch@tivejo.com
 cjsturch@cox.net
 jerrysturch@earthlink.net
-cjsturch@yahoo.com",,
+cjsturch@yahoo.com",,,
 Stuckey David Scott,2712 Monroe Street,Commerce,TX,75428-3721,2712 Monroe St,Commerce,Tx,75428,"(903) 453-5078 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -5683,7 +5683,7 @@ First reported August 2010
 (972) 886-8946
 Landline
 YMax Communications Corporation - TX
-First reported August 2006",,,
+First reported August 2006",,,,
 Sullivan Donald L Jr,Oak Street,Commerce,TX,75428,1512 Deer Trl,Commerce,Tx,75428,"(409) 344-1718 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5701,7 +5701,7 @@ dsullivan@spi-eng.com
 kds98pep91@aol.com
 rsullivan1982@aol.com
 jsullivan033059@aol.com
-dsullivan@spieng.c",,
+dsullivan@spieng.c",,,
 Sullivan Donald L Jr,1512 Deer Trail,Commerce,TX,75428-3866,1512 Deer Trl,Commerce,Tx,75428,"(409) 344-1718 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5719,7 +5719,7 @@ dsullivan@spi-eng.com
 kds98pep91@aol.com
 rsullivan1982@aol.com
 jsullivan033059@aol.com
-dsullivan@spieng.c",,
+dsullivan@spieng.c",,,
 Sullivan Gina,1313 Madeline Street,Commerce,TX,75428-3750,6453 County Road 4400,Commerce,Tx,75428,"(214) 803-1325 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5745,7 +5745,7 @@ gina@sullivanbenefits.com
 sullivan@argontech.net
 sullivan1@koyote.com
 ocgina19@sullivanbenefits.com
-g.sullivan@braceletsandmore.com",,
+g.sullivan@braceletsandmore.com",,,
 Sullivan Logan,1315 Tanglewood Drive,Commerce,TX,75428-3835,1315 Tanglewood Dr,Commerce,Tx,75428,"(903) 456-1281 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5766,7 +5766,7 @@ First reported April 2018
 Landline
 Southwestern Bell Telephone Company
 First reported April 2018","ljsully@rocketmail.com
-",,
+",,,
 Synodis Ray,603 Smith Street,Commerce,TX,75428-2341,603 Smith St,Commerce,Tx,75428,"(903) 441-6820 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -5775,9 +5775,9 @@ First reported April 2021
 Wireless
 New Cingular Wireless PCS LLC - IL
 First reported April 2021","raysynodis@yahoo.com
-rsynodis@gmail.com",,
-Synoptic Sf,Blackburn Street,Commerce,TX,75428,3308 Preston Rd 153,Plano,Tx,75093,,,,
-Synoptic Sf,Mosley Street,Commerce,TX,75428,3308 Preston Rd 153,Plano,Tx,75093,,,,
+rsynodis@gmail.com",,,
+Synoptic Sf,Blackburn Street,Commerce,TX,75428,3308 Preston Rd 153,Plano,Tx,75093,,,,,
+Synoptic Sf,Mosley Street,Commerce,TX,75428,3308 Preston Rd 153,Plano,Tx,75093,,,,,
 Tayengco Delia,Tx-224,Commerce,TX,75428,5930 W Patrick Ln,Las Vegas,Nv,89118,"(702) 338-0706 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC
@@ -5803,7 +5803,7 @@ dtayengco@verizon.net
 dtayengco2000@hotmail.com
 tayengo@hotmail.com
 pnaytisay88@aol.com
-dtayengco@yahoo.com",,
+dtayengco@yahoo.com",,,
 Tayengco Delia,Bishop Street,Commerce,TX,75428,5930 W Patrick Ln,Las Vegas,Nv,89118,"(702) 338-0706 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC
@@ -5829,7 +5829,7 @@ dtayengco@verizon.net
 dtayengco2000@hotmail.com
 tayengo@hotmail.com
 pnaytisay88@aol.com
-dtayengco@yahoo.com",,
+dtayengco@yahoo.com",,,
 Taylor Heather D,3011 Tanglewood Drive,Commerce,TX,75428-3815,3011 Tanglewood Dr,Commerce,Tx,75428,"(903) 249-6336 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -5845,7 +5845,7 @@ First reported December 2019
 (903) 249-6318
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
-First reported October 2021",heather_mcentyre32@hotmail.com,,
+First reported October 2021",heather_mcentyre32@hotmail.com,,,
 Taylor Jimmy J,1307 Edna Street,Commerce,TX,75428-3853,6222 Bridle Trl,Caddo Mills,Tx,75135,"(903) 269-6732 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -5867,7 +5867,7 @@ Landline
 Southwestern Bell Telephone Company
 First reported November 2000","jtaylo69@hotmail.com
 j.j.taylor@l-3com.com
-caddomillsjim@yahoo.com",,
+caddomillsjim@yahoo.com",,,
 Tennet Elena,1005 Jernigan Street,Commerce,TX,75428-2227,1005 Jernigan St,Commerce,Tx,75428,"(505) 977-4999 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - NM
@@ -5884,7 +5884,7 @@ First reported January 2020
 Wireless
 Cellco Partnership dba Verizon Wireless - NM
 First reported May 2022","vballchica21@msn.com
-",,
+",,,
 Thompson Beckey Dianne,2828 Bois D Arc Street,Commerce,TX,75428-3704,1537 Deer Trl,Commerce,Tx,75428,"(903) 456-0321 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5906,7 +5906,7 @@ Landline
 Grande Communications Networks Inc - TX
 First reported November 2010","friend@pflash.com
 beckey.thompson@aol.com
-aggie@koyote.com",,
+aggie@koyote.com",,,
 Thompson Beckey Dianne,1303 Tanglewood Drive,Commerce,TX,75428-3835,PO Box 231,Commerce,Tx,75429,"(903) 456-0321 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5928,7 +5928,7 @@ Landline
 Grande Communications Networks Inc - TX
 First reported November 2010","friend@pflash.com
 beckey.thompson@aol.com
-aggie@koyote.com",,
+aggie@koyote.com",,,
 Thompson Gary,1701 Meadow View Drive,Commerce,TX,75428,PO Box 231,Commerce,Tx,75429,"(903) 456-0321 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5948,7 +5948,7 @@ First reported September 2013
 (903) 746-2104
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported September 2021",,,
+First reported September 2021",,,,
 Thompson Gary,2804 Bois D Arc Street,Commerce,TX,75428-3704,PO Box 231,Commerce,Tx,75429,"(903) 456-0321 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5968,7 +5968,7 @@ First reported September 2013
 (903) 746-2104
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported September 2021",,,
+First reported September 2021",,,,
 Thompson Gary,2832 Bois D Arc Street,Commerce,TX,75428-3704,PO Box 231,Commerce,Tx,75429,"(903) 456-0321 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -5988,7 +5988,7 @@ First reported September 2013
 (903) 746-2104
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported September 2021",,,
+First reported September 2021",,,,
 Thompson Gary D,Monroe Street,Commerce,TX,75428,PO Box 231,Commerce,Tx,75429,"(903) 456-0321 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -6008,7 +6008,7 @@ First reported September 2013
 (903) 746-2104
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported September 2021",,,
+First reported September 2021",,,,
 Thompson Gary D,1537 Deer Trail,Commerce,TX,75428-3865,PO Box 231,Commerce,Tx,75429,"(903) 456-0321 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -6028,7 +6028,7 @@ First reported September 2013
 (903) 746-2104
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported September 2021",,,
+First reported September 2021",,,,
 Thompson Gary D,Deer Trail,Commerce,TX,75428,PO Box 231,Commerce,Tx,75429,"(903) 456-0321 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -6048,7 +6048,7 @@ First reported September 2013
 (903) 746-2104
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported September 2021",,,
+First reported September 2021",,,,
 Thompson Gary D,1533 Deer Trail,Commerce,TX,75428-3865,PO Box 231,Commerce,Tx,75429,"(903) 456-0321 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -6068,8 +6068,8 @@ First reported September 2013
 (903) 746-2104
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported September 2021",,,
-Thursby Aressy,1200 Mosley Street,Commerce,TX,75428-4709,PO Box 489,Mount Pleasant,Tx,75456,,,,
+First reported September 2021",,,,
+Thursby Aressy,1200 Mosley Street,Commerce,TX,75428-4709,PO Box 489,Mount Pleasant,Tx,75456,,,,,
 Towne Larry L,2912 Washington Street,Commerce,TX,75428-3846,2912 Washington St,Commerce,Tx,75428,"(903) 886-4667 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -6079,7 +6079,7 @@ Landline
 Grande Communications Networks Inc - TX
 First reported July 1993","lmtowne@msn.com
 monatowne@yahoo.com
-sundown@hpnc.com",,
+sundown@hpnc.com",,,
 Trejo Alejandra Median Galarza,2704 Rix Street,Commerce,TX,75428-3719,2704 Rix St,Commerce,Tx,75428,"(903) 886-4939 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -6103,7 +6103,7 @@ First reported January 2019","alejandramedina46@yahoo.com
 yessica5@hotmail.com
 yessica5@embarqemail.com
 yessica5@embarqmail.com
-alejandra.medina@att.net",,
+alejandra.medina@att.net",,,
 Truitt Dale M,Meadowview Road,Commerce,TX,75428,2808 Rix St,Commerce,Tx,75428,"(903) 886-7664 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -6121,7 +6121,7 @@ Landline
 Grande Communications Networks Inc - TX
 First reported June 2010","dale_truitt@hotmail.com
 dale.truitt@att.net
-danesmommy@hotmail.com",,
+danesmommy@hotmail.com",,,
 Truitt Dale M,2808 Rix Street,Commerce,TX,75428-3739,2808 Rix St,Commerce,Tx,75428,"(903) 886-7664 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -6139,7 +6139,7 @@ Landline
 Grande Communications Networks Inc - TX
 First reported June 2010","dale_truitt@hotmail.com
 dale.truitt@att.net
-danesmommy@hotmail.com",,
+danesmommy@hotmail.com",,,
 Turman Dixie,Meadowview Road,Commerce,TX,75428,2901 Meadowview Rd,Commerce,Tx,75428,"(903) 453-4378 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -6171,7 +6171,7 @@ First reported December 2022","trentburman@yahoo.com
 d.turman@statefarm.com
 bobstac@ix.netcom.co
 dixie.turman@gmail.com
-dixie@koyote.com",,
+dixie@koyote.com",,,
 Turman Dixie,2901 Meadowview Road,Commerce,TX,75428-3733,2901 Meadowview Rd,Commerce,Tx,75428,"(903) 453-4378 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -6199,14 +6199,14 @@ First reported April 2021
 (903) 746-2031
 Wireless
 New Cingular Wireless PCS LLC - IL
-First reported December 2022",,,
-Underhill,108 Gateridge Drive,Commerce,TX,75428-3803,108 Gateridge Dr,Commerce,Tx,75428,,,,
-Urbina Sylvia Nevarez,502 Pine Street,Commerce,TX,75428-2240,502 Pine St,Commerce,Tx,75428,,,,
+First reported December 2022",,,,
+Underhill,108 Gateridge Drive,Commerce,TX,75428-3803,108 Gateridge Dr,Commerce,Tx,75428,,,,,
+Urbina Sylvia Nevarez,502 Pine Street,Commerce,TX,75428-2240,502 Pine St,Commerce,Tx,75428,,,,,
 Vadlakonda Chaitanya,2608 Park Street,Commerce,TX,75428-3806,9692 Woodford Ln,Frisco,Tx,75035,"(916) 792-9436 (Primary Phone)
 Wireless
 Sprint Spectrum LP
 First reported August 2010","chaitanyajothi@gmail.com
-",,
+",,,
 Valadez Ernest,2805 McCarley Drive,Commerce,TX,75428-3829,2805 McCarley Dr,Commerce,Tx,75428,"(469) 600-8403 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -6223,17 +6223,17 @@ First reported August 2010
 Wireless
 MetroPCS Inc
 First reported April 2021","13.isaacm.13@gmail.com
-evalade77@yahoo.com",,
+evalade77@yahoo.com",,,
 Vander Velde,128 Royal Lane,Commerce,TX,75428-3834,20325 Crooked Stick Dr,Pflugerville,Tx,78660,"(903) 886-2790 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
-First reported May 2008",,,
+First reported May 2008",,,,
 Vanhorne Maddison,2710 Charity Road,Commerce,TX,75428-3933,2710 Charity Rd,Commerce,Tx,75428,"(972) 463-8109 (Primary Phone)
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported March 2022","maddisonvanhorne@yahoo.com
-vanhorne@muchomail.com",,
-Vasquez Ignacio,919 Bishop Street,Commerce,TX,75428-2205,919 Bishop St,Commerce,Tx,75428,,,,
+vanhorne@muchomail.com",,,
+Vasquez Ignacio,919 Bishop Street,Commerce,TX,75428-2205,919 Bishop St,Commerce,Tx,75428,,,,,
 Waddell Richard N,108 Norris Street,Commerce,TX,75428-2774,5316 Vinebrook Way,Princeton,Tx,75407,"(662) 321-8162 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - MS
@@ -6241,7 +6241,7 @@ First reported August 2012
 (662) 372-0099
 Wireless
 Cellco Partnership dba Verizon Wireless - MS
-First reported October 2010",,,
+First reported October 2010",,,,
 Walker James L,2836 Windy Drive,Commerce,TX,75428-3850,1701 Running River Dr,Desoto,Tx,75115,"(214) 532-7825 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -6261,7 +6261,7 @@ First reported March 2017
 (972) 223-4702
 Landline
 Southwestern Bell Telephone Company
-First reported May 2014",,,
+First reported May 2014",,,,
 Walker John W,2701 Bois D Arc Street,Commerce,TX,75428-3701,625 Mink Dr,Greenville,Tx,75402,"(903) 453-5357 (Primary Phone)
 Landline
 Southwestern Bell Telephone Company
@@ -6279,8 +6279,8 @@ Wireless
 Sprint Spectrum LP
 First reported May 2021
 (903) 455-2793","walker_insurance@yahoo.com
-jwalk811@yahoo.com",,
-Wallace Kathleen M,1315 Edna Street,Commerce,TX,75428-3853,1315 Edna St,Commerce,Tx,75428,,,,
+jwalk811@yahoo.com",,,
+Wallace Kathleen M,1315 Edna Street,Commerce,TX,75428-3853,1315 Edna St,Commerce,Tx,75428,,,,,
 Waltrip Elizabeth Ann,2902 Meadowview Road,Commerce,TX,75428-3732,2902 Meadowview Rd,Commerce,Tx,75428,"(763) 360-8952 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -6309,8 +6309,8 @@ First reported April 2021
 Wireless
 New Cingular Wireless PCS LLC - IL
 First reported September 2023","ewaltrip@hotmail.com
-",,
-Weatherbee J F,500 Bishop Street,Commerce,TX,75428-2304,237 Devonport Dr,Rockwall,Tx,75032,,,,
+",,,
+Weatherbee J F,500 Bishop Street,Commerce,TX,75428-2304,237 Devonport Dr,Rockwall,Tx,75032,,,,,
 Weber Brian Philip,2816 Bois D Arc Street,Commerce,TX,75428-3704,2816 Bois D Arc St,Commerce,Tx,75428,"(903) 886-8818 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -6330,7 +6330,7 @@ First reported December 2020
 (972) 886-2618
 Landline
 Grande Communications Networks Inc - TX","bigpete_05@hotmail.com
-",,
+",,,
 Whitehead Jason,2808 Washington Street,Commerce,TX,75428-3844,2808 Washington St,Commerce,Tx,75428,"(469) 293-8225 (Primary Phone)
 Landline
 Time Warner Cable Information Services (Texas) LP dba Time Warner Cable - TX
@@ -6347,8 +6347,8 @@ First reported April 1996
 Landline
 Frontier Southwest Incorporated dba Frontier Communications of Texas
 First reported July 2021","snj.whitehead@gmail.com
-",,
-Wilburn John T,Mosley Street,Commerce,TX,75428,,,,,,,,
+",,,
+Wilburn John T,Mosley Street,Commerce,TX,75428,,,,,,,,,
 Wilburt Johnny W,1307 Madeline Street,Commerce,TX,75428-3750,1307 Madeline St,Commerce,Tx,75428,"(318) 871-7782 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - GA
@@ -6380,7 +6380,7 @@ johnny.wilburt@tyson.com
 grj_gjohnson@yahoo.com
 jwilburt@msn.com
 jwilburt@gmail.com
-johnny.wilburt@mindspring.c",,
+johnny.wilburt@mindspring.c",,,
 Williams George Wyman,2806 Tanglewood Drive,Commerce,TX,75428-3812,2806 Tanglewood Dr,Commerce,Tx,75428,"(903) 366-1962 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -6400,7 +6400,7 @@ First reported August 2020
 (903) 450-5290
 Landline
 Southwestern Bell Telephone Company
-First reported August 2020",,,
+First reported August 2020",,,,
 Wilson Barbara Ann,421 M L King Drive,Commerce,TX,75428-2744,421 Mlk Dr,Commerce,Tx,75428,"(903) 366-9372 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -6420,7 +6420,7 @@ First reported April 2021
 (214) 542-6272
 Wireless
 Cellco Partnership dba Verizon Wireless - TX","deanawilson6@gmail.com
-georgiemj@gmail.com",,
+georgiemj@gmail.com",,,
 Wilson Medley J,412 M L King Drive,Commerce,TX,75428-2747,412 M L King Dr,Commerce,Tx,75428,"(903) 366-9247 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -6442,7 +6442,7 @@ Landline
 United Telephone Company of Texas Inc dba CenturyLink
 First reported February 1988","georgiemj@gmail.com
 barbarawilson0901@gmail.com
-georgiemj@embarqmail.com",,
+georgiemj@embarqmail.com",,,
 Wilson Rebecca McDurmon,152 Royal Lane,Commerce,TX,75428-3834,152 Royal Ln,Commerce,Tx,75428,"(903) 862-3510 (Primary Phone)
 Landline
 Peoples Telephone Cooperative
@@ -6463,7 +6463,7 @@ First reported May 2001
 Landline
 Southwestern Bell Telephone Company
 First reported March 2010","rmcdurmonwilson@yahoo.com
-rebc@compuserve.com",,
+rebc@compuserve.com",,,
 Wilson Veitus D,601 Bishop Street,Commerce,TX,75428-2305,5308 E Interstate 30,Campbell,Tx,75422,"(903) 456-3465 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -6490,7 +6490,7 @@ United Telephone Company of Texas Inc dba CenturyLink
 First reported April 2021
 (903) 456-3463","veituswilson@yahoo.com
 vmatlock1@gmail.com
-veitusw@yahoo.com",,
+veitusw@yahoo.com",,,
 Winton Record Claudia Marie,114 M L King Drive,Commerce,TX,75428-2759,114 M L King Dr,Commerce,Tx,75428,"(903) 886-6817 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -6503,7 +6503,7 @@ First reported July 2015
 Landline
 Grande Communications Networks Inc - TX","qurisw@gmail.com
 record_claudia@yahoo.com
-record.claudia@yahoo.com",,
+record.claudia@yahoo.com",,,
 Wittkopf Michael P,2619 Park Street,Commerce,TX,75428-3805,2619 Park St,Commerce,Tx,75428,"(903) 246-3394 (Primary Phone)
 Landline
 Time Warner Cable Information Services (Texas) LP dba Time Warner Cable - TX
@@ -6527,7 +6527,7 @@ First reported April 2021","jmgwitt@gmail.com
 mpwittkopf@gmail.com
 mwittkopf@tivejo.com
 mwittkopf@aol.com
-mwittkopf@tivo.com",,
+mwittkopf@tivo.com",,,
 Wood Matthew A,1407 Cowan Drive,Commerce,TX,75428-3823,1407 Cowan Dr,Commerce,Tx,75428,"(903) 269-6682 (Primary Phone)
 Wireless
 Sprint Spectrum LP
@@ -6548,7 +6548,7 @@ First reported December 2018
 Landline
 Bellsouth Telecommunications In","matt.wood61@gmail.com
 wood@wd.astro.fit.edu
-lhillusa@localnet.com",,
+lhillusa@localnet.com",,,
 Wooten Frances V,703 Pine Street,Commerce,TX,75428,703 Pine St,Commerce,Tx,75428,"(903) 246-5186 (Primary Phone)
 Wireless
 MetroPCS Inc
@@ -6579,12 +6579,12 @@ New Cingular Wireless PCS LLC - IL","d.bingham@comcast.net
 fran.wooten@yahoo.com
 frances.wooten@hotmail.com
 fwooten1@woh.rr.com
-fwooten@woh.rr.com",,
-Wooten Frances V,Pine Street,Commerce,TX,75428,735 County Road 4128,Cumby,Tx,75433,,,,
-Wooten Frances V,Cedar Street,Commerce,TX,75428,735 Circle Dr 4128,Cooper,Tx,75432,,,,
-Wooten Ronnie &amp; Donnie,Bishop Street,Commerce,TX,75428,703 Pine St,Commerce,Tx,75428,,,,
-Wooten Ronnie &amp; Donnie,Cedar Street,Commerce,TX,,,,,,,,,
-Wooten Ronnie &amp; Donnie,Cedar Street,Commerce,TX,75428,703 Pine St,Commerce,Tx,75428,,,,
+fwooten@woh.rr.com",,,
+Wooten Frances V,Pine Street,Commerce,TX,75428,735 County Road 4128,Cumby,Tx,75433,,,,,
+Wooten Frances V,Cedar Street,Commerce,TX,75428,735 Circle Dr 4128,Cooper,Tx,75432,,,,,
+Wooten Ronnie &amp; Donnie,Bishop Street,Commerce,TX,75428,703 Pine St,Commerce,Tx,75428,,,,,
+Wooten Ronnie &amp; Donnie,Cedar Street,Commerce,TX,,,,,,,,,,
+Wooten Ronnie &amp; Donnie,Cedar Street,Commerce,TX,75428,703 Pine St,Commerce,Tx,75428,,,,,
 Worley Rebecca,2812 Windy Drive,Commerce,TX,75428-3850,2812 Windy Dr,Commerce,Tx,75428,"(817) 422-3387 (Primary Phone)
 Wireless
 Cellco Partnership dba Verizon Wireless - TX
@@ -6610,7 +6610,7 @@ Landline
 Qwest Corporation
 First reported July 2011
 (817) 966-5892","rworley@tamuc.edu
-jesse@jesseworley.com",,
+jesse@jesseworley.com",,,
 Wright Mark Allan,1314 Tiffany Lane,Commerce,TX,75428-3852,1314 Tiffany Ln,Commerce,Tx,75428,"(518) 885-4212 (Primary Phone)
 Landline
 Verizon New York Inc
@@ -6629,7 +6629,7 @@ Southern New England Telephone Company dba Frontier Communications of Connecticu
 First reported June 1998
 (903) 413-2004
 Wireless
-New Cingular Wireless PCS LLC -",,,
+New Cingular Wireless PCS LLC -",,,,
 Wright Sheena,1205 Kennie Drive,Commerce,TX,75428-2726,513 County Road 1175,Sulphur Springs,Tx,75482,"(903) 439-5363 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -6643,7 +6643,7 @@ Wireless
 New Cingular Wireless PCS LLC - IL
 First reported September 2021","sheena.kb24@outlook.com
 wrightsheena@aol.com
-carlasrayford@yahoo.com",,
+carlasrayford@yahoo.com",,,
 Yates Charles P,700 1st Street,Commerce,TX,75428-2312,PO Box 1095,Commerce,Tx,75429,"(903) 886-2602 (Primary Phone)
 Landline
 United Telephone Company of Texas Inc dba CenturyLink
@@ -6652,7 +6652,7 @@ First reported August 2010
 Landline
 Bellsouth Telecommunications Inc dba Southern Bell Telephone & Telegraph
 First reported September 2021","hi2holz@hotmail.com
-",,
+",,,
 Young Neva L,1308 Edna Street,Commerce,TX,75428-3854,1306 Edna St,Commerce,Tx,75428,"""(214) 926-9620 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -6673,7 +6673,7 @@ First reported May 2012
 Landline
 Grande Communications Networks Inc - TX
 First reported August 2006""","""nevayoung@hotmail.com
-neva.young@cs.com""",,
+neva.young@cs.com""",,,
 Young Neva L,1306 Edna Street,Commerce,TX,75428-3854,1306 Edna St,Commerce,Tx,75428,"(214) 926-9620 (Primary Phone)
 Wireless
 New Cingular Wireless PCS LLC - IL
@@ -6694,9 +6694,9 @@ First reported May 2012
 Landline
 Grande Communications Networks Inc - TX
 First reported August 2006","nevayoung@hotmail.com
-neva.young@cs.com",,
-Zamora Victor A E,Mosley Street,Commerce,TX,75428,156 County Road 1008,Wolfe City,Tx,75496,,,,
-Zavala Eduardo,Booker Street,Commerce,TX,75428,3224 Nandina St,McKinney,Tx,75071,,,,
+neva.young@cs.com",,,
+Zamora Victor A E,Mosley Street,Commerce,TX,75428,156 County Road 1008,Wolfe City,Tx,75496,,,,,
+Zavala Eduardo,Booker Street,Commerce,TX,75428,3224 Nandina St,McKinney,Tx,75071,,,,,
 Zimmermann John,160 Royal Lane,Commerce,TX,75428-3834,160 Royal Ln,Commerce,Tx,75428,"(469) 200-9212 (Primary Phone)
 Wireless
 T-Mobile USA Inc
@@ -6718,4 +6718,4 @@ Wireless
 Sprint Spectrum LP
 First reported March 2016","jzimmermann996@gmail.com
 john_zimmermann@hotmail.com
-johnz@danishinspirations.c",,
+johnz@danishinspirations.c",,,

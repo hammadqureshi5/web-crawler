@@ -71,6 +71,12 @@ if errorlevel 1 (
 
 echo.
 echo ============================================================
-echo   Setup complete!  Now double-click  run_gui.bat  to start.
+echo   Setup complete!
+echo.
+echo   Run the scraper from this folder, for example:
+echo     .venv\Scripts\python.exe -m web_crawler --input input.csv ^
+echo         --proxy p.webshare.io:80 --skip-vpn-check --start 1 --end 5
+echo.
+echo   See  python -m web_crawler --help  for all options.
 echo ============================================================
 pause

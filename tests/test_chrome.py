@@ -7,9 +7,11 @@ import pytest
 from web_crawler import chrome
 from web_crawler.chrome import (
     _pids_using_user_data_dir,
+    build_chrome_args,
     default_user_data_dir,
     find_chrome_executable,
 )
+from web_crawler.config import Settings
 
 
 def test_explicit_path_used_when_exists(tmp_path):
@@ -89,3 +91,25 @@ def test_pids_empty_when_none_match():
 def test_pids_tolerate_missing_commandline():
     procs = [{"ProcessId": 1, "CommandLine": None}, {"ProcessId": 2}]
     assert _pids_using_user_data_dir(procs, _PROJECT_DIR) == []
+
+
+# ── chrome launch args ──────────────────────────────────────────────────────
+
+def test_build_chrome_args_disables_occlusion_so_captcha_solves_when_covered():
+    # If another window covers Chrome, without this flag the page goes "hidden"
+    # and the CAPTCHA solver stalls. The flag keeps it treated as visible.
+    args = build_chrome_args(Settings(), r"C:\proj\.chrome-profile")
+    assert "--disable-features=CalculateNativeWinOcclusion" in args
+    assert "--disable-backgrounding-occluded-windows" in args
+    assert r"--user-data-dir=C:\proj\.chrome-profile" in args
+
+
+def test_build_chrome_args_includes_proxy_when_set():
+    args = build_chrome_args(Settings(), r"C:\p", proxy_server="p.webshare.io:80")
+    assert "--proxy-server=p.webshare.io:80" in args
+    assert "--proxy-bypass-list=localhost,127.0.0.1" in args
+
+
+def test_build_chrome_args_no_proxy_flag_when_unset():
+    args = build_chrome_args(Settings(), r"C:\p", proxy_server="")
+    assert not any(a.startswith("--proxy-server") for a in args)

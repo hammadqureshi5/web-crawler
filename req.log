@@ -1,3 +1,9 @@
-0.i have made this project for someone who does not have coding background 
-1.suggest me how to deliver this to the client who is not from coding background 
+1.understand the code 
+2.web page reappearing chapcha again and again when runing run_gui.bat
+3.well well when executed from command line python -m web_crawler --input input.csv --proxy p.webshare.io:80 --proxy-user hammad11-US-rotate --proxy-pass hammad11 --skip-vpn-check --start 57 --end 60
+4.detect the bug and fix it so that it works the same way as command line excution 
+5.perform full testing
+
+
+
 

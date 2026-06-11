@@ -20,6 +20,8 @@ import shutil
 import subprocess
 import time
 
+from web_crawler.proxy import ProxyManager
+
 logger = logging.getLogger(__name__)
 
 # Common fixed install locations, tried before the registry / PATH.
@@ -205,6 +207,40 @@ def wait_for_cdp_ready(port: int, timeout: int = 15) -> bool:
     return False
 
 
+def build_chrome_args(settings, user_data_dir: str, proxy_server: str = "") -> list:
+    """Build Chrome's command-line args. Pure (no I/O) so it can be unit-tested.
+
+    *proxy_server* is the ``host:port`` for ``--proxy-server`` (empty = none).
+    """
+    args = [
+        f'--remote-debugging-port={settings.cdp_port}',
+        f'--user-data-dir={user_data_dir}',
+        f'--profile-directory={settings.profile_dir}',
+        '--no-first-run',
+        '--no-default-browser-check',
+        '--start-maximized',
+        # Keep the page's JS (Cloudflare challenge + NopeCHA solver) running at
+        # full speed even when the Chrome window is occluded or sits behind
+        # another window. Without these, background-tab timer throttling stalls
+        # the solver and the CAPTCHA reloads ("reappears").
+        '--disable-background-timer-throttling',
+        '--disable-backgrounding-occluded-windows',
+        '--disable-renderer-backgrounding',
+        # The decisive one: when another window covers Chrome, native occlusion
+        # detection marks the page "hidden", which pauses the CAPTCHA solver so
+        # the Cloudflare challenge never clears. Disabling it keeps the page
+        # treated as visible regardless of what's in front of it.
+        '--disable-features=CalculateNativeWinOcclusion',
+    ]
+    if proxy_server:
+        # --proxy-server takes only host:port (no inline credentials); if the
+        # proxy needs a login Chrome prompts in its own sign-in dialog.
+        args.append(f'--proxy-server={proxy_server}')
+        if settings.proxy_bypass:
+            args.append(f'--proxy-bypass-list={settings.proxy_bypass}')
+    return args
+
+
 def launch_chrome_with_profile(settings):
     """Launch Chrome with the user's profile and remote debugging enabled.
     Preserves all extensions, cookies, and saved sessions.
@@ -238,29 +274,17 @@ def launch_chrome_with_profile(settings):
     logger.info(f"[CHROME] Launching Chrome with profile: {settings.profile_dir}")
     logger.info(f"[CHROME] User data dir: {user_data_dir}")
 
-    chrome_args_list = [
-        f'--remote-debugging-port={settings.cdp_port}',
-        f'--user-data-dir={user_data_dir}',
-        f'--profile-directory={settings.profile_dir}',
-        '--no-first-run',
-        '--no-default-browser-check',
-        '--start-maximized',
-        # Keep the page's JS (Cloudflare challenge + NopeCHA solver) running at
-        # full speed even when the Chrome window is occluded/behind another
-        # window — e.g. the Tkinter GUI. Without these, background-tab timer
-        # throttling stalls the solver and the CAPTCHA reloads ("reappears").
-        '--disable-background-timer-throttling',
-        '--disable-backgrounding-occluded-windows',
-        '--disable-renderer-backgrounding',
-    ]
+    proxy = ProxyManager.from_settings(settings)
+    proxy_server = proxy.host_port if proxy.enabled else ""
+    chrome_args_list = build_chrome_args(settings, user_data_dir, proxy_server)
 
-    # Route through a proxy if configured. Chrome's --proxy-server takes only
-    # host:port (no inline credentials) — use the provider's IP-whitelist auth.
-    if settings.proxy_server:
-        chrome_args_list.append(f'--proxy-server={settings.proxy_server}')
-        if settings.proxy_bypass:
-            chrome_args_list.append(f'--proxy-bypass-list={settings.proxy_bypass}')
-        logger.info(f"[CHROME] Using proxy: {settings.proxy_server}")
+    if proxy.enabled:
+        # Chrome can't take proxy credentials on the command line. If the proxy
+        # requires a login, Chrome shows its own sign-in dialog on the first page
+        # load — enter the username/password there (nothing is stored).
+        logger.info(f"[CHROME] Routing through rotating proxy: {proxy.host_port}")
+        logger.info("[CHROME] If the proxy asks for a login, enter the username/"
+                    "password in the Chrome sign-in dialog when it appears.")
     else:
         logger.info("[CHROME] No proxy configured — using your direct connection")
 

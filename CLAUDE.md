@@ -16,7 +16,11 @@ playwright install chromium
 
 python -m web_crawler --help           # CLI reference
 python -m web_crawler --set-baseline   # record real (no-VPN) IP for the VPN check
-python -m web_crawler --input input.csv
+# Webshare rotating proxy. The scrape needs NO creds on the command line —
+# Chrome prompts for the proxy login in its window when the first page loads:
+python -m web_crawler --input input.csv --proxy p.webshare.io:80 --skip-vpn-check
+# --verify-proxy is a requests-based diagnostic, so it DOES take creds inline:
+python -m web_crawler --proxy p.webshare.io:80 --proxy-user <user> --proxy-pass <pw> --verify-proxy
 
 pytest                                 # run the unit test suite
 python tools/test_chrome_diag.py       # diagnostic: can Chrome launch with CDP on 9222?
@@ -31,7 +35,8 @@ unattended.
 The code is a package, `web_crawler/`, run via `python -m web_crawler` (zero
 install) or the `tps-scraper` entry point (after `pip install .`).
 
-- `config.py` — a `Settings` dataclass holding every tunable. `load_settings(args)` merges **defaults → environment (`WEB_CRAWLER_*`) → CLI args** (CLI wins). `DEFAULTS` is the stable baseline used by tests. `PROXY_SERVER` must be host:port only; Chrome's `--proxy-server` does not accept inline credentials, so providers must use IP-whitelist auth.
+- `config.py` — a `Settings` dataclass holding every tunable. `load_settings(args)` merges **defaults → environment (`WEB_CRAWLER_*`) → CLI args** (CLI wins). `DEFAULTS` is the stable baseline used by tests. `proxy_server` must be host:port only; Chrome's `--proxy-server` does not accept inline credentials, so the proxy must use IP-whitelist auth (optional `proxy_username`/`proxy_password` are used only by the Python requests path).
+- `proxy.py` — `ProxyManager` (Webshare rotating-proxy helper). See "Automatic IP rotation" below.
 - `cli.py` — argparse, run orchestration, logging setup, xlsx export trigger. Entry point: `main()`.
 - `chrome.py` — Chrome discovery (`find_chrome_executable`, `default_user_data_dir`) + the kill/launch/CDP-ready lifecycle.
 - `vpn.py` — VPN gate (public IP, baseline file, the pure `evaluate_vpn`, and the interactive `ensure_vpn`).
@@ -39,7 +44,8 @@ install) or the `tps-scraper` entry point (after `pip install .`).
 - `extractor.py` — profile-page parsing (JSON-LD first, HTML fallback).
 - `records.py` — `OUTPUT_FIELDNAMES` (canonical output column order), `STATUS_*`, `make_status_record`, `display_record`, and the pure `score_name_match`.
 - `storage.py` — input CSV reading, results CSV read/write (resume), and `export_xlsx`.
-- `gui.py` — optional Tkinter front-end (`tps-scraper-gui` entry point) that collects the input file, row range, proxy, and profile, persists them to `.gui_prefs.json`, and runs the exact `cli._run` pipeline on a worker thread; the CLI stays the source of truth.
+
+This is a **CLI-only** tool (`python -m web_crawler` / `tps-scraper`). There is no GUI.
 
 Tests live in `tests/` (pytest + pytest-asyncio); `tests/conftest.py` has a `FakePage` for the async page helpers. A standalone Chrome diagnostic is `tools/test_chrome_diag.py` (not a pytest).
 
@@ -49,6 +55,16 @@ The defining design decision: the scraper does **not** use Playwright's own Chro
 
 **Dedicated profile + scoped kill.** `Settings.user_data_dir` defaults to a project-local `.chrome-profile/` dir (config.py `_default_user_data_dir`), *not* the user's everyday `Chrome\User Data`. On launch we must close any Chrome already holding that user-data dir's lock (Chrome ignores the debugging-port flag otherwise), but `kill_project_chrome(user_data_dir)` scopes the kill to **only** the processes whose command line uses that dir — the user's other Chrome windows stay open. The matching is done by the pure, unit-tested `_pids_using_user_data_dir(processes, user_data_dir)` over a CIM process list (`_chrome_processes`). A brand-new `.chrome-profile/` is created on first run, with a one-time-setup warning to install NopeCHA + log in (the profile is empty otherwise). Override `--user-data-dir` (or `WEB_CRAWLER_USER_DATA_DIR`) to share your real profile instead. `default_user_data_dir()` still resolves the everyday `Chrome\User Data` path and is used as a fallback.
 
+### Automatic IP rotation (Webshare rotating proxy)
+
+`proxy.py`'s `ProxyManager` is the single source of truth for proxy config. Rather than pinning a static proxy IP (which gets blocked and swapped by hand), traffic goes through Webshare's **rotating endpoint** `p.webshare.io:80` — one host:port that returns a fresh exit IP per connection, so rotation is automatic with no IP list to maintain. Build with `ProxyManager.from_settings(settings)`; an empty `proxy_server` means a direct connection (`enabled` is False).
+
+The two consumers handle proxy auth **differently**, which is the crux:
+- **Chrome** (the real scraper) gets `proxy.host_port` for `--proxy-server`, which **cannot** carry credentials (no Chrome flag exists). If the proxy needs a login (Webshare *country-filtered* rotating proxies disallow IP auth and require a username/password), Chrome shows its **own native proxy sign-in dialog** the first time a page loads — the user types the credentials in the browser window. Nothing is stored, and this fits the attended/headful model (same window where CAPTCHAs are solved). Don't reintroduce a credential-injecting relay/midpoint — it broke truepeoplesearch's connections; let Chrome authenticate directly.
+- **Python requests** (the optional `--verify-proxy` IP check) uses `proxy.as_requests_proxies()` / `proxy.proxy_url()`, which carries `username:password` inline (from `--proxy-user`/`--proxy-pass` or `WEB_CRAWLER_PROXY_USERNAME/PASSWORD`) — `requests` handles credentialed proxies natively.
+
+`requests` (not a `curl` subprocess) is used deliberately — native Python, real exceptions, mockable in tests, no binary to ship. `--verify-proxy` (cli `_verify_proxy`) samples the exit IP a few times via `verify_rotation()` and reports whether it actually rotates. Note: the *page* scraping must stay on Chrome (Cloudflare/NopeCHA) — the rotating proxy feeds Chrome; requests is only for the IP check/verification.
+
 ### VPN gate (baseline-IP method)
 
 `vpn.py` records the user's real (no-VPN) public IP once via `--set-baseline`, then before each run `ensure_vpn` prompts to enable the VPN and requires the live IP to differ from the baseline. `evaluate_vpn(live, baseline)` is the pure, unit-tested core returning `VPN_ON/VPN_OFF/NO_BASELINE/NO_INTERNET`. `--require-vpn` makes a failed check abort; `--skip-vpn-check` bypasses it.
@@ -56,6 +72,8 @@ The defining design decision: the scraper does **not** use Playwright's own Chro
 ### CAPTCHA / block handling
 
 `is_cloudflare_challenge()` detects challenge pages by title/content markers; `wait_for_manual_captcha_solve()` then polls every 3s for up to `captcha_solve_timeout` (default 5 min) while NopeCHA or the user solves it. `search_property()` returns the sentinel `"CHALLENGE_FAILED"` (vs. a dict on success, `"NO_RESULTS"` on an empty result set, or `None` on failure) to drive the retry loop in `cli.py`. Keep `headless=False` — the manual-solve path needs a visible window.
+
+**The CAPTCHA solver needs the page treated as visible.** NopeCHA/Cloudflare pause when the page reports `hidden`, so `build_chrome_args()` (chrome.py) sets the anti-throttling flags *plus* `--disable-features=CalculateNativeWinOcclusion`, and `force_page_active()` (browser_search.py) pins focus/visibility over CDP. Occlusion calculation is what flips the page to hidden when another OS window covers Chrome, which stalls the solver so the Cloudflare challenge never clears. The timer/renderer flags alone don't cover it. `build_chrome_args` is pure and unit-tested, so the flag set can't silently regress.
 
 ### Input CSV parsing is positional, on purpose
 

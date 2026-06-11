@@ -121,6 +121,42 @@ async def wait_for_manual_captcha_solve(page, timeout_seconds: int) -> bool:
     return False
 
 
+async def force_page_active(page) -> bool:
+    """Pin the page to 'focused' + 'active' in Chrome's renderer so the CAPTCHA
+    solver (NopeCHA / Cloudflare challenge JS) keeps running even when another
+    OS window sits in front of the Chrome window.
+
+    If Chrome gets occluded or unfocused, it backgrounds/unfocuses the renderer
+    and pauses the solver, so the Cloudflare challenge reloads forever ("captcha
+    again and again"). The launch flags disable occlusion *detection*; this
+    additionally forces focus + an 'active' page lifecycle over CDP, which is
+    native — Cloudflare can't fingerprint it, unlike patching
+    ``document.visibilityState`` in JS.
+
+    Returns True if at least one CDP override was applied; never raises."""
+    try:
+        cdp = await page.context.new_cdp_session(page)
+    except Exception as e:
+        logger.debug(f"[VISIBILITY] Could not open CDP session: {e}")
+        return False
+
+    applied = False
+    for method, params in (
+        ("Emulation.setFocusEmulationEnabled", {"enabled": True}),
+        ("Page.setWebLifecycleState", {"state": "active"}),
+    ):
+        try:
+            await cdp.send(method, params)
+            applied = True
+        except Exception as e:
+            logger.debug(f"[VISIBILITY] {method} unavailable: {e}")
+
+    if applied:
+        logger.info("[VISIBILITY] Page pinned to focused/active — the CAPTCHA "
+                    "solver keeps running even if another window covers Chrome")
+    return applied
+
+
 async def log_public_ip(page, proxy_server: str = "") -> str | None:
     """Fetch and log the current outbound public IP via the browser context, so
     you can confirm the proxy (if configured) is actually taking effect."""

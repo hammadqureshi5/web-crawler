@@ -131,3 +131,17 @@ IPMethod 1: Using Command PromptOpen CMD: Press Windows Key + R, type cmd, and p
 Run Curl: Type curl ifconfig.me or curl icanhazip.com and hit Enter.
 View Result: The single line of numbers that appears is your public network IP.Method 
 2: Using an Online Browser SearchOpen any web browser (like Chrome or Edge).Type "What is my IP" directly into the search bar.The search engine will display your public network IP address at the top of the results page.
+
+
+## how to run
+
+python -m web_crawler --input input.csv --proxy p.webshare.io:80 --skip-vpn-check --start 61 --end 64
+
+● That command runs rows 61–64. A couple of things to know before you launch it:
+
+  - It will open Chrome and pause for manual steps — entering the proxy login in Chrome's sign‑in dialog, and solving any CAPTCHA. So it can't run fully unattended.
+  - Run it in your own terminal (or prefix with ! here) so the live Chrome window and prompts work:
+
+  .venv\Scripts\python.exe -m web_crawler --input input.csv --proxy p.webshare.io:80 --skip-vpn-check --start 61 --end 64
+
+  If rows 61–64 were already scraped, they'll be skipped (auto‑resume) — add --no-resume to force them, or --retry-failed to redo only failed ones

@@ -17,13 +17,14 @@ import logging
 import os
 import random
 import sys
-import threading
-
 from playwright.async_api import async_playwright
 
 from web_crawler import chrome, vpn
-from web_crawler.browser_search import is_blocked, log_public_ip, search_property
+from web_crawler.browser_search import (
+    force_page_active, is_blocked, log_public_ip, search_property,
+)
 from web_crawler.config import load_settings
+from web_crawler.proxy import ProxyManager
 from web_crawler.records import (
     STATUS_FAILED, STATUS_LOW_CONFIDENCE, STATUS_NOT_FOUND, STATUS_SUCCESS,
     display_record, make_status_record,
@@ -34,36 +35,6 @@ from web_crawler.storage import (
 )
 
 logger = logging.getLogger(__name__)
-
-
-class RunControl:
-    """Cooperative pause/stop signal for a run, driven from another thread
-    (e.g. the GUI). The run loop checks it between rows, so pausing or stopping
-    takes effect after the current address finishes — progress is already saved
-    per row, so this is always a clean boundary."""
-
-    def __init__(self):
-        self._paused = threading.Event()   # set => paused
-        self._stopped = threading.Event()  # set => stop after current row
-
-    def pause(self):
-        self._paused.set()
-
-    def resume(self):
-        self._paused.clear()
-
-    def stop(self):
-        self._stopped.set()
-        self._paused.clear()  # un-block a paused loop so it can see the stop
-
-    @property
-    def stopped(self) -> bool:
-        return self._stopped.is_set()
-
-    async def wait_while_paused(self):
-        """Block (without busy-spinning the CPU) while paused, unless stopped."""
-        while self._paused.is_set() and not self._stopped.is_set():
-            await asyncio.sleep(0.2)
 
 
 def _setup_logging(log_file: str):
@@ -116,7 +87,14 @@ def parse_args(argv=None):
     p.add_argument("--user-data-dir", help="Chrome user-data dir (auto-detected if omitted)")
     p.add_argument("--profile", help="Chrome profile directory name (e.g. 'Profile 11')")
     p.add_argument("--cdp-port", type=int, help="Chrome remote debugging port")
-    p.add_argument("--proxy", help="Proxy as host:port (Chrome --proxy-server; no inline creds)")
+    p.add_argument("--proxy",
+                   help="Rotating proxy as host:port, e.g. p.webshare.io:9999 "
+                        "(Chrome --proxy-server; no inline creds — authorise by IP)")
+    p.add_argument("--proxy-user",
+                   help="Proxy username (optional; used only by the requests IP check)")
+    p.add_argument("--proxy-pass", help="Proxy password (optional)")
+    p.add_argument("--verify-proxy", action="store_true",
+                   help="Sample the proxy exit IP a few times to confirm rotation, then exit")
 
     # VPN
     p.add_argument("--set-baseline", action="store_true",
@@ -162,11 +140,8 @@ def _select_rows(rows, settings):
     return selected
 
 
-async def _run(settings, control=None):
-    """Async core: launch Chrome, connect over CDP, process rows.
-
-    *control* is an optional :class:`RunControl` used by the GUI to pause/stop
-    between rows; the CLI passes None and runs straight through."""
+async def _run(settings):
+    """Async core: launch Chrome, connect over CDP, process rows."""
     try:
         rows = read_input_csv(settings.input_csv)
     except FileNotFoundError:
@@ -211,18 +186,12 @@ async def _run(settings, control=None):
                 except Exception:
                     pass
 
+        # Keep the CAPTCHA solver alive even if another window covers Chrome.
+        await force_page_active(page)
         await log_public_ip(page, settings.proxy_server)
 
         stopped_early = False
         for idx, row in enumerate(rows, 1):
-            # Honor GUI pause/stop at the (crash-safe) row boundary.
-            if control is not None:
-                await control.wait_while_paused()
-                if control.stopped:
-                    logger.info(f"[STOP] Stopped by user after {idx - 1} row(s) — progress saved.")
-                    stopped_early = True
-                    break
-
             csv_row_num = row["Input Row #"]
             target_name = row["Target Name"]
             address = row["Property Address"]
@@ -270,14 +239,11 @@ async def _run(settings, control=None):
                         await asyncio.sleep(2)
             except Exception as e:
                 logger.error(f"[ROW {idx}] Unexpected error: {e}")
-                # If the user pressed Stop (which closes Chrome), exit cleanly.
-                if control is not None and control.stopped:
-                    stopped_early = True
-                    break
                 if page.is_closed():
                     logger.warning(f"[ROW {idx}] Tab was closed — opening a fresh one")
                     try:
                         page = await context.new_page()
+                        await force_page_active(page)  # re-pin focus on the new tab
                     except Exception:
                         logger.warning(f"[ROW {idx}] Browser is gone — ending run.")
                         stopped_early = True
@@ -338,6 +304,29 @@ def _export(settings):
         logger.error(f"[XLSX] Export failed: {e}")
 
 
+def _verify_proxy(settings):
+    """Sample the proxy exit IP a few times and report whether it rotates."""
+    proxy = ProxyManager.from_settings(settings)
+    if not proxy.enabled:
+        logger.error("[PROXY] No proxy configured. Pass --proxy p.webshare.io:9999 "
+                     "(or set WEB_CRAWLER_PROXY_SERVER).")
+        return
+    logger.info(f"[PROXY] Checking IP rotation through {proxy.host_port} ...")
+    result = proxy.verify_rotation(samples=5)
+    if not result["ips"]:
+        logger.error("[PROXY] Could not reach the IP check through the proxy. "
+                     "Is your IP authorised in the Webshare dashboard (or your "
+                     "username/password correct)?")
+        return
+    logger.info(f"[PROXY] Exit IPs seen: {result['ips']}")
+    if result["rotating"]:
+        logger.info(f"[PROXY] {result['unique']} unique IPs across "
+                    f"{len(result['ips'])} samples — rotation is working.")
+    else:
+        logger.warning(f"[PROXY] Only 1 IP across {len(result['ips'])} samples — "
+                       "sticky session or a single static IP, not rotating.")
+
+
 def main(argv=None):
     """Console entry point."""
     args = parse_args(argv)
@@ -354,8 +343,15 @@ def main(argv=None):
         vpn.set_baseline_interactive(settings)
         return
 
-    if settings.proxy_server:
-        logger.info(f"[INIT] IP rotation via proxy: {settings.proxy_server}")
+    # --verify-proxy: prove the rotating proxy hands out changing IPs, then exit.
+    if args.verify_proxy:
+        _verify_proxy(settings)
+        return
+
+    proxy = ProxyManager.from_settings(settings)
+    if proxy.enabled:
+        logger.info(f"[INIT] Automatic IP rotation via Webshare proxy: {proxy.host_port} "
+                    "(Chrome will prompt for the proxy login if required)")
     else:
         logger.info("[INIT] No proxy configured — running on your direct/VPN IP")
 
