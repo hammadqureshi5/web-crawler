@@ -1,9 +1,0 @@
-{
-  "input_csv": "C:\\Users\\DELL\\Desktop\\New folder (8)\\web-crawler\\input.csv",
-  "start": "75",
-  "end": "77",
-  "proxy": "p.webshare.io:80",
-  "profile": "Profile 11",
-  "resume": true,
-  "retry_failed": true
-}
