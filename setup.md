@@ -8,9 +8,9 @@
   non-standard location)
 - The Chrome profile used for scraping must have the **NopeCHA** extension
   installed and enabled (handles CAPTCHAs) — install it once in Chrome
-- *(Recommended)* a **VPN**
-- *(Optional)* a **US residential proxy** with IP-whitelist auth, if you need IP
-  rotation at the Chrome level — pass `--proxy host:port`
+- A **Webshare rotating proxy** account — the default endpoint
+  `p.webshare.io:80` is used unless you pass `--proxy host:port` or
+  `--no-proxy`. Pass its login with `--proxy-user`/`--proxy-pass`.
 
 ---
 
@@ -42,25 +42,15 @@ by name (case-insensitive). Typical columns:
 | Property City    | Commerce      |
 | Property State   | TX            |
 
-## 4. Record your VPN baseline (once)
-
-With the **VPN OFF**, record your real public IP so the scraper can later confirm
-the VPN is active:
+## 4. Run
 
 ```powershell
-python -m web_crawler --set-baseline
+python -m web_crawler --input input.csv --proxy-user <user> --proxy-pass <pw>
 ```
 
-This writes `.vpn_baseline` (git-ignored).
-
-## 5. Run
-
-```powershell
-python -m web_crawler --input input.csv
-```
-
-Turn your VPN **on** when prompted. Watch the console and the Chrome window
-(CAPTCHAs are solved by NopeCHA or by you, manually).
+The scraper signs into the proxy automatically with the supplied credentials.
+Watch the console and the Chrome window (CAPTCHAs are solved by NopeCHA or by
+you, manually).
 
 ---
 
@@ -77,10 +67,10 @@ Turn your VPN **on** when prompted. Watch the console and the Chrome window
 | `--user-data-dir PATH` | Chrome user-data dir (auto-detected if omitted) |
 | `--profile NAME` | Chrome profile directory (e.g. `Profile 11`) |
 | `--cdp-port N` | Chrome remote-debugging port (default 9222) |
-| `--proxy host:port` | Route Chrome through a proxy (no inline credentials) |
-| `--set-baseline` | Record your real (no-VPN) IP, then exit |
-| `--require-vpn` | Abort unless the VPN is verified active |
-| `--skip-vpn-check` | Skip the VPN prompt/verification |
+| `--proxy host:port` | Route Chrome through a different proxy endpoint |
+| `--no-proxy` | Disable the proxy (direct connection) |
+| `--proxy-user U` / `--proxy-pass P` | Proxy login — answered automatically during the scrape |
+| `--verify-proxy` | Sample the proxy exit IP to confirm rotation, then exit |
 | `--export-xlsx` | Rebuild `results.xlsx` from `results.csv` and exit |
 
 All flags can also be set via environment variables prefixed `WEB_CRAWLER_`
@@ -116,10 +106,10 @@ Logs go to `scraper.log`.
 |---------|----------|
 | Chrome not found | Pass `--chrome-path "C:\path\to\chrome.exe"`. |
 | CDP port never opens | Close all Chrome windows; run `python tools/test_chrome_diag.py`. |
-| 403 Forbidden | Your IP may be rate-limited — switch VPN server, or use `--proxy`. |
+| 403 Forbidden | Your exit IP may be rate-limited — the rotating proxy should handle this; check `--verify-proxy`. |
+| `ERR_INVALID_AUTH_CREDENTIALS` / everything FAILED instantly | The proxy requires a login — pass `--proxy-user`/`--proxy-pass` (or authorise your IP in the Webshare dashboard). |
 | CAPTCHA not solving | Ensure NopeCHA is enabled in the scraping profile, or solve it manually. |
 | Empty results | Site may have changed selectors — check `scraper.log`. |
-| VPN check fails | Re-record the baseline with `--set-baseline` (VPN off), or use `--skip-vpn-check`. |
 | Can't write results | Close `results.csv`/`results.xlsx` in Excel; a timestamped copy is written as fallback. |
 | Resume appends duplicates | You have an old-format `results.csv` (no `Input Row #`) — archive it. |
 
@@ -135,13 +125,13 @@ View Result: The single line of numbers that appears is your public network IP.M
 
 ## how to run
 
-python -m web_crawler --input input.csv --proxy p.webshare.io:80 --skip-vpn-check --start 61 --end 64
+python -m web_crawler --input input.csv --proxy-user <user> --proxy-pass <pw> --start 61 --end 64
 
 ● That command runs rows 61–64. A couple of things to know before you launch it:
 
-  - It will open Chrome and pause for manual steps — entering the proxy login in Chrome's sign‑in dialog, and solving any CAPTCHA. So it can't run fully unattended.
-  - Run it in your own terminal (or prefix with ! here) so the live Chrome window and prompts work:
+  - It opens Chrome and signs into the proxy automatically; the only manual step is solving any CAPTCHA NopeCHA misses.
+  - Run it in your own terminal so the live Chrome window works:
 
-  .venv\Scripts\python.exe -m web_crawler --input input.csv --proxy p.webshare.io:80 --skip-vpn-check --start 61 --end 64
+  .venv\Scripts\python.exe -m web_crawler --input input.csv --proxy-user <user> --proxy-pass <pw> --start 61 --end 64
 
   If rows 61–64 were already scraped, they'll be skipped (auto‑resume) — add --no-resume to force them, or --retry-failed to redo only failed ones

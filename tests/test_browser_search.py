@@ -5,7 +5,10 @@ import pytest
 from tests.conftest import FakePage
 from web_crawler.browser_search import (
     force_page_active, is_blocked, is_cloudflare_challenge, is_no_results_page,
+    log_public_ip, search_property,
 )
+from web_crawler.config import Settings
+from web_crawler.proxy_auth import NAV_PROXY_AUTH
 
 
 # ── is_cloudflare_challenge ─────────────────────────────────
@@ -120,3 +123,29 @@ async def test_force_page_active_partial_support_still_applies():
     page = _FakePageWithContext(_FakeContextWithCDP(session=session))
     assert await force_page_active(page) is True
     assert [m for m, _ in session.sent] == ["Emulation.setFocusEmulationEnabled"]
+
+
+# ── log_public_ip (proxy path) ──────────────────────────────
+_AUTH_ERROR = RuntimeError(
+    "Page.goto: net::ERR_INVALID_AUTH_CREDENTIALS at https://api.ipify.org/")
+
+
+@pytest.mark.asyncio
+async def test_log_public_ip_success_via_proxy():
+    page = FakePage(evaluate_result='{"ip": "1.2.3.4"}')
+    assert await log_public_ip(page, "p.webshare.io:80") == ("1.2.3.4", "")
+
+
+@pytest.mark.asyncio
+async def test_log_public_ip_classifies_proxy_auth_failure():
+    page = FakePage(goto_error=_AUTH_ERROR)
+    assert await log_public_ip(page, "p.webshare.io:80") == (None, NAV_PROXY_AUTH)
+
+
+# ── search_property: proxy-auth failures are not retryable ──
+@pytest.mark.asyncio
+async def test_search_property_returns_proxy_auth_sentinel():
+    page = FakePage(goto_error=_AUTH_ERROR)
+    result = await search_property(page, "John Adams", "1 Main St", "Commerce",
+                                   "TX", Settings())
+    assert result == "PROXY_AUTH_FAILED"

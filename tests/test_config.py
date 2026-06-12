@@ -5,6 +5,7 @@ import argparse
 import pytest
 
 from web_crawler.config import DEFAULTS, Settings, load_settings
+from web_crawler.proxy import WEBSHARE_ROTATING_ENDPOINT
 
 
 def _ns(**kw):
@@ -12,8 +13,8 @@ def _ns(**kw):
     base = dict(
         input=None, output=None, start=None, end=None,
         resume=False, no_resume=False, retry_failed=False,
-        chrome_path=None, user_data_dir=None, profile=None, cdp_port=None, proxy=None,
-        require_vpn=False, skip_vpn_check=False,
+        chrome_path=None, user_data_dir=None, profile=None, cdp_port=None,
+        proxy=None, no_proxy=False,
     )
     base.update(kw)
     return argparse.Namespace(**base)
@@ -25,6 +26,8 @@ def test_defaults_are_stable():
     assert DEFAULTS.resume is True          # auto-resume default
     assert DEFAULTS.headless is False       # manual CAPTCHA needs a window
     assert DEFAULTS.profile_dir == "Profile 11"
+    # The Webshare rotating endpoint is the default — proxied unless --no-proxy.
+    assert DEFAULTS.proxy_server == WEBSHARE_ROTATING_ENDPOINT
 
 
 def test_viewport_property():
@@ -35,7 +38,12 @@ def test_viewport_property():
 def test_load_settings_none_returns_defaults():
     s = load_settings(None)
     assert s.resume is True
-    assert s.proxy_server == ""
+    assert s.proxy_server == WEBSHARE_ROTATING_ENDPOINT
+
+
+def test_no_proxy_flag_disables_proxy():
+    assert load_settings(_ns(no_proxy=True)).proxy_server == ""
+    assert load_settings(_ns()).proxy_server == WEBSHARE_ROTATING_ENDPOINT
 
 
 def test_cli_overrides_defaults():

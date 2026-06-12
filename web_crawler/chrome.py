@@ -233,8 +233,8 @@ def build_chrome_args(settings, user_data_dir: str, proxy_server: str = "") -> l
         '--disable-features=CalculateNativeWinOcclusion',
     ]
     if proxy_server:
-        # --proxy-server takes only host:port (no inline credentials); if the
-        # proxy needs a login Chrome prompts in its own sign-in dialog.
+        # --proxy-server takes only host:port (no inline credentials); when the
+        # proxy needs a login, proxy_auth.py answers the challenge over CDP.
         args.append(f'--proxy-server={proxy_server}')
         if settings.proxy_bypass:
             args.append(f'--proxy-bypass-list={settings.proxy_bypass}')
@@ -279,12 +279,10 @@ def launch_chrome_with_profile(settings):
     chrome_args_list = build_chrome_args(settings, user_data_dir, proxy_server)
 
     if proxy.enabled:
-        # Chrome can't take proxy credentials on the command line. If the proxy
-        # requires a login, Chrome shows its own sign-in dialog on the first page
-        # load — enter the username/password there (nothing is stored).
+        # Chrome can't take proxy credentials on the command line; when the
+        # proxy needs a login, proxy_auth.py answers it over CDP using
+        # --proxy-user/--proxy-pass.
         logger.info(f"[CHROME] Routing through rotating proxy: {proxy.host_port}")
-        logger.info("[CHROME] If the proxy asks for a login, enter the username/"
-                    "password in the Chrome sign-in dialog when it appears.")
     else:
         logger.info("[CHROME] No proxy configured — using your direct connection")
 

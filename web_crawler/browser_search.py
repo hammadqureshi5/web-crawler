@@ -10,9 +10,11 @@ unit-test against a fake page.
 """
 
 import asyncio
+import json
 import logging
 
 from web_crawler.extractor import extract_profile_data
+from web_crawler.proxy_auth import NAV_PROXY_AUTH, classify_nav_error
 from web_crawler.records import (
     STATUS_LOW_CONFIDENCE, STATUS_SUCCESS, score_name_match,
 )
@@ -157,25 +159,59 @@ async def force_page_active(page) -> bool:
     return applied
 
 
-async def log_public_ip(page, proxy_server: str = "") -> str | None:
-    """Fetch and log the current outbound public IP via the browser context, so
-    you can confirm the proxy (if configured) is actually taking effect."""
+async def log_public_ip(page, proxy_server: str = "") -> "tuple[str | None, str]":
+    """Fetch and log the current outbound public IP, so you can confirm the
+    proxy (if configured) is actually taking effect.
+
+    Returns ``(ip, "")`` on success, or ``(None, classification)`` on failure
+    (a :mod:`web_crawler.proxy_auth` ``NAV_*`` constant) so the caller can
+    react to a proxy-auth failure *before* the row loop starts.
+
+    With a proxy this must be a real page navigation: ``page.request`` is
+    Playwright's own fetcher, which bypasses Chrome — and therefore Chrome's
+    ``--proxy-server`` — entirely, so it would report the direct IP no matter
+    what. It also exercises the proxy login (answered over CDP by
+    ``proxy_auth.enable_proxy_auth``) before the first search.
+    """
     try:
-        resp = await page.request.get("https://api.ipify.org?format=json", timeout=10000)
-        ip = (await resp.json()).get("ip")
+        if proxy_server:
+            await page.goto("https://api.ipify.org?format=json",
+                            wait_until="domcontentloaded", timeout=30000)
+            body = await page.evaluate(
+                "document.body ? document.body.innerText : ''")
+            ip = json.loads(body).get("ip") if body else None
+        else:
+            resp = await page.request.get("https://api.ipify.org?format=json",
+                                          timeout=10000)
+            ip = (await resp.json()).get("ip")
+        if not ip:
+            raise ValueError("empty IP response")
         tag = f"via proxy {proxy_server}" if proxy_server else "direct connection"
         logger.info(f"[IP] Outbound IP: {ip} ({tag})")
-        return ip
+        return ip, ""
     except Exception as e:
         logger.warning(f"[IP] Could not determine outbound IP: {e}")
-        return None
+        err = classify_nav_error(str(e))
+        if proxy_server and err == NAV_PROXY_AUTH:
+            logger.warning(
+                f"[IP] The proxy {proxy_server} requires a login. Pass "
+                "--proxy-user/--proxy-pass (or set WEB_CRAWLER_PROXY_USERNAME/"
+                "PASSWORD), authorise this machine's IP in the Webshare "
+                "dashboard, or run with --no-proxy.")
+        elif proxy_server:
+            logger.warning(
+                f"[IP] The proxy {proxy_server} may be refusing the connection "
+                "— or run with --no-proxy to use your direct connection.")
+        return None, err
 
 
 async def search_property(page, target_name, address, city, state, settings) -> dict | None:
     """Core scraping logic: navigate, fill form, submit, extract data.
 
     Returns an extracted data dict (with 'Status' and 'Match Score' set), or one
-    of the sentinel strings "CHALLENGE_FAILED" / "NO_RESULTS", or None on failure.
+    of the sentinel strings "CHALLENGE_FAILED" / "NO_RESULTS" /
+    "PROXY_AUTH_FAILED" (proxy rejected or required credentials — not
+    retryable, the caller should abort the run), or None on failure.
     """
     from web_crawler.config import TARGET_URL
 
@@ -192,6 +228,17 @@ async def search_property(page, target_name, address, city, state, settings) -> 
             logger.debug("[SEARCH] Search form not visible yet (possible challenge page)")
     except Exception as e:
         logger.error(f"[SEARCH] Failed to load homepage: {e}")
+        if settings.proxy_server and classify_nav_error(str(e)) == NAV_PROXY_AUTH:
+            logger.error(
+                f"[SEARCH] The proxy ({settings.proxy_server}) rejected or "
+                "required credentials — pass --proxy-user/--proxy-pass, "
+                "authorise your IP in the Webshare dashboard, or run with "
+                "--no-proxy.")
+            return "PROXY_AUTH_FAILED"
+        if settings.proxy_server and "net::ERR" in str(e):
+            logger.error(
+                f"[SEARCH] This looks like the proxy ({settings.proxy_server}) "
+                "refusing the connection — or run with --no-proxy.")
         return None
 
     # Step 2: Handle Cloudflare challenge — wait for extension/manual solve

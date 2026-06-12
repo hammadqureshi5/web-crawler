@@ -22,9 +22,6 @@ results_*.csv
 results.xlsx
 results_*.xlsx
 
-# VPN baseline (your real IP — do not commit)
-.vpn_baseline
-
 # Dedicated Chrome profile for the scraper (extensions, cookies, cache)
 .chrome-profile/
 

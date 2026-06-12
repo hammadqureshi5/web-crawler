@@ -15,12 +15,21 @@ credentialed (country-filtered) proxies.
 """
 
 import os
+import sys
 from dataclasses import dataclass, field, fields, replace
 from typing import Optional
 
+from web_crawler.proxy import WEBSHARE_ROTATING_ENDPOINT
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# Project root is the directory that contains the package.
-PROJECT_DIR = os.path.dirname(BASE_DIR)
+# Project root is the directory that contains the package. In a PyInstaller
+# one-file exe, __file__ lives in the throwaway _MEIxxxx extraction dir (wiped
+# on exit), so anchor to the exe's own folder instead — otherwise the Chrome
+# profile, results.csv, and logs land in temp and vanish after every run.
+if getattr(sys, "frozen", False):
+    PROJECT_DIR = os.path.dirname(os.path.abspath(sys.executable))
+else:
+    PROJECT_DIR = os.path.dirname(BASE_DIR)
 
 # ── Target Website ──────────────────────────────────────────
 TARGET_URL = "https://www.truepeoplesearch.com/"
@@ -44,10 +53,6 @@ def _default_log() -> str:
     return os.path.join(PROJECT_DIR, "scraper.log")
 
 
-def _default_baseline() -> str:
-    return os.path.join(PROJECT_DIR, ".vpn_baseline")
-
-
 def _default_user_data_dir() -> str:
     """A dedicated, project-local Chrome user-data dir.
 
@@ -67,7 +72,6 @@ class Settings:
     input_csv: str = field(default_factory=_default_input)
     output_csv: str = field(default_factory=_default_output)
     log_file: str = field(default_factory=_default_log)
-    vpn_baseline_file: str = field(default_factory=_default_baseline)
 
     # ── Chrome / CDP ────────────────────────────────────────
     # chrome_path defaults to None → auto-detect in chrome.py. user_data_dir
@@ -80,12 +84,15 @@ class Settings:
     cdp_port: int = 9222
 
     # ── Proxy (Webshare rotating endpoint → automatic IP rotation) ──
-    # proxy_server is host:port (e.g. "p.webshare.io:9999"): the rotating
-    # endpoint that hands out a fresh exit IP per connection. It is what Chrome's
-    # --proxy-server uses and cannot carry inline creds, so authorise by IP in
-    # the Webshare dashboard. proxy_username/password are optional and used only
-    # by the Python requests path (proxy.ProxyManager) for the IP check.
-    proxy_server: str = ""
+    # proxy_server is host:port: the rotating endpoint that hands out a fresh
+    # exit IP per connection. It is what Chrome's --proxy-server uses and cannot
+    # carry inline creds. proxy_username/password, when set, are answered to
+    # the proxy over CDP during the scrape (proxy_auth.py) and used by the
+    # Python requests path (proxy.ProxyManager) for the IP check; without them
+    # the proxy must allow this machine's IP (Webshare dashboard). The Webshare
+    # endpoint is the DEFAULT — runs are proxied unless --no-proxy (or an
+    # overriding --proxy/WEB_CRAWLER_PROXY_SERVER) is given.
+    proxy_server: str = WEBSHARE_ROTATING_ENDPOINT
     proxy_bypass: str = "localhost,127.0.0.1"
     proxy_username: str = ""
     proxy_password: str = ""
@@ -112,10 +119,6 @@ class Settings:
     resume: bool = True                 # auto-resume is the default
     retry_failed: bool = False
 
-    # ── VPN gate ────────────────────────────────────────────
-    require_vpn: bool = False
-    skip_vpn_check: bool = False
-
     @property
     def viewport(self) -> dict:
         return {"width": self.viewport_width, "height": self.viewport_height}
@@ -131,7 +134,6 @@ _ENV_MAP = {
     "input_csv": ("WEB_CRAWLER_INPUT_CSV", str),
     "output_csv": ("WEB_CRAWLER_OUTPUT_CSV", str),
     "log_file": ("WEB_CRAWLER_LOG_FILE", str),
-    "vpn_baseline_file": ("WEB_CRAWLER_VPN_BASELINE", str),
     "chrome_path": ("WEB_CRAWLER_CHROME_PATH", str),
     "user_data_dir": ("WEB_CRAWLER_USER_DATA_DIR", str),
     "profile_dir": ("WEB_CRAWLER_PROFILE", str),
@@ -160,8 +162,6 @@ _CLI_MAP = {
     "start_row": "start",
     "end_row": "end",
     "retry_failed": "retry_failed",
-    "require_vpn": "require_vpn",
-    "skip_vpn_check": "skip_vpn_check",
 }
 
 _FIELD_NAMES = {f.name for f in fields(Settings)}
@@ -202,6 +202,11 @@ def load_settings(args=None) -> Settings:
         val = get(cli_name, None)
         if val is not None:
             updates[attr] = val
+
+    # --no-proxy clears the (defaulted) proxy endpoint → direct connection.
+    # argparse makes --proxy/--no-proxy mutually exclusive, so no conflict here.
+    if get("no_proxy", False):
+        updates["proxy_server"] = ""
 
     # resume is a tri-state from two mutually-exclusive flags.
     no_resume = get("no_resume", False)

@@ -11,11 +11,11 @@ per connection. There is no IP list to maintain: rotation is automatic.
 Two consumers, one config:
 
 - **Chrome** (the real scraper) gets ``host:port`` for ``--proxy-server``. Chrome
-  cannot take credentials on the command line, so when the proxy needs a
-  username/password Chrome shows its **own native proxy sign-in dialog** the
-  first time a page loads — the user types the credentials there. Nothing is
-  stored; this matches the project's attended, headful model (the same window
-  where CAPTCHAs are solved).
+  cannot take credentials on the command line, and its native proxy sign-in
+  dialog does not block CDP-driven navigations — so when the proxy needs a
+  username/password, :mod:`web_crawler.proxy_auth` answers the challenge over
+  CDP (``Fetch.continueWithAuth``) using the configured credentials. Chrome
+  still connects to the proxy directly; there is no relay process.
 - **Python HTTP** (the optional ``--verify-proxy`` IP check) uses the full proxy
   URL, which carries ``username:password`` inline — exactly like the working
   ``requests.get(..., proxies={"https": "http://user:pass@p.webshare.io:80/"})``
@@ -76,8 +76,8 @@ class ProxyManager:
     @property
     def host_port(self) -> str:
         """Upstream ``host:port`` for Chrome's ``--proxy-server`` (never includes
-        credentials). If the proxy requires a login, Chrome prompts for it in its
-        native sign-in dialog when the first page loads."""
+        credentials). If the proxy requires a login, ``proxy_auth.py`` answers
+        it over CDP using ``username``/``password``."""
         return self.endpoint
 
     def proxy_url(self) -> str:

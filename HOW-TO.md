@@ -78,17 +78,16 @@ reuses it.
 2. Run the command (this does rows 1–5 as a first test):
 
    ```
-   .venv\Scripts\python.exe -m web_crawler --input input.csv --proxy p.webshare.io:80 --skip-vpn-check --start 1 --end 5
+   .venv\Scripts\python.exe -m web_crawler --input input.csv --proxy-user <user> --proxy-pass <pw> --start 1 --end 5
    ```
 
    - `--start` / `--end` pick the rows to process (1-based, inclusive). Leave both
      off to do the whole list. *Tip: start with a small range the first time.*
-   - `--proxy` is your rotating proxy as `host:port`.
-   - `--skip-vpn-check` is recommended (the proxy already changes your IP).
+   - `--proxy-user` / `--proxy-pass` are your proxy **username and password** —
+     the tool signs into the proxy for you (the rotating proxy
+     `p.webshare.io:80` is already the default endpoint).
 
 3. **Chrome opens by itself and starts searching.**
-   - When the **proxy sign-in dialog** appears in Chrome, type your proxy
-     **username and password**. (Nothing is stored; you enter it in the browser.)
    - If a "verify you are human" check appears, NopeCHA usually solves it. If not,
      **click through it yourself in that Chrome window** — the tool waits.
    - **Leave the Chrome window open** until the run finishes.
@@ -132,7 +131,7 @@ There is also a **Summary** tab in the spreadsheet.
 - **Forcing a re-scrape:** add **`--no-resume`** to redo rows even if already done.
 
 ```
-.venv\Scripts\python.exe -m web_crawler --input input.csv --proxy p.webshare.io:80 --skip-vpn-check --retry-failed
+.venv\Scripts\python.exe -m web_crawler --input input.csv --proxy-user <user> --proxy-pass <pw> --retry-failed
 ```
 
 ---
@@ -165,9 +164,9 @@ FIRST TIME (once):
 
 EVERY LOOKUP (run from the tool's folder):
   .venv\Scripts\python.exe -m web_crawler --input input.csv ^
-      --proxy p.webshare.io:80 --skip-vpn-check --start 1 --end 5
+      --proxy-user <user> --proxy-pass <pw> --start 1 --end 5
 
-  - Enter the proxy username/password in Chrome's sign-in dialog.
+  - The tool signs into the proxy for you with --proxy-user/--proxy-pass.
   - Solve any CAPTCHA in the Chrome window; leave it open.
   - Drop --start/--end to run the whole list.
   - Add --retry-failed to redo only failed rows.

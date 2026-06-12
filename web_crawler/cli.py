@@ -1,8 +1,8 @@
 # ============================================================
 # cli.py — Command-line entry point & run orchestration
 # ============================================================
-"""Parse CLI args, build Settings, gate on the VPN, launch Chrome over CDP,
-process the selected rows (auto-resuming by default), and export results.xlsx.
+"""Parse CLI args, build Settings, launch Chrome over CDP, process the
+selected rows (auto-resuming by default), and export results.xlsx.
 
 Usage:
     python -m web_crawler [options]      # zero-install
@@ -13,18 +13,20 @@ See README.md for the full flag reference and examples.
 
 import argparse
 import asyncio
+import getpass
 import logging
 import os
 import random
 import sys
 from playwright.async_api import async_playwright
 
-from web_crawler import chrome, vpn
+from web_crawler import chrome
 from web_crawler.browser_search import (
     force_page_active, is_blocked, log_public_ip, search_property,
 )
 from web_crawler.config import load_settings
 from web_crawler.proxy import ProxyManager
+from web_crawler.proxy_auth import NAV_PROXY_AUTH, enable_proxy_auth
 from web_crawler.records import (
     STATUS_FAILED, STATUS_LOW_CONFIDENCE, STATUS_NOT_FOUND, STATUS_SUCCESS,
     display_record, make_status_record,
@@ -87,22 +89,20 @@ def parse_args(argv=None):
     p.add_argument("--user-data-dir", help="Chrome user-data dir (auto-detected if omitted)")
     p.add_argument("--profile", help="Chrome profile directory name (e.g. 'Profile 11')")
     p.add_argument("--cdp-port", type=int, help="Chrome remote debugging port")
-    p.add_argument("--proxy",
-                   help="Rotating proxy as host:port, e.g. p.webshare.io:9999 "
-                        "(Chrome --proxy-server; no inline creds — authorise by IP)")
+    prox = p.add_mutually_exclusive_group()
+    prox.add_argument("--proxy",
+                      help="Rotating proxy as host:port "
+                           "(default: the Webshare rotating endpoint; "
+                           "Chrome --proxy-server takes no inline creds — "
+                           "use --proxy-user/--proxy-pass or authorise by IP)")
+    prox.add_argument("--no-proxy", action="store_true",
+                      help="Disable the proxy and use your direct connection")
     p.add_argument("--proxy-user",
-                   help="Proxy username (optional; used only by the requests IP check)")
-    p.add_argument("--proxy-pass", help="Proxy password (optional)")
+                   help="Proxy username — answered to the proxy over CDP during "
+                        "the scrape, and used by the requests IP check")
+    p.add_argument("--proxy-pass", help="Proxy password (see --proxy-user)")
     p.add_argument("--verify-proxy", action="store_true",
                    help="Sample the proxy exit IP a few times to confirm rotation, then exit")
-
-    # VPN
-    p.add_argument("--set-baseline", action="store_true",
-                   help="Record your real (no-VPN) public IP as the VPN baseline, then exit")
-    p.add_argument("--require-vpn", action="store_true",
-                   help="Abort the run unless the VPN is verified active")
-    p.add_argument("--skip-vpn-check", action="store_true",
-                   help="Do not prompt for / verify the VPN")
 
     # Maintenance
     p.add_argument("--export-xlsx", action="store_true",
@@ -138,6 +138,31 @@ def _select_rows(rows, settings):
         logger.info("[RESUME] --no-resume: re-scraping all selected rows (duplicates may append)")
 
     return selected
+
+
+def prompt_for_proxy_credentials(prompt=input, getpass_fn=None,
+                                 isatty=None) -> "tuple[str, str] | None":
+    """Interactively ask for the Webshare proxy username/password.
+
+    Returns ``(username, password)``, or ``None`` when stdin is not a terminal
+    or the user enters an empty username (declined). ``prompt``/``getpass_fn``/
+    ``isatty`` are injectable for tests."""
+    tty = isatty if isatty is not None else sys.stdin.isatty
+    if not tty():
+        return None
+    getpass_fn = getpass_fn or getpass.getpass
+    print("\n" + "=" * 60)
+    print(" The proxy requires a login (Webshare username/password).")
+    print(" Enter it now, or press Enter to abort the run.")
+    print("=" * 60)
+    try:
+        username = prompt(" Proxy username: ").strip()
+        if not username:
+            return None
+        password = getpass_fn(" Proxy password: ")
+        return username, password
+    except (EOFError, KeyboardInterrupt):
+        return None
 
 
 async def _run(settings):
@@ -186,9 +211,34 @@ async def _run(settings):
                 except Exception:
                     pass
 
+        # Answer the proxy login over CDP when credentials are configured
+        # (Chrome's native sign-in dialog never blocks CDP navigations).
+        proxy = ProxyManager.from_settings(settings)
+        auth_handler = await enable_proxy_auth(page, proxy)
         # Keep the CAPTCHA solver alive even if another window covers Chrome.
         await force_page_active(page)
-        await log_public_ip(page, settings.proxy_server)
+        ip, ip_err = await log_public_ip(page, settings.proxy_server)
+
+        if ip is None and proxy.enabled and ip_err == NAV_PROXY_AUTH:
+            if auth_handler is not None:
+                logger.error("[INIT] The proxy rejected the configured credentials "
+                             "— aborting. Check --proxy-user/--proxy-pass, or run "
+                             "with --no-proxy.")
+                return
+            creds = prompt_for_proxy_credentials()
+            if creds is None:
+                logger.error("[INIT] The proxy requires a login — aborting. "
+                             "Re-run with --proxy-user/--proxy-pass (or set "
+                             "WEB_CRAWLER_PROXY_USERNAME/PASSWORD), or use "
+                             "--no-proxy.")
+                return
+            proxy.username, proxy.password = creds
+            await enable_proxy_auth(page, proxy)
+            ip, ip_err = await log_public_ip(page, settings.proxy_server)
+            if ip is None:
+                logger.error("[INIT] Still cannot reach the internet through the "
+                             "proxy — aborting.")
+                return
 
         stopped_early = False
         for idx, row in enumerate(rows, 1):
@@ -205,12 +255,19 @@ async def _run(settings):
 
             success = False
             no_results = False
+            fatal = False
             try:
                 for attempt in range(1, settings.max_retries + 1):
                     logger.info(f"[ROW {idx}] Attempt {attempt}/{settings.max_retries}")
                     data = await search_property(page, target_name, address, city, state, settings)
 
-                    if data == "CHALLENGE_FAILED":
+                    if data == "PROXY_AUTH_FAILED":
+                        logger.error(f"[ROW {idx}] Proxy authentication failed mid-run "
+                                     "— aborting. Provide --proxy-user/--proxy-pass "
+                                     "or run with --no-proxy, then re-run to resume.")
+                        fatal = True
+                        break
+                    elif data == "CHALLENGE_FAILED":
                         logger.warning(f"[ROW {idx}] Challenge failed, retrying after backoff...")
                         await asyncio.sleep(10)
                     elif data == "NO_RESULTS":
@@ -243,11 +300,19 @@ async def _run(settings):
                     logger.warning(f"[ROW {idx}] Tab was closed — opening a fresh one")
                     try:
                         page = await context.new_page()
+                        # Re-arm the new tab: the CDP sessions are page-scoped.
+                        await enable_proxy_auth(page, proxy)
                         await force_page_active(page)  # re-pin focus on the new tab
                     except Exception:
                         logger.warning(f"[ROW {idx}] Browser is gone — ending run.")
                         stopped_early = True
                         break
+
+            if fatal:
+                # Do NOT record this row as FAILED — the proxy broke, not the
+                # row; resume will pick it up on the next run.
+                stopped_early = True
+                break
 
             if no_results:
                 not_found.append(row)
@@ -338,11 +403,6 @@ def main(argv=None):
         _export(settings)
         return
 
-    # --set-baseline: record the real IP and exit.
-    if args.set_baseline:
-        vpn.set_baseline_interactive(settings)
-        return
-
     # --verify-proxy: prove the rotating proxy hands out changing IPs, then exit.
     if args.verify_proxy:
         _verify_proxy(settings)
@@ -350,16 +410,14 @@ def main(argv=None):
 
     proxy = ProxyManager.from_settings(settings)
     if proxy.enabled:
-        logger.info(f"[INIT] Automatic IP rotation via Webshare proxy: {proxy.host_port} "
-                    "(Chrome will prompt for the proxy login if required)")
+        creds_note = ("credentials configured — the proxy login is answered "
+                      "automatically over CDP" if proxy.username
+                      else "no credentials — the proxy must allow this "
+                           "machine's IP, or pass --proxy-user/--proxy-pass")
+        logger.info(f"[INIT] Automatic IP rotation via Webshare proxy: "
+                    f"{proxy.host_port} ({creds_note})")
     else:
-        logger.info("[INIT] No proxy configured — running on your direct/VPN IP")
-
-    # VPN gate before doing anything heavy.
-    if not vpn.ensure_vpn(settings):
-        logger.error("[INIT] VPN check failed — aborting. "
-                     "Use --skip-vpn-check to bypass, or --set-baseline first.")
-        return
+        logger.info("[INIT] No proxy configured — running on your direct IP")
 
     try:
         asyncio.run(_run(settings))

@@ -18,11 +18,8 @@ playwright install chromium
 
 # 2. Put your addresses in input.csv (see "Input format" below)
 
-# 3. Record your real IP once (with the VPN OFF) so the VPN check works later
-python -m web_crawler --set-baseline
-
-# 4. Run it (turn your VPN ON when prompted)
-python -m web_crawler --input input.csv
+# 3. Run it — the Webshare rotating proxy is on by default; pass its login:
+python -m web_crawler --input input.csv --proxy-user <user> --proxy-pass <pw>
 ```
 
 After `pip install .` you can also run it as a command: `tps-scraper --input input.csv`.
@@ -36,8 +33,10 @@ After `pip install .` you can also run it as a command: `tps-scraper --input inp
   installed and enabled** — that is how CAPTCHAs get solved. This cannot be
   shipped in code; install it once in Chrome on the target PC.
 - **Python 3.10+**.
-- A **VPN** (recommended) — the scraper prompts you to enable it and verifies it
-  is active before running.
+- A **Webshare rotating proxy** account (the default endpoint is
+  `p.webshare.io:80`). Pass its username/password with
+  `--proxy-user`/`--proxy-pass` — the scraper answers the proxy login
+  automatically. Or run with `--no-proxy` to use your direct connection.
 
 ---
 
@@ -88,31 +87,34 @@ just run it again to continue.
 
 ---
 
-## VPN check
+## Proxy & IP rotation
 
-The scraper verifies your VPN using a baseline-IP method:
+Traffic goes through Webshare's **rotating endpoint** by default
+(`p.webshare.io:80` — a fresh exit IP per connection, no IP list to maintain).
+Chrome's `--proxy-server` can't carry credentials and its sign-in dialog doesn't
+work for automated runs, so the scraper answers the proxy login itself over the
+DevTools protocol using `--proxy-user`/`--proxy-pass` (or
+`WEB_CRAWLER_PROXY_USERNAME`/`WEB_CRAWLER_PROXY_PASSWORD`). Without credentials
+the proxy must allow your machine's IP (Webshare dashboard → IP authorization);
+if it doesn't, the run prompts for the login once at startup.
 
-1. `python -m web_crawler --set-baseline` (VPN **off**) records your real public IP.
-2. On a normal run it prompts you to turn the VPN **on**, then confirms the live
-   public IP differs from the baseline.
-
-- `--require-vpn` — abort the run unless the VPN is verified active.
-- `--skip-vpn-check` — bypass the check entirely.
+- `--proxy host:port` — use a different proxy endpoint.
+- `--no-proxy` — direct connection, no proxy.
+- `--verify-proxy` — sample the exit IP a few times to confirm rotation, then exit.
 
 ---
 
 ## Common commands
 
 ```powershell
-python -m web_crawler --set-baseline                      # record real IP (VPN off)
-python -m web_crawler --input input.csv                   # scrape all rows (auto-resume)
+python -m web_crawler --input input.csv --proxy-user U --proxy-pass P   # scrape (auto-resume)
 python -m web_crawler --input input.csv --start 1 --end 50
-python -m web_crawler --input input.csv --require-vpn      # refuse to run without VPN
 python -m web_crawler --no-resume                          # re-scrape everything
 python -m web_crawler --retry-failed                       # retry only FAILED rows
 python -m web_crawler --export-xlsx                        # rebuild results.xlsx from CSV
 python -m web_crawler --chrome-path "C:\path\chrome.exe" --profile "Profile 1"
-python -m web_crawler --proxy us.gate.iproyal.com:12321    # route Chrome via a proxy
+python -m web_crawler --no-proxy                           # direct connection
+python -m web_crawler --proxy-user U --proxy-pass P --verify-proxy  # check IP rotation
 ```
 
 Run `python -m web_crawler --help` for the full flag list, and see

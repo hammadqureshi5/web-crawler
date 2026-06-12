@@ -139,7 +139,7 @@ def test_verify_rotation_drops_failed_samples(monkeypatch):
 
 
 def test_chrome_proxy_server_value_has_no_credentials():
-    # Chrome gets the bare upstream host:port; the login is entered in Chrome's
-    # native sign-in dialog, never passed on the command line.
+    # Chrome gets the bare upstream host:port; the login is answered over CDP
+    # (proxy_auth.py), never passed on the command line.
     pm = ProxyManager(endpoint="p.webshare.io:80", username="u", password="pw")
     assert pm.host_port == "p.webshare.io:80"
